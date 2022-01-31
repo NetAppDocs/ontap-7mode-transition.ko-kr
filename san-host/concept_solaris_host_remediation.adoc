@@ -1,0 +1,26 @@
+---
+permalink: san-host/concept_solaris_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, solaris, host, remediation 
+summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode로 운영되는 ONTAP을 clustered ONTAP으로 전환하는 경우, 전환 합병증 없이 전환 전후에 Solaris 호스트에서 일련의 단계를 수행해야 합니다.' 
+---
+= Solaris 호스트 개선
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴(7MTT)을 사용하여 SAN 환경에서 7-Mode로 운영되는 ONTAP을 clustered ONTAP으로 전환하려는 경우 전환 전후에 Solaris 호스트에서 일련의 단계를 수행해야 전환 문제가 발생할 수 있습니다.
+
+다음 시나리오는 어떠한 전환 워크플로우에도 지원되지 않습니다(복사 기반 또는 복사 없는 전환 지원).
+
+* SAN 부팅 LUN의 전환
++
+Solaris 호스트 유틸리티를 실행하고 FC 프로토콜을 사용하여 Solaris MPxIO 환경 또는 Veritas DMP(동적 다중 경로) 환경에서 작동하도록 SAN 부팅 LUN을 설정할 수 있습니다. SAN 부팅 LUN을 설정하는 방법은 볼륨 관리자 및 파일 시스템에 따라 다를 수 있습니다.
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2748974["Solaris Host Utilities 6.2 설치 및 설정 가이드"]
+
+* Solaris 호스트 클러스터링 전환
+* Veritas 구성
+

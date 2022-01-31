@@ -1,0 +1,43 @@
+---
+permalink: copy-based/task_completing_transition_process.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete 
+summary: 전체 작업으로 인해 중단이 발생하기 때문에 실행 시기를 평가해야 합니다. SnapMirror 관계에서 볼륨을 전환할 때 기본 프로젝트의 전환을 완료하기 전에 보조 프로젝트를 완료해야 합니다. 
+---
+= 전이를 완료합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전체 작업으로 인해 중단이 발생하기 때문에 실행 시기를 평가해야 합니다. SnapMirror 관계에서 볼륨을 전환할 때 기본 프로젝트의 전환을 완료하기 전에 보조 프로젝트를 완료해야 합니다.
+
+.단계
+. 7-Mode 볼륨에서 ONTAP 볼륨으로 데이터 복사 수행:
++
+'* 전이 CBT 업데이트 - p_project_name_-t_available-transfers-percentage_-c_SnapMirror -tlemax-cap-concurrent-transfers_-x-r interactive *
+
++
+따라서 스토리지 컷오버 중에 다운타임을 줄일 수 있습니다.
+
+. 수동: 클라이언트 액세스 연결을 끊습니다.
+. 전환 프로세스 완료:
++
+"* 전환 CBT cover-p_project_name_-t_available-transfers-percentage_-c_max-cap-concurrent-transfers_-x_SnapMirror -throttle_-r interactive-o [true|false] *
+
++
+기본적으로 7-Mode 볼륨은 오프라인 상태로 됩니다. 7-Mode 볼륨을 온라인으로 유지하려면 '-o' 옵션을 'false'로 설정합니다.
+
++
+
+NOTE: 7-Mode 시스템 또는 클러스터에 연결할 수 없는 경우와 같이 어떤 이유로 인해 컷오버가 성공하지 못할 경우 문제를 해결하고 "전환 컷오버" 명령을 다시 실행해야 합니다.
+
++
+명령에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
++
+전환 세션이 컷오버 상태로 이동합니다. 컷오버에 성공하면 세션이 Completed(완료됨) 상태로 이동합니다.
+
+
+
+모든 전환 후 작업을 수행하고 클라이언트를 ONTAP 볼륨에 다시 연결해야 합니다.

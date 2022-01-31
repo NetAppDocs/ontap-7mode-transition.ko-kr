@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, linux, host, file, systems, lvm, devices 
+summary: 'LVM\(Logical Volume Manager\)에서 Linux 호스트 파일 시스템을 전환하는 경우 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며 전환 후 논리적 볼륨을 마운트해야 합니다.' 
+---
+= LVM 디바이스에서 Linux 호스트 파일 시스템을 전환하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LVM(Logical Volume Manager)에서 Linux 호스트 파일 시스템을 전환하는 경우 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며 전환 후 논리적 볼륨을 마운트해야 합니다.
+
+* 관련 정보 *
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.adoc[LVM 디바이스에서 Linux 호스트 파일 시스템을 전환할 때 컷오버 단계를 준비합니다]
+
+xref:task_mounting_logical_volumes_on_linux_host_after_transition.adoc[전환 후 Linux 호스트에 논리적 볼륨 마운트]

@@ -1,0 +1,32 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, clustered, secondary, volume 
+summary: '7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR\(SnapMirror 재해 복구) 관계를 설정하고 7-Mode 운영 사이트에서 재해가 발생할 경우 클러스터 Data ONTAP 2차 볼륨으로 클라이언트 액세스를 리디렉션해야 합니다.' 
+---
+= 재해 발생 후 클라이언트를 clustered Data ONTAP 보조 볼륨으로 리디렉션합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR(SnapMirror 재해 복구) 관계가 설정되어 있고 7-Mode 운영 사이트에서 재해가 발생할 경우 클러스터 Data ONTAP 2차 볼륨으로 클라이언트 액세스를 리디렉션해야 합니다.
+
+.단계
+. 2차 클러스터에서 '스냅샷 중단' 명령을 사용하여 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 SnapMirror 관계를 중단하십시오.
++
+[listing]
+----
+sec_cluster::> snapmirror break -destination-path dst_vserver:dst_c_vol
+----
+. 2차 클러스터에서 'napmirror delete' 명령을 사용하여 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 SnapMirror 관계를 삭제합니다.
++
+[listing]
+----
+sec_cluster::> snapmirror delete -destination-path dst_vserver:dst_c_vol
+----
+. 클라이언트 액세스를 clustered Data ONTAP 보조 볼륨으로 리디렉션합니다.
++
+Clustered Data ONTAP에서 클라이언트 액세스를 설정하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://library.netapp.com/ecm/ecm_get_file/ECMP1401220["Clustered Data ONTAP 파일 액세스 및 프로토콜 관리 가이드 를 참조하십시오"].
+
+

@@ -1,0 +1,61 @@
+---
+permalink: san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, test, lun, windows, cutover, phase 
+summary: '7MTT\(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 Windows 호스트 LUN을 전환하는 경우, 전환된 clustered Data ONTAP LUN을 테스트하여 디스크를 온라인 상태로 전환할 수 있고 컷오버 단계 전에 애플리케이션 작업이 예상대로 작동하는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.' 
+---
+= 컷오버 단계 이전에 Windows 호스트에서 전환된 LUN 테스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 Windows 호스트 LUN을 전환하는 경우, 전환된 clustered Data ONTAP LUN을 테스트하여 디스크를 온라인 상태로 전환할 수 있고 컷오버 단계 전에 애플리케이션 작업이 예상대로 작동하는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.
+
+7-Mode LUN을 전환할 준비가 되어 있어야 합니다.
+
+테스트 호스트와 소스 호스트 간에 하드웨어 패리티를 유지해야 하며 테스트 호스트에서 다음 단계를 수행해야 합니다.
+
+Clustered Data ONTAP LUN은 테스트 중에 읽기/쓰기 모드로 전환됩니다. 테스트가 완료되고 컷오버 단계에 대비하는 동안 읽기 전용 모드로 전환됩니다.
+
+.단계
+. 기본 데이터 복사가 완료되면 7MTT 사용자 인터페이스(UI)에서 * 테스트 모드 * 를 선택합니다.
+. 7MTT UI에서 * 구성 적용 * 을 클릭합니다.
+. 7-Mode에서 clustered Data ONTAP으로 매핑 파일 생성:
++
+** 복사 기반 전환의 경우 7MTT가 설치된 호스트에서 + " * transition CBT export lunMAP -p_project -name_-o_file_path_ * " 명령을 실행합니다
++
+예를 들면 다음과 같습니다.
+
++
+'* 전이 CBT 내보내기 lunmap-p SanWorkLoad-o c:/Libraires/Documents/7-to-C-LUN-mapping.csv *
+
+** 복사를 사용하지 않는 전환을 사용하려면 7MTT가 설치된 시스템에서 + ` * transition CFT export lunmap -p_project -name_-s_svm -name_-o_output -file_' 명령을 실행합니다
++
+
+NOTE: 각 SVM(스토리지 가상 머신)에 대해 이 명령을 실행해야 합니다.
+
++
+예를 들면 다음과 같습니다.
+
++
+' * transition CFT export lunmap -p SANWorkLoad -s svml -o c:/libraries/Documents/7-to-C-LUN-mapping-svml.csv *
+
+
+
+. 전환된 디스크 및 애플리케이션을 온라인으로 전환:
++
+** 전환된 디스크가 클러스터 페일오버의 일부가 아닌 경우 Windows 디스크 관리자를 사용하여 디스크를 온라인 상태로 전환합니다.
+** 전환된 디스크가 클러스터 페일오버의 일부인 경우 클러스터 페일오버 관리자를 사용하여 디스크를 온라인 상태로 전환합니다.
+
+
+. 필요에 따라 테스트를 수행합니다.
+. 테스트가 완료되면 응용 프로그램 및 디스크를 오프라인으로 전환합니다.
++
+** 전환된 디스크가 클러스터 페일오버의 일부가 아닌 경우 Windows 디스크 관리자를 사용하여 디스크를 오프라인으로 전환합니다.
+** 전환된 디스크가 클러스터 페일오버의 일부인 경우 클러스터 페일오버 관리자를 사용하여 디스크를 오프라인으로 전환합니다.
+
+
+
+
+Clustered Data ONTAP LUN을 소스 호스트에 다시 매핑하려면 소스 호스트에서 컷오버 단계를 준비해야 합니다. Clustered Data ONTAP LUN을 테스트 호스트에 매핑된 상태로 유지하려면 테스트 호스트에 추가 단계가 필요하지 않습니다.

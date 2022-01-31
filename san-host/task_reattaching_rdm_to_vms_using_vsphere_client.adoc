@@ -1,0 +1,53 @@
+---
+permalink: san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, vm, vshpere, client 
+summary: '7MTT(7-Mode Transition Tool)를 사용하여 ESXi 호스트를 전환한 후 RDM을 가상 머신 \(VM\)에 다시 연결해야 합니다.' 
+---
+= vSphere Client를 사용하여 RDM을 VM에 다시 연결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode Transition Tool)를 사용하여 ESXi 호스트를 전환한 후 RDM을 가상 시스템(VM)에 다시 연결해야 합니다.
+
+유효하지 않은 RDM(Raw Device Mappings)이 제거되어야 합니다.
+
+.단계
+. ESXi 호스트를 관리하는 ESXi 호스트 또는 vCenter Server를 엽니다.
+. VM을 마우스 오른쪽 단추로 클릭한 다음 * 설정 편집 * 을 선택합니다.
++
+VM 속성 창이 열립니다.
+
+. 추가 * 를 클릭합니다.
++
+하드웨어 추가 창이 열립니다.
+
+. 하드 디스크 * 를 클릭합니다.
+. 다음 * 을 클릭하여 디스크를 선택합니다.
+. Raw Device Mappings * 를 선택합니다.
+. 다음 * 을 클릭하여 타겟 LUN을 선택합니다.
+. 7MTT 매핑 파일에서 기록한 새 clustered Data ONTAP NAA ID를 사용하여 LUN을 선택합니다.
+. 다음 * 을 클릭합니다.
+. Select Datastore * 를 선택합니다.
+. 7MTT 매핑 파일에서 기록한 디스크 경로와 일치하는 데이터 저장소를 선택합니다.
+. 다음 * 을 클릭합니다.
+. 호환성 모드 * 에서 * 물리적 * 또는 * 가상 * 을 선택합니다.
++
+오래된 RDM을 제거할 때 기록해 둔 호환성 모드를 선택합니다.
+
+. 다음 * 을 클릭합니다.
+. 고급 옵션 * 을 선택합니다.
+. 가상 장치 노드 * 를 선택합니다.
++
+오래된 RDM을 제거할 때 기록해 둔 가상 디바이스 모드를 선택합니다.
+
+. 다음 * 을 클릭합니다.
+. 변경 사항을 제출하려면 * 마침 * 을 클릭합니다.
+. RDM이 연결된 모든 VM에 대해 이 단계를 반복합니다.
+
+
+* 관련 정보 *
+
+xref:task_removing_stale_rdm_using_vsphere_client.adoc[vSphere Client를 사용하여 오래된 RDM을 제거합니다]

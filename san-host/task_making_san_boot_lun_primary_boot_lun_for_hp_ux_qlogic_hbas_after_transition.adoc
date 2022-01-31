@@ -1,0 +1,115 @@
+---
+permalink: san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, primary, hp, ux, logic, hbas 
+summary: 7-Mode HP-UX 호스트에서 작동하는 Data ONTAP가 SAN 부팅된 경우 clustered Data ONTAP으로 전환한 후 SAN 부팅 LUN을 운영 부팅 LUN으로 만들어야 합니다. 
+---
+= 전환 후 SAN 부팅 LUN을 HP-UX QLogic HBA의 기본 부팅 LUN으로 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode HP-UX 호스트에서 작동하는 Data ONTAP가 SAN 부팅된 경우 clustered Data ONTAP으로 전환한 후 SAN 부팅 LUN을 운영 부팅 LUN으로 만들어야 합니다.
+
+* 데이터 마이그레이션이 완료되어야 합니다.
+* 부팅 LUN은 clustered Data ONTAP 노드에서 호스트에 매핑되어야 합니다.
+
+
+SAN 부트는 BCH 메뉴를 사용하는 HP 9000 시스템 및 HP-UX 로더(EFI)를 사용하는 HP Integrity 서버의 HP-UX 11.3x에서 지원됩니다.
+
+복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행하십시오. HP-UX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 쉘 프롬프트를 엽니다.
++
+' * Ctrl B * '
+
+. EFI 쉘로 부팅합니다.
++
+EFI 셸은 HP Integrity 시스템에서만 사용할 수 있습니다.
+
+. 직렬 콘솔을 사용하여 서비스 프로세서(MP)에 로그인합니다.
+. 콘솔 목록 'CO'에 액세스합니다
++
+EFI 부팅 관리자 메뉴가 열립니다.
+
+. EFI 부트 관리자 메뉴에서 EFI 쉘 메뉴 옵션을 선택하여 EFI 쉘 환경에 액세스합니다.
+. QLogic 드라이버 번호 식별:
++
+' * 드라이버 * '
+
++
+드라이버 번호는 DRV 열에 있습니다.
+
+. 각 드라이버에 해당하는 컨트롤러 번호를 확인합니다.
++
+'* drvcfg_driver_number_ * '
+
++
+다음 예에서 드라이버 23의 컨트롤러 번호는 27이고 드라이버 24의 컨트롤러 번호는 26입니다.
+
++
+[listing]
+----
+Shell> drvcfg 23
+Configurable Components
+		Drv[23]		Ctrl[27]			Lang[eng]
+
+Shell> drvcfg 24
+Configurable Components
+		Drv[24]		Ctrl[26]			Lang[eng]
+----
+. 드라이버 BIOS를 엽니다.
++
+' * drvcfg_drv_number Ctrl_number_-s * '
+
+. ' * 4 * '를 입력하여 * 4를 선택합니다. 부팅 설정 편집 *.
+. Edit Boot Settings(부팅 설정 편집)에서 6을 입력하여 * 6을 선택합니다. EFI 변수 EFIFCScanLevel*.
+. EFI 변수 EFIFCScanLevel 값을 0에서 1로 변경하려면 ' * 1 * '을 입력합니다.
+. ' * 7 * '을 입력하여 * 7을 선택합니다. World Login * 을 활성화합니다.
+. World 로그인을 활성화하려면 ' * y * '를 입력하십시오.
+. 이전 메뉴로 이동하려면 ' * 0 * '을 입력합니다.
+. 주 메뉴에서 " * 11 * "을 입력하여 변경 사항을 저장합니다.
+. 끝내려면 별표(* 12*)를 입력하십시오.
+. 셸 프롬프트에서 장치를 다시 검색합니다.
++
+'* reconnect-r*'
+
+. LUN을 표시하여 부팅할 LUN의 경로를 가져옵니다.
++
+' * map-r * '
+
++
+LUN 경로는 Device 열에 나열됩니다. 부팅 가능한 SAN 디스크는 매핑 테이블 열 아래에 표시되며 출력 문자열에는 ""WWN"" 및 ""Part 1""이 표시됩니다.
+
+. SAN 부팅 LUN의 LUN 경로를 입력합니다.
++
+LUN 경로의 예는 fs0입니다.
+
+. EFI 쉘을 종료합니다.
++
+'* CD EFI*'
+
+. HPUX 디렉토리 입력:
++
+'* CD HPUX*'
+
+. 새로운 clustered Data ONTAP SAN 부팅 LUN을 운영 부팅 LUN으로 설정합니다.
++
+"* bcfg boot add 1 HPUX.efi "HP-UX-Primary Boot" * "
+
+. SAN 부트 LUN에 대한 EFI 항목을 만들어 HBA BIOS를 수동으로 업데이트합니다.
+. 대체 부팅 경로 생성:
++
+"* bcfg boot add 2 HPUX.efi "HPUX alternate boot" * "
+
+. 세 번째 부팅 경로를 생성합니다.
++
+"* bcfg boot add 2 HPUX.efi "HPUX third boot" * "
+
+. 네 번째 부팅 경로 생성:
++
+"* bcfg boot add 2 HPUX.efi "HPUX fourth boot" * "
+
+

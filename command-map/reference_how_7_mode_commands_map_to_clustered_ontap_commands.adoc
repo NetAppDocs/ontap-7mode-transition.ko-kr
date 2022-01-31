@@ -1,0 +1,4355 @@
+---
+permalink: command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, map, commands 
+summary: options 명령을 제외하고 제공된 표를 사용하여 7-Mode 명령에 해당하는 ONTAP 명령을 찾을 수 있습니다. 
+---
+= 7-Mode 명령이 ONTAP 명령에 매핑되는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+options 명령을 제외하고 제공된 표를 사용하여 7-Mode 명령에 해당하는 ONTAP 명령을 찾을 수 있습니다.
+
+다음 표에는 7-Mode 옵션 명령에 해당하는 ONTAP가 나와 있습니다. 이러한 표의 이해에 대한 정보도 제공됩니다.
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[7-Mode에서 clustered Data ONTAP으로 전환 명령 맵 이해]
+
+
+
+== A-E
+
+[role="lead"]
+* A *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+acpadmin 설정
+ a| 
+'* 시스템 노드 run-node {_nodename_|local}acpadmin configure *
+
+
+
+ a| 
+'acpadmin list_all'
+ a| 
+'* 시스템 노드 run-node {_nodename_|local}acpadmin list_all *'
+
+
+
+ a| 
+acpadmin 통계
+ a| 
+'* 시스템 노드 run-node {_nodename_|local}acpadmin 통계 *'
+
+
+
+ a| 
+'aggr add'
+ a| 
+' * aggr add * '
+
+'aggr 추가 디스크'
+
+'스토리지 집계 추가 디스크'
+
+
+
+ a| 
+'aggr create'
+ a| 
+'* aggr create*'
+
+'스토리지 애그리게이트 생성'
+
+
+
+ a| 
+'파괴자'
+ a| 
+'* aggr delete * '
+
+'저장소 집계 삭제'
+
+
+
+ a| 
+'gagr media_scrub'
+ a| 
+'* 시스템 노드 run-node {_nodename_|local} gr media_scrub *
+
+
+
+ a| 
+"오프라인 상태"입니다
+ a| 
+'* aggr offline*'
+
+'저장소 집계 오프라인'
+
+
+
+ a| 
+온라인 게임
+ a| 
+' * 온라인 게임 * '
+
+'Storage aggregate online
+
+
+
+ a| 
+'aggr 옵션'
+ a| 
+'* aggr 수정 * '
+
+'Storage aggregate{show | modify}'를 선택합니다
+
+
+
+ a| 
+'aggr 이름 바꾸기'
+ a| 
+'* aggr 이름 변경 * '
+
+'저장소 집계 이름 바꾸기'
+
+
+
+ a| 
+'기정 제한'
+ a| 
+'* aggr restrict*'
+
+'저장소 집계 제한'
+
+
+
+ a| 
+'어거 스크럽'
+ a| 
+'* aggr 스크럽 * '
+
+'스토리지 애그리게이트 스크럽'
+
+
+
+ a| 
+'aggr show_space'입니다
+ a| 
+'* aggr show-space * '
+
+'스토리지 집계 표시 공간'
+
+
+
+ a| 
+'기정 상태'입니다
+ a| 
+'어거 쇼'
+
+'스토리지 집계 쇼'
+
+
+
+ a| 
+'검증'을 선택합니다
+ a| 
+'* 시스템 노드 run-node {_nodename_|local}gagr verify*'
+
+
+
+ a| 
+AutoSupport 목적지
+ a| 
+``AutoSupport 목적지 *’’
+
+'시스템 노드 AutoSupport 대상
+
+
+
+ a| 
+AutoSupport 역사
+ a| 
+``AutoSupport 역사 *’
+
+'시스템 노드 AutoSupport 기록
+
+
+
+ a| 
+AutoSupport 매니페스트
+ a| 
+'* AutoSupport manifest*'
+
+'시스템 노드 AutoSupport manifest
+
+
+
+ a| 
+'AutoSupport 트리거'
+ a| 
+' * AutoSupport trigger * '
+
+'시스템 노드 AutoSupport trigger
+
+|===
+[role="lead"]
+* B *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+백업 상태
+ a| 
+"* 시스템 노드 run-node {_nodename_- 명령 백업 상태*"
+
+
+
+ a| 
+백업 종료
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'BMC'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'BMC 재부팅'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+BMC 상태
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+BMC 테스트
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* C *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+CDPD 쇼-네이버
+ a| 
+"* system node run-node {_nodename_|local} - command network device-discovery show *
+
+
+
+ a| 
+'CDPD show-stats'
+ a| 
+'* system node run-node {_nodename_|local} - command CDPD show -stats *
+
+
+
+ a| 
+'CDPD 0 통계'
+ a| 
+'* system node run-node {_nodename_|local} - command CDPD zero-stats *
+
+
+
+ a| 
+CF disable(CF 비활성화)
+ a| 
+CF disable(CF 비활성화)
+
+
+
+ a| 
+'CF 활성화'
+ a| 
+'CF 활성화'
+
+
+
+ a| 
+CF 포강제 백입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+CF 포세케오버
+ a| 
+CF 포세케오버
+
+
+
+ a| 
+'CF 기브백'
+ a| 
+'* CF 반환 * '
+
+'스토리지 페일오버 반환
+
+
+
+ a| 
+CF HW_ASSIST
+ a| 
+'* CF hwassist status*'
+
+스토리지 페일오버 hwassist show
+
+
+
+ a| 
+CF 모니터 모두
+ a| 
+' * CF monitor all * '
+
+'Storage failover show-instance'를 선택합니다
+
+
+
+ a| 
+'CF 파트너'
+ a| 
+' * CF 파트너 * '
+
+'스토리지 페일오버 표시 - 필드 파트너 이름'
+
+
+
+ a| 
+CF rsrctbl
+ a| 
+'* CF rsrctbl*'
+
+스토리지 장애 조치 진행 상황 - 표 표시
+
+
+
+ a| 
+f 상태
+ a| 
+' * CF 상태 * '
+
+'스토리지 페일오버 쇼'
+
+
+
+ a| 
+CF 인수
+ a| 
+'* CF 인수 * '
+
+스토리지 페일오버 인수
+
+
+
+ a| 
+샤르지도
+ a| 
+'vserver cifs character-mapping'
+
+
+
+ a| 
+'CIFS 액세스'입니다
+ a| 
+'* CIFS 액세스 * '
+
+'vserver cifs access'를 선택합니다
+
+
+
+ a| 
+CIFS BranchCache입니다
+ a| 
+'* CIFS BranchCache * '
+
+'vserver CIFS BranchCache'를 선택합니다
+
+
+
+ a| 
+CIFS changefilerpwd입니다
+ a| 
+'* cifs changefilerpwd*'
+
+'vserver cifs changefilerpwd'
+
+
+
+ a| 
+'CIFS domaininfo'를 선택합니다
+ a| 
+SVM CIFS {show instance | domain discovered - servers show -instance}
+
+
+
+ a| 
+'CIFS gpresult'
+ a| 
+'vserver cifs group-policy show-applied'
+
+
+
+ a| 
+CIFS gpupdate
+ a| 
+'vserver cifs group-policy update'
+
+
+
+ a| 
+CIFS homedir입니다
+ a| 
+'vserver cifs home-directory'
+
+
+
+ a| 
+CIFS 네발리아스
+ a| 
+SVM CIFS {add-netbios-aliases | remove-netbios-aliases | show-display-netbios-aliases}
+
+
+
+ a| 
+CIFS 설정
+ a| 
+SVM CIFS 도메인 preferred-DC
+
+
+
+ a| 
+CIFS를 다시 시작합니다
+ a| 
+SVM CIFS 시작
+
+
+
+ a| 
+CIFS 세션
+ a| 
+SVM CIFS 세션이 표시됩니다
+
+
+
+ a| 
+CIFS 설정
+ a| 
+SVM CIFS 생성
+
+
+
+ a| 
+CIFS 공유
+ a| 
+CIFS 공유 * SVM CIFS 공유
+
+
+
+ a| 
+CIFS 통계
+ a| 
+statistics show -object cifs 를 참조하십시오
+
+
+
+ a| 
+CIFS 종료
+ a| 
+SVM CIFS 중지
+
+
+
+ a| 
+CIFS testdc입니다
+ a| 
+SVM CIFS 도메인 검색됨 - 서버
+
+
+
+ a| 
+CIFS resetdc입니다
+ a| 
+* CIFS resetdc * vserver CIFS domain discovered-servers reset-servers
+
+
+
+ a| 
+클론 지우기
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+클론 시작
+ a| 
+볼륨 파일 클론 생성
+
+
+
+ a| 
+클론이 중지됩니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+클론 상태입니다
+ a| 
+볼륨 파일 clone show
+
+
+
+ a| 
+클론 구성
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+구성 차이
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+구성 덤프
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+구성 복원
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+코어 덤프
+ a| 
+시스템 노드 코어 덤프
+
+|===
+[role="lead"]
+D * 를 선택합니다
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+날짜
+ a| 
+날짜 * {system|cluster}일{show|modify}입니다
+
+
+
+ a| 
+DCB 우선 순위
+ a| 
+시스템 노드 run-node_nodename_ - 명령 DCB 우선 순위
+
+
+
+ a| 
+DCB 우선 순위가 표시됩니다
+ a| 
+시스템 노드 run-node_nodename_ - 명령 DCB 우선 순위 표시
+
+
+
+ a| 
+DCB 표시
+ a| 
+시스템 노드 run-node_nodename_ - 명령 DCB show
+
+
+
+ a| 
+DF
+ a| 
+* df *
+
+
+
+ a| 
+df [aggr 이름]
+ a| 
+df-aggregate_aggregate-name _
+
+
+
+ a| 
+df [경로 이름]
+ a| 
+df-filesys-name_path-name _
+
+
+
+ a| 
+df-A
+ a| 
+* df-a *
+
+
+
+ a| 
+df-g
+ a| 
+df-g * df-기가바이트
+
+
+
+ a| 
+df-h
+ a| 
+* df-h * df-자동 크기 조정
+
+
+
+ a| 
+DF-I
+ a| 
+* df-i *
+
+
+
+ a| 
+df-k
+ a| 
+df-k * df-킬로바이트
+
+
+
+ a| 
+DF-L
+ a| 
+* df-L * df-FlexCache
+
+
+
+ a| 
+df-m
+ a| 
+df-m * df-메가바이트
+
+
+
+ a| 
+df-r
+ a| 
+* df-r *
+
+
+
+ a| 
+df-s
+ a| 
+df -s *
+
+
+
+ a| 
+DF-S
+ a| 
+* df-S *
+
+
+
+ a| 
+df-t
+ a| 
+df-t * df-테라바이트
+
+
+
+ a| 
+DF-V
+ a| 
+* df-V * df-볼륨
+
+
+
+ a| 
+df-x
+ a| 
+* df-x * df-skip-snapshot-lines
+
+
+
+ a| 
+디스크 할당
+ a| 
+디스크 할당 * 스토리지 디스크 할당
+
+
+
+ a| 
+디스크 암호화
+ a| 
+시스템 노드 run-node run__nodename__ - 명령 디스크 암호화
+
+
+
+ a| 
+디스크에 오류가 있습니다
+ a| 
+* 디스크 오류 * 스토리지 디스크 오류
+
+
+
+ a| 
+디스크 유지 관리
+ a| 
+* disk maint {start|abort|status|list} * system node run-node {_nodename_|local} - command disk maint {start|abort|status|list}
+
+
+
+ a| 
+디스크 제거
+ a| 
+* 디스크 제거 * 스토리지 디스크 제거
+
+
+
+ a| 
+디스크를 교체합니다
+ a| 
+* 디스크 교체 * 스토리지 디스크 교체
+
+
+
+ a| 
+디스크 완전 삭제
+ a| 
+시스템 노드 run-node_notdename_ -command disk sanitize
+
+
+
+ a| 
+디스크 스크럽
+ a| 
+스토리지 애그리게이트 스크럽
+
+
+
+ a| 
+디스크 표시
+ a| 
+스토리지 디스크가 표시됩니다
+
+
+
+ a| 
+디스크 시뮬레이션
+ a| 
+시스템 노드 run-node_nodename_-command disk simpull
+
+
+
+ a| 
+디스크 자동 푸시
+ a| 
+시스템 노드 run-node_nodename_-command disk simpush입니다
+
+
+
+ a| 
+디스크 제로 스페어
+ a| 
+스토리지 디스크 zerospares입니다
+
+
+
+ a| 
+DISK_FW_UPDATE
+ a| 
+시스템 노드 이미지 수정
+
+
+
+ a| 
+DNS 정보
+ a| 
+DNS 쇼
+
+
+
+ a| 
+다운로드
+ a| 
+시스템 노드 이미지 업데이트
+
+
+
+ a| 
+du [경로 이름]
+ a| 
+du-vserver_vservername_-path_pathname__volume file show-disk-usage-vserver_vserver_name_-path_pathname _
+
+
+
+ a| 
+두 시
+ a| 
+du-vserver_vservername_-path_pathname_-hvolume file show-disk-usage-vserver_vserver_name_-path_pathname_-h
+
+
+
+ a| 
+du-k
+ a| 
+du-vserver_vservername_-path_pathname_-kvolume file show-disk-usage-vserver_vserver_name_-path_pathname_-k
+
+
+
+ a| 
+du-m
+ a| 
+du-vserver_vservername_-path_pathname_-mvolume file show-disk-usage-vserver_vserver_name_-path_pathname_-m
+
+
+
+ a| 
+du-r
+ a| 
+du-vserver_vservername_-path_pathname_-rvolume file show-disk-usage-vserver_vserver_name_-path_pathname_-r
+
+
+
+ a| 
+두 구
+ a| 
+du-vserver_vservername_-path_pathname_-uvolume file show-disk-usage-vserver_vserver_name_-path_pathname_-u
+
+
+
+ a| 
+덤프
+ a| 
+지원되지 않음\n 테이프 백업 문서에 설명된 대로 NDMP를 사용하여 백업을 시작해야 합니다. dump-to-null 기능의 경우 NDMP 환경 변수 dump_to_NULL을 설정해야 합니다.
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["테이프 백업을 사용한 데이터 보호"]
+
+|===
+[role="lead"]
+* E *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+에코
+ a| 
+에코 *
+
+
+
+ a| 
+EMS 이벤트 상태
+ a| 
+* EMS 이벤트 상태 * 이벤트 상태가 표시됩니다
+
+
+
+ a| 
+EMS 로그 덤프
+ a| 
+이벤트 로그 show-time>__time-interval_
+
+
+
+ a| 
+EMS 로그 덤프 값
+ a| 
+이벤트 로그가 표시됩니다
+
+
+
+ a| 
+환경 섀시
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 환경 섀시
+
+
+
+ a| 
+환경 상태입니다
+ a| 
+시스템 노드 run-node__nodename__ - 명령 환경 상태
+
+
+
+ a| 
+환경 쉘프
+ a| 
+지원되지 않습니다
+
+"스토리지 쉘프" 명령 세트를 사용해야 합니다.
+
+
+
+ a| 
+환경 shelf_log
+ a| 
+* environment shelf_log * 시스템 노드 run-node {_nodename_|local} - 명령 환경 shelf_log
+
+
+
+ a| 
+환경 shelf_stats
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 환경 shelf_stats
+
+
+
+ a| 
+환경 shelf_power_status
+ a| 
+지원되지 않음 "스토리지 쉘프" 명령 집합을 사용해야 합니다.
+
+
+
+ a| 
+환경 섀시
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 환경 섀시
+
+
+
+ a| 
+환경 섀시 목록 - 센서
+ a| 
+시스템 노드 run-node {_nodename_|local} 환경 센서가 표시됩니다
+
+
+
+ a| 
+내보내기
+ a| 
+SVM 엑스포트 정책 [규칙]
+
+
+
+ a| 
+exportfs -f
+ a| 
+SVM 엑스포트 정책 캐시 플러시
+
+
+
+ a| 
+exportfs - o
+ a| 
+SVM 엑스포트 정책 규칙
+
+
+
+ a| 
+exportfs -p
+ a| 
+SVM 엑스포트 정책 규칙
+
+
+
+ a| 
+exportfs -q
+ a| 
+SVM 엑스포트 정책 [규칙]
+
+|===
+
+
+== F-J
+
+[role="lead"]
+* F *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+fcadmin 구성
+ a| 
+시스템 노드 run-node {_nodename_|local} -command fcadmin config입니다
+
+
+
+ a| 
+fcadmin link_stats입니다
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcadmin link_stats
+
+
+
+ a| 
+fcadmin FCAL_STATS를 선택합니다
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcadmin FCAL_stats
+
+
+
+ a| 
+fcadmin device_map 을 참조하십시오
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcadmin device_map
+
+
+
+ a| 
+fcnic
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+FCP 구성
+ a| 
+네트워크 FCP 어댑터 수정
+
+
+
+ a| 
+FCP 이름 서버
+ a| 
+* FCP 이름 서버는 * vserver FCP 이름 서버가 표시됩니다
+
+
+
+ a| 
+FCP는 이름
+ a| 
+SVM FCP 노드 이름
+
+
+
+ a| 
+FCP ping입니다
+ a| 
+* FCP ping-igroup show 또는 FCP ping-initiator show *
+
+SVM FCP ping-igroup show 또는 vserver FCP ping-initiator show
+
+
+
+ a| 
+FCP 포트이름
+ a| 
+* FCP 포트이름 표시 * vserver FCP 포트이름 표시
+
+
+
+ a| 
+FCP 표시
+ a| 
+SVM FCP show
+
+
+
+ a| 
+FCP 시작
+ a| 
+* FCP는 * vServer FCP를 시작합니다
+
+
+
+ a| 
+FCP 통계
+ a| 
+* FCP 통계 * FCP 어댑터 통계
+
+
+
+ a| 
+FCP 상태
+ a| 
+SVM FCP 상태
+
+
+
+ a| 
+FCP 중지
+ a| 
+* FCP stop * vserver FCP stop
+
+
+
+ a| 
+FCP 토폴로지
+ a| 
+네트워크 FCP 토폴로지 표시 또는 SVM FCP 토폴로지 표시
+
+
+
+ a| 
+FCP WWPN-별칭
+ a| 
+* FCP WWPN-별칭 * SVM FCP WWPN-별칭
+
+
+
+ a| 
+FCP 영역
+ a| 
+* FCP 영역 표시 *
+
+네트워크 FCP 영역이 표시됩니다
+
+
+
+ a| 
+FCP 덤프
+ a| 
+* FCP 어댑터 덤프 * 네트워크 FCP 어댑터 덤프
+
+
+
+ a| 
+FCP를 재설정합니다
+ a| 
+* FCP 어댑터 재설정 * 네트워크 FCP 어댑터 재설정
+
+
+
+ a| 
+fcstat link_stats입니다
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcstat link_stats
+
+
+
+ a| 
+fcstat FCAL_STATS
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcstat FCAL_stats
+
+
+
+ a| 
+fcstat device_map
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 fcstat device_map
+
+
+
+ a| 
+파일 예약
+ a| 
+볼륨 파일 예약
+
+
+
+ a| 
+필터
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+FlexCache
+ a| 
+Volume FlexCache(볼륨 저장)
+
+
+
+ a| 
+FPolicy를 참조하십시오
+ a| 
+* FPolicy * 가상 서버 FPolicy
+
+
+
+ a| 
+보안 쇼
+ a| 
+vserver 보안 파일 - directory show를 참조하십시오
+
+
+
+ a| 
+보안이 적용됩니다
+ a| 
+SVM 보안 파일-디렉토리가 적용됩니다
+
+
+
+ a| 
+보안 상태
+ a| 
+SVM 보안 파일-디렉토리 job-show
+
+
+
+ a| 
+보안 취소
+ a| 
+SVM 보안 파일-디렉토리 job-stop
+
+
+
+ a| 
+보호 제거 - 보호대
+ a| 
+SVM 보안 파일-디렉토리 remove-slag
+
+
+
+ a| 
+FTP
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+H * 를 선택합니다
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+중지하다
+ a| 
+시스템 노드 halt-node_nodename _
+
+
+
+ a| 
+halt-f(중단-f
+ a| 
+시스템 노드 중단 억제 - 인수 TRUE
+
+
+
+ a| 
+halt-d(정지-d
+ a| 
+시스템 노드 halt-dump true입니다
+
+
+
+ a| 
+도움말
+ a| 
+?
+
+
+NOTE: 물음표(?)를 입력해야 합니다. ONTAP에서 이 명령을 실행하는 기호.
+
+
+
+ a| 
+호스트 이름
+ a| 
+* 호스트 이름 * 시스템 호스트 이름
+
+
+
+ a| 
+httpstat
+ a| 
+지원되지 않음\n\n statistics 명령을 사용해야 합니다.
+
+|===
+[role="lead"]
+* i *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+if_addr_filter_info
+ a| 
+시스템 노드 run-note_nodename_-command if_addr_filter_info
+
+
+
+ a| 
+ifconfig를 참조하십시오
+ a| 
+네트워크 인터페이스{interface|port}
+
+
+
+ a| 
+ifconfig-a를 참조하십시오
+ a| 
+네트워크 인터페이스가 네트워크 {interface | port}를 표시합니다
+
+
+
+ a| 
+ifconfig 별칭입니다
+ a| 
+네트워크 인터페이스 생성
+
+
+
+ a| 
+ifconfig down(ifconfig 다운)
+ a| 
+네트워크 인터페이스 modify-status-admin down
+
+
+
+ a| 
+ifconfig 흐름 제어
+ a| 
+네트워크 포트 수정 - flowcontrol -admin
+
+
+
+ a| 
+ifconfig mediatype입니다
+ a| 
+네트워크 포트 수정 {-duplex-admin|-speed-admin}
+
+
+
+ a| 
+ifconfig mtusize
+ a| 
+네트워크 포트 수정 - MTU
+
+
+
+ a| 
+ifconfig 넷마스크입니다
+ a| 
+네트워크 인터페이스 수정 - 넷마스크
+
+
+
+ a| 
+ifconfig up(ifconfig 업
+ a| 
+네트워크 인터페이스 modify-status-admin up
+
+
+
+ a| 
+ifgrp 생성
+ a| 
+네트워크 포트 ifgrp 생성
+
+
+
+ a| 
+ifgrp 추가
+ a| 
+네트워크 포트 ifgrp add-port
+
+
+
+ a| 
+ifgrp 삭제
+ a| 
+네트워크 포트 ifgrp remove-port
+
+
+
+ a| 
+ifgrp 폐기
+ a| 
+네트워크 포트 ifgrp 삭제
+
+
+
+ a| 
+ifgrp 우선
+ a| 
+ONTAP 9 릴리즈의 경우 network interface failover-groups create 명령을 사용하여 두 포트에 대한 페일오버 그룹을 생성합니다. 그런 다음 네트워크 인터페이스 수정 명령을 사용하여 기본 설정된 홈 포트를 -home-port 옵션으로 설정하고 -autorevert 옵션을 true로 설정합니다.
+
+
+NOTE: 페일오버 그룹에 추가하기 전에 ifgrp에서 포트를 제거합니다. 다른 NIC의 포트를 사용하는 것이 가장 좋습니다. 이 방법은 또한 불충분한 중복과 관련된 EMS 경고를 방지해 줍니다.
+
+
+
+ a| 
+ifgrp noforp
+ a| 
+ONTAP 9 릴리즈의 경우 페일오버 그룹에 동일한 절차를 사용합니다.
+
+
+
+ a| 
+ifgrp 상태
+ a| 
+시스템 노드 run-node {_nodename_|local} -command ifgrp 상태입니다
+
+
+
+ a| 
+ifgrp 통계
+ a| 
+시스템 노드 run-node {_nodename_|local} -command ifstat_ifgrp -port _
+
+
+
+ a| 
+ifgrp show.를 참조하십시오
+ a| 
+네트워크 포트 ifgrp show를 참조하십시오
+
+
+
+ a| 
+ifinfo
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 ifinfo
+
+
+
+ a| 
+ifstat
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 ifstat
+
+
+
+ a| 
+Igroup 추가
+ a| 
+* igroup ADD * LUN igroup ADD
+
+
+
+ a| 
+iGroup ALUA
+ a| 
+LUN igroup 수정 - ALUA
+
+
+
+ a| 
+Igroup 바인딩
+ a| 
+* igroup BIND * LUN igroup BIND
+
+
+
+ a| 
+Igroup 제거
+ a| 
+* igroup delete * LUN igroup delete
+
+
+
+ a| 
+Igroup 생성
+ a| 
+* igroup이 * LUN igroup을 생성합니다
+
+
+
+ a| 
+Igroup 제거
+ a| 
+* igroup remove * LUN igroup remove
+
+
+
+ a| 
+iGroup 이름 바꾸기
+ a| 
+* igroup 이름 변경 * LUN igroup 이름 변경
+
+
+
+ a| 
+Igroup 세트
+ a| 
+i.plun igroup 세트입니다
+
+
+
+ a| 
+iGroup 표시
+ a| 
+* igroup show * lun igroup show
+
+
+
+ a| 
+iGroup OSType 설정
+ a| 
+Igroup 수정 - OSType입니다
+
+
+
+ a| 
+iGroup 바인딩 해제
+ a| 
+* igroup 바인딩 해제 * LUN igroup 바인딩 해제
+
+
+
+ a| 
+IPsec
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+iSCSI 별칭입니다
+ a| 
+iSCSI createvserver iSCSI create 또는
+
+iSCSI 수정
+
+SVM iSCSI 수정
+
+
+
+ a| 
+iSCSI 연결
+ a| 
+* iSCSI 연결 * SVM iSCSI 연결
+
+
+
+ a| 
+iSCSI 이니시에이터
+ a| 
+* iSCSI 이니시에이터 * SVM iSCSI 이니시에이터
+
+
+
+ a| 
+iSCSI 인터페이스
+ a| 
+* iSCSI 인터페이스 * SVM iSCSI 인터페이스
+
+
+
+ a| 
+iSCSI iSNS
+ a| 
+iSCSI iSNS * SVM iSCSI iSNS
+
+
+
+ a| 
+iSCSI 포털입니다
+ a| 
+* iSCSI 포털 * SVM iSCSI 포털
+
+
+
+ a| 
+iSCSI 보안
+ a| 
+* iSCSI 보안 * SVM iSCSI 보안
+
+
+
+ a| 
+iSCSI 세션
+ a| 
+* iSCSI 세션 * SVM iSCSI 세션
+
+
+
+ a| 
+iSCSI 표시
+ a| 
+* iSCSI show * vserver iSCSI show
+
+
+
+ a| 
+iSCSI가 시작됩니다
+ a| 
+* iSCSI 시작 * SVM iSCSI 시작
+
+
+
+ a| 
+iSCSI 통계
+ a| 
+통계 {start | stop | show} - object_object _
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+iSCSI 중지
+ a| 
+* iSCSI 중지 * SVM iSCSI 중지
+
+|===
+
+
+== K-O
+
+[role="lead"]
+* K *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+key_manager 를 선택합니다
+ a| 
+시스템 노드 run-node {_nodename_|local} - command key_manager
+
+
+
+ a| 
+키mgr
+ a| 
+시스템 노드 run-node {_nodename_|local} - 명령 keymgr 관리 인터페이스 키의 경우 "'보안 인증서'" 명령을 사용해야 합니다.
+
+|===
+[role="lead"]
+L *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+' * 사용권 * '
+ a| 
+'* 사용권 프로그램 * '
+
+'* system license show*'
+
+
+
+ a| 
+' * 라이선스 추가 * '
+ a| 
+' * 라이선스 추가 * '
+
+'* 시스템 사용권 추가-사용권-코드_V2_LICENSE_CODE_*'
+
+
+
+ a| 
+'* 사용권 삭제 * '
+ a| 
+'* 사용권 삭제 * '
+
+'* 시스템 사용권 삭제 - package_package_name_*'
+
+
+
+ a| 
+'* 잠금 해제 * '
+ a| 
+`* SVM 잠금 해제 * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* 잠금 해제 호스트 * '
+ a| 
+'* vserver lock break-client-address_client-address_*'
+
+
+
+ a| 
+' * 잠금 네트워크 * '
+ a| 
+'* vserver lock break-client-address-type_ip address type_*'
+
+
+
+ a| 
+``잠금 브레이크 - 오너 *’
+ a| 
+`* vserver lock break-owner-id_owner-id_*'
+
+
+
+ a| 
+' * lock break-p protocol * '
+ a| 
+`* vserver lock break-protocol_protocol_ * '
+
+
+
+ a| 
+' * 잠금 상태 * '
+ a| 
+`* vserver lock show * '
+
+
+
+ a| 
+' * lock status-h host * '
+ a| 
+'* vserver lock show-client-address_client-address_*'
+
+
+
+ a| 
+' * 잠금 상태 - 소유자 * '
+ a| 
+`* vserver lock show-owner-id_owner id_*'
+
+
+
+ a| 
+'* 잠금 상태 - p 프로토콜 * '
+ a| 
+'* vserver lock show-protocol_protocol_ * '
+
+
+
+ a| 
+``로거*'
+ a| 
+``로거*'
+
+"* 시스템 노드 run-node {nodename | local} - 명령 로거 *
+
+
+
+ a| 
+' * 로그아웃 * '
+ a| 
+' * exit * '
+
+
+
+ a| 
+' * LUN 클론 * '
+ a| 
+'* 볼륨 파일 클론 생성 * '
+
+
+
+ a| 
+'* LUN 코멘트 * '
+ a| 
+'* LUN 코멘트 * '
+
+
+
+ a| 
+'* LUN config_check * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * LUN create * '
+ a| 
+'LUN create – vserver_vserver_name_ *'
+
+
+
+ a| 
+'* LUN destroy*'
+ a| 
+' * LUN delete *'
+
+
+
+ a| 
+' * LUN map * '
+ a| 
+' * LUN map – vserver_vserver_name_ * '
+
+
+
+ a| 
+' * LUN maxsize * '
+ a| 
+' * LUN maxsize * '
+
+
+
+ a| 
+' * LUN move * '
+ a| 
+' * LUN move * '
+
+
+
+ a| 
+' * LUN offline * '
+ a| 
+' * LUN modify-state offline * '
+
+
+
+ a| 
+' * LUN online * '
+ a| 
+' * LUN modify-state online * '
+
+
+
+ a| 
+'* LUN 크기 조정 * '
+ a| 
+'* LUN 크기 조정 * '
+
+
+
+ a| 
+' * LUN set * '
+ a| 
+' * LUN set * '
+
+
+
+ a| 
+'* LUN 설정 * '
+ a| 
+' * LUN create * '
+
+
+
+ a| 
+'* LUN 공유 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * lun show * '
+ a| 
+' * lun show * '
+
+
+
+ a| 
+' * LUN 스냅 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * LUN stats * '
+ a| 
+' * statistics show-object lun * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* LUN 매핑 해제 * '
+ a| 
+'* LUN 매핑 해제 * '
+
+|===
+[role="lead"]
+M *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+남자
+ a| 
+* 남자 *
+
+
+
+ a| 
+최대 파일 수
+ a| 
+vol modify -max-_number-of-files_or vol-fields 파일입니다
+
+
+
+ a| 
+마운트
+ a| 
+지원되지 않습니다
+
+storage tape 명령 세트를 사용해야 합니다.
+
+|===
+[role="lead"]
+* N *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+Nbtstat
+ a| 
+SVM CIFS nbtstat
+
+
+
+ a| 
+ndmpd입니다
+ a| 
+{system|server}에서 NDMP 서비스를 제공합니다
+
+
+
+ a| 
+NDMPcopy
+ a| 
+시스템 노드 run-node {_nodename_|local} ndmpcopy
+
+
+
+ a| 
+ndmpd 켜짐
+ a| 
+* 시스템 서비스의 * ndmpd ndmpd on
+
+
+
+ a| 
+ndmpd가 꺼져 있습니다
+ a| 
+* ndmpd off * 시스템 서비스가 ndmpd off를 나타냅니다
+
+
+
+ a| 
+ndmpd 상태입니다
+ a| 
+{system|vserver}에서 NDMP 상태를 서비스합니다
+
+
+
+ a| 
+ndmpd 프로브
+ a| 
+{system|vserver}에서 NDMP Probe 서비스를 제공합니다
+
+
+
+ a| 
+ndmpd kill
+ a| 
+{system|vserver}에서 NDMP kill 서비스를 제공합니다
+
+
+
+ a| 
+ndmpd killall입니다
+ a| 
+{system|vserver}에서 NDMP kill-all을 서비스합니다
+
+
+
+ a| 
+ndmpd 암호입니다
+ a| 
+{system|vserver}에서 NDMP 암호를 서비스합니다
+
+
+
+ a| 
+ndmpd 버전입니다
+ a| 
+{system|vserver}에서 NDMP 버전을 서비스합니다
+
+
+
+ a| 
+NDP
+ a| 
+시스템 노드 run-node {_nodename_|local} keymgr입니다
+
+
+
+ a| 
+netdiag
+ a| 
+지원되지 않음 네트워크 인터페이스 또는 netstat 명령을 사용해야 합니다.
+
+
+
+ a| 
+네토
+ a| 
+시스템 노드에서 node_nodename_command netstat를 실행합니다
+
+
+
+ a| 
+네트워크 인터페이스 페일오버
+ a| 
+네트워크 인터페이스 show-failover를 참조하십시오
+
+
+
+ a| 
+네트워크 포트 VLAN 수정
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+NFS 끄기
+ a| 
+* NFS off * vserver NFS off
+
+
+
+ a| 
+NFS 설정
+ a| 
+의 * NFS * SVM NFS
+
+
+
+ a| 
+NFS 설정
+ a| 
+SVM NFS 생성 또는 SVM 설정
+
+
+
+ a| 
+NFS 통계
+ a| 
+통계 {start|stop|show} - 객체 NFS *
+
+
+
+ a| 
+NFS 상태입니다
+ a| 
+SVM NFS 상태입니다
+
+
+
+ a| 
+NFS vStorage
+ a| 
+SVM NFS 수정 - vStorage
+
+
+
+ a| 
+nfsstat
+ a| 
+statistics show -object nfs *
+
+|===
+[role="lead"]
+* O *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+선택
+ a| 
+지원되지 않습니다
+
+|===
+
+
+== P-T
+
+[role="lead"]
+P *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+파트너
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+암호
+ a| 
+보안 로그인 암호
+
+
+
+ a| 
+성능 보고서 - t
+ a| 
+통계 {start | stop | show} - 객체 성능
+
+
+
+ a| 
+{host}을(를) Ping합니다
+ a| 
+네트워크 ping {-node_nodename_|-lif_lif-name_} - 대상
+
+
+
+ a| 
+{count}개를 Ping합니다
+ a| 
+네트워크 ping {-node_nodename_|-lif_lif-name_} - count
+
+
+
+ a| 
+ping -l 인터페이스
+ a| 
+네트워크 ping -lif_lif -name _
+
+
+
+ a| 
+ping -v
+ a| 
+network ping-node {_nodename_|-lif_lif-name_} - verbose
+
+
+
+ a| 
+ping - s
+ a| 
+network ping-node {_nodename_|-lif_lif-name_} -show-detail
+
+
+
+ a| 
+Ping-R
+ a| 
+network ping-node {_nodename_|-lif_lif-name_} -record-route
+
+
+
+ a| 
+pktt 삭제
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt delete
+
+
+
+ a| 
+pktt 덤프
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt dump입니다
+
+
+
+ a| 
+pktt 목록
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt 목록
+
+
+
+ a| 
+pktt 일시 중지
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt pause
+
+
+
+ a| 
+pktt 시작
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt start
+
+
+
+ a| 
+pktt 상태
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt 상태입니다
+
+
+
+ a| 
+핑트 스톱입니다
+ a| 
+시스템 노드 run-node {_nodename_|local} pktt stop
+
+
+
+ a| 
+포트셋 추가
+ a| 
+* ADD * LUN 포트셋 추가
+
+
+
+ a| 
+포트셋 생성
+ a| 
+포트셋 생성 * LUN 생성
+
+
+
+ a| 
+포트셋 삭제
+ a| 
+* DELETE * LUN 포트셋 삭제
+
+
+
+ a| 
+포트셋 제거
+ a| 
+* remove * LUN 포트셋 제거
+
+
+
+ a| 
+포트셋 표시
+ a| 
+* show * lun 포트셋 show
+
+
+
+ a| 
+우선 순위 하이브리드 캐시 기본값
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+우선 순위 하이브리드 캐시 세트
+ a| 
+볼륨 수정 - volume_volume_name_-vserver_vserver_name_-caching-policy_policy_name _
+
+
+
+ a| 
+우선 순위 하이브리드 캐시 표시
+ a| 
+volume show -volume_volume_name_-vserver_vserver_name_-fields caching-policy 를 참조하십시오
+
+
+
+ a| 
+개인 설정
+ a| 
+설정 권한
+
+|===
+[role="lead"]
+Q *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+Qtree 생성
+ a| 
+Qtree 생성 * 볼륨 qtree 생성
+
+
+
+ a| 
+qtree oplocks
+ a| 
+qtree oplocks * 볼륨 qtree oplocks
+
+
+
+ a| 
+Qtree 보안
+ a| 
+Qtree 보안 * 볼륨 qtree 보안
+
+
+
+ a| 
+qtree 상태입니다
+ a| 
+Qtree show volume qtree show
+
+
+
+ a| 
+Qtree 통계
+ a| 
+Qtree 통계 볼륨 qtree 통계
+
+
+
+ a| 
+할당량 허용
+ a| 
+quota modify -state volume quota modify -state on 을 참조하십시오
+
+
+
+ a| 
+할당량을 허용하지 않습니다
+ a| 
+quota modify -statevolume quota modify -state off입니다
+
+
+
+ a| 
+할당량이 꺼졌습니다
+ a| 
+* quota off * 볼륨 할당량을 해제합니다
+
+
+
+ a| 
+할당량 설정
+ a| 
+볼륨 할당량 * 을 설정합니다
+
+
+
+ a| 
+할당량 보고서
+ a| 
+* 할당량 보고서 * 볼륨 할당량 보고서
+
+
+
+ a| 
+할당량 크기 조정
+ a| 
+* 할당량 크기 조정 * 볼륨 할당량 크기 조정
+
+
+
+ a| 
+할당량 상태입니다
+ a| 
+할당량 표시 볼륨 할당량 표시
+
+
+
+ a| 
+할당량 로그 메시지
+ a| 
+볼륨 할당량 표시 필드 로깅, 로깅 간격
+
+|===
+[role="lead"]
+* R *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+반경
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+rdate 를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+rdfile을 참조하십시오
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+재할당을 해제합니다
+ a| 
+* 재할당 해제 *
+
+
+
+ a| 
+재할당조치
+ a| 
+* 재할당조치 *
+
+
+
+ a| 
+에 재할당
+ a| 
+* 에 재할당 *
+
+
+
+ a| 
+일시 중지 재할당입니다
+ a| 
+* reallocate quiesce *
+
+
+
+ a| 
+재할당을 다시 시작합니다
+ a| 
+* 재등록 재시작 *
+
+
+
+ a| 
+스케줄을 재할당합니다
+ a| 
+* 일정 재할당 *
+
+
+
+ a| 
+재할당을 시작합니다
+ a| 
+* 재할당 시작 *
+
+
+
+ a| 
+재할당 상태
+ a| 
+재할당하십시오
+
+
+
+ a| 
+재할당을 중지합니다
+ a| 
+* 재할당 중지 *
+
+
+
+ a| 
+재부팅합니다
+ a| 
+* 재부팅 *
+
+시스템 노드 재부팅 - node_nodename _
+
+
+
+ a| 
+reboot -d
+ a| 
+* reboot -d *
+
+시스템 노드 reboot -dump true -node_nodename _
+
+
+
+ a| 
+reboot -f 를 선택합니다
+ a| 
+* reboot -f *
+
+reboot-inhibit-takeover TRUE-node_nodename_
+
+
+
+ a| 
+복원
+ a| 
+지원되지 않습니다
+
+테이프 백업 설명서에 설명된 대로 NDMP를 사용하여 복구를 시작해야 합니다.
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["테이프 백업을 사용한 데이터 보호"]
+
+
+
+ a| 
+restore_backup을 선택합니다
+ a| 
+시스템 노드 복원 - 백업
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+되돌리기 _
+ a| 
+시스템 노드 되돌리기 - node_nodename_- 버전
+
+
+
+ a| 
+RLM
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+배관 추가
+ a| 
+배관 추가 *
+
+네트워크 경로를 생성합니다
+
+
+
+ a| 
+루트 삭제
+ a| 
+* 루트 삭제 *
+
+네트워크 경로 삭제
+
+
+
+ a| 
+배관 - s
+ a| 
+* 루트쇼 *
+
+네트워크 라우트가 표시됩니다
+
+
+NOTE: ONTAP 9에서는 네트워크 라우팅 그룹 명령 제품군이 더 이상 9.4부터 지원되지 않습니다.
+
+|===
+[role="lead"]
+S * 를 선택합니다
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+'* sasadmin adapter_state*'
+ a| 
+'* 시스템 노드 run-node {nodename | local} - command sasadmin adapter_state * '
+
+
+
+ a| 
+' * sasadmin channels * '
+ a| 
+'* system node run-node {nodename | local} - command sasadmin channels *
+
+
+
+ a| 
+' * sasadmin dev_stats * '
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 sasadmin dev_stats * '
+
+
+
+ a| 
+'* sasadmin expander*'
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 sasadmin expander * '
+
+
+
+ a| 
+'* sasadmin expander_map * '
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 sasadmin expander_map * '
+
+
+
+ a| 
+'* sasadmin expander_phy_state *'
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 sasadmin expander_phy_state * '
+
+
+
+ a| 
+' * sasadmin shelf * '
+ a| 
+'* 저장 선반*'
+
+
+
+ a| 
+' * sasadmin shelf_short *'
+ a| 
+'* 저장 선반*'
+
+
+
+ a| 
+' * sasstat dev_stats * '
+ a| 
+'* system node run-node {nodename | local} - command sasstat dev_stats * '
+
+
+
+ a| 
+'* sasstat adapter_state*'
+ a| 
+'* system node run-node {nodename | local} - command sasstat adapter_state * '
+
+
+
+ a| 
+'* sasstat expander*'
+ a| 
+'* 시스템 쉘프 show-port*'
+
+
+
+ a| 
+'* sasstat expander_map * '
+ a| 
+'* 저장 선반 표시 - 모듈*'
+
+
+
+ a| 
+' * sasstat expander_phy_state *'
+ a| 
+'* 시스템 노드 실행 노드 {nodename | local} sasstat expander_phy_state *'
+
+
+
+ a| 
+' * sasstat 선반 * '
+ a| 
+'* 저장 선반*'
+
+
+
+ a| 
+'* savecore*'
+ a| 
+'* 시스템 노드 코어 덤프 저장 - 모두 * '
+
+
+
+ a| 
+'* savecore-i * '
+ a| 
+'* 시스템 노드 코어 덤프 구성 표시 -i*'
+
+
+
+ a| 
+' * savecore-l * '
+ a| 
+'* 시스템 노드 코어 덤프 표시 * '
+
+
+
+ a| 
+' * savecore-s * '
+ a| 
+'* 시스템 노드 코어 덤프 상태 * '
+
+
+
+ a| 
+' * savecore - * w'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* savecore-k * '
+ a| 
+'* 시스템 노드 코어 덤프 삭제 - 모든 유형 저장되지 않은 커널 * '
+
+
+
+ a| 
+'* sectrace add*'
+ a| 
+`* vserver 보안 추적 생성*'
+
+
+
+ a| 
+'* sectrace delete * '
+ a| 
+`* vserver 보안 추적 삭제*'
+
+
+
+ a| 
+' * sectrace show * '
+ a| 
+`* vserver 보안 추적 필터 표시 * '
+
+
+
+ a| 
+'* sectrace print-status*'
+ a| 
+`* vserver security trace trace -result show * '
+
+
+
+ a| 
+'* SecureAdmin addcert*'
+ a| 
+'* 보안 인증서 설치 * '
+
+
+
+ a| 
+' * SecureAdmin ssh * 비활성화'
+ a| 
+'* 보안 로그인 수정 * '
+
+
+
+ a| 
+'* SecureAdmin disable SSL*'
+ a| 
+'* 보안 SSL 수정 * '
+
+
+
+ a| 
+'* SecureAdmin enable SSL*'
+ a| 
+'* 보안 SSL 수정 * '
+
+
+
+ a| 
+'* SecureAdmin 설정 * '
+ a| 
+' * 보안 * '
+
+
+
+ a| 
+'* SecureAdmin 설정 ssh*'
+ a| 
+'* 보안 ssh{add|modify} * '
+
+
+
+ a| 
+'* SecureAdmin 설정 SSL*'
+ a| 
+'* security ssl{add|modify} * '
+
+
+
+ a| 
+' * SecureAdmin ssh * 활성화'
+ a| 
+'* 보안 로그인 수정 * '
+
+
+
+ a| 
+'* SecureAdmin 상태 ssh*'
+ a| 
+'* 보안 로그인 쇼 * '
+
+
+
+ a| 
+'* SecureAdmin 상태 SSL*'
+ a| 
+'* security ssl show * '
+
+
+
+ a| 
+' * setup * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+``shelfchk *’
+ a| 
+'* 보안 ssh{add|modify} * '
+
+
+
+ a| 
+'* showfh*'
+ a| 
+'* security ssl{add|modify} * '
+
+
+
+ a| 
+' * 시스구성 * '
+ a| 
+'* 보안 로그인 수정 * '
+
+
+
+ a| 
+' * 해법 꺼짐 * '
+ a| 
+'* 보안 로그인 쇼 * '
+
+
+
+ a| 
+' * 해법 * '
+ a| 
+'* security ssl show * '
+
+
+
+ a| 
+'*'시스가 *'로 되돌아갑니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * 시스투 스타트 * '
+ a| 
+'* showfh*'
+
+'* 볼륨 파일 표시 - 파일 핸들 * '
+
+
+
+ a| 
+' * 시스스톱 * '
+ a| 
+' * 해법 꺼짐 * '
+
+'* 볼륨 효율성 꺼짐 * '
+
+
+
+ a| 
+'* SMTape*'
+ a| 
+' * 해법 * '
+
+' * 볼륨 효율성 켜짐 * '
+
+
+
+ a| 
+' * 스냅 자동 삭제 * '
+ a| 
+' * 시스정책 * '
+
+
+
+ a| 
+' * 스냅 생성 * '
+ a| 
+'*'시스가 *'로 되돌아갑니다
+
+'* 볼륨 효율성 복원 - * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* 스냅 삭제 * '
+ a| 
+'* 스냅 삭제 * '
+
+'* 볼륨 스냅샷 삭제 * '
+
+
+
+ a| 
+' * 스냅 델타 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * 스냅 목록 * '
+ a| 
+``스냅 쇼 *’
+
+' * volume snapshot show *'
+
+
+
+ a| 
+'* 스냅 재확보 가능 * '
+ a| 
+' * volume snapshot compute-reclaimable * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* 스냅 이름 변경 * '
+ a| 
+'* 스냅 이름 변경 * '
+
+'* volume snapshot rename(볼륨 스냅숏 이름 변경) *'
+
+
+
+ a| 
+'* 스냅 예약 * '
+ a| 
+볼륨 {modify|show} -- 필드 percent-snapshot-space -- 볼륨 "_volume-name_"
+
+스토리지 애그리게이트 {modify|show} -- 필드 percent-snapshot-space -- 집계 '_aggregate-name_'입니다
+
+
+
+ a| 
+'* 스냅 복원 * '
+ a| 
+'* 스냅 복원 * '
+
+'* 볼륨 스냅샷 복원 * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+' * 스냅 sched * '
+ a| 
+'* 볼륨 스냅샷 정책 * '
+
+
+
+ a| 
+'* 스냅 재확보 가능 * '
+ a| 
+' * volume snapshot compute-reclaimable * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* SnapMirror 중단 * '
+ a| 
+'* SnapMirror 중단 * '
+
+
+
+ a| 
+'* SnapMirror break * '
+ a| 
+'* SnapMirror break * '
+
+
+
+ a| 
+`* SnapMirror 대상 * '
+ a| 
+`* SnapMirror list-destinations*'
+
+
+
+ a| 
+'* SnapMirror 초기화 * '
+ a| 
+'* SnapMirror 초기화 * '
+
+
+
+ a| 
+'* SnapMirror 마이그레이션 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* SnapMirror OFF * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* SnapMirror 켜짐 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* SnapMirror 정지 * '
+ a| 
+'* SnapMirror 정지 * '
+
+
+
+ a| 
+'* SnapMirror 릴리스 * '
+ a| 
+'* SnapMirror 릴리스 * '
+
+
+
+ a| 
+'* SnapMirror resume * '
+ a| 
+'* SnapMirror resume * '
+
+
+
+ a| 
+'* SnapMirror 재동기화 * '
+ a| 
+'* SnapMirror 재동기화 * '
+
+
+
+ a| 
+' * SnapMirror 상태 * '
+ a| 
+``SnapMirror 쇼 *’
+
+
+
+ a| 
+'* SnapMirror 스로틀 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* SnapMirror 업데이트 * '
+ a| 
+'* SnapMirror 업데이트 * '
+
+
+
+ a| 
+'* SNMP authtrap*'
+ a| 
+'* SNMP authtrap*'
+
+
+
+ a| 
+'* SNMP 커뮤니티 * '
+ a| 
+'* SNMP 커뮤니티 * '
+
+
+
+ a| 
+'* SNMP contact*'
+ a| 
+'* SNMP contact*'
+
+
+
+ a| 
+' * snmp init * '
+ a| 
+' * snmp init * '
+
+
+
+ a| 
+'* SNMP location*'
+ a| 
+'* SNMP location*'
+
+
+
+ a| 
+'* SNMP traphost*'
+ a| 
+'* SNMP traphost*'
+
+
+
+ a| 
+'* SNMP 트랩 * '
+ a| 
+'* 이벤트 라우트 표시 - snmp - 지원 true*'
+
+
+
+ a| 
+'* 소프트웨어 삭제 * '
+ a| 
+'* 시스템 노드 이미지 패키지 삭제 * '
+
+
+
+ a| 
+'* 소프트웨어 다운로드 * '
+ a| 
+'* 시스템 노드 이미지 get*'
+
+
+
+ a| 
+'* 소프트웨어 설치 * '
+ a| 
+'* 시스템 노드 이미지 업데이트 * '
+
+
+
+ a| 
+'* 소프트웨어 목록*'
+ a| 
+'* 시스템 노드 이미지 패키지 표시 *'
+
+
+
+ a| 
+'* 소프트웨어 업데이트 * '
+ a| 
+'* 시스템 노드 이미지 업데이트 * '
+
+
+
+ a| 
+' * 소스 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* SP 재부팅 * '
+ a| 
+'* 시스템 서비스 프로세서 재부팅 - SP*'
+
+
+
+ a| 
+'* SP 설정 * '
+ a| 
+'* 시스템 서비스 프로세서 네트워크 수정 * '
+
+
+
+ a| 
+' * SP 상태 * '
+ a| 
+'* 시스템 서비스 프로세서 쇼 * '
+
+
+
+ a| 
+' * sp status-d' *
+ a| 
+'* 시스템 노드 AutoSupport invoke-splog*'
+
+
+
+ a| 
+' * SP status-v * '
+ a| 
+'* 시스템 노드 AutoSupport invoke-splog*'
+
+
+
+ a| 
+'* SP 업데이트 * '
+ a| 
+'* 시스템 서비스 프로세서 이미지 업데이트 * '
+
+
+
+ a| 
+'* SP update-status*'
+ a| 
+``시스템 서비스 프로세서 이미지 업데이트 - 진행률*'
+
+
+
+ a| 
+``스타티 *’
+ a| 
+' * 통계{start|stop|show} - 사전 설정 statit *'
+
+
+
+ a| 
+' * stats * '
+ a| 
+``통계{start|stop|show} – 객체 객체 *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+' * 스토리지 애그리게이트 카피 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* 스토리지 집계 media_scrub * '
+ a| 
+'* 시스템 노드 run-node nodename -command aggr media_scrub * '
+
+
+
+ a| 
+' * 스토리지 애그리게이트 스냅샷 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * 스토리지 애그리게이트 분할 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+' * 스토리지 애그리게이트 제거 * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* 스토리지 별칭 * '
+ a| 
+'* 스토리지 테이프 별칭 세트 * '
+
+
+
+ a| 
+'* 스토리지 배열 * '
+ a| 
+'* 스토리지 배열 * '
+
+
+
+ a| 
+'* 스토리지 배열 수정 * '
+ a| 
+'* 스토리지 배열 수정 * '
+
+
+
+ a| 
+'* 스토리지 배열 제거 * '
+ a| 
+'* 스토리지 배열 제거 * '
+
+
+
+ a| 
+'* 스토리지 배열 제거 포트 * '
+ a| 
+'* 스토리지 배열 포트 제거 * '
+
+
+
+ a| 
+'* 스토리지 배열 쇼 * '
+ a| 
+'* 스토리지 배열 쇼 * '
+
+
+
+ a| 
+'* 스토리지 배열 show-config * '
+ a| 
+'* 스토리지 배열 구성 표시 * '
+
+
+
+ a| 
+"* 스토리지 배열 LUN 표시 * "
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* 스토리지 배열 show-ports*'
+ a| 
+'* 스토리지 배열 포트 표시 * '
+
+
+
+ a| 
+'* 스토리지 비활성화 어댑터 * '
+ a| 
+"* 시스템 노드 run-node {nodename | local} - 명령 스토리지 비활성화 어댑터 *
+
+
+
+ a| 
+' * 스토리지 다운로드 ACP * '
+ a| 
+'* 스토리지 셸프 ACP 펌웨어 업데이트 * '
+
+
+
+ a| 
+'* 스토리지 다운로드 선반*'
+ a| 
+'* 스토리지 펌웨어 다운로드 * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* 스토리지 활성화 어댑터 * '
+ a| 
+"* 시스템 노드 run-node {nodename | local} - 명령 스토리지 설정 어댑터 *
+
+
+
+ a| 
+'* 스토리지 로드 밸런싱 * '
+ a| 
+'* 스토리지 로드 밸런싱 * '
+
+
+
+ a| 
+' * storage load show * '
+ a| 
+' * storage load show * '
+
+
+
+ a| 
+' * 스토리지 쇼 ACP * '
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 storage show acp * '
+
+
+
+ a| 
+'* storage show adapter*'
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 storage show adapter *'
+
+
+
+ a| 
+``스토리지 쇼 브리지’
+ a| 
+'* 스토리지 브리지 쇼 * '
+
+
+
+ a| 
+' * storage show disk *'
+ a| 
+' * storage show disk *'
+
+'* 스토리지 디스크 표시 *'
+
+
+
+ a| 
+'* storage show expander*'
+ a| 
+'* 저장 선반*'
+
+
+
+ a| 
+' * storage show fabric * '
+ a| 
+'* 시스템 노드 run-node {nodename | local} - 명령 storage show fabric * '
+
+
+
+ a| 
+'* 스토리지 쇼 오류 *'
+ a| 
+'* system node run-node_nodename_ - command storage show fault *
+
+
+
+ a| 
+``스토리지 쇼 허브 *’
+ a| 
+"* system node run-node {nodename | local} - command storage show hub *
+
+
+
+ a| 
+' * storage show initiator * '
+ a| 
+"* system node run-node {nodename | local} - command storage show initiators *
+
+
+
+ a| 
+' * storage show mc * '
+ a| 
+'* 저장 테이프 표시 - 미디어 체인저 *
+
+
+
+ a| 
+'* storage show port*'
+ a| 
+'* 스토리지 스위치 * '
+
+
+
+ a| 
+' * 스토리지 쇼 쉘프 * '
+ a| 
+'* 저장 선반*'
+
+
+
+ a| 
+'* storage show switch*'
+ a| 
+'* 스토리지 스위치 쇼 * '
+
+
+
+ a| 
+'* storage show tape * '
+ a| 
+'* 스토리지 테이프 표시 - 테이프 드라이브*'
+
+
+
+ a| 
+'* 스토리지 통계 테이프 *'
+ a| 
+'* statistics show-object tape*'
+
+
+
+ a| 
+'* 스토리지 통계 테이프 제로 * '
+ a| 
+' * 통계{start|stop|show} - 객체 테이프 *'
+
+
+
+ a| 
+'* storage unalias*'
+ a| 
+'* 스토리지 테이프 별칭 지우기 * '
+
+
+
+ a| 
+' * sysconfig * '
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'* sysconfig-a*'
+ a| 
+' * system node run-node{nodename|local} - command sysconfig -a *'
+
+
+
+ a| 
+'* sysconfig-a*'
+ a| 
+' * system node run-node{nodename|local} - command sysconfig -a *'
+
+
+
+ a| 
+' * sysconfig-ac * '
+ a| 
+``시스템 컨트롤러 구성 표시-오류-세부 정보 표시*'
+
+
+
+ a| 
+' * sysconfig -c * '
+ a| 
+'* 시스템 컨트롤러 config-errors show*'
+
+
+
+ a| 
+' * sysconfig -d * '
+ a| 
+' * system node run-node {nodename | local} - command sysconfig -d * '
+
+
+
+ a| 
+' * sysconfig-D * '
+ a| 
+'* 시스템 컨트롤러 구성 PCI show-add-on 장치*'
+
+
+
+ a| 
+' * sysconfig -h * '
+ a| 
+' * system node run-node {nodename | local} - command sysconfig -h * '
+
+
+
+ a| 
+' * sysconfig -m * '
+ a| 
+'* 저장 테이프 표시 - 미디어 체인저 *
+
+
+
+ a| 
+'* syconfig-M*'
+ a| 
+' * system node run-node{nodename|local} - command sysconfig -M *'
+
+
+
+ a| 
+' * sysconfig -p * '
+ a| 
+지원되지 않습니다
+
+다음 명령을 대체 명령으로 사용해야 합니다.
+
+* 하이퍼바이저 정보: 시스템 노드 가상 머신 하이퍼바이저가 표시됩니다
+* 시스템 디스크 백업 저장소: 시스템 노드 가상 시스템 인스턴스 show-system-disks
+* 가상 디스크 백업 정보: 스토리지 디스크 show-virtual-machine-disk-info
+
+
+
+
+ a| 
+' * sysconfig-P * '
+ a| 
+'* 시스템 컨트롤러 구성 PCI show-계층 * '
+
+
+
+ a| 
+' * sysconfig -r * '
+ a| 
+지원되지 않습니다
+
+디스크 정보를 보려면 다음 명령을 사용해야 합니다.
+
+* 파일 시스템 디스크: 스토리지 애그리게이트 쇼 상태입니다
+* 스페어 디스크: 스토리지 애그리게이트 표시-sparedisks
+* 깨진 디스크: 스토리지 디스크가 표시됩니다
+* 유지보수 센터의 디스크: 스토리지 디스크 show-maintenance
+
+
+
+
+ a| 
+' * sysconfig -t * '
+ a| 
+' * 스토리지 테이프 쇼' *
+
+
+
+ a| 
+' * sysconfig-v * '
+ a| 
+' * system node run-node_nodename_-command sysconfig -v' *
+
+
+
+ a| 
+'* sysconfig-V*'
+ a| 
+' * system node run-node {nodename | local} - command sysconfig -V * '
+
+
+
+ a| 
+' * sysstat * '
+ a| 
+' * statistics{start|stop|show} - preset systat *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'* 시스템 상태 경고 * '
+ a| 
+'* 시스템 상태 경고 * '
+
+
+
+ a| 
+'* 시스템 상태 AutoSupport*'
+ a| 
+'* 시스템 상태 AutoSupport*'
+
+
+
+ a| 
+'* 시스템 상태 구성 * '
+ a| 
+'* 시스템 상태 구성 * '
+
+
+
+ a| 
+'* 시스템 상태 노드 연결 * '
+ a| 
+'* 시스템 상태 노드 연결 * '
+
+
+
+ a| 
+'* 시스템 상태 정책 * '
+ a| 
+'* 시스템 상태 정책 * '
+
+
+
+ a| 
+'* 시스템 상태*'
+ a| 
+'* 시스템 상태*'
+
+
+
+ a| 
+'* 시스템 상태 하위 시스템 표시 *'
+ a| 
+'* 시스템 상태 하위 시스템 표시 *'
+
+|===
+[role="lead"]
+* T *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+시간대
+ a| 
+* 표준 시간대 *
+
+
+
+ a| 
+traceroute -m
+ a| 
+* traceroute -m *
+
+네트워크 traceroute {-node_nodename_|-lif_lif-name_} - maxttl_integer _
+
+
+
+ a| 
+traceroute -n
+ a| 
+* traceroute -n *
+
+네트워크 traceroute -node {_nodename_|-lif_lif-name_} - 숫자 TRUE
+
+
+
+ a| 
+Traceroute -p
+ a| 
+* traceroute -p *
+
+네트워크 추적 경로 {-node_nodename_|-lif_lif-name_}--port_integer_
+
+
+
+ a| 
+traceroute -q
+ a| 
+* traceroute -q *
+
+네트워크 추적 경로 {-node_nodename_|-lif_lif-name_} - nqueroute_integer _
+
+
+
+ a| 
+traceroute -s
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+traceroute -v
+ a| 
+* traceroute -v *
+
+네트워크 traceroute {-node_nodename_|-lif_lif-name_} - verbose [true]
+
+
+
+ a| 
+traceroute - w
+ a| 
+* traceroute -w *
+
+네트워크 추적 경로 {-node_nodename_|-lif_lif-name_} - waittime_integer _
+
+|===
+
+
+== U-Z
+
+[role="lead"]
+* U *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+ucadmin(ucadmin)
+ a| 
+시스템 노드 하드웨어 Unified-Connect
+
+
+
+ a| 
+UPS
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+가동 시간
+ a| 
+시스템 노드 표시 필드 가동 시간
+
+
+
+ a| 
+useradmin domainuser add입니다
+ a| 
+보안 로그인 생성
+
+
+
+ a| 
+useradmin domainuser delete
+ a| 
+보안 로그인 삭제
+
+
+
+ a| 
+useradmin domainuser 목록입니다
+ a| 
+보안 로그인 표시
+
+
+
+ a| 
+useradmin domainuser load입니다
+ a| 
+지원되지 않음 "vserver cifs users-and-groups" 명령 집합을 사용하십시오.
+
+
+
+ a| 
+useradmin 그룹이 추가됩니다
+ a| 
+보안 로그인 역할이 생성됩니다
+
+
+
+ a| 
+useradmin 그룹이 삭제됩니다
+ a| 
+보안 로그인 역할 삭제
+
+
+
+ a| 
+useradmin 그룹 목록입니다
+ a| 
+보안 로그인 역할이 표시됩니다
+
+
+
+ a| 
+useradmin 그룹이 수정됩니다
+ a| 
+보안 로그인 역할이 수정됩니다
+
+
+
+ a| 
+useradmin 역할이 추가됩니다
+ a| 
+보안 로그인 역할이 생성됩니다
+
+
+
+ a| 
+useradmin 역할이 삭제됩니다
+ a| 
+보안 로그인 역할 삭제
+
+
+
+ a| 
+useradmin 역할 목록입니다
+ a| 
+보안 로그인 역할이 표시됩니다
+
+
+
+ a| 
+useradmin 역할이 수정됩니다
+ a| 
+보안 로그인 역할이 수정됩니다
+
+
+
+ a| 
+useradmin 사용자가 추가합니다
+ a| 
+보안 로그인 생성
+
+
+
+ a| 
+useradmin 사용자 삭제
+ a| 
+보안 로그인 삭제
+
+
+
+ a| 
+useradmin 사용자 목록
+ a| 
+보안 로그인 표시
+
+
+
+ a| 
+useradmin 사용자가 수정합니다
+ a| 
+보안 로그인 수정
+
+|===
+[role="lead"]
+V *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+버전 - b
+ a| 
+* 버전 -b *
+
+또는 시스템 이미지가 표시됩니다
+
+
+
+ a| 
+버전 - v
+ a| 
+* 버전 -v *
+
+또는 시스템 이미지가 표시됩니다
+
+
+
+ a| 
+VFiler 유닛
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+vFiler 실행
+ a| 
+SVM
+
+
+
+ a| 
+VFiler 유닛
+ a| 
+SVM 시작
+
+
+
+ a| 
+vFiler 중지
+ a| 
+SVM 중지
+
+
+
+ a| 
+VFiler 유닛 상태
+ a| 
+vserver show 를 참조하십시오
+
+
+
+ a| 
+vFiler 허용 안 함
+ a| 
+vserver modify -allow되지 않는 -protocol
+
+
+
+ a| 
+VLAN 추가
+ a| 
+네트워크 포트 VLAN 생성
+
+
+
+ a| 
+VLAN 생성
+ a| 
+네트워크 포트 VLAN 생성
+
+
+
+ a| 
+VLAN 삭제
+ a| 
+네트워크 포트 VLAN 삭제
+
+
+
+ a| 
+VLAN 수정
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+VLAN 통계
+ a| 
+시스템 노드 run-node_nodename_ - 명령 vlan stat
+
+
+
+ a| 
+vmservices
+ a| 
+시스템 노드 run-node {_nodename_|local} vmservices
+
+
+
+ a| 
+볼륨 추가
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 자동 크기 조정
+ a| 
+볼륨 자동 크기 조정 *
+
+
+
+ a| 
+볼륨 클론
+ a| 
+* 볼륨 클론 *
+
+
+
+ a| 
+볼륨 클론 분할
+ a| 
+* 볼륨 클론 분할 *
+
+
+
+ a| 
+볼륨 컨테이너
+ a| 
+볼륨 표시 - 필드 집계
+
+
+
+ a| 
+볼륨 복사본
+ a| 
+지원되지 않음\n다음 방법 중 하나를 사용해야 합니다.
+
+* 원래 볼륨의 FlexClone 볼륨을 생성한 다음 volume move 명령을 사용하여 볼륨을 다른 애그리게이트로 이동합니다.
+* SnapMirror를 사용하여 원래 볼륨을 복제한 다음 SnapMirror 관계를 끊어서 읽기-쓰기 볼륨 복사본을 만듭니다.
+
+
+http://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-5578BA46-5522-4BA6-B354-5C924B8207B1.html["논리적 스토리지 관리 가이드"]
+
+
+
+ a| 
+볼륨 생성
+ a| 
+볼륨 생성 *
+
+
+
+ a| 
+볼륨 제거
+ a| 
+볼륨 제거
+
+
+
+ a| 
+볼륨 파일 지문
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 미디어 스크럽
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 마이그레이션
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 미러
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 이동
+ a| 
+* 볼륨 이동 *
+
+
+
+ a| 
+볼륨이 오프라인 상태입니다
+ a| 
+* 볼륨 오프라인 *
+
+
+
+ a| 
+볼륨을 온라인으로 설정합니다
+ a| 
+* 온라인 볼륨 *
+
+
+
+ a| 
+볼륨 옵션
+ a| 
+볼륨 {show | modify}
+
+
+
+ a| 
+볼륨 할당량을 허용합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 할당량을 허용하지 않습니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 이름 바꾸기
+ a| 
+볼륨 이름 바꾸기 *
+
+
+
+ a| 
+볼륨 제한
+ a| 
+* 볼륨 제한 *
+
+
+
+ a| 
+볼륨 스크럽
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 크기
+ a| 
+볼륨 크기 *
+
+
+
+ a| 
+볼륨 스냅샷 델타
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 스냅숏 예비 공간입니다
+ a| 
+지원되지 않습니다
+
+대체 명령은 다음과 같습니다.
+
+* 볼륨의 경우 "volume show-fields percent-snapshot-space" 및 "volume modify -volume_VolumeName_- percent-snapshot-space_percent_" 명령을 사용합니다.
+* Aggregate의 경우 "storage aggregate show-fields percent-snapshot-space" 및 "storage aggregate modify -aggregate_aggregate name_- percent-snapshot-space_percent_" 명령을 사용합니다.
+
+
+
+
+ a| 
+볼륨 분할
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 상태입니다
+ a| 
+볼륨 표시
+
+
+
+ a| 
+볼륨 확인
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+볼륨 웨이브론
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+Vscan
+ a| 
+Vscan 가상 서버
+
+
+
+ a| 
+SVM CIFS adupdate
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM CIFS 브로드캐스트
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM CIFS 설명입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM CIFS 상단
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup add
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup create
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup destroy
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup remove
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup show 를 참조하십시오
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI tpgroup ALUA 설정
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM iSCSI tpgroup ALUA가 표시됩니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+SVM 서비스 이름 - 서비스 DNS 플러시
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+W *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+wrfile 을 선택합니다
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+Y *
+
+|===
+| 7-Mode 명령 | ONTAP 명령 
+
+
+ a| 
+키캣
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+그룹
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+일치 항목
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+유형
+ a| 
+지원되지 않습니다
+
+|===

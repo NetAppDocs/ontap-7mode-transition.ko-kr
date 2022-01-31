@@ -1,0 +1,17 @@
+---
+permalink: san-host/concept_preparing_windows_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, guest, operating, systems 
+summary: 'Windows VM에서 물리적 호환 RDM\(PTRDM\) 디바이스를 사용하는 경우 전환 전에 Windows VM에서 디스크를 오프라인으로 전환해야 합니다. 디스크 관리자를 사용하여 디스크를 오프라인으로 전환할 수 있습니다.' 
+---
+= 전환을 위해 Windows 게스트 운영 체제 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows VM에서 물리적 호환 RDM(PTRDM) 디바이스를 사용하는 경우 전환 전에 Windows VM에서 디스크를 오프라인으로 전환해야 합니다. 디스크 관리자를 사용하여 디스크를 오프라인으로 전환할 수 있습니다.
+
+* 복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 시스템 작업을 시작하기 전에 다음 단계를 수행하십시오.
+

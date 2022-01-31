@@ -1,0 +1,91 @@
+---
+permalink: copy-free/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, san, transition, supported, unsupported, required, manual, steps 
+summary: 7-Mode 전환 툴을 통해 전환된 SAN 구성을 알고 있어야 합니다. 또한, 전환 전에 필요한 조치를 취할 수 있도록 ONTAP에서 지원되지 않는 7-Mode SAN 기능에 대해서도 알고 있어야 합니다. 
+---
+= SAN 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴을 통해 전환된 SAN 구성을 알고 있어야 합니다. 또한, 전환 전에 필요한 조치를 취할 수 있도록 ONTAP에서 지원되지 않는 7-Mode SAN 기능에 대해서도 알고 있어야 합니다.
+
+이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다.
+
+
+
+== 전환되었습니다
+
+다음의 SAN 구성은 7-Mode 전환 툴을 통해 전환되었습니다.
+
+* FC 및 iSCSI 서비스
+* igroup 및 LUN을 매핑합니다
++
+[NOTE]
+====
+** LUN에 매핑되지 않은 7-Mode igroup은 타겟 SVM으로 전환되지 않습니다.
+** Clustered Data ONTAP 8.3.0 및 8.3.1의 경우 사전 컷오버 작업 중에 igroup 및 LUN 매핑 구성이 지원되지 않습니다.
++
+대신 컷오버 작업 중에 필요한 igroup을 생성합니다. 운영 볼륨과 독립 실행형 볼륨의 경우 컷오버 작업 중 LUN이 igroup에 매핑됩니다. 그러나 2차 볼륨의 경우 컷오버 작업 중에 LUN을 igroup에 매핑할 수 없습니다. 운영 볼륨 전환을 완료한 후 보조 LUN을 수동으로 매핑해야 합니다.
+
+** ONTAP 8.3.2 이상의 릴리즈를 지원하는 경우 사전 컷오버 작업 중에 igroup 및 LUN 매핑 구성이 적용됩니다.
+
+
+====
+
+
+
+
+== ONTAP에서 지원되지 않는 구성입니다
+
+ONTAP에서 지원되지 않는 구성은 다음과 같습니다.
+
+* 7-Mode 스냅샷 복사본 지원 LUN 클론
++
+스냅샷 복사본에 있는 스냅샷 복사본 지원 LUN 클론은 복원 작업에 지원되지 않습니다. 이러한 LUN은 ONTAP에서 액세스할 수 없습니다. 전환하기 전에 7-Mode 스냅샷 복사본 지원 LUN 클론을 분할하거나 삭제해야 합니다.
+
+* OSType 매개 변수 값이 VLD, 이미지 또는 사용자 정의 문자열인 LUN
++
+이러한 LUN에 대한 OSType 매개 변수의 값을 변경하거나 LUN을 삭제한 후 전환해야 합니다.
+
+* LUN 클론 분할
++
+LUN 클론 분할 작업이 완료될 때까지 기다리거나 LUN 클론 분할을 중단하고 LUN을 삭제한 후 전환해야 합니다.
+
+
+
+다음 7-Mode 기능을 사용하면 전환 프로세스를 계속할 수 있지만 ONTAP에서는 지원되지 않습니다.
+
+* LUN share 명령
++
+NAS 프로토콜을 통해 LUN 공유
+
+* SnapValidator
+
+
+
+
+== 수동으로 전환해야 하는 구성
+
+다음 구성은 수동으로 전환해야 합니다.
+
+* SAN LIF
++
+전환 전에 LIF를 수동으로 생성해야 합니다.
+
+* 포트 세트
++
+전환 후 포트셋 igroup을 수동으로 구성해야 합니다.
+
+* iSCSI 액세스 목록 정보
+* iSNS 구성
+* iSCSI CHAP 및 RADIUS 구성
+
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["네트워크 및 LIF 관리"]

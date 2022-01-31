@@ -1,0 +1,23 @@
+---
+permalink: copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, 7, mode, ip, addresses 
+summary: '7-Mode IP 주소를 ONTAP의 SVM(스토리지 가상 머신)으로 전환할 때 고려해야 할 몇 가지 사항에 대해 알고 있어야 합니다.' 
+---
+= 7-Mode IP 주소의 전환을 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode IP 주소를 ONTAP의 SVM(스토리지 가상 머신)으로 전환할 때 고려해야 할 몇 가지 사항에 대해 알고 있어야 합니다.
+
+* 7-Mode 전환 툴을 사용하여 기존 7-Mode IP 주소를 전환하고 SVM에서 구성할 새 IP 주소를 지정할 수 있습니다.
++
+** 기존 7-Mode IP 주소는 적용 구성(사전 컷오버) 단계의 관리 자체 상태에 있는 SVM에서 생성됩니다.
+** 적용 구성(precutover) 단계의 관리 "UP" 상태에서 SVM에 새 IP 주소가 생성됩니다.
+
+
+* IPv6 주소는 전환할 수 없으며 전환 후 수동으로 구성해야 합니다.
+* iSCSI 및 FC LIF는 전환되지 않으며 전환 후 수동으로 구성해야 합니다.
+

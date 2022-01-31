@@ -1,0 +1,23 @@
+---
+permalink: san-host/index.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, index 
+summary: 7-Mode 전환 툴을 사용하여 데이터 및 구성을 ONTAP로 전환할 때 VMware ESXi, Red Hat Linux 및 Windows 호스트에 대한 전환 전 및 전환 후 절차를 설명합니다. 
+---
+= SAN 호스트 전환 및 문제 해결 가이드
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상을 사용하여 7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP 8.3 이상으로 데이터와 구성을 전환하는 경우, 전환 전후에 SAN 호스트에 대한 수정 단계를 수행해야 합니다.
+
+7-Mode 전환 툴 SAN 호스트 전환 및 문제 해결 가이드_에서는 VMware ESXi, Windows, RHEL(Red Hat Enterprise Linux), HP-UX 및 AIX 호스트에 필요한 전환 및 전환 후 단계를 제공합니다.
+
+* 관련 정보 *
+
+xref:../copy-based/index.html[복사 기반 전환]
+
+xref:../copy-free/index.html[복사 없는 전환]
+
+xref:../install-admin/index.html[7-Mode 전환 툴 설치 및 관리]

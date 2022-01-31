@@ -1,0 +1,61 @@
+---
+permalink: copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, failed, boot, controller, maintenance, mode 
+summary: 엑스포트 및 중지 작업이 실패하고 다음 오류 메시지가 표시됩니다. 유지보수 모드에서 7-Mode 컨트롤러를 부팅하는 데 실패했습니다. 유지보수 모드에서 컨트롤러를 수동으로 중지하고 부팅한 다음 작업을 다시 실행해야 합니다. 
+---
+= 7-Mode 컨트롤러를 유지보수 모드로 부팅하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+내보내기 및 중지 작업이 실패하고 '유지 관리 모드에서 7-Mode 컨트롤러를 부팅하지 못했습니다'라는 오류 메시지가 표시됩니다. 유지보수 모드에서 컨트롤러를 수동으로 중지하고 부팅한 다음 작업을 다시 실행해야 합니다.
+
+
+
+== 해결 방법
+
+. 7-Mode 스토리지 시스템을 중지합니다.
++
+' * halt-f-t 0 * '
+
+. LOADER 프롬프트에서 ' * bootarg.init.console_muted*` 및 ' * bootarg.init.console_level boot * ' 부트 매개 변수에 설정된 값을 기록합니다.
++
+(* printenv bootarg.init.console_muted*`)
+
++
+(* printenv bootarg.init.console_level*`)
+
+. 다음 부팅 매개 변수를 설정하여 콘솔 메시지를 비활성화합니다.
++
+"* setenv bootarg.init.console_muted "true" *"
+
++
+"* setenv bootarg.init.console_level "-1" * "
+
+. 7-Mode Transition Tool에서 엑스포트 및 중지 작업을 다시 실행하십시오.
+. 7-Mode 스토리지 시스템에서 2단계에 기록된 부팅 매개 변수를 원래 값으로 설정합니다.
++
+|===
+| 부팅 매개 변수가 다음과 같은 경우 | 다음 명령을 입력합니다... 
+
+
+ a| 
+이전에 어떤 값으로도 설정되지 않음(정의되지 않음)
+ a| 
+(* unsetenv bootarg.init.console_muted*`)
+
+(* unsetenv bootarg.init.console_level*`)
+
+
+
+ a| 
+이전 값으로 설정합니다
+ a| 
+"* unsetenv bootarg.init.console_muted "_original_value_"*"
+
+"* unsetenv bootarg.init.console_level "_original_value_"*"
+
+|===
+

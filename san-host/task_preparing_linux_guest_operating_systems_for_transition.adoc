@@ -1,0 +1,131 @@
+---
+permalink: san-host/task_preparing_linux_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, linux, operating, system 
+summary: '부팅 디바이스에 대해 물리적 호환 RDM\(PTRDM\)으로 매핑된 7-Mode LUN이 Linux 가상 머신\(VM\)인 경우 전환할 Linux VM을 준비하기 위해 수행해야 하는 단계가 있습니다.' 
+---
+= 전환을 위한 Linux 게스트 운영 체제 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+부팅 디바이스에 대해 물리적 호환 RDM(PTRDM)으로 매핑된 7-Mode LUN이 Linux 가상 머신(VM)인 경우 전환할 Linux VM을 준비하기 위해 수행해야 하는 단계가 있습니다.
+
+* 복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 시스템 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. SCSI 장치 일련 번호를 확인합니다.
++
+' * cat/boot/grub/menu.lst * '
+
++
+다음 예에서 360a9800032466879362b45777447462d-Part2 및 360a9800032466879362b45777447462d-part1은 SCSI 장치 번호입니다.
+
++
+[listing]
+----
+# cat /boot/grub/menu.lst
+...
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part2 resume=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part1
+----
+. SCSI 장치 일련 번호와 SCSI 장치/파티션 간의 매핑을 확인합니다.
++
+'*#ls-l/dev/disk/by-id *'
+
++
+다음 예제에서는 관계 매핑이 표시되는 방법을 보여 줍니다. CSI Device/Partitions는 CSI Device/Partitions Serial Number 다음에 출력된다. 이 예에서, '../../sda,./../sda1,./.../sda2'는 SCSI 디바이스/파티션입니다.
+
++
+[listing]
+----
+lrwxrwxrwx 1 root root 9 Oct 27 06:54 scsi-360a9800032466879362b45777447462d -> ../../sda
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 scsi-360a9800032466879362b45777447462d-part1 -> ../../sda1
+   lrwxrwxrwx 1 root root 10 Oct 27 02:21 scsi-360a9800032466879362b45777447462d-part2 -> ../../sda2
+----
+. SCSI 디바이스 경로와 UUID 간의 매핑을 확인합니다.
++
+' * ls -l /dev/disk/by-uuuid * '
+
++
+다음 예제에서는 관계 매핑이 표시되는 방법을 보여 줍니다. 이 예에서 '33d43a8b-cfae-4ac4-9355-36b479cf524'는 SCSI 장치/파티션 sda2의 UUID, '603e01f8-7873-440a-9182-878abff17143'은 SCSI 장치/파티션 sdb의 UUID, 그리고 8305f-08308d0171b-08d08d060b0171의 UUID입니다.
+
++
+[listing]
+----
+ lrwxrwxrwx 1 root root 10 Oct 27 02:21 33d43a8b-cfae-4ac4-9355-36b479cfa524 -> ../../sda2
+   lrwxrwxrwx 1 root root 9 Oct 27 06:54 603e01f8-7873-440a-9182-878abff17143 -> ../../sdb
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 c50b757b-0817-4c19-8291-0d14938f7f0f -> ../../sda1
+----
+. UUID를 사용하여 grub boot menu.lst 파일의 디바이스 참조를 SCSI 디바이스 경로 및 SCSI 일련 번호와 일치시켜 업데이트합니다.
++
+[listing]
+----
+#blkid
+/dev/sda1: UUID="c50b757b-0817-4c19-8291-0d14938f7f0f" TYPE="swap"
+/dev/sda2: UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524" TYPE="ext3"
+/dev/sdb: UUID="603e01f8-7873-440a-9182-878abff17143" SEC_TYPE="ext2" TYPE="ext3"
+----
+. 방금 검색한 UUID를 사용하여 grub boot menu.lst 파일에서 장치 참조를 업데이트합니다.
++
+다음 예제는 업데이트 후 'menu.lst' 파일을 보여줍니다.
+
++
+[listing]
+----
+# Modified by YaST2. Last modification on Fri Oct 17 02:08:40 EDT 2014
+default 0
+timeout 8
+##YaST - generic_mbr
+gfxmenu (hd0,1)/boot/message
+##YaST - activate
+###Don't change this comment - YaST2 identifier: Original name: linux###
+title SUSE Linux Enterprise Server 11 SP2 - 3.0.13-0.27
+root (hd0,1)
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-uuid/e5127cdf-8b30-
+418e-b0b2-35727161ef41 resume=/dev/disk/by-uuid/d9133964-d2d1-4e29-b064-7316c5ca5566
+splash=silent crashkernel=128M-:64M showopts vga=0x314
+initrd /boot/initrd-3.0.13-0.27-default
+----
+. '/etc/fstab' 파일 업데이트:
++
+.. 방금 검색한 UUID를 사용하여 '/etc/fstab' 파일에서 디바이스 참조를 업데이트합니다.
++
+다음 예에서는 SCSI 일련 번호가 있는 '/etc/fstab' 파일을 보여 줍니다.
+
++
+[listing]
+----
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part1 swap swap
+defaults 0 0
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part2 / ext3
+acl,user_xattr 1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+.. SCSI 일련 번호에 대한 참조를 UUID로 교체합니다.
++
+다음 예에서는 SCSI 일련 번호를 UUID로 대체하도록 업데이트된 '/etc/fstab' 파일을 보여 줍니다.
+
++
+[listing]
+----
+cat /etc/fstab
+UUID="c50b757b-0817-4c19-8291-0d14938f7f0f swap swap defaults
+0 0
+UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524 / ext3 acl,user_xattr
+1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+
+
+

@@ -1,0 +1,67 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, host, lvm, device 
+summary: 'LVM\(Logical Volume Manager\) 장치에서 Linux 호스트 파일 시스템을 전환하는 경우 전환 단계 전에 수행해야 하는 단계가 있습니다.' 
+---
+= LVM 디바이스에서 Linux 호스트 파일 시스템을 전환할 때 컷오버 단계를 준비합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LVM(Logical Volume Manager) 장치에서 Linux 호스트 파일 시스템을 전환하는 경우 전환 단계 전에 수행해야 하는 단계가 있습니다.
+
+* FC 구성의 경우 clustered Data ONTAP 컨트롤러에 대한 패브릭 연결 및 조닝(zoning)이 있어야 합니다.
+* iSCSI 구성의 경우, iSCSI 세션을 검색한 후 clustered Data ONTAP 컨트롤러에 로그인해야 합니다.
+* Inventory Assessment 워크북 _ 에서 수집한 다음 전이가 있어야 합니다.
++
+** LVM이 사용하는 DMMP 디바이스 이름입니다
+** 볼륨 그룹 이름입니다
+** 논리적 볼륨 이름입니다
+** 논리적 볼륨 디바이스에 구성된 파일 시스템입니다
+** 논리 볼륨이 마운트되는 디렉토리입니다
+
+
+* 복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. LV 마운트 지점에 대한 I/O를 중지합니다.
+. 애플리케이션 공급업체의 권장 사항에 따라 LUN에 액세스하는 애플리케이션을 종료합니다.
+. LV 마운트 지점을 마운트 해제합니다.
++
+"* umount_dir_name_*"
+
+. 논리적 볼륨 비활성화:
++
+' * vgchange-an_vg_name_ *'
+
+. 논리적 볼륨 상태를 확인합니다.
++
+'* lvdisplay_dir_name_*'
+
++
+LV 상태가 ""사용할 수 없음""으로 표시되어야 합니다.
+
+. 볼륨 그룹 내보내기:
++
+' * vgexport_vg_name_ * '
+
+. VG 상태 확인:
++
+' * vgdisplay_vg_name_ * '
+
++
+VG 상태는 "Exported(내보냄)"로 표시되어야 합니다.
+
+. 7-Mode DDMP 디바이스 ID를 플러시합니다.
++
+"* multipath -f_device_name_ * "
+
+
+
+* 관련 정보 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[재고 평가 워크북에서 전이가 완료된 정보를 수집합니다]

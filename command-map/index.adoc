@@ -1,0 +1,13 @@
+---
+permalink: command-map/index.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, index 
+summary: 7-Mode 명령을 ONTAP에 해당 명령에 매핑합니다 
+---
+= 7-Mode 관리자용 명령 맵
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 가이드는 7-Mode 명령을 ONTAP에 이와 동등한 명령에 매핑합니다.

@@ -1,0 +1,17 @@
+---
+permalink: san-host/concept_downtime_at_precutover_phase_of_esxi_host_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, downtime, apply, configurations, precutover, phase, esxi, host 
+summary: 'ESXi 호스트를 전환하는 동안 Apply configuration\(precutover\) 단계에서 다운타임을 계획해야 합니다.' 
+---
+= ESXi 호스트 전환의 적용 구성(사전 컷오버) 단계에서 다운타임
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ESXi 호스트를 전환하는 동안 적용 구성(사전 컷오버) 단계에서 다운타임 계획을 세워야 합니다.
+
+ESXi 호스트 전환을 위한 사전 요구 사항을 완료한 후에는 7MTT(7-Mode 전환 툴)를 사용하여 LUN을 7-Mode에서 작동하는 Data ONTAP에서 ONTAP로 전환할 수 있습니다. ESXi 호스트, VM 및 애플리케이션은 7MTT 전환의 적용 구성(사전 컷오버) 단계가 완료될 때까지 온라인 상태로 유지됩니다. 그러나 적용 구성(사전 컷오버) 단계에서는 모든 애플리케이션과 게스트 운영 체제의 전원을 꺼야 합니다. ESXi 호스트가 SAN 부팅되었거나 SAN 부팅 LUN이 전환 작업의 일부인 경우 적용 구성(사전 컷오버) 단계에서도 ESXi 호스트의 전원을 꺼야 합니다.
+
+호스트가 SAN으로 부팅되지 않고 NetApp에서 제공하지 않은 전환 불가능한 LUN 또는 어레이 LUN으로 서비스를 계속 실행해야 하는 경우 시스템을 종료하지 않도록 선택할 수 있습니다. 그러나 이 기능을 종료하지 않으면 APD(All-Path-Down) 조건이 발생할 수 있습니다. APD 상태를 방지하려면 7-Mode LUN에서 작동하는 Data ONTAP를 마스킹할 수 있습니다. 를 참조하십시오 link:https://kb.vmware.com/s/article/1009449["VMware 기술 자료 ID 1009449"] 를 참조하십시오.

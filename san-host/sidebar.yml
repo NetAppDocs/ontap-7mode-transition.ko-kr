@@ -1,0 +1,238 @@
+---
+section: san-host
+title: SAN 호스트 전환 및 수정
+url: "/san-host/index.html"
+entries:
+- title: 7-Mode 전환 툴을 통해 지원되는 ONTAP 타겟 릴리즈
+  url: "/san-host/concept_ontap_target_releases_supported_by_7mtt.html"
+- title: 7-Mode 전환 툴 전환 단계
+  url: "/san-host/concept_7mtt_transition_phases.html"
+- title: VMware ESXi 호스트 수정
+  url: "/san-host/concept_vmware_esxi_host_remediation.html"
+  entries:
+  - title: 7MTT를 사용하여 SAN 전환을 지원하는 ESXi 버전 및 기능
+    url: "/san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html"
+  - title: ESXi 호스트 전환 준비 중
+    url: "/san-host/task_preparing_for_transition_of_esxi_hosts.html"
+    entries:
+    - title: 재고 수집 도구의 정의
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+    - title: 전환을 위한 Linux 게스트 운영 체제 준비
+      url: "/san-host/task_preparing_linux_guest_operating_systems_for_transition.html"
+    - title: 전환을 위해 Windows 게스트 운영 체제 준비
+      url: "/san-host/concept_preparing_windows_guest_operating_systems_for_transition.html"
+    - title: 전환 전에 제거해야 하는 VM 스냅샷을 식별하는 방법
+      url: "/san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html"
+      entries:
+      - title: vSphere Client를 사용하여 VM 스냅샷 복제본을 삭제하는 중입니다
+        url: "/san-host/task_deleting_vm_snapshots_using_vsphere_client.html"
+      - title: ESXi CLI를 사용하여 VM 스냅샷 제거
+        url: "/san-host/task_removing_vm_snapshots_using_esxi_cli.html"
+  - title: 복제 기반 전환의 컷오버 단계 전에 전환된 LUN 및 ESXi 호스트 애플리케이션 테스트
+    url: "/san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html"
+  - title: ESXi 호스트 전환의 적용 구성(사전 컷오버) 단계에서 다운타임
+    url: "/san-host/concept_downtime_at_precutover_phase_of_esxi_host_transition.html"
+  - title: ESXi 호스트에 대한 전환 후 문제 해결 요구 사항
+    url: "/san-host/concept_post_transition_requirements_for_esxi_hosts.html"
+    entries:
+    - title: 전환 후 ESXi 호스트 문제 해결 준비
+      url: "/san-host/task_preparing_for_post_transition_esxi_host_remediation.html"
+    - title: vSphere Client를 사용하여 비 SAN 부팅 ESXi 호스트에서 전환 후 VM 재등록
+      url: "/san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html"
+    - title: 전환 후 VMware 소프트웨어 iSCSI 이니시에이터 재구성
+      url: "/san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html"
+    - title: 전환 후 SAN 부팅에 대해 구성된 ESXi 호스트를 설정합니다
+      url: "/san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html"
+    - title: 전환 후 VMFS 볼륨을 다시 마운트해야 하는지 여부를 결정합니다
+      url: "/san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html"
+      entries:
+      - title: vSphere Client를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html"
+      - title: ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html"
+    - title: RDM LUN을 VM에 다시 연결합니다
+      url: "/san-host/task_reattaching_rdm_luns_to_vms.html"
+      entries:
+      - title: vSphere Client를 사용하여 오래된 RDM을 제거합니다
+        url: "/san-host/task_removing_stale_rdm_using_vsphere_client.html"
+      - title: vSphere Client를 사용하여 RDM을 VM에 다시 연결합니다
+        url: "/san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html"
+      - title: ESXi CLI/콘솔을 사용하여 RDM 다시 연결
+        url: "/san-host/task_reattaching_rdm_using_esxi_cli_console.html"
+    - title: Linux 및 Windows 게스트 운영 체제에 대한 전환 후 문제 해결
+      url: "/san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html"
+    - title: 전환 수정 후 ESXi 호스트에 권장되는 설정입니다
+      url: "/san-host/concept_configure_recommended_settings_for_esxi_hosts.html"
+  - title: ESXi CLI를 사용하여 데이터 저장소에서 caw를 사용하도록 설정합니다
+    url: "/san-host/task_enabling_caw_on_a_datastore_using_esxi_cli.html"
+- title: RHEL 호스트 문제 해결
+  url: "/san-host/concept_linux_host_remediation.html"
+  entries:
+  - title: 재고 평가 워크북에서 전이가 완료된 정보를 수집합니다
+    url: "/san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html"
+    entries:
+    - title: 재고 수집 도구의 정의
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: 파일 시스템 없이 RHEL DMMP 장치 전환
+    url: "/san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html"
+    entries:
+    - title: Inventory Assessment 워크북을 사용하여 RHEL LUN을 전환할 준비가 되었는지 확인
+      url: "/san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html"
+    - title: CLI를 사용하여 RHEL 5 LUN을 전환할 준비가 되었는지 확인
+      url: "/san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html"
+    - title: CLI를 사용하여 RHEL 6 DDMP 디바이스를 전환할 준비가 되었는지 확인
+      url: "/san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 RHEL 호스트에서 파일 시스템 없이 DMMP 디바이스를 테스트합니다
+      url: "/san-host/task_testing_dmmp_devices_on_rhel_before_cutover.html"
+    - title: 파일 시스템 없이 Linux 호스트 DMMP 디바이스를 전환할 때 컷오버를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.html"
+    - title: LUN 전환 후 Linux 호스트에서 7-Mode LUN WWID 교체
+      url: "/san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html"
+  - title: DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN 전환
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html"
+    entries:
+    - title: Inventory Assessment 워크북을 사용하여 DMMP 디바이스 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+      url: "/san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html"
+    - title: CLI를 사용하여 전환하기 위해 DMMP 별칭 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: 복사 기반 전환의 전환 단계 전에 RHEL 호스트에서 파일 시스템으로 DMMP 디바이스를 테스트합니다
+      url: "/san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html"
+    - title: Linux 호스트에서 DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: 전환 후 Linux 호스트에서 DMMP 디바이스를 다시 마운트합니다
+      url: "/san-host/task_remounting_dmmp_devices_on_linux_hosts_after_transition.html"
+  - title: DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN 전환
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html"
+    entries:
+    - title: CLI를 사용하여 전환하기 위해 DMMP 별칭 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: 복제 기반 전환의 컷오버 단계 전에 RHEL 호스트에서 DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN 테스트
+      url: "/san-host/task_testing_luns_with_mounts_using_dmmp_aliases_on_rhel_hosts_before_cutover.html"
+    - title: Linux 호스트에서 DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: 전환 후 Linux 호스트에서 DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN을 다시 마운트합니다
+      url: "/san-host/task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.html"
+  - title: LVM 디바이스에서 Linux 호스트 파일 시스템을 전환하는 중입니다
+    url: "/san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    entries:
+    - title: 복사 기반 전환의 컷오버 단계 전에 LVM 디바이스에서 파일 시스템으로 LUN 테스트
+      url: "/san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html"
+    - title: LVM 디바이스에서 Linux 호스트 파일 시스템을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    - title: 전환 후 Linux 호스트에 논리적 볼륨 마운트
+      url: "/san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html"
+  - title: SAN 부팅 LUN의 전환
+    url: "/san-host/concept_transition_of_san_boot_luns.html"
+    entries:
+    - title: 전환이 지원되는 SAN 부팅 LUN의 유형입니다
+      url: "/san-host/concept_types_of_san_boot_luns_supported_for_transition.html"
+    - title: RHEL 호스트에서 FC 또는 FCoE SAN 부팅 LUN 전환 준비
+      url: "/san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html"
+    - title: iSCSI SAN 부팅 LUN 전환 준비 중
+      url: "/san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 RHEL 호스트에서 SAN 부팅 LUN 테스트
+      url: "/san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html"
+    - title: SAN 부팅 LUN을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: 전환 후 SAN 부팅 LUN 검색
+      url: "/san-host/task_discovering_san_boot_luns_after_transition.html"
+- title: Windows 호스트 문제 해결
+  url: "/san-host/concept_windows_host_remediation.html"
+  entries:
+  - title: 전환을 위해 Windows 호스트 준비 중
+    url: "/san-host/task_preparing_windows_hosts_for_transition.html"
+    entries:
+    - title: 재고 수집 도구의 정의
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: 컷오버 단계 이전에 Windows 호스트에서 전환된 LUN 테스트
+    url: "/san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html"
+  - title: Windows 호스트를 전환할 때 컷오버 단계를 준비합니다
+    url: "/san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html"
+  - title: 전환 후 Windows 호스트를 온라인으로 전환합니다
+    url: "/san-host/task_bringing_windows_hosts_online_after_transition.html"
+  - title: SAN 호스트를 ONTAP로 전환할 때 발생하는 예외 및 알려진 문제
+    url: "/san-host/concept_exceptions_and_known_issues_when_transitioning_san_hosts_to_clustered_ontap.html"
+- title: HP-UX 호스트 수정
+  url: "/san-host/concept_hp_ux_host_remediation.html"
+  entries:
+  - title: 파일 시스템을 사용하여 HP-UX 호스트 LUN 전환
+    url: "/san-host/concept_transitioning_hp_ux_host_luns_with_file_systems.html"
+    entries:
+    - title: HP-UX 호스트 LUN을 파일 시스템으로 전환하기 위한 준비 중
+      url: "/san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 HP-UX 호스트에서 데이터 LUN 테스트
+      url: "/san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: 파일 시스템으로 HP-UX 호스트 데이터 LUN을 전환할 때 컷오버 단계를 준비 중입니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_hp_ux_host_data_luns_with_file_systems.html"
+    - title: 전환 후 HP-UX 호스트 LUN을 파일 시스템과 함께 마운트하는 중입니다
+      url: "/san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html"
+  - title: FC/FCoE 구성을 사용하여 HP-UX 호스트 SAN 부팅 LUN 전환
+    url: "/san-host/concept_transitioning_hp_ux_host_san_boot_luns_with_fc_fcoe_configurations.html"
+    entries:
+    - title: FC 구성이 있는 HP-UX 호스트에서 SAN 부팅 LUN 전환 준비
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_hp_ux_hosts_with_fc_configurations.html"
+    - title: 복사 기반 전환의 컷오버 단계 이전에 HP-UX 호스트에서 전환된 SAN 부팅 LUN 테스트
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: SAN 부팅 LUN을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: 전환 후 SAN 부팅 LUN을 HP-UX Emulex HBA의 기본 부팅 LUN으로 만듭니다
+      url: "/san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html"
+    - title: 전환 후 SAN 부팅 LUN을 HP-UX QLogic HBA의 기본 부팅 LUN으로 만듭니다
+      url: "/san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html"
+- title: AIX 호스트 수정
+  url: "/san-host/concept_aix_host_remediation.html"
+  entries:
+  - title: FC/FCoE 구성을 사용하여 AIX 호스트에서 SAN 부팅 LUN 전환
+    url: "/san-host/concept_transition_of_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    entries:
+    - title: FC/FCoE 구성이 있는 AIX 호스트에서 SAN 부팅 LUN 전환을 준비 중입니다
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: 복제 기반 전환의 컷오버 단계 전에 AIX 호스트에서 전환된 SAN 부팅 LUN 테스트
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_aix_hosts_before_cutover.html"
+    - title: FC/FCoE 구성을 사용하여 AIX 호스트를 전환할 때 컷오버 단계를 준비합니다.
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: 전환 후 FC/FCoE 구성을 사용하는 AIX 호스트의 SAN 부팅 LUN에서 부팅
+      url: "/san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html"
+  - title: 파일 시스템을 사용하여 AIX 호스트 데이터 LUN 전환
+    url: "/san-host/concept_transitioning_aix_host_data_luns_with_file_systems.html"
+    entries:
+    - title: 파일 시스템을 사용하여 AIX 호스트 데이터 LUN 전환을 준비하는 중입니다
+      url: "/san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 AIX 호스트에서 전환된 LUN 테스트
+      url: "/san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html"
+    - title: AIX 호스트 데이터 LUN을 파일 시스템으로 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html"
+    - title: 전환 후 AIX 호스트 데이터 LUN을 파일 시스템과 함께 마운트합니다
+      url: "/san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html"
+- title: Solaris 호스트 개선
+  url: "/san-host/concept_solaris_host_remediation.html"
+  entries:
+  - title: ZFS 파일 시스템으로 Solaris 호스트 데이터 LUN 전환
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    entries:
+    - title: ZFS 파일 시스템을 통해 Solaris 호스트 데이터 LUN의 전환을 준비합니다
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_zfs_file_system.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 ZFS 파일 시스템을 사용하는 Solaris 호스트에서 데이터 LUN 테스트
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html"
+    - title: ZFS 파일 시스템으로 Solaris 호스트 데이터 LUN을 전환할 때 컷오버 단계를 준비합니다
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    - title: 전환 후 ZFS 파일 시스템에 Solaris 호스트 LUN 마운트
+      url: "/san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html"
+  - title: Sun Volume Manager로 Solaris 호스트 데이터 LUN 전환
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_sun_volume_manager.html"
+    entries:
+    - title: Sun Volume Manager를 사용하여 Solaris 호스트 LUN 전환 준비
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_sun_volume_manager.html"
+    - title: 복사 기반 전환의 컷오버 단계 전에 Sun Volume Manager를 사용하여 Solaris 호스트에서 데이터 LUN 테스트
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_sun_volume_manager_svm_before_cutover.html"
+    - title: Solaris 호스트 Sun Volume Manager 데이터 LUN 전환 시 전환 단계 준비
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html"
+    - title: 전환 후 Solaris 볼륨 관리자로 Solaris 호스트 LUN 마운트
+      url: "/san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html"
+- title: 전환 후 LUN을 7-Mode로 롤백 중
+  url: "/san-host/concept_rolling_back_luns_to_7_mode_after_transition.html"
+  entries:
+  - title: RHEL 호스트에서 ONTAP LUN을 7-Mode LUN으로 롤백하는 중입니다
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html"
+  - title: ONTAP LUN을 Windows 호스트의 7-Mode LUN으로 롤백하는 중입니다
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html"

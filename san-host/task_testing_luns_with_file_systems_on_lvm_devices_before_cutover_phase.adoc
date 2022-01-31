@@ -1,0 +1,105 @@
+---
+permalink: san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, file, system, lvm, devices, cutover, phase 
+summary: '7MTT\) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 Red Hat Enterprise Linux\(RHEL\) 호스트의 복사 기반 전환을 수행하는 경우 전환 단계 전에 LVM 장치에서 파일 시스템으로 전환된 clustered Data ONTAP LUN을 테스트할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.' 
+---
+= 복사 기반 전환의 컷오버 단계 전에 LVM 디바이스에서 파일 시스템으로 LUN 테스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 RHEL(Red Hat Enterprise Linux) 호스트의 복사 기반 전환을 수행하는 경우 전환 단계 전에 LVM 장치에서 전환된 clustered Data ONTAP LUN을 파일 시스템과 함께 테스트할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.
+
+* 새로운 clustered Data ONTAP LUN을 테스트 호스트에 매핑해야 합니다.
+* LUN을 전환할 준비가 되어 있어야 합니다.
+
+
+테스트 호스트와 소스 호스트 간에 하드웨어 패리티를 유지해야 하며 테스트 호스트에서 다음 단계를 수행해야 합니다.
+
+Clustered Data ONTAP LUN은 테스트 중에 읽기/쓰기 모드로 전환됩니다. 테스트가 완료되고 컷오버 단계에 대비하는 동안 읽기 전용 모드로 전환됩니다.
+
+테스트 모드 중에는 볼륨 그룹을 비활성화하거나 내보내지 않습니다. 따라서 테스트 호스트에 논리 볼륨을 마운트할 때 파일 시스템 오류가 나타날 수 있습니다.
+
+.단계
+. 기본 데이터 복사가 완료되면 7MTT 사용자 인터페이스(UI)에서 * 테스트 모드 * 를 선택합니다.
+. 7MTT UI에서 * 구성 적용 * 을 클릭합니다.
+. 테스트 호스트에서 새로운 clustered Data ONTAP LUN을 검색합니다.
++
+'* rescan-scsi-bus.sh *'
+
+. 새로운 clustered Data ONTAP LUN이 검색되었는지 확인:
++
+``sanlun lun show *’
+
+. Clustered Data ONTAP LUN에 대해 DMMP 디바이스를 구성합니다.
++
+' * multipath * '
+
+. Clustered Data ONTAP LUN의 디바이스 핸들 ID를 확인합니다.
++
+'* multipath-ll*'
+
++
+장치 핸들 ID의 예는 다음과 같습니다. "'3600a09804d532d79565d47617679764d'"
+
+. LVM에서 사용되는 DMMP 디바이스를 식별합니다.
++
+'* pvscan*'
+
++
+3600a09804d532d79565d476176797655는 LVM이 사용하는 DMMP 장치의 예입니다.
+
+. 볼륨 그룹을 식별합니다.
++
+' * vgscan * '
+
+. 논리적 볼륨을 식별합니다.
++
+' * lvscan * '
+
+. 논리적 볼륨 * ' * vgchange -ay_volume_group_ * '을 활성화합니다
+. 논리 볼륨 상태를 확인합니다. * ' * lvdisplay * '
++
+출력물에 LV Status 열이 Available로 표시되어야 합니다.
+
+. 소스 호스트의 '/etc/fstab' 파일에 논리적 볼륨의 마운트 지점 항목이 있는지 확인합니다.
++
+다음 예에서는 논리 볼륨 '/dev/mapper/vg_7MTT-lv1'이 '/etc/fstab' 파일에 표시됩니다.
+
++
+[listing]
+----
+# /etc/fstab
+...
+tmpfs   /dev/shm  tmpfs   defaults        0 0
+devpts  /dev/pts  devpts  gid=5, mode=620 0 0
+sysfs   /sys      sysfs   defaults        0 0
+proc    /proc     proc    defaults        0 0
+/dev/mapper/vg_7MTT-lv1 /7MTT  ext4  defaults 0	0
+----
+. 소스 호스트의 '/etc/fstab' 파일에 논리적 볼륨의 마운트 지점 항목이 있는 경우 테스트 호스트에서 '/etc/fstab' 파일을 수동으로 편집하여 마운트 지점 항목을 추가합니다.
+. 마운트 지점을 마운트합니다.
++
+' * mount-a *'
+
+. 마운트 지점이 마운트되었는지 확인합니다.
++
+' * 마운트 * '
+
+. 필요에 따라 테스트를 수행합니다.
+. 테스트를 완료한 후 호스트를 종료합니다.
++
+' * shutdown -h -t0 now * '
+
+. 7MTT UI에서 * 테스트 완료 * 를 클릭합니다.
+
+
+Clustered Data ONTAP LUN을 소스 호스트에 다시 매핑하려면 소스 호스트에서 컷오버 단계를 준비해야 합니다. Clustered Data ONTAP LUN을 테스트 호스트에 매핑된 상태로 유지하려면 테스트 호스트에 추가 단계가 필요하지 않습니다.
+
+* 관련 정보 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[재고 평가 워크북에서 전이가 완료된 정보를 수집합니다]
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.adoc[LVM 디바이스에서 Linux 호스트 파일 시스템을 전환할 때 컷오버 단계를 준비합니다]

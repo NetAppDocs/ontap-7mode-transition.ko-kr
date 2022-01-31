@@ -1,0 +1,297 @@
+---
+permalink: copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, examples, nfs, export, rules, snapshot, schedules 
+summary: 7-Mode 엑스포트 규칙과 7-Mode 스냅샷 스케줄이 ONTAP의 단일 NFS 엑스포트 정책과 단일 스냅샷 정책에 통합되는 방식의 예를 확인할 수 있습니다. 또한 통합 정책이 타겟 SVM에서 일치하는 기존 정책을 재사용 또는 재사용하지 않고 전환된 볼륨 또는 qtree에 할당되는 방식을 이해하기를 원할 수 있습니다. 
+---
+= 전환을 위한 NFS 엑스포트 규칙 및 스냅샷 일정 통합의 예
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 엑스포트 규칙과 7-Mode 스냅샷 스케줄이 ONTAP의 단일 NFS 엑스포트 정책과 단일 스냅샷 정책에 통합되는 방식의 예를 확인할 수 있습니다. 또한 통합 정책이 타겟 SVM에서 일치하는 기존 정책을 재사용 또는 재사용하지 않고 전환된 볼륨 또는 qtree에 할당되는 방식을 이해하기를 원할 수 있습니다.
+
+
+
+== 전환을 위한 NFS 엑스포트 규칙의 통합 예
+
+* 전환 전 7-Mode 및 ONTAP의 NFS 엑스포트 규칙 *
+
+* 7-Mode 엑스포트 규칙 *
+
+[listing]
+----
+/vol/vol1       -sec=sys,rw,nosuid
+/vol/vol2       -sec=sys,rw,nosuid
+/vol/vol3       -sec=sys,rw,nosuid
+----
+* ONTAP * 에 존재하는 정책을 내보냅니다
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+----
+기존 엑스포트 정책 엑스포트 정책 엑스포트 정책_정책_1에는 다음과 같은 엑스포트 규칙이 있습니다.
+
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+* 통합을 통한 전환 후 ONTAP에서 정책 내보내기(재사용 없음) *
+
+볼륨 vol1, vol2 및 vol3은 7-Mode에서 내보내기 규칙이 비슷하므로 새로운 통합 엑스포트 정책인 transition_export_policy_1이 전환 후 다음 볼륨에 할당됩니다.
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+vs1              transition_export_policy_1
+3 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname transition_export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          transition_export_policy_1
+                             1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   transition_export_policy_1
+vs1     vol2   transition_export_policy_1
+vs1     vol3   transition_export_policy_1
+3 entries were displayed.
+----
+* 통합 및 재사용으로 전환 후 ONTAP에서 정책을 내보냅니다 *
+
+볼륨 vol1, vol2 및 vol3은 7-Mode에서 유사한 엑스포트 규칙을 사용하므로 전환 후 통합 엑스포트 정책이 이러한 볼륨에 할당됩니다. 7-Mode 엑스포트 규칙과 일치하는 엑스포트 정책인 export_policy_1은 SVM에 이미 있습니다. 따라서 이 정책은 다음 볼륨에 적용됩니다.
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+2 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   export_policy_1
+vs1     vol2   export_policy_1
+vs1     vol3   export_policy_1
+3 entries were displayed.
+----
+
+
+== 전환을 위한 스냅샷 정책 통합의 예
+
+* 전환 전 7-Mode 및 ONTAP의 스냅샷 일정 *
+
+* 7-Mode 일정 *
+
+|===
+| 7-Mode 볼륨 | 7-Mode 스냅샷 스케줄입니다 
+
+
+ a| 
+볼륨1
+ a| 
+0 2 4 @ 8,12,16,20(주간 스냅샷 복사본: 0, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 2, 4, 8, 12, 16, 20시간)
+
+
+
+ a| 
+볼륨2
+ a| 
+0 2 4 @ 8,12,16,20
+
+
+
+ a| 
+볼륨3
+ a| 
+0 2 4 @ 8,12,16,20
+
+
+
+ a| 
+볼륨4
+ a| 
+1 2 3 @ 8,12,16(주간 스냅샷 복사본: 1, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+
+
+ a| 
+볼륨5
+ a| 
+2 2 3 @ 8,12,16(주간 스냅샷 복사본: 2, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+|===
+* ONTAP * 에 스냅샷 정책이 존재합니다
+
+|===
+| 스냅샷 정책 이름입니다 | 정책 세부 정보 
+
+
+ a| 
+예약주
+ a| 
+매주, 카운트: 1
+
+
+
+ a| 
+일정\lailyHourly4
+ a| 
+* 일정 세부 정보 *
+
+* 일정1: 매일, 날짜1:2
+* 일정2: 시간별, 날짜2:4 매 8, 12, 16, 20시간
+
+
+
+
+ a| 
+일정 시간1
+ a| 
+8, 12, 16, 20시간의 매시간, 수: 4
+
+|===
+* 통합을 통한 전환 후 ONTAP의 스냅샷 정책(재사용 없음) *
+
+|===
+| 7-Mode 볼륨 | 7-Mode 스냅샷 스케줄입니다 | ONTAP의 스냅샷 정책 
+
+
+ a| 
+볼륨1
+ a| 
+0 2 4 @ 8,12,16,20(주간 스냅샷 복사본: 0, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 8, 12, 16, 20시간의 경우 4)
+ a| 
+* vol1, vol2 및 vol3에 대한 통합 정책 *
+
+* 이름: transition_snapshot_policy_0
+* 일정 세부 정보
++
+** 일정1: 매일, 날짜1:2
+** 일정2: 시간별, 날짜2:4 매 8, 12, 16, 20시간
+
+
+
+
+
+
+ a| 
+볼륨2
+ a| 
+0 2 4 @ 8,12,16,20
+ a| 
+볼륨3
+
+
+
+ a| 
+0 2 4 @ 8,12,16,20
+ a| 
+볼륨4
+ a| 
+1 2 3 @ 8,12,16(주간 스냅샷 복사본: 1, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+
+
+ a| 
+* 이름: transition_snapshot_policy_1
+* 일정 세부 정보
++
+** 일정1: 매주, 날짜1:1
+** 일정2: 일별, 날짜2:2
+** 일정3: hourly, count3:3 매 8,12,16시간
+
+
+
+ a| 
+볼륨5
+ a| 
+2 2 3 @ 8,12,16(주간 스냅샷 복사본: 2, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+|===
+* 통합 및 재사용으로 전환 후 ONTAP의 스냅샷 정책 *
+
+|===
+| 7-Mode 볼륨 | 7-Mode 스냅샷 스케줄입니다 | ONTAP의 스냅샷 정책 
+
+
+ a| 
+볼륨1
+ a| 
+0 2 4 @ 8,12,16,20(주간 스냅샷 복사본: 0, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 2, 4, 8, 12, 16, 20시간)
+ a| 
+기존 ONTAP 정책이 다시 사용되는 vol1, vol2 및 vol3에 대한 통합 정책입니다
+
+이름: ScheduleDailyHourly4
+
+
+
+ a| 
+볼륨2
+ a| 
+0 2 4 @ 8,12,16,20
+ a| 
+볼륨3
+
+
+
+ a| 
+0 2 4 @ 8,12,16,20
+ a| 
+볼륨4
+ a| 
+1 2 3 @ 8,12,16(주간 스냅샷 복사본: 1, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+
+
+ a| 
+* 이름: transition_snapshot_policy_1
+* 일정 세부 정보
++
+** 일정1: 매주, 날짜1:1
+** 일정2: 일별, 날짜2:2
+** 일정3: hourly, count3:3 매 8,12,16시간
+
+
+
+ a| 
+볼륨5
+ a| 
+2 2 3 @ 8,12,16(주간 스냅샷 복사본: 2, 일별 스냅샷 복사본: 2, 시간별 스냅샷 복사본: 3, 8,12,16시간)
+
+|===

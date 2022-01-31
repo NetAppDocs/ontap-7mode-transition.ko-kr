@@ -1,0 +1,50 @@
+---
+permalink: copy-based/concept_copy_based_transition_using_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, 7, mode, tool 
+summary: 7-Mode 전환 툴을 사용하면 정보를 수집하고 전환 가능한 7-Mode 컨트롤러, 호스트, 스위치, 애플리케이션을 평가하여 복사본 기반의 전환을 수행할 수 있습니다. 그런 다음 데이터 및 구성을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다. 
+---
+= 7-Mode 전환 툴을 사용하여 복사본 기반 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴을 사용하면 정보를 수집하고 전환 가능한 7-Mode 컨트롤러, 호스트, 스위치, 애플리케이션을 평가하여 복사본 기반의 전환을 수행할 수 있습니다. 그런 다음 데이터 및 구성을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다.
+
+7-Mode 전환 툴은 Windows 또는 Linux 시스템에서 실행됩니다. 7-Mode 전환 툴은 웹 인터페이스와 명령줄 인터페이스를 모두 제공하여 전환 작업을 관리합니다.
+
+
+
+== ONTAP 시스템, 호스트, 스위치 및 애플리케이션의 수집 및 평가
+
+7-Mode 전환 툴을 사용하여 다음과 같은 수집 및 평가 작업을 수행할 수 있습니다.
+
+* ONTAP 시스템(클러스터의 7-Mode 컨트롤러 및 노드), 호스트, 스위치 및 호스트 애플리케이션에서 인벤토리 정보를 수집합니다.
+* 이니시에이터 호스트 및 타겟을 그룹화하는 존을 구성하기 위한 FC Zone 계획을 생성합니다.
+* 7-Mode 시스템의 기능을 평가하고, 전환을 위해 선택한 ONTAP 버전에서 이러한 기능이 어떻게 작동하는지를 확인하십시오.
+
+
+
+
+== 7-Mode에서 ONTAP로 데이터 및 구성 이동
+
+복사 기반 전환은 SnapMirror 기술을 사용하여 7-Mode 볼륨 및 구성을 Data ONTAP 7G 및 7-Mode에서 ONTAP로 복사합니다.
+
+7-Mode 전환 툴을 사용하여 복사본 기반 마이그레이션을 수행하면 다음과 같은 작업을 수행할 수 있습니다.
+
+* 7-Mode 독립형 볼륨 그룹 또는 7-Mode 볼륨 그룹을 볼륨 SnapMirror 관계에 있는 다른 7-Mode 버전을 실행 중인 시스템에서 ONTAP 8.2.x 이상 지원되는 릴리즈로 마이그레이션합니다.
+* 전환 프로젝트에 포함된 볼륨에서 사전 점검을 실행하여 전환 호환성을 확인하고 가능한 수정 조치를 확인하십시오.
+* 클라이언트 액세스를 끊기 전에 7-Mode 구성을 ONTAP에 적용하여 다운타임을 줄입니다.
++
+복사 기반의 전환은 NAS 및 SAN 구성의 전환을 지원합니다.
+
++
+
+NOTE: SAN 전환은 ONTAP 8.3 이상 지원 릴리즈에서만 지원됩니다.
+
+
+
+* 관련 정보 *
+
+xref:concept_requirements_for_copy_based_transition.adoc[복사본 기반 전환을 위한 요구사항]

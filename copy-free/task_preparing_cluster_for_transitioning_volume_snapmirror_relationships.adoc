@@ -1,0 +1,34 @@
+---
+permalink: copy-free/task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, cluster, snapmirror, relationship 
+summary: 7-Mode 볼륨 SnapMirror 관계를 전환하려면 소스 및 타겟 클러스터에 SnapMirror 라이센스를 추가해야 합니다. 또한 SnapMirror 관계의 기본 볼륨과 보조 볼륨이 전환된 클러스터 간에 클러스터 피어 관계를 생성하고 SnapMirror 일정을 생성해야 합니다. 
+---
+= 볼륨 SnapMirror 관계를 전환하기 위한 클러스터 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 볼륨 SnapMirror 관계를 전환하려면 소스 및 타겟 클러스터에 SnapMirror 라이센스를 추가해야 합니다. 또한 SnapMirror 관계의 기본 볼륨과 보조 볼륨이 전환된 클러스터 간에 클러스터 피어 관계를 생성하고 SnapMirror 일정을 생성해야 합니다.
+
+7-Mode 2차 시스템의 '/etc/SnapMirror.conf' 파일에 정의된 SnapMirror 일정을 기록해야 합니다.
+
+.단계
+. 소스 및 대상 클러스터 모두에 SnapMirror 라이센스를 추가합니다.
++
+'* 시스템 사용권 add_license_code_*'
+
+. 각 클러스터에서 클러스터 피어 관계를 생성합니다.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["클러스터 및 SVM 피어링 Express 구성"]
+
+. 7-Mode 2차 시스템의 스케줄과 일치하는 2차 SVM에 일정을 생성합니다.
++
+'* 작업 일정 cron 생성 * '
+
+
+
+* 관련 정보 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

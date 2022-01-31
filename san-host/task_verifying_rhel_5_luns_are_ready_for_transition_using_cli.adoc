@@ -1,0 +1,34 @@
+---
+permalink: san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, 5, lun, cli 
+summary: 'RHEL\(Red Hat Enterprise Linux\) 5 LUN이 DMMP\(Device Mapper multipath\)로 구성된 경우 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환하기 전에 파일 시스템이 구성되지 않았는지 확인해야 합니다.' 
+---
+= CLI를 사용하여 RHEL 5 LUN을 전환할 준비가 되었는지 확인
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RHEL(Red Hat Enterprise Linux) 5 LUN이 DMMP(Device Mapper MultiPath)로 구성된 경우 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환하기 전에 파일 시스템이 구성되지 않았는지 확인해야 합니다.
+
+.단계
+. 전환할 LUN의 SCSI 디바이스 이름을 찾습니다.
++
+``sanlun lunshow *’
+
+. LUN의 DMMP 디바이스 이름을 확인합니다.
++
+' * multipath-11 * '
+
++
+DMMP 디바이스 이름은 360a980003753456258244538554b4b53과 같은 디바이스 핸들 ID(WWID)이거나 dMMP_RAW_LUN과 같은 별칭일 수 있습니다.
+
+. LUN에 파일 시스템이 없는지 확인합니다.
++
+'* dumpe2fs/dev/mapper/__dmp 장치 이름__ *
+
++
+LUN에 파일 시스템이 없으면 유효한 파일 시스템 수퍼블록을 찾을 수 없습니다 가 출력에 표시됩니다.
+
+

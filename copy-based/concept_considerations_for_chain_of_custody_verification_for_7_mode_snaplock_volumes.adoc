@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, chain, custody, verification, snaplock, volumes, considerations 
+summary: 7-Mode SnapLock 볼륨에 대해 체인 보호 검증을 사용할 때의 고려 사항에 유의해야 합니다. 
+---
+= 7-Mode SnapLock 볼륨에 대해 체인 보호 검증을 사용하기 위한 고려사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode SnapLock 볼륨에 대해 체인 보호 검증을 사용할 때의 고려 사항에 유의해야 합니다.
+
+* SnapLock 거래 관리 체인은 SnapLock 볼륨 전환을 위한 요구 사항일 경우에만 수행해야 합니다.
++
+프로젝트의 SnapLock 볼륨 전체 또는 하위 집합에 대해 관리 연속성 검증을 수행할 수 있습니다.
+
+* SnapLock Chain of Custody Verification은 7-Mode SnapLock 볼륨의 파일 수에 따라 상당한 시간이 소요될 수 있습니다.
+* Chain of Custody 검증은 읽기/쓰기 7-Mode SnapLock 볼륨에만 지원됩니다
++
+관리 대상 체인 확인은 읽기 전용 볼륨에 대해 지원되지 않습니다.
+
+* 비-ASCII 문자가 있는 이름이 포함된 파일이 포함된 SnapLock 볼륨에서는 관리 대상 체인 검증이 지원되지 않습니다.
+

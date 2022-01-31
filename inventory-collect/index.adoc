@@ -1,0 +1,13 @@
+---
+permalink: inventory-collect/index.html 
+sidebar: sidebar 
+keywords: 7, mode, ontap, host, storage, information, collection, transition, assessment 
+summary: ONTAP 및 7-Mode 시스템, 스위치, 호스트 및 호스트 애플리케이션에 대한 정보를 수집하고, 7-Mode 전환 툴을 사용하여 시스템 전환 준비 여부를 평가할 수 있는 인벤토리 보고서를 생성하는 방법을 설명합니다. 
+---
+= 호스트 및 스토리지 정보 수집 가이드
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 가이드에서는 ONTAP 및 7-Mode 시스템, 스위치, 호스트, 호스트 애플리케이션에 대한 정보를 수집하고, 7-Mode 전환 툴을 사용하여 시스템의 전환 준비 여부를 평가할 수 있는 인벤토리 보고서를 생성하는 방법을 설명합니다.

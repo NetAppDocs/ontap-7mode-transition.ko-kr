@@ -1,0 +1,55 @@
+---
+permalink: snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship 
+summary: 7-Mode 볼륨과 ONTAP 볼륨 간의 SnapMirror 관계에 대한 TCP 윈도우 크기를 구성하여 SnapMirror 전송 처리량을 높이고 복제 작업을 더 빠르게 완료할 수 있습니다. 
+---
+= SnapMirror 관계에 대한 TCP 윈도우 크기 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 볼륨과 ONTAP 볼륨 간의 SnapMirror 관계에 대한 TCP 윈도우 크기를 구성하여 SnapMirror 전송 처리량을 높이고 복제 작업을 더 빠르게 완료할 수 있습니다.
+
+'window-size-for-TDP-mirror' 옵션은 7-Mode와 ONTAP 볼륨(TDP) 간의 SnapMirror 관계에 대한 TCP 윈도우 크기를 구성하는 SnapMirror 정책 명령과 함께 제공됩니다. 이 옵션을 사용하여 TCP 창 크기를 높게/낮게 구성할 수 있습니다. 이 옵션을 설정할 때 다음 사항을 고려해야 합니다.
+
+* 'TDP 미러 창 크기' 옵션은 '비동기 미러' 유형의 정책에만 구성할 수 있습니다.
+* 윈도우 사이즈-TDP-미러 옵션은 256KB에서 7MB까지 구성할 수 있습니다. 그렇지 않으면 구성이 실패합니다.
+* TDP 미러 윈도우 사이즈 옵션의 기본값은 2MB입니다.
+
+
+
+NOTE: 'TDP 미러 창 크기' 옵션이 숨겨지고 Tab Complete가 작동하지 않는다. 사용하려면 전체 옵션을 입력해야 합니다.
+
+다음 예제는 "TDP" 유형의 SnapMirror 관계에 대해 5MB의 TCP 윈도우 크기를 구성하는 방법을 보여줍니다.
+
+.단계
+. TCP 윈도우 크기가 5MB인 비동기식 미러 유형의 SnapMirror 정책을 생성합니다.
++
+'* SnapMirror 정책 생성 * '
+
++
+[listing]
+----
+cluster01::> snapmirror policy create -vserver vserverA –policy tdp_window_size_policy -window-size-for-tdp-mirror 5MB -type async-mirror
+----
+. "TDP" 유형의 SnapMirror 관계를 생성하고 정책을 적용합니다.
++
+'* SnapMirror create * '
+
++
+[listing]
+----
+cluster01::> snapmirror create -source-path filerA:volA -destination-path vserverA:volA -type TDP -policy tdp_window_size_policy
+----
+. SnapMirror 정책에서 구성된 창 크기를 확인합니다.
++
+'* SnapMirror policy show * '
+
++
+[listing]
+----
+cluster01::> snapmirror policy show -vserver vserverA -policy tdp_window_size_policy -fields window-size-for-tdp-mirror
+----
+

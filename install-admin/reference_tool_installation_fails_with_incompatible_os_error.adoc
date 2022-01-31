@@ -1,0 +1,22 @@
+---
+permalink: install-admin/reference_tool_installation_fails_with_incompatible_os_error.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, tool, fail, incompatible, os, error 
+summary: 7-Mode Transition Tool 설치 실패, 오류 메시지 7-Mode Transition Tool is not compatible with this version of Windows. 
+---
+= 호환되지 않는 OS 오류로 인해 도구 설치가 실패합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool 설치에 실패하고 '7-Mode Transition Tool is not compatible with this version of Windows' 오류 메시지가 표시됩니다.
+
+* * 해결 방법 *
++
+.. 'NetApp_7ModeTransitionTool_Setup.exe' 파일을 마우스 오른쪽 단추로 클릭한 다음 * 속성 * 을 선택합니다.
+.. 호환성 탭에서 * 모든 사용자에 대한 설정 변경 * 을 클릭합니다.
+.. 다음 * 호환 모드에서 이 프로그램 실행: * 확인란이 선택되지 않았는지 확인한 다음 * 적용 * 을 클릭합니다.
+
+
+

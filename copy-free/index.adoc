@@ -1,0 +1,13 @@
+---
+permalink: copy-free/index.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, index 
+summary: 7-Mode 전환 툴을 사용하여 데이터를 디스크에서 복사할 필요 없이 7-Mode HA 쌍에서 ONTAP 클러스터로 전환하는 방법을 설명합니다. 기존 디스크 쉘프는 새 클러스터에 연결됩니다. 
+---
+= Copy-Free Transition Guide를 참조하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 가이드에서는 7-Mode Transition Tool을 사용하여 7-Mode HA 쌍에서 ONTAP 클러스터로 전환하는 방법을 설명합니다. 디스크에서 데이터를 복사할 필요 없이 기존 디스크 쉘프를 새 클러스터에 연결합니다.

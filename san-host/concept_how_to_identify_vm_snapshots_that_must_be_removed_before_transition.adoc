@@ -1,0 +1,15 @@
+---
+permalink: san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vm, snapshots, removed, identify 
+summary: '가상 RDM이 연결된 스냅샷 가상 머신 \(VM\)은 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 작동하지 않습니다. 이러한 스냅샷은 전환 전에 제거해야 합니다. VMFS vDisk 및 물리적 RDM\(PTRDM\)만 있는 VM의 스냅샷은 전환 후에도 계속 남아 있으므로 제거할 필요가 없습니다.' 
+---
+= 전환 전에 제거해야 하는 VM 스냅샷을 식별하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+가상 RDM이 연결된 스냅샷 가상 머신(VM)은 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 작동하지 않습니다. 이러한 스냅샷은 전환 전에 제거해야 합니다. VMFS vDisk 및 물리적 RDM(PTRDM)만 있는 VM의 스냅샷은 전환이 지속되며 제거할 필요가 없습니다.
+
+Inventory Collect Tool에서 생성한 _Inventory Assessment Workbook_을 사용하여 가상 RDM이 연결된 모든 VM을 식별할 수 있습니다. VM 스냅샷 열 아래의 _Inventory Assessment Workbook_에 나열된 스냅샷과 값이 0보다 큰 NPTRDM 열은 VM 스냅샷과 함께 연결된 가상 RDM이 있는 VM입니다.

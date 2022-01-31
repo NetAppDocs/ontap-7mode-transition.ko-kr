@@ -1,0 +1,11 @@
+---
+permalink: command-map/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, copyright, trademark 
+summary: 7-Mode 관리자용 명령 맵의 저작권 및 상표입니다. 
+---
+= 저작권 및 상표
+:icons: font
+:imagesdir: ../media/
+
+

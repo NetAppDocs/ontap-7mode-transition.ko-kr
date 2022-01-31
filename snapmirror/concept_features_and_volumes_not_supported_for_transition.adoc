@@ -1,0 +1,42 @@
+---
+permalink: snapmirror/concept_features_and_volumes_not_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror 
+summary: Clustered Data ONTAP에서 일부 기능을 사용하지 못할 수 있으므로 기존 볼륨과 같은 특정 7-Mode 기능 및 동기식 SnapMirror 관계와 같은 특정 7-Mode 기능은 전환할 수 없습니다. 
+---
+= 기능 및 볼륨은 전환이 지원되지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Clustered Data ONTAP에서 일부 기능을 사용하지 못할 수 있으므로 기존 볼륨과 같은 특정 7-Mode 기능 및 동기식 SnapMirror 관계와 같은 특정 7-Mode 기능은 전환할 수 없습니다.
+
+7-Mode 볼륨은 SVM으로 전환할 수 있습니다.
+
+다음 7-Mode 볼륨 또는 구성은 전환할 수 없습니다.
+
+* 제한된 볼륨 또는 오프라인 볼륨
+* 기존 볼륨
+* NFS-to-CIFS 문자 매핑이 있는 볼륨(charmap)
+* Storage-Level Access Guard 구성이 있는 볼륨
+* Storage-Level Access Guard 구성을 사용하는 Qtree가 포함된 볼륨
++
+타겟 클러스터에서 Data ONTAP 8.3.1 이상이 실행 중인 경우 이 구성으로 qtree가 포함된 볼륨을 전환할 수 있습니다.
+
+* NO_I2P 옵션이 활성화된 볼륨
+* FlexCache 볼륨
+* 대상 클러스터에서 Data ONTAP 8.3 이상이 실행 중인 경우 32비트 볼륨 및 32비트 스냅샷 복사본이 있는 64비트 볼륨
+* FlexClone 볼륨
++
+FlexClone 볼륨은 FlexVol 볼륨으로 전환할 수 있지만 클론 계층 및 스토리지 효율성은 손실됩니다.
+
+* 루트 볼륨이 기본 vFiler 유닛에 속하는 qtree를 기반으로 하는 vFiler 유닛의 루트 볼륨입니다
+* 동기 SnapMirror 구성
+* Qtree SnapMirror 관계
+* IPv6 구성
+* SnapVault 관계
+* SnapMirror의 네트워크 압축
+* 타겟 볼륨을 특정 스냅샷 복사본으로 복원(SnapMirror 'break-s' 명령)
+* 볼륨 이동 작업
+

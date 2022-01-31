@@ -1,0 +1,60 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_solaris_host_data_luns_with_zfs_file_systems.html 
+sidebar: sidebar 
+keywords: cutover, ontap, san, host, transition, host, data, lun, nfs, file, system 
+summary: ZFS 파일 시스템이 있는 Solaris 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계로 들어가기 전에 특정 단계를 수행해야 합니다. 
+---
+= ZFS 파일 시스템으로 Solaris 호스트 데이터 LUN을 전환할 때 컷오버 단계를 준비합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ZFS 파일 시스템이 있는 Solaris 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계로 들어가기 전에 특정 단계를 수행해야 합니다.
+
+FC 구성을 사용하는 경우 clustered Data ONTAP 노드에 대한 패브릭 연결 및 조닝을 설정해야 합니다.
+
+iSCSI 구성을 사용하는 경우 clustered Data ONTAP 노드에 대한 iSCSI 세션을 검색 및 로그인해야 합니다.
+
+복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+.단계
+. 모든 마운트 지점에서 I/O를 중지합니다.
+. 애플리케이션 공급업체의 권장 사항에 따라 LUN에 액세스하는 각 애플리케이션을 종료합니다.
+. zpool 내보내기:
++
+' * zpool export_pool-name_ * '
+
++
+[listing]
+----
+# zpool export n_pool
+----
+. zpool이 내보내지는지 확인합니다.
++
+** 내보내는 zpool을 나열해야 함: + ' * zpool import * '
+** 내보내는 zpool은 리스팅하면 안 됩니다. + ' * zpool list * '
+
+
++
+[listing]
+----
+# zpool export n_pool
+
+# zpool list
+no pools available
+
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c0t60A98000383035356C2447384D396550d0  ONLINE
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE
+----
+

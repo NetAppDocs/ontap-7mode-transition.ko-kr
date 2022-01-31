@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_types_of_san_boot_luns_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, supported 
+summary: 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 위해서는 특정 유형의 SAN 부팅 LUN만 지원됩니다. 
+---
+= 전환이 지원되는 SAN 부팅 LUN의 유형입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 위해서는 특정 유형의 SAN 부팅 LUN만 지원됩니다.
+
+다음 SAN 부팅 LUN이 전환을 지원합니다.
+
+* FC 또는 FCoE SAN 부팅 LUN
+* RHEL(Red Hat Enterprise Linux) 6용 iSCSI SAN 부팅 LUN
+
+
+RHEL 5.x에 대한 iSCSI SAN 부팅 LUN의 전환은 지원되지 않습니다.

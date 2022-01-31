@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, rhel, roll, back 
+summary: '7-Mode에서 작동하는 Data ONTAP에서 전환한 후 ONTAP LUN이 예상대로 작동하지 않는 경우 RHEL\(Red Hat Enterprise Linux\) 5 또는 RHEL 6 호스트의 ONTAP에서 7-Mode LUN으로 롤백할 수 있습니다.' 
+---
+= RHEL 호스트에서 ONTAP LUN을 7-Mode LUN으로 롤백하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 작동하는 Data ONTAP에서 전환한 후 ONTAP LUN이 예상대로 작동하지 않으면 RHEL(Red Hat Enterprise Linux) 5 또는 RHEL 6 호스트의 ONTAP에서 7-Mode LUN으로 롤백할 수 있습니다.
+
+7-Mode LUN을 RHEL 5 또는 RHEL 6 호스트에 다시 매핑해야 합니다.
+
+.단계
+. 7-Mode LUN 검색:
++
+'* rescan-scsi-bus.sh *'
+
+. 7-Mode LUN에 대해 DMMP 디바이스를 구성합니다.
++
+' * multipath * '
+
+. 7-Mode LUN 확인:
++
+``sanlun lun show *’
+
+. 7-Mode LUN 디바이스 핸들 ID 확인:
++
+'* multipath-ll_device_handle_name_*'
+
+. 호스트가 LVM(Logical Volume Manager)으로 구성된 경우 다음을 수행합니다.
++
+.. 볼륨 그룹(+' * vgimport_vg_name_ * ')을 가져옵니다
+.. 볼륨 그룹 상태를 + " * vgdisplay * "로 확인합니다
+.. 논리적 볼륨 사용: + " * vgchange -ay_vg_name_ * "
+.. 논리 볼륨 상태 확인: + " * lvdisplay * "
++
+LV Status(LV 상태) 가 Available(사용 가능) 으로 표시되어야 합니다.
+
+.. ONTAP LUN의 논리 볼륨을 해당 마운트 지점 디렉토리 + " * mount_LV_name mount_point_ * "에 마운트합니다
++
+"etc/fstab" 파일에 마운트 지점이 정의되어 있으면 'mount-a' 명령을 사용하여 논리적 볼륨을 마운트할 수도 있습니다.
+
+.. 마운트 지점을 + " * mount * "로 확인합니다
+
+
+

@@ -1,0 +1,35 @@
+---
+permalink: install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, window 
+summary: 이 섹션에서는 Windows 시스템에서 7-Mode 전환 툴을 다시 설치하거나 업그레이드할 때 발생하는 오류에 대한 정보를 제공합니다. 또한 오류의 이유와 오류 해결 단계를 제공합니다. 
+---
+= Windows 시스템에서 7-Mode 전환 도구를 재설치하거나 업그레이드하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 Windows 시스템에서 7-Mode 전환 툴을 다시 설치하거나 업그레이드할 때 발생하는 오류에 대한 정보를 제공합니다. 또한 오류의 이유와 오류 해결 단계를 제공합니다.
+
+* * 메시지 *
++
+"NetApp 7-Mode Transition Tool 설정 또는 설치 제거 의 또 다른 인스턴스가 실행 중입니다. 한 번에 한 인스턴스만 실행할 수 있습니다.
+
+* * 원인 *
++
+7-Mode Transition Tool 설치 폴더의 일부 파일이 열려 있습니다.
+
+* * 시정 조치 *
++
+.. 7-Mode Transition Tool 설치 파일을 모두 닫습니다.
+.. 7-Mode Transition Tool에 대한 레지스트리 항목을 엽니다.
++
+... INSTALATION_STATUS * 필드를 확인합니다.
+... 값이 ' * installer_is_running * '이면 ' * installed * '로 변경합니다.
+
+
+.. 도구를 다시 설치하거나 업그레이드합니다.
+
+
+

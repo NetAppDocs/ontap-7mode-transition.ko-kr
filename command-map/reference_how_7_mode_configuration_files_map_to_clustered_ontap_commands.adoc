@@ -1,0 +1,123 @@
+---
+permalink: command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, configuration, files, clustered, data, ontap 
+summary: 7-Mode로 운영되는 Data ONTAP에서는 일반적으로 플랫 파일을 사용하여 스토리지 시스템을 구성합니다. Clustered Data ONTAP에서는 구성 명령을 사용합니다. 7-Mode 구성 파일이 clustered Data ONTAP 구성 명령에 매핑되는 방법을 알고 있어야 합니다. 
+---
+= 7-Mode 구성 파일이 clustered Data ONTAP 명령에 매핑되는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode로 운영되는 Data ONTAP에서는 일반적으로 플랫 파일을 사용하여 스토리지 시스템을 구성합니다. Clustered Data ONTAP에서는 구성 명령을 사용합니다. 7-Mode 구성 파일이 clustered Data ONTAP 구성 명령에 매핑되는 방법을 알고 있어야 합니다.
+
+|===
+| 7-Mode 구성 파일 | clustered Data ONTAP 구성 명령 
+
+
+ a| 
+'/etc/cifs_homedir.cfg'
+ a| 
+'vserver cifs home-directory search-path'
+
+
+
+ a| 
+'/etc/exports'
+ a| 
+'vserver export-policy'입니다
+
+
+
+ a| 
+'/etc/hosts'
+ a| 
+'vserver services dns hosts'
+
+
+
+ a| 
+'/etc/hosts.equv'
+ a| 
+해당 없음.
+
+'Security login' 명령어는 사용자 접속 프로필을 생성한다.
+
+
+
+ a| 
+'/etc/messages'
+ a| 
+이벤트 로그 쇼
+
+
+
+ a| 
+'/etc/mott'
+ a| 
+'보안 로그인 모드 수정'
+
+
+
+ a| 
+'/etc/nsswitch.conf'
+ a| 
+'vserver modify(가상 서버 수정)'
+
+
+
+ a| 
+'/etc/rc'
+ a| 
+Clustered Data ONTAP에서 부팅 시 처리된 노드 구성 정보의 보존은 구성 정보가 저장된 다른 내부 파일로 전송됩니다.
+
+7-Mode로 작동하는 Data ONTAP에서는 메모리에 구성된 기능도 부팅 및 재구성 시 재생되도록 '/etc/rc' 파일에 유지됩니다.
+
+
+
+ a| 
+'/etc/quotas'
+ a| 
+볼륨 할당량
+
+
+
+ a| 
+'/etc/resolv.conf'
+ a| 
+SVM 서비스 DNS 수정
+
+
+
+ a| 
+'/etc/snapmirror.allow'
+ a| 
+인터클러스터 관계는 두 클러스터 간에 존재합니다.
+
+클러스터 내 관계는 동일한 클러스터에 있는 두 노드 간에 존재합니다. 원격 클러스터의 인증은 클러스터 피어링 관계를 생성하는 동안 수행됩니다.
+
+클러스터 내 '스냅샷 생성' 명령은 클러스터 관리자만 수행할 수 있으며 SVM(스토리지 가상 시스템) 보안별로 적용할 수 있습니다.
+
+
+
+ a| 
+'/etc/snapmirror.conf'
+ a| 
+스냅미러 생성
+
+
+
+ a| 
+'/etc/symlink.translations'
+ a| 
+'vserver cifs symlink'
+
+
+
+ a| 
+'/etc/usermap.cfg'
+ a| 
+'vserver name-mapping create'
+
+|===

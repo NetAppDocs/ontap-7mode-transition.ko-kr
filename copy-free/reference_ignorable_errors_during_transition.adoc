@@ -1,0 +1,244 @@
+---
+permalink: copy-free/reference_ignorable_errors_during_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, ignorable, errors 
+summary: 전환 중에 다소 무 난한 오류가 발생할 수 있습니다. 이러한 오류는 복사 없는 전환 프로젝트의 사전 점검, 케이블 연결, 가져오기 또는 커밋 작업 중에 발생할 수 있습니다. 전환을 계속하기 전에 이러한 오류를 확인해야 합니다. 
+---
+= 전환 중에 오류가 발생합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 중에 다소 무 난한 오류가 발생할 수 있습니다. 이러한 오류는 복사 없는 전환 프로젝트의 사전 점검, 케이블 연결, 가져오기 또는 커밋 작업 중에 발생할 수 있습니다. 전환을 계속하기 전에 이러한 오류를 확인해야 합니다.
+
+7-Mode Transition Tool CLI를 사용하여 복사를 사용하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 오류가 미치는 영향을 잘 이해하게 됩니다. 오류를 무시하고 전환 작업을 다시 실행해야 합니다. 이때 차단 오류는 경고 메시지로 바뀌고 오류는 ""확인됨""으로 표시됩니다. 경고로 전환을 계속할 수 있습니다.
+
+
+
+== PreCheck 작업: ignorable 오류 범주입니다
+
+|===
+| 범주 | 오류가 표시되는 경우 
+
+
+ a| 
+'ignore-source-not-multipath'
+ a| 
+7-Mode 디스크 쉘프는 다중 경로 구성이 아닙니다.
+
+
+
+ a| 
+'ignore-target-not-multipath'
+ a| 
+타겟 클러스터 노드의 디스크 쉘프가 다중 경로 구성에 없습니다.
+
+
+
+ a| 
+'ignore-source-storage-fault'
+ a| 
+7-Mode 디스크 쉘프에 약간의 장애가 있습니다('storage show fault' 명령의 출력에 표시됨).
+
+
+
+ a| 
+'ignore-target-storage-fault'
+ a| 
+타겟 클러스터 노드의 디스크 셸프에 장애가 있습니다('system node run-node_node_name_-command storage show fault' 명령의 출력에 표시됨).
+
+
+
+ a| 
+ignore-target-port-요건
+ a| 
+타겟 클러스터 노드에는 7-Mode 디스크 쉘프를 연결하는 데 사용할 수 있는 충분한 수의 포트가 없습니다.
+
+
+
+ a| 
+'무시-aggr-space-less-5%'
+ a| 
+7-Mode 애그리게이트의 여유 공간이 물리적 공간의 5% 미만이므로 7-Mode 애그리게이트는 공간이 부족합니다.
+
+
+
+ a| 
+'무시-논리적-공간-97% 이상-퍼센트'
+ a| 
+7-Mode 애그리게이트의 논리적 공간이 97% 이상 차 있으므로 공간이 부족합니다.
+
+
+
+ a| 
+'무시-aggr-snapshot-spill-more-than-4%'
+ a| 
+스냅샷 복사본이 스냅샷 복사본 예비공간에 할당된 공간보다 더 많은 공간을 차지하기 때문에 7-Mode 애그리게이트의 공간이 부족합니다.
+
+
+
+ a| 
+'89% 이상의 물리적 공간 유출 무시
+ a| 
+7-Mode 애그리게이트는 사용된 총 물리적 공간이 89% 이상이고, 스냅샷 복사본이 스냅샷 복사본 예비공간에 할당된 공간보다 더 많은 공간을 차지하기 때문에 공간이 부족합니다.
+
+
+
+ a| 
+파일 포함 무시
+ a| 
+7-Mode 볼륨의 공간 보장은 ONTAP에서 지원되지 않는 '파일'로 설정되어 있습니다.
+
+
+
+ a| 
+'무시-볼륨-장애인용-들것'
+ a| 
+볼륨의 공간 부족으로 인해 현재 볼륨의 공간 보장이 사용되지 않습니다.
+
+
+
+ a| 
+NFS-Qtree-익스포트됨
+ a| 
+7-Mode 시스템에는 qtree 엑스포트 규칙이 있습니다.
+
+이 오류를 확인하면 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간 qtree 엑스포트 규칙의 차이점을 이해했음을 의미합니다. 7-Mode 전환 툴에서 NFS 엑스포트 규칙을 적용한 후 몇 가지 수동 단계를 수행해야 할 수 있습니다.
+
+https://kb.netapp.com/support/index?page=content&id=8010371["NetApp KB 문서 8010371: qtree 레벨의 엑스포트를 사용하는 7MTT Precheck 10111 - 전환 7-Mode 볼륨의 경우"]
+
+
+
+ a| 
+'ignore-configuration-limits-check
+ a| 
+전환할 오브젝트 및 구성은 특정 제한을 초과합니다. 스토리지 컷오버에 오랜 시간이 걸릴 수 있으며 다운타임을 대비해야 합니다.
+
+https://kb.netapp.com/support/index?page=content&id=3014882["NetApp KB 문서 3014882: Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 위한 고려사항"]
+
+
+
+ a| 
+'ignore-cifs-ad-domain-mismatch'
+ a| 
+7-Mode Transition Tool은 7-Mode 시스템의 CIFS Active Directory 도메인이 타겟 SVM의 CIFS Active Directory 도메인과 다른 경우에도 CIFS 구성을 계속 전환합니다.
+
+7-Mode 시스템의 CIFS Active Directory 도메인과 타겟 SVM이 신뢰할 수 있는 도메인인지 확인해야 합니다. 그렇지 않으면 CIFS 구성을 타겟 SVM으로 전환할 수 없습니다.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["7-Mode에서 CIFS 서버의 Active Directory 도메인과 타겟 SVM이 다를 때 CIFS 구성을 전환하는 방법"]
+
+|===
+
+
+== 케이블 확인 작업: ignorable error categories
+
+|===
+| 범주 | 오류가 표시되는 경우 
+
+
+ a| 
+'ignore-missing-spare-disks'
+ a| 
+타겟 클러스터 노드에서 하나 이상의 7-Mode 스페어 디스크가 감지되지 않습니다.
+
+
+
+ a| 
+'ignore-missing-degraded-aggr-disks'
+ a| 
+타겟 클러스터 노드의 7-Mode RAID-DP RAID 그룹 중 하나 또는 7-Mode RAID-4 RAID 그룹의 디스크에서 최대 2개의 디스크를 검색할 수 없습니다.
+
+애그리게이트가 전환된 후에도 애그리게이트가 성능 저하 상태가 됩니다.
+
+|===
+
+
+== 가져오기 작업: ignorable error categories
+
+가져오기 작업 중에 복사를 수행하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 Data ONTAP에서 Aggregate 및 볼륨에 대해 몇 가지 수정 작업을 수행하고 차단 오류를 경고로 변경합니다.
+
+|===
+| 범주 | 오류가 표시되는 경우 | 오류가 확인되고 가져오기 작업이 다시 실행되는 경우 수정 조치를 수행합니다 
+
+
+ a| 
+'ignore-aggregates-with-32bit-snapshot-for import'를 참조하십시오
+ a| 
+32비트 스냅샷 복사본이 7-Mode 애그리게이트에서 감지됩니다.
+ a| 
+32비트 스냅샷 복사본이 이 프로젝트에 속한 모든 7-Mode 애그리게이트에서 삭제됩니다.
+
+
+
+ a| 
+전이가 더럽고 집도-수입중
+ a| 
+전환 중인 Aggregate 중 하나가 7-Mode 스토리지 시스템에서 완전히 종료되지 않았습니다.
+ a| 
+완전히 종료되지 않은 7-Mode 애그리게이트는 모두 전환되어 전환 후 데이터 손실이 발생할 수 있습니다.
+
+
+
+ a| 
+'Ignore-aggregate-not-online-for import'
+ a| 
+7-Mode 스토리지 시스템이 중지되었을 때 애그리게이트는 온라인 상태가 아닙니다.
+ a| 
+모든 오프라인 애그리게이트가 온라인 상태로 전환됩니다.
+
+
+
+ a| 
+'imore-volumes-with-32bit-snapshot-for-import
+ a| 
+32비트 스냅샷 복사본이 7-Mode 볼륨에서 감지됩니다.
+ a| 
+32비트 스냅샷 복사본이 이 프로젝트에 속한 모든 7-Mode 볼륨에서 삭제됩니다.
+
+
+
+ a| 
+'imore-volumes-with-dirty-file-system-for import
+ a| 
+전환 중인 볼륨 중 하나가 7-Mode 스토리지 시스템에서 완전히 종료되지 않았습니다.
+ a| 
+완전히 종료되지 않은 7-Mode 볼륨은 모두 전환되어 전환 후 데이터가 손실될 수 있습니다.
+
+
+
+ a| 
+전환-오프라인-볼륨-가져오기 중
+ a| 
+7-Mode 스토리지 시스템이 중지되었을 때 볼륨이 온라인 상태가 아닙니다.
+ a| 
+모든 오프라인 볼륨이 온라인 상태가 됩니다.
+
+
+
+ a| 
+가져오기 중 전이 제한 볼륨
+ a| 
+7-Mode 스토리지 시스템이 중지되었을 때 볼륨이 제한된 상태에 있었습니다.
+ a| 
+제한된 모든 볼륨이 온라인으로 전환됩니다.
+
+|===
+
+
+== 커밋 작업: ignorable 오류 범주입니다
+
+커밋 작업 중에 복사를 수행하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 ONTAP은 차단 오류를 경고로 변경하는 것 외에도 애그리게이트와 볼륨에 대해 몇 가지 수정 조치를 수행합니다.
+
+|===
+| 범주 | 오류가 표시되는 경우 | 오류가 확인되고 커밋 작업이 다시 실행되는 경우 수정 조치를 수행합니다 
+
+
+ a| 
+'ignore-commit-offline-aggregate'
+ a| 
+전환된 애그리게이트 중 일부는 오프라인 상태입니다.
+ a| 
+모든 오프라인 애그리게이트가 온라인 상태로 전환됩니다.
+
+|===

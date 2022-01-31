@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, san, boot, lun 
+summary: SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계에 들어가기 전에 몇 가지 필수 조건을 숙지해야 합니다. 
+---
+= SAN 부팅 LUN을 전환할 때 컷오버 단계를 준비합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계에 들어가기 전에 몇 가지 필수 조건을 숙지해야 합니다.
+
+FC 구성을 위해서는 clustered Data ONTAP 컨트롤러에 대한 패브릭 연결 및 조닝(zoning)이 있어야 합니다. iSCSI 구성의 경우, iSCSI 세션을 검색한 후 clustered Data ONTAP 컨트롤러에 로그인해야 합니다. 호스트를 종료해야 합니다.
+
+* 복사 기반의 전환의 경우, 7-Mode 전환 툴(7MTT)에서 스토리지 컷오버 작업을 시작하기 전에 호스트를 종료해야 합니다. HP-UX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+* 무복사 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 작업을 시작하기 전에 호스트를 종료해야 합니다.
+

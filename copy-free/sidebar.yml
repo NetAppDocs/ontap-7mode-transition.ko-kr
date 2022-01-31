@@ -1,0 +1,210 @@
+---
+section: copy-free
+title: 복사 없는 전환
+url: "/copy-free/index.html"
+entries:
+- title: 전환 개요
+  url: "/copy-free/concept_transition_overview.html"
+  entries:
+  - title: 7-Mode 전환 툴을 사용하여 무복제 전환
+    url: "/copy-free/concept_copy_free_transition_using_7mtt.html"
+  - title: 전환 용어
+    url: "/copy-free/concept_transition_terminology.html"
+- title: 재고 정보 수집 및 평가
+  url: "/copy-free/concept_collecting_and_assessing_inventory_information.html"
+  entries:
+  - title: 전환 평가를 위한 스토리지, 호스트 및 FC 스위치 버전 요구사항
+    url: "/copy-free/concept_storage_and_host_version_requirements.html"
+  - title: 전환 평가를 위한 7-Mode 시스템 및 호스트 준비
+    url: "/copy-free/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: 컨트롤러 및 호스트 평가
+    url: "/copy-free/task_assessing_controllers_and_hosts.html"
+    entries:
+    - title: 7-Mode 전환 툴에 시스템을 추가하여 평가 보고서 생성
+      url: "/copy-free/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html"
+    - title: 재고 보고서 XML을 가져와 평가 보고서 생성
+      url: "/copy-free/task_generating_an_assessment_report_by_importing_inventory_report_xml.html"
+  - title: FC 존 계획을 생성하는 중입니다
+    url: "/copy-free/task_generating_fc_zone_plan.html"
+    entries:
+    - title: FC 존 계획 생성을 위한 지원 구성
+      url: "/copy-free/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 전환 평가를 위한 평가 핵심 요약 활용 방법
+    url: "/copy-free/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html"
+- title: 복사 없는 전환 워크플로우
+  url: "/copy-free/task_copy_free_transition_workflow.html"
+  entries:
+  - title: 복사 없는 전환 단계
+    url: "/copy-free/concept_phases_of_copy_free_transition.html"
+- title: 복사 없는 전환을 준비하는 중입니다
+  url: "/copy-free/concept_preparing_for_migration.html"
+  entries:
+  - title: 무복사 전환에 대한 요구 사항
+    url: "/copy-free/concept_requirements_for_copy_free_transition.html"
+  - title: 복사 없는 전환을 위해 필요한 툴 및 문서
+    url: "/copy-free/reference_required_tools_and_documentation.html"
+  - title: 7-Mode Transition Tool과 통신하기 위한 포트 요구사항
+    url: "/copy-free/concept_port_requirements_for_communicating_with_7mtt.html"
+  - title: 전환을 위해 7-Mode HA 쌍 준비
+    url: "/copy-free/task_preparing_7_mode_system_for_transition.html"
+  - title: 7-Mode 시스템에서 복사 없이 전환을 위해 SP 또는 RLM 설정
+    url: "/copy-free/task_setting_up_sp_or_rlm_for_transition.html"
+  - title: 전환을 위한 네트워크 준비
+    url: "/copy-free/task_preparing_your_network_for_transition.html"
+    entries:
+    - title: 7-Mode IP 주소의 전환을 위한 고려 사항
+      url: "/copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html"
+  - title: 클러스터를 전환 준비 중입니다
+    url: "/copy-free/task_preparing_cluster_for_transition.html"
+  - title: 전환을 위한 케이블 정보를 수집하는 중입니다
+    url: "/copy-free/task_gathering_cabling_information_for_transition.html"
+    entries:
+    - title: 복사 없는 전환 케이블링 워크시트
+      url: "/copy-free/reference_copy_free_transition_cabling_worksheet.html"
+  - title: 전환을 위해 7-Mode 애그리게이트 및 볼륨 준비
+    url: "/copy-free/task_preparing_7_mode_volumes_and_aggregates_for_transition.html"
+    entries:
+    - title: 7-Mode 애그리게이트 및 볼륨의 전환 제한
+      url: "/copy-free/concept_restrictions_for_copy_free_transition.html"
+    - title: 32비트 애그리게이트를 사용하는 7-Mode 시스템의 전환을 준비
+      url: "/copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html"
+      entries:
+      - title: 64비트 형식으로 애그리게이트 확장
+        url: "/copy-free/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html"
+      - title: 32비트 볼륨 및 스냅샷 복사본 찾기 및 제거
+        url: "/copy-free/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html"
+    - title: 전환을 위한 애그리게이트 공간 요구사항
+      url: "/copy-free/concept_aggregate_space_considerations_during_transition.html"
+  - title: 이름 서비스 전환 준비 중
+    url: "/copy-free/concept_preparing_for_name_services_transition.html"
+    entries:
+    - title: '이름 서비스 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계'
+      url: "/copy-free/concept_supported_and_unsupported_name_services_configurations.html"
+    - title: DNS, NIS 및 LDAP 구성을 전환하기 위한 고려 사항
+      url: "/copy-free/concept_considerations_for_transitioning_dns_and_ldap_configurations.html"
+    - title: Netgroup 및 UNIX 사용자 및 그룹 전환에 대한 고려 사항
+      url: "/copy-free/concept_considerations_for_transitioning_unix_users_and_groups.html"
+  - title: NFS 전환 준비 중
+    url: "/copy-free/concept_preparing_for_nfs_transition.html"
+    entries:
+    - title: NFS 구성 전환을 위한 사전 요구사항
+      url: "/copy-free/concept_prerequisites_to_transition_nfs_configurations.html"
+    - title: 'NFS 전환: 지원되는 구성과 지원되지 않는 구성, 필요한 수동 단계'
+      url: "/copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: NFS 내보내기의 전환 방법
+      url: "/copy-free/concept_how_nfs_exports_are_transitioned.html"
+  - title: SMB/CIFS 전환 준비
+    url: "/copy-free/concept_preparing_for_cifs_transition.html"
+    entries:
+    - title: CIFS 구성을 전환하기 위한 사전 요구 사항
+      url: "/copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html"
+    - title: ONTAP로의 전환을 위해 지원 및 지원되지 않는 CIFS 구성
+      url: "/copy-free/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: CIFS 로컬 사용자 및 그룹을 전환하기 위한 고려 사항
+      url: "/copy-free/concept_considerations_for_local_users_and_groups_transition.html"
+  - title: SAN 전환 준비 중
+    url: "/copy-free/task_preparing_for_san_transition.html"
+    entries:
+    - title: 전환 전에 SAN LIF를 생성합니다
+      url: "/copy-free/task_creating_san_lifs_before_transition.html"
+    - title: FC 존 계획을 사용하여 존 구성
+      url: "/copy-free/task_configuring_zones_by_using_fc_zone_plan.html"
+    - title: 전환을 위한 SAN 호스트 준비
+      url: "/copy-free/task_preparing_san_hosts_for_transition.html"
+    - title: 'SAN 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계'
+      url: "/copy-free/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html"
+    - title: SAN 볼륨을 전환할 때의 공간 고려 사항
+      url: "/copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html"
+  - title: 전환을 위한 데이터 보호 기능 준비
+    url: "/copy-free/concept_preparing_data_protection_features_for_transition.html"
+    entries:
+    - title: 볼륨 SnapMirror 관계를 전환하기 위한 클러스터 준비
+      url: "/copy-free/task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.html"
+    - title: '데이터 보호 전환: 지원 구성 및 지원되지 않는 구성'
+      url: "/copy-free/concept_supported_and_unsupported_data_protection_relationships.html"
+- title: 복사 없는 전환을 사용하여 7-Mode 애그리게이트를 전환할 수 있습니다
+  url: "/copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html"
+  entries:
+  - title: 복사를 사용하지 않는 전환 프로젝트 계획
+    url: "/copy-free/task_planning_a_copy_free_transition_project.html"
+    entries:
+    - title: 복사를 사용하지 않는 전환 프로젝트 계획 워크시트
+      url: "/copy-free/reference_copy_free_transition_project_planning_worksheet.html"
+    - title: 컨트롤러 및 클러스터 추가
+      url: "/copy-free/task_adding_controllers_and_clusters.html"
+    - title: 복사 없는 전이 프로젝트 작성
+      url: "/copy-free/task_selecting_source_7_mode_systems_for_transition.html"
+    - title: 전환할 타겟 클러스터 노드 선택
+      url: "/copy-free/task_selecting_target_cluster_for_transition.html"
+    - title: SVM 및 볼륨 매핑
+      url: "/copy-free/task_svm_and_volume_mapping.html"
+    - title: 전환할 LIF 선택
+      url: "/copy-free/task_selecting_lifs_to_transition.html"
+    - title: 7-Mode 구성의 전환 사용자 지정
+      url: "/copy-free/task_customizing_configurations_for_transition.html"
+      entries:
+      - title: 전환을 위한 NFS 엑스포트 규칙 및 스냅샷 일정 통합의 예
+        url: "/copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html"
+    - title: 사전 점검 실행
+      url: "/copy-free/task_running_prechecks.html"
+      entries:
+      - title: 사전 확인 메시지의 심각도 수준입니다
+        url: "/copy-free/concept_severity_levels_for_precheck_messages.html"
+  - title: SVM 구성 적용
+    url: "/copy-free/task_applying_svm_configurations.html"
+  - title: 7-Mode 시스템의 컷오버 준비 상태 확인
+    url: "/copy-free/task_verifying_readiness_for_cutover.html"
+  - title: 스토리지 구성 내보내기 및 7-Mode 시스템 중지
+    url: "/copy-free/task_exporting_7_mode_system_and_hardware_information.html"
+  - title: 7-Mode 시스템에서 디스크 쉘프의 연결을 끊고 클러스터 노드에 연결합니다
+    url: "/copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html"
+  - title: 7-Mode 데이터를 ONTAP로 가져오는 중입니다
+    url: "/copy-free/task_importing_7_mode_data_to_clustered_ontap.html"
+- title: 전이를 완료합니다
+  url: "/copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html"
+  entries:
+  - title: 사전 프로덕션 테스트 중 제한 사항
+    url: "/copy-free/concept_restrictions_during_preproduction_testing.html"
+  - title: 전환된 볼륨을 다른 SVM으로 재호스팅
+    url: "/copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html"
+  - title: 전환된 구성 확인
+    url: "/copy-free/task_verifying_transition_configurations.html"
+  - title: 전환 후 수동 구성 작업 수행
+    url: "/copy-free/task_performing_manual_configuration_tasks.html"
+  - title: 워크로드 및 애플리케이션 테스트
+    url: "/copy-free/task_testing_workloads_and_applications.html"
+  - title: 복사 없는 전환 프로젝트 커밋
+    url: "/copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html"
+- title: SnapMirror 관계 전환
+  url: "/copy-free/task_transitioning_a_snapmirror_relationship.html"
+  entries:
+  - title: 시차 구성에서 SnapMirror 관계에서 HA 쌍을 전환
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_staggered_way.html"
+  - title: SnapMirror 관계의 운영 및 2차 시스템을 병렬로 전환
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_parallel.html"
+- title: 전환 문제 해결
+  url: "/copy-free/concept_troubleshooting_transition_issues.html"
+  entries:
+  - title: 오류가 발생할 경우 전환을 계속합니다
+    url: "/copy-free/task_acknowledging_errors_to_continue_with_transition.html"
+    entries:
+    - title: 전환 중에 오류가 발생합니다
+      url: "/copy-free/reference_ignorable_errors_during_transition.html"
+  - title: 전환 로그 파일을 다운로드하는 중입니다
+    url: "/copy-free/task_collecting_tool_logs.html"
+  - title: 7-Mode 전환 툴의 로그 파일
+    url: "/copy-free/concept_log_files_for_7mtt.html"
+  - title: 장애가 발생한 LUN 전환 복구
+    url: "/copy-free/task_recovering_from_a_failed_lun_transition.html"
+  - title: 7-Mode 컨트롤러를 유지보수 모드로 부팅하지 못했습니다
+    url: "/copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html"
+- title: 7-Mode로 전환 롤백 수행
+  url: "/copy-free/concept_reverting_a_copy_free_transition_project.html"
+  entries:
+  - title: 전환 시점 및 기술 지원 부서에 언제 전화해야 하는 경우
+    url: "/copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html"
+  - title: 복사 없는 전환 프로젝트를 롤백하는 중입니다
+    url: "/copy-free/task_performing_a_transition_rollback.html"
+    entries:
+    - title: 수동으로 전환을 롤백합니다
+      url: "/copy-free/task_running_manual_steps_for_rolling_back_transition.html"

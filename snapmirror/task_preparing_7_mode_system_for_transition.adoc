@@ -1,0 +1,53 @@
+---
+permalink: snapmirror/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, system, snapmirror 
+summary: 전환을 시작하기 전에 7-Mode 시스템에서 SnapMirror 라이센스 및 7-Mode 시스템을 추가하여 타겟 클러스터와 통신하는 것과 같은 특정 작업을 완료해야 합니다. 
+---
+= 전환을 위해 7-Mode 시스템 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 시작하기 전에 7-Mode 시스템에서 SnapMirror 라이센스 및 7-Mode 시스템을 추가하여 타겟 클러스터와 통신하는 것과 같은 특정 작업을 완료해야 합니다.
+
+전환할 모든 7-Mode 볼륨은 온라인 상태여야 합니다.
+
+.단계
+. 7-Mode 시스템에서 SnapMirror 라이센스를 추가하고 사용하도록 설정합니다.
++
+.. 7-Mode 시스템에 SnapMirror 라이센스를 추가합니다.
++
+' * license add_license_code_ * '
+
++
+'_license_code_'는 구입한 라이센스 코드입니다.
+
+.. SnapMirror 기능 활성화:
++
+' * options SnapMirror.enable on * '
+
+
+
+. 다음 옵션 중 하나를 선택하여 7-Mode 시스템과 타겟 클러스터가 서로 통신하도록 구성합니다.
++
+** 'napmirror.access' 옵션을 모두 로 설정합니다.
+** 클러스터에 있는 모든 LIF의 IP 주소에 대해 'napmirror.access' 옵션의 값을 설정합니다.
+** 'napMirror.access' 옵션이 'legacy'이고 'napmirror.checkip.enable` 옵션이 'off'인 경우 SVM 이름을 '/etc/snapmirror.allow' 파일에 추가합니다.
+** napmirror.access 옵션이 legacy 이고 snapmirror.checkip.enable` 옵션이 on인 경우, LIF의 IP 주소를 `/etc/snapmirror.allow' 파일에 추가합니다.
+
+
+. 7-Mode 시스템의 Data ONTAP 버전에 따라 다음 단계를 수행하십시오.
++
+.. 모든 인터페이스에서 SnapMirror 트래픽 허용:
++
+"* 옵션 인터페이스. 차단됨. SnapMirror""*"
+
+.. Data ONTAP 버전 7.3.7, 8.0.3 또는 8.1을 실행 중이고 e0M 인터페이스의 IP 주소를 관리 IP 주소로 사용하여 7-Mode 전환 툴과 상호 작용하는 경우 e0M 인터페이스에서 데이터 트래픽을 허용합니다.
++
+' * options interface.blocked.mgmt_data_traffic off * '
+
+
+
+

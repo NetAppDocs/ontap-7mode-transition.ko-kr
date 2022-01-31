@@ -1,0 +1,64 @@
+---
+permalink: copy-based/task_applying_configurations_to_ontap_volumes.html 
+sidebar: sidebar 
+keywords: apply, configuration, ontap, copy, based, transition 
+summary: '기본 데이터 복사가 완료되면 7-Mode 시스템(프로토콜 및 서비스 구성 포함\)에서 모든 NAS 구성을 ONTAP 볼륨에 복사 및 적용할 수 있습니다. 타겟 클러스터에서 Data ONTAP 8.3.2 이상이 실행 중인 경우 SAN 구성이 이 단계에서 전환되었습니다.' 
+---
+= ONTAP 볼륨에 구성을 적용하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 데이터 복사가 완료되면 7-Mode 시스템(프로토콜 및 서비스 구성 포함)의 모든 NAS 구성을 ONTAP 볼륨에 복사 및 적용할 수 있습니다. 타겟 클러스터에서 Data ONTAP 8.3.2 이상이 실행 중인 경우 SAN 구성이 이 단계에서 전환되었습니다.
+
+* 사전 컷오버 단계에 적용되는 구성에는 사전 컷오버 읽기 전용 모드와 사전 컷오버 읽기/쓰기 모드의 두 가지 모드가 있습니다.
+* 프로젝트에 다음이 포함된 경우 precutover 읽기/쓰기 모드가 지원되지 않습니다.
++
+** SAN 볼륨과 타겟 클러스터에서 Data ONTAP 8.3.1 이상이 실행되고 있습니다. 이 경우 precutover 단계에서는 다음 구성이 적용되지 않고 컷오버 단계에서 적용됩니다.
++
+*** SAN 구성
+*** Snapshot Schedule 구성
+
+
+** SnapLock Compliance 볼륨.
++
+프로젝트에 SnapLock 규정 준수 볼륨이 포함되어 있으면 스냅샷 일정 구성이 사전 컷오버 단계에 적용되지 않고 컷오버 단계에서 이러한 구성이 적용됩니다.
+
++
+을 참조하십시오 xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[SnapLock 규정 준수 볼륨의 전환을 위한 고려 사항].
+
+
+
+* 타겟 클러스터에서 Data ONTAP 8.3.1 이전 버전이 실행되고 있는 경우, 프로젝트에 LUN이 포함된 볼륨이 있으면 사전 컷오버 중에 읽기/쓰기 모드가 지원되지 않습니다.
+* 타겟 클러스터에서 Data ONTAP 8.3.1 이하가 실행되고 있고 프로젝트에 SAN 볼륨과 NAS 볼륨이 모두 포함되어 있는 경우 사전 컷오버 단계에서 NAS 구성만 전환되며, 이러한 NAS 구성은 읽기 전용 모드에서만 테스트할 수 있습니다.
++
+SAN 구성은 스토리지 컷오버 단계에서만 전환됨
+
++
+
+NOTE: SAN LIF가 구성되지 않았습니다.
+
+* 타겟 클러스터에서 Data ONTAP 8.3.1 이상이 실행되고 프로젝트에 SAN 볼륨이 포함되어 있는 경우 적용 구성(사전 컷오버) 단계 중에 스냅샷 일정 구성이 적용되지 않습니다.
++
+이러한 구성은 컷오버 단계에서 적용됩니다.
+
+* 타겟 클러스터에서 Data ONTAP 8.3.1 이상이 실행되고 프로젝트에 SAN 볼륨이 포함되어 있는 경우 적용 구성(사전 컷오버) 단계 중에 스냅샷 일정 구성이 적용되지 않습니다.
++
+이러한 구성은 컷오버 단계에서 적용됩니다.
+
+
+
+.단계
+* 다음 읽기 전용 모드에서 전환 작업을 실행합니다.
++
+'* 전이 CBT precutover -p_project_name_-m ro_test -c_max_cap_concurrent_transfers_-b_SnapMirror_throttle_ * '
+
+* 읽기/쓰기 모드에서 전환 작업을 실행합니다.
++
+.. ONTAP:+' * transition CBT precutover -p_project_name_-m rw_test -c_max_cap_concurrent_transfers_-b_SnapMirror_throttle_ *'에 구성을 적용합니다
+.. ONTAP에서 구성을 수동으로 테스트하고 확인합니다.
+.. 재동기화 작업 시작: + `* 전환 CBT 재동기화 - p_project_name_ * '
+
+
+

@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html 
+sidebar: sidebar 
+keywords: esxi, configured, boot, ontap, san, host, transition 
+summary: ESXi 호스트가 7-Mode에서 작동하는 Data ONTAP에서 전환하기 전에 SAN 부팅에 대해 구성된 경우 전환 후 호스트를 사용하기 전에 몇 가지 단계를 수행해야 합니다. 
+---
+= 전환 후 SAN 부팅에 대해 구성된 ESXi 호스트를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ESXi 호스트가 7-Mode에서 작동하는 Data ONTAP에서 전환하기 전에 SAN 부팅에 대해 구성된 경우 전환 후 호스트를 사용하기 전에 몇 가지 단계를 수행해야 합니다.
+
+* 복사본 기반 전환의 경우 7MTT에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 시스템 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. Clustered Data ONTAP 시스템의 SAN 부팅 LUN에서 부팅하도록 FC 및 FCoE HBA BIOS를 재구성합니다.
+. ESXi 호스트를 부팅합니다.
+. 호스트 구성을 전환 전 설정으로 재설정합니다.
+. iSCSI 호스트의 경우 VMware iSCSI 이니시에이터를 재구성하는 방법을 참조하십시오.
++
+xref:concept_reconfiguration_of_vmware_software_iscsi_initiator.adoc[VMware iSCSI 이니시에이터를 재구성합니다]
+
+. 기본 설치에서 부팅 LUN에서 생성된 VMFS 데이터 저장소를 다시 마운트합니다.
+
+
+* 관련 정보 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSphere Client를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 관리"]

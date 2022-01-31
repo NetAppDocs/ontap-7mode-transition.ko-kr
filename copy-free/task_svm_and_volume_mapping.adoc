@@ -1,0 +1,77 @@
+---
+permalink: copy-free/task_svm_and_volume_mapping.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, map, svm, volumes 
+summary: HA 쌍의 각 7-Mode 컨트롤러를 타겟 SVM에 매핑해야 합니다. vFiler 유닛이 있는 경우 각 vFiler 유닛에 대해 타겟 SVM을 선택해야 합니다. 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환됩니다. 
+---
+= SVM 및 볼륨 매핑
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HA 쌍의 각 7-Mode 컨트롤러를 타겟 SVM에 매핑해야 합니다. vFiler 유닛이 있는 경우 각 vFiler 유닛에 대해 타겟 SVM을 선택해야 합니다. 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환됩니다.
+
+타겟 클러스터에 SVM을 생성해야 합니다.
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["System Manager를 사용하여 클러스터 관리"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
+
+vFiler 유닛은 단일 SVM에만 매핑할 수 있습니다. 다른 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환될 수 없습니다.
+
+.단계
+. SVM 및 볼륨 매핑 탭에서 각 7-Mode 컨트롤러 또는 vFiler 유닛에서 볼륨을 전환할 대상 SVM을 선택합니다.
++
+타겟 SVM이 기본 IPspace 또는 비 기본 IPspace에 있을 수 있습니다.
+
+. 모든 SVM의 볼륨에 동일한 접합 경로 정책을 적용할지, 각 SVM의 볼륨에 서로 다른 접합 경로 정책을 적용할지 여부에 따라 다음 작업 중 하나를 선택합니다.
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+모든 SVM에 동일한 접합 경로 정책을 적용합니다
+ a| 
+.. 적용 * 을 클릭합니다.
+.. 접합 경로 정책에 대한 옵션을 선택합니다.
+.. 확인 * 을 클릭합니다.
+
+
+
+
+ a| 
+각 SVM에 대해 접합 경로 정책을 지정합니다
+ a| 
+각 타겟 SVM의 드롭다운 목록에서 접합 경로 정책을 선택합니다.
+
+|===
++
+접합 경로 정책은 클라이언트 액세스를 위해 타겟 clustered Data ONTAP 볼륨을 마운트해야 하는 경로를 지정합니다. 접합 경로 정책에 대해 다음 값 중 하나를 추가할 수 있습니다.
+
++
+** * 7-Mode 마운트 경로 보존 *
++
+소스 7-Mode 볼륨에서 사용 중인 것과 동일한 접합 경로를 유지하며, 전환 후 접합 경로로 '/vol/__source_volume_name_' 형식을 사용합니다.
+
+** * clustered Data ONTAP 볼륨 이름 사용 *
++
+모든 타겟 clustered Data ONTAP 볼륨은 전환 후 clustered Data ONTAP 볼륨 이름이 '_/target_volume_name_' 형식으로 된 접합 경로로 마운트됩니다.
+
+** * 7-Mode 볼륨 이름 사용 *
++
+모든 타겟 clustered Data ONTAP 볼륨은 전환 후 7-Mode 볼륨 이름의 접합 경로로 '_/source_volume_name_' 형식으로 마운트됩니다.
+
+
+
+. 을 클릭합니다 image:../media/delete_me_edit_schedule.gif["편집 아이콘"] 대상 clustered Data ONTAP 볼륨의 이름을 수정하려면 다음을 수행합니다.
++
+기본적으로 타겟 clustered Data ONTAP 볼륨의 이름은 7-Mode 볼륨과 동일합니다. 7-Mode 볼륨과 동일한 이름의 볼륨이 SVM에 이미 있는 경우 타겟 볼륨에 새 이름이 자동으로 할당됩니다.
+
+. 매핑된 각 SVM에 대해 * 매핑 저장 * 을 클릭합니다.
+. 다음 * 을 클릭합니다.
++
+네트워킹 화면이 표시됩니다.
+
+

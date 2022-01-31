@@ -1,0 +1,125 @@
+---
+permalink: copy-based/task_applying_7_mode_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, apply, 7, mode, configuration 
+summary: '기본 데이터 복사가 완료되면 7-Mode 시스템(프로토콜 및 서비스 구성 포함)의 모든 구성을 ONTAP 볼륨에 복사 및 적용할 수 있습니다. 타겟 클러스터가 ONTAP 8.3.2 이상 지원되는 릴리즈를 실행 중인 경우 SAN 구성이 이 단계에서 전환됩니다.' 
+---
+= 7-Mode 구성을 적용하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 데이터 복사가 완료되면 7-Mode 시스템(프로토콜 및 서비스 구성 포함)의 모든 구성을 ONTAP 볼륨에 복사 및 적용할 수 있습니다. 타겟 클러스터가 ONTAP 8.3.2 이상 지원되는 릴리즈를 실행 중인 경우 SAN 구성이 이 단계에서 전환됩니다.
+
+SAN 볼륨을 전환하려는 경우 클러스터의 모든 노드에 대해 적절한 프로토콜(iSCSI 또는 FC)의 데이터 LIF를 하나 이상 생성해야 합니다.
+
+* 구성은 사전 컷오버 읽기 전용 모드와 사전 컷오버 읽기/쓰기 모드의 두 가지 모드가 있는 Apply Configuration(precutover 구성) 단계에서 적용됩니다.
+
+
+프로젝트에 다음이 포함된 경우 precutover 읽기/쓰기 모드가 지원되지 않습니다.
+
+* SAN 볼륨과 타겟 클러스터에서 Data ONTAP 8.3.1 이상이 실행되고 있습니다. 이 경우 precutover 단계에서는 다음 구성이 적용되지 않고 컷오버 단계에서 적용됩니다.
++
+** SAN 구성
+** Snapshot Schedule 구성
+
+
+* SnapLock Compliance 볼륨.
++
+프로젝트에 SnapLock 규정 준수 볼륨이 포함되어 있으면 스냅샷 일정 구성이 사전 컷오버 단계에 적용되지 않고 컷오버 단계에서 이러한 구성이 적용됩니다.
+
++
+을 참조하십시오 xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[SnapLock 규정 준수 볼륨의 전환을 위한 고려 사항].
+
+
+
+.단계
+. 대시보드에서 프로젝트를 선택합니다.
+. 설정 적용:
++
+|===
+| 의 모든 설정을 적용하려면... | 그러면... 
+
+
+ a| 
+읽기 전용 모드입니다
+ a| 
+Apply Configuration * 을 클릭합니다.
+
+
+
+ a| 
+읽기/쓰기 모드
+ a| 
+.. 테스트 모드 * 확인란을 선택합니다.
+.. Apply Configuration * 을 클릭합니다.
++
+ONTAP 볼륨은 읽기/쓰기로 만들어졌으며 구성 및 데이터 액세스 작업을 테스트할 수 있습니다.
+
+.. Apply Configuration (Precutover)(구성 적용(사전 컷오버)) 대화 상자에서 * Apply configuration in test mode * (테스트 모드에서 구성 적용)를 선택합니다.
+
+
+|===
+. SnapMirror 데이터 복사 작업 수와 스로틀 제한을 지정하려면 * 이 작업에 대한 동시 SnapMirror 전송 수 및 스로틀 제한 사용자 지정 * 확인란을 선택합니다.
++
+.. 전환 중에 실행할 최대 동시 SnapMirror 전송 수를 입력합니다.
+.. SnapMirror 전송에 사용할 수 있는 사용 가능한 스트림의 백분율을 입력합니다.
++
+기본적으로 이 툴은 사용 가능한 볼륨 SnapMirror 전송 중 50%를 사용합니다.
+
+.. 스로틀 한계를 입력하거나 * 최대 * 를 선택하여 최대 대역폭을 사용하십시오.
++
+기본적으로 이 도구는 구성 전환에 최대 스로틀을 사용합니다.
+
+
+
+. 전환 시 UNIX 기반 또는 Microsoft AD 기반 Kerberos 서버 구성 세부 정보를 제공하려면 * Transition Kerberos Configuration * 확인란을 선택합니다.
++
+
+NOTE: 이 옵션은 Kerberos가 소스 7-Mode 스토리지 시스템에 구성된 경우에만 활성화됩니다.
+
++
+.. 호스트 이름, IP 주소, 사용자 이름 및 암호와 같은 Kerberos 서버 세부 정보를 입력합니다.
++
+
+NOTE: Kerberos 구성을 이전하려면 적어도 하나의 LIF가 프로젝트의 일부로 전환되어야 하며 LIF는 호스트 이름으로 확인되어야 합니다.
+
+
+
+. 계속 * 을 클릭합니다.
++
+작업 진행 대화 상자가 표시되고 복사 구성 작업이 시작됩니다.
+
+. 구성 전환이 읽기/쓰기 모드로 수행되는 경우 구성 테스트 및 검증이 완료되면 * 테스트 완료 * 를 클릭합니다.
++
+이 모드는 테스트 목적으로만 사용해야 합니다. 테스트 모드 중에 마이그레이션 중인 볼륨의 클러스터에 기록된 모든 데이터가 손실됩니다.
+
++
+이 툴은 SnapMirror 관계를 재설정하고 해당 시점의 활성 일정에 따라 ONTAP 볼륨을 재동기화합니다. 7-Mode에 기록된 모든 데이터가 ONTAP 볼륨과 재동기화됩니다.
+
++
+
+NOTE: 재동기화가 성공적으로 수행되려면 7-Mode와 clustered Data ONTAP 볼륨 사이에 공통 스냅샷 복사본이 있어야 합니다. 공통 스냅샷 복제본을 수동으로 삭제하지 않아야 합니다. 그렇지 않으면 재동기화가 실패합니다.
+
+
+
+7-Mode IP 주소는 계속 작동합니다. LIF는 다음과 같은 방법으로 SVM(스토리지 가상 머신)에 구성됩니다.
+
+* 기존 7-Mode IP 주소는 관리 다운 상태에서 생성됩니다.
++
+스토리지 컷오버를 수행하는 동안 이들 IP 주소가 7-Mode 시스템에서 제거되고 해당 SVM(스토리지 가상 머신) LIF가 관리 상태로 전환됩니다. 사전 컷오버 읽기/쓰기 모드를 선택할 경우, 클러스터로 마이그레이션할 볼륨에 액세스할 수 있도록 다른 LIF를 사용해야 합니다.
+
+* 새 IP 주소는 관리 작동 상태로 생성됩니다.
++
+사전 오버 읽기/쓰기 모드를 선택하면 이러한 LIF를 사용하여 클러스터에서 마이그레이션되는 볼륨에 대한 액세스를 테스트할 수 있습니다.
+
+
+
+* 관련 정보 *
+
+xref:task_managing_logical_interfaces.adoc[논리 인터페이스 관리]
+
+xref:concept_considerations_for_quotas.adoc[할당량에 대한 고려 사항]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/전환된 Data ONTAP 기능"]

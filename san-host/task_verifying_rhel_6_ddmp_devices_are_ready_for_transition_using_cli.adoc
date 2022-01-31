@@ -1,0 +1,31 @@
+---
+permalink: san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, ddmp, devices, cli 
+summary: 'Red Hat Enterprise Linux\(RHEL\) 6 DMMP 장치를 전환하기 전에 LVM\(Logical Volume Manager)의 일부가 아니며 파일 시스템이 없는지 확인해야 합니다.' 
+---
+= CLI를 사용하여 RHEL 6 DDMP 디바이스를 전환할 준비가 되었는지 확인
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RHEL(Red Hat Enterprise Linux) 6 DMMP 장치를 전환하기 전에 LVM(Logical Volume Manager)의 일부가 아니며 파일 시스템이 없는지 확인해야 합니다.
+
+.단계
+. 재고 평가 워크북 _ 에서 전이가 완료된 정보를 수집합니다.
+. DMMP 디바이스가 '/dev/mapper' 디렉토리에 있는지 확인합니다.
++
+' * ls /dev/mapper/_DMMP_device_name_ * '
+
++
+DMMP 장치가 표시되지 않으면 장치가 별칭 또는 사용자 친화적인 이름을 사용하고 있을 수 있습니다.
+
+. DMMP 장치가 LVM에 속하는지 여부와 DMMP 장치에 파일 시스템이 있는지 여부를 확인합니다.
++
+``blkid *’
+
++
+DMMP 장치가 LVM의 일부가 아니며 파일 시스템이 없는 경우 디바이스 항목이 blkidoutput에 표시되지 않아야 합니다.
+
+

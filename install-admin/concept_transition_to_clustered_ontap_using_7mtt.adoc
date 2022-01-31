@@ -1,0 +1,17 @@
+---
+permalink: install-admin/concept_transition_to_clustered_ontap_using_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, transition, tool, clustered 
+summary: 7-Mode 전환 툴을 사용하면 7-Mode 컨트롤러, 호스트, 스위치, 애플리케이션의 인벤토리를 수집하고 clustered ONTAP으로 전환하기 위한 준비 상태를 평가할 수 있습니다. 평가 후에는 복사 기반의 전환 방법이나 복사 없는 전환 방법을 사용하여 7-Mode에서 clustered ONTAP으로 데이터와 구성을 마이그레이션할 수 있습니다. 7-Mode 전환 툴은 NetApp Support 사이트에서 다운로드하여 Linux 또는 Windows 시스템에 설치할 수 있습니다. 
+---
+= 7-Mode 전환 툴을 사용하여 clustered ONTAP으로 전환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴을 사용하면 7-Mode 컨트롤러, 호스트, 스위치, 애플리케이션의 인벤토리를 수집하고 clustered ONTAP으로 전환하기 위한 준비 상태를 평가할 수 있습니다. 평가 후에는 복사 기반의 전환 방법이나 복사 없는 전환 방법을 사용하여 7-Mode에서 clustered ONTAP으로 데이터와 구성을 마이그레이션할 수 있습니다. 7-Mode 전환 툴은 NetApp Support 사이트에서 다운로드하여 Linux 또는 Windows 시스템에 설치할 수 있습니다.
+
+지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보는 최신 7-Mode Transition Tool_Release Notes_를 참조하십시오.
+
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-Mode 전환 툴 릴리즈 노트"]

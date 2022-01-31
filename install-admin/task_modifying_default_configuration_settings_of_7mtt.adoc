@@ -1,0 +1,47 @@
+---
+permalink: install-admin/task_modifying_default_configuration_settings_of_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, modify, configuration, options, transition, tool 
+summary: $INSTALL_DIR\\ETC\\... 파일을 편집하여 7-Mode 전환 도구에서 사용되는 모든 구성 옵션을 수정할 수 있습니다. 이 파일에는 도구를 작동하는 데 필요한 모든 구성 가능한 옵션에 대한 정보가 들어 있습니다. 
+---
+= 7-Mode 전환 툴의 구성 옵션 수정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'$INSTALL_DIR\ETC\...' 파일을 편집하여 7-Mode 전환 도구에서 사용되는 모든 구성 옵션을 수정할 수 있습니다. 이 파일에는 도구를 작동하는 데 필요한 모든 구성 가능한 옵션에 대한 정보가 들어 있습니다.
+
+파일에는 다양한 옵션이 포함되어 있습니다. 예를 들어, 툴 서비스를 시작할 포트와 이 도구가 7-Mode 시스템 또는 클러스터와 통신하는 데 사용하는 포트를 지정할 수 있습니다.
+
+.단계
+. 7-Mode Transition Tool이 설치된 시스템에서 설치 디렉토리에서 '$install_DIR\etc\conf\transition-tool.conf' 파일을 연 다음 수정합니다.
++
+7-Mode 전환 툴이 7-Mode 시스템 및 클러스터와 통신하려면 포트 8443 또는 8088을 사용할 수 있어야 합니다. 포트 8443 또는 8088을 사용할 수 없거나 다른 포트를 사용하려면 transition-tool.conf 파일에서 tool.https.port 옵션에 지정된 포트를 변경해야 합니다. 포트 8088을 사용할 수 없거나 다른 포트를 사용하려면 transition-tool.conf 파일에서 tool.http.port 옵션에 지정된 포트를 변경해야 합니다.
+
+. 7-Mode Transition Tool 서비스를 다시 시작하여 새로운 값이 적용되도록 합니다.
++
+|===
+| 시스템 유형이 다음과 같은 경우 | 다음을 수행합니다. 
+
+
+ a| 
+Windows
+ a| 
+.. 시작 * > * 제어판 * > * 시스템 및 보안 * > * 관리 도구 * > * 서비스 * 를 클릭합니다.
+.. NetApp 7-Mode 전환 툴 * 서비스를 마우스 오른쪽 버튼으로 클릭한 다음 * Stop * 을 클릭합니다.
+.. NetApp 7-Mode 전환 툴 * 서비스를 다시 마우스 오른쪽 버튼으로 클릭하고 * 시작 * 을 클릭합니다.
+
+
+
+
+ a| 
+리눅스
+ a| 
+다음 명령을 실행합니다.
+
+'* 서비스 전환 - 서비스 재시작 * '
+
+|===
+. 7-Mode 전환 툴 서비스를 다시 시작한 후 7-Mode 시스템 및 클러스터 자격 증명을 다시 추가합니다.
+

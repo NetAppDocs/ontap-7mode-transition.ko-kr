@@ -1,0 +1,147 @@
+---
+permalink: copy-free/task_setting_up_sp_or_rlm_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, sp, rlm, system, set, up 
+summary: '서비스 프로세서\(SP\) 또는 원격 LAN 모듈\(RLM\)이 7-Mode 스토리지 시스템에서 아직 구성되지 않았거나 IPv6 주소로 SP 또는 RLM을 구성한 경우 IPv4 주소로 SP 또는 RLM을 구성해야 합니다.' 
+---
+= 7-Mode 시스템에서 복사 없이 전환을 위해 SP 또는 RLM 설정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SP(서비스 프로세서) 또는 RLM(원격 LAN 모듈)이 7-Mode 스토리지 시스템에서 아직 구성되지 않았거나 IPv6 주소로 SP 또는 RLM을 구성한 경우 IPv4 주소로 SP 또는 RLM을 구성해야 합니다.
+
+* SSHv2는 7-Mode Transition Tool이 설치된 호스트에서 지원되어야 합니다.
+* SP 또는 RLM ""naroot"" 계정이나 ""admin" 역할의 자격 증명 또는 ""login-sp"" 기능이 있는 Data ONTAP 사용자 계정에 액세스할 수 있어야 합니다.
+
+
+7-Mode Transition Tool은 SP 또는 RLM 중 플랫폼 모델을 기반으로 시스템에서 사용 가능한 원격 관리 장치를 사용하여 전환 중에 시스템이 정지될 때 7-Mode 시스템에 액세스합니다. SP 또는 RLM을 IPv4 주소로 구성해야 합니다. IPv6 구성은 전환이 지원되지 않습니다.
+
+.단계
+* SP를 구성하고 7-Mode 전환 툴이 설치된 호스트에 SP 액세스를 제공합니다.
++
+.. IPv4 주소 + " * SP setup * "을 사용하여 SP 네트워크를 구성하고 사용하도록 설정합니다
++
+[listing]
+----
+system1> sp setup
+   The Service Processor (SP) provides remote management capabilities
+   including console redirection, logging and power control.
+   It also extends autosupport by sending
+   additional system event alerts. Your autosupport settings are use
+   for sending these alerts via email over the SP LAN interface.
+Would you like to configure the SP? y
+Would you like to enable DHCP on the SP LAN interface? n
+Please enter the IP address of the SP []: 192.168.123.98
+Please enter the netmask of the SP []: 255.255.255.0
+Please enter the IP address for the SP gateway []: 192.168.123.1
+Do you want to enable IPv6 on the SP ? n
+Verifying mailhost settings for SP use...
+----
+.. SP 네트워크 구성 설정을 확인합니다.
++
+' * SP 상태 * '
+
++
+[listing]
+----
+system1> sp status
+        Service Processor      Status: Online
+             Firmware Version:   1.2
+             Mgmt MAC Address:   00:A0:98:01:7D:5B
+             Ethernet Link:      up
+             Using DHCP:         no
+    IPv4 configuration:
+             IP Address:         192.168.123.98
+             Netmask:            255.255.255.0
+             Gateway:            192.168.123.1
+----
+.. 7-Mode Transition Tool이 설치된 호스트에 대한 SP 액세스 제공:
++
+'* 옵션 sp.ssh.access host=__7mtt_host__*'
+
++
+'_7mtt_host_'는 7-Mode Transition Tool이 설치된 호스트의 호스트 이름 또는 IP 주소입니다.
+
++
+
+NOTE: SP를 구성하면 모든 호스트에 기본적으로 액세스 권한이 부여됩니다. 특정 호스트에 대한 액세스를 제한하려면 이 단계를 수행해야 합니다.
+
+.. 7-Mode Transition Tool이 설치된 호스트에서 SP:+' * ssh_username@sp_ip_address_ *'에 로그인합니다
++
+메시지가 표시되면 사용자 이름의 암호를 입력합니다.
+
++
+SP 프롬프트가 표시됩니다. 이는 SP CLI에 액세스할 수 있음을 나타냅니다.
+
+
+
+* RLM을 구성하고 7-Mode Transition Tool이 설치된 호스트에 RLM 액세스를 제공합니다.
++
+.. IPv4 주소 + " * RLM setup * "으로 RLM 네트워크를 구성합니다
++
+RLM CLI 마법사에서 RLM의 IP 주소, 네트워크 마스크 및 게이트웨이를 입력해야 합니다.
+
++
+[listing]
+----
+system> rlm setup
+	  The Remote LAN Module (RLM) provides remote management capabilities
+ 	 including console redirection, logging and power control.
+ 	 It also extends autosupport by sending
+ 	 additional system event alerts. Your autosupport settings are used
+ 	 for sending these alerts via email over the RLM LAN interface.
+Would you like to configure the RLM? y
+Would you like to enable DHCP on the RLM LAN interface? n
+Please enter the IP address for the RLM []:192.168.123.98
+Please enter the netmask for the RLM []:255.255.255.0
+Please enter the IP address for the RLM gateway []:192.168.123.1
+Do you want to enable IPv6 on the RLM ? n
+Verifying mailhost settings for RLM use...
+----
+.. RLM 네트워크 구성이 올바른지 확인합니다.
++
+'* RLM STATUS*'
+
++
+[listing]
+----
+system> rlm status
+	Remote LAN Module    Status: Online
+		Part Number:        110-00030
+		Revision:           A0
+		Serial Number:      123456
+		Firmware Version:   4.0
+		Mgmt MAC Address:   00:A0:98:01:7D:5B
+		Ethernet Link:      up, 100Mb, full duplex, auto-neg complete
+		Using DHCP:         no
+	IPv4 configuration:
+		IP Address:         192.168.123.98
+		Netmask:            255.255.255.0
+		Gateway:            192.168.123.1
+----
+.. 7-Mode Transition Tool이 설치된 호스트에 RLM 액세스 제공:
++
+'+options rlm.ssh.access host=__7mtt_host__*'
+
++
+7mtt_host는 7-Mode Transition Tool이 설치된 호스트의 호스트 이름 또는 IP 주소입니다.
+
++
+
+NOTE: RLM을 구성하면 모든 호스트에 기본적으로 액세스 권한이 부여됩니다. 특정 호스트에 대한 액세스를 제한하려면 이 단계를 수행해야 합니다.
+
+.. 7-Mode Transition Tool이 설치된 호스트에서 RLM에 로그인합니다.
++
+'* ssh_username@rlm_ip_address_ *'
+
++
+메시지가 표시되면 사용자 이름의 암호를 입력해야 합니다.
+
++
+RLM 프롬프트가 표시되며 RLM CLI에 액세스할 수 있음을 나타냅니다.
+
+
+
+

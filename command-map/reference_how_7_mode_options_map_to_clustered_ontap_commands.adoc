@@ -1,0 +1,3448 @@
+---
+permalink: command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, options 
+summary: 7-Mode로 운영되는 Data ONTAP에서는 options 명령을 실행하여 구성 가능한 스토리지 시스템 소프트웨어 옵션을 설정합니다. ONTAP에서는 명령 매개 변수를 사용하여 이러한 옵션을 설정합니다. 제공된 표를 사용하여 7-Mode 명령이 ONTAP 명령에 매핑되는 방법을 확인할 수 있습니다. 
+---
+= 7-Mode 옵션이 ONTAP 명령에 매핑되는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode로 운영되는 Data ONTAP에서는 'options' 명령을 실행하여 구성 가능한 스토리지 시스템 소프트웨어 옵션을 설정합니다. ONTAP에서는 명령 매개 변수를 사용하여 이러한 옵션을 설정합니다. 제공된 표를 사용하여 7-Mode 명령이 ONTAP 명령에 매핑되는 방법을 확인할 수 있습니다.
+
+"'7-Mode command'' 열에는 명확한 이해를 위해 기본 옵션 명령이 표시되지 않습니다. ACP.domain이 있는 경우, 이 명령의 실제 긴 형태는 ACP.domain 옵션입니다.
+
+이 장의 표를 구성하는 방법에 대한 자세한 내용은 "'7-Mode와 clustered Data ONTAP 명령 매핑 이해' 섹션을 참조하십시오.
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[7-Mode에서 clustered Data ONTAP으로의 명령 매핑 이해]
+
+
+
+== A-E
+
+[role="lead"]
+* A *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+ACP.domain
+ a| 
+"* 시스템 노드 실행 노드 {nodename | local} 옵션 acp.domain *
+
+
+
+ a| 
+ACP.enabled
+ a| 
+"* 시스템 노드 실행 노드 {nodename | local} 옵션 ACP.enabled *
+
+
+
+ a| 
+"acp.netmask`
+ a| 
+(* system node run-node {nodename | local} 옵션 acp.netmask*`
+
+
+
+ a| 
+ACP.port
+ a| 
+"* 시스템 노드 실행 노드 {nodename | local} 옵션 ACP.port *
+
+
+
+ a| 
+auditlog.enable입니다
+ a| 
+보안 감사
+
+
+
+ a| 
+auditlog.max_file_size를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+auditlog.readonly_api.enable입니다
+ a| 
+보안 감사
+
+
+
+ a| 
+자동 로그아웃콘솔.활성화
+ a| 
+'* 시스템 시간 제한 수정 - 시간 초과 * '
+
+
+
+ a| 
+자동 로그아웃콘솔. 시간 초과
+ a| 
+'* 시스템 시간 제한 수정 - 시간 초과 * '
+
+
+
+ a| 
+자동 로그아웃, 텔넷, 활성화
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+자동 로그아웃, telnet.timeout
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+autosupport.cifs.verbose를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+autosupport.content입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-remove-private-data{true|false} *'
+
+
+
+ a| 
+autosupport.doit입니다
+ a| 
+'* system node AutoSupport invoke - node_nodename_- type{all|test} *'
+
+
+
+ a| 
+autosupport.enable입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_- state{enable|disable} *
+
+
+
+ a| 
+"autosupport.from`
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-from *
+
+
+
+ a| 
+autosupport.local_collection
+ a| 
+'* system node AutoSupport modify -node_nodename_-local-collection{true|false} *
+
+
+
+ a| 
+autosupport.mailhost입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-mail-hosts*'
+
+
+
+ a| 
+'autosupport.max_http_size'입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-max-http-size*'
+
+
+
+ a| 
+'autosupport.max_smtp_size
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-max-smtp-size*'
+
+
+
+ a| 
+autosupport.minimal.subject.id
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-hostname-subj *
+
+
+
+ a| 
+'autosupport.nht_data.enable'(SMF에 없음)
+ a| 
+'* AutoSupport modify-NHT*'
+
+'* 시스템 노드 AutoSupport 수정 - NHT*'
+
+
+
+ a| 
+"autosupport.noteto`
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-notteto *
+
+
+
+ a| 
+'autosupport.partner.to
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-PARTNER-address *
+
+
+
+ a| 
+autosupport.performance_data.doit
+ a| 
+'* system node AutoSupport invoke - node_nodename_-type performance *
+
+
+
+ a| 
+autosupport.performance_data.enable입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-perf{true|false} *'
+
+
+
+ a| 
+autosupport.periodic.tx_window입니다
+ a| 
+'* system node AutoSupport modify -node_nodename_-periodic-tx-window *
+
+
+
+ a| 
+autosupport.retry.count
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-retry-count*'
+
+
+
+ a| 
+"autosupport.retry.interval`
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-retry-interval *
+
+
+
+ a| 
+autosupport.support.enable입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_ - 지원 {enable | disable} * '
+
+
+
+ a| 
+"autosupport.support.proxy`
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-proxy-url*'
+
+
+
+ a| 
+autosupport.support.미리 알림
+ a| 
+'* 시스템 노드 AutoSupport show-node_nodename_- 필드 알림 *
+
+
+
+ a| 
+자동 지원.지원.전송
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-transport{http|https|smtp} *'
+
+
+
+ a| 
+'autosupport.to
+ a| 
+'* 시스템 노드 AutoSupport modify -node_nodename_-to *
+
+
+
+ a| 
+'autosupport.validate_digital_certificate'입니다
+ a| 
+'* 시스템 노드 AutoSupport modify -node nodename -validate -digital-certificate{true|false} *'
+
+|===
+[role="lead"]
+* B *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+backup.log.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* C *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+CDPD.ENABLE
+ a| 
+'* 시스템 노드 실행 노드 {nodename | local} 옵션 CDPD.enable *
+
+
+
+ a| 
+CDPD.HoldTime
+ a| 
+' * system node run-node {nodename | local} options CDPD.HoldTime * '
+
+
+
+ a| 
+"cdpd.interval`
+ a| 
+(* system node run-node {nodename | local} 옵션 cdpd.interval*`
+
+
+
+ a| 
+"cf.giveback.auto.after.panic.takeover`
+ a| 
+' * 스토리지 페일오버 수정-자동 반환-패닉 후 *
+
+
+
+ a| 
+"cf.giveback.auto.cancel.on_network_failure`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cf.giveback.auto.delay.seconds`
+ a| 
+'* 스토리지 페일오버 수정-지연-초*'
+
+
+
+ a| 
+"cf.giveback.auto.enable`
+ a| 
+'* 스토리지 페일오버 수정-자동 반환 * '
+
+
+
+ a| 
+"cfhw_assist.enable"
+ a| 
+'* 스토리지 페일오버 수정 - hwassist*'
+
+
+
+ a| 
+"cfhw_assist.partner.address
+ a| 
+'* 스토리지 장애 조치 수정-hwassist-partner-IP *
+
+
+
+ a| 
+"cfhw_assist.partner.port"를 참조하십시오
+ a| 
+'* 스토리지 장애 조치 수정-hwassist-partner-port*'
+
+
+
+ a| 
+“cf. 모드
+ a| 
+' * 스토리지 페일오버 수정 모드 * '
+
+
+
+ a| 
+"cf.remote_syncmirror.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'cf.sfoaggr_maxtime'입니다
+ a| 
+'* 스토리지 장애 조치 수정-집계-마이그레이션-시간 초과 *
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"cf.takeover.change_fsid`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cf.takeover.detection.seconds`
+ a| 
+'* 스토리지 장애 조치 수정-감지-시간*'
+
+
+
+ a| 
+"디스크_쉘프_비교"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"공수.온_실패"
+ a| 
+``스토리지 장애 조치 수정-onfailure*’
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"cf.Takeover.on_network_interface_failure.
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cf.테이크오버가 온_NETWORK_INTERFACE_FAILURE.POLICY ALL_NICs"입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"공황에 대한 공황"
+ a| 
+'* 스토리지 페일오버 수정 - on패닉 * '
+
+
+
+ a| 
+"cf. 테이크오버가 온 _ 재부팅"
+ a| 
+'* 스토리지 페일오버 수정 - onreboot*'
+
+
+
+ a| 
+"공수.ON_SHORT_Uptime"
+ a| 
+``스토리지 장애 조치 수정 - 짧은 가동 시간 *’
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+CIFS.LMCompatibilityLevel을 선택합니다
+ a| 
+`* vserver cifs security modify -lm-compatibility-level * '
+
+
+
+ a| 
+"cifs.audit.autosave.file.extension`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.autosave.file.limit`
+ a| 
+`* vserver audit modify-rotate-limit*'
+
+
+
+ a| 
+"cifs.audit.autosave.onsize.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.autosave.onsize.threshold`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.autosave.ontime.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.autosave.ontime.interval`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.enable`
+ a| 
+'* vserver audit*'
+
+
+
+ a| 
+"cifs.audit.file_access_events.enable`
+ a| 
+'* vserver audit modify -events*'
+
+
+
+ a| 
+"cifs.audit.nfs.filter.filename`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.logon_events.enable`
+ a| 
+`* vserver audit modify -events cifs -logon -logoff * '
+
+
+
+ a| 
+"cifs.audit.logsize`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.nfs.enable`
+ a| 
+`* vserver audit modify -events file -ops * '
+
+
+
+ a| 
+"cifs.audit.nfs.filter.filename`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.audit.saveas`
+ a| 
+'* vserver audit modify-destination*'
+
+
+
+ a| 
+cifs.bypass_traverse_checking
+ a| 
+'* SVM CIFS 사용자 및 그룹 권한*'
+
+
+
+ a| 
+"cifs.comment`
+ a| 
+'* vserver cifs create-comment*'
+
+
+
+ a| 
+cifs.enable_share_browsing을 선택합니다
+ a| 
+'vserver cifs share'
+
+
+
+ a| 
+cifs.gpGPO.enable입니다
+ a| 
+'* vserver cifs group-policy *'
+
+
+
+ a| 
+cifs.gpe.trace.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.grant_implicit_exe_perms`
+ a| 
+`* vserver cifs options modify-read-grant-exec * '
+
+
+
+ a| 
+cifs.guest_account를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.home_dir_namstyle
+ a| 
+'* vserver cifs share create*'
+
+
+
+ a| 
+cifs.home_dirs_public
+ a| 
+'* vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled{true|false} *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"cifs.home_dirs_public_for_admin"
+ a| 
+'* vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled{true|false} *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'cifs.idle_timeout'입니다
+ a| 
+`* vserver cifs options modify-client-session-timeout * '
+
+
+
+ a| 
+cifs.ipv6.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+CIFS.max_MPX'입니다
+ a| 
+`* vserver cifs options modify -max -mpx * '
+
+
+
+ a| 
+'cifs.ms_snapshot_mode'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'cifs.mapped_null_user_extra_group'
+ a| 
+'_vserver cifs options modify-win-name-for-null-user_'
+
+
+
+ a| 
+"cifs.netbios_over_tcp.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.nfs_root_ignore_acl
+ a| 
+' * vserver nfs modify-ignore-nt-acl-for-root *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+cifs.ntfs_ignore_unix_security_ops
+ a| 
+``vserver NFS modify-NTFS-UNIX-security-ops *’
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'cifs.oplocks.enable'
+ a| 
+'vserver cifs share properties add-share-properties'
+
+
+
+ a| 
+'cifs.oplocks.opendelta *'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'cifs.perm_check_ro_del_ok'
+ a| 
+`* vserver cifs options modify-is-read-only-delete-enabled*'
+
+
+
+ a| 
+'cifs.perm_check_use_gid'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.restrict_anonymous를 선택합니다
+ a| 
+`* vserver cifs options modify-restrict-anonymous*'
+
+
+
+ a| 
+cifs.save_case입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+CIFS.scopeid
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.search_domains`
+ a| 
+'* vserver cifs domain name-mapping-search*'
+
+
+
+ a| 
+cifs.show_dotfiles를 선택합니다
+ a| 
+'is-hide-dotfiles-enabled'라는 문구입니다
+
+
+
+ a| 
+cifs.show_snapshot을 선택합니다
+ a| 
+`* vserver CIFS 공유 속성 add-share-properties*'
+
+
+
+ a| 
+'cifs.shutdown_msg_level'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.signing.enable을 선택합니다
+ a| 
+``vserver cifs security modify-is-signing-required*’
+
+
+
+ a| 
+CIFS.SMB2.client.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.sbmB2.eurbable_handle.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"cifs.sB2.eurbable_handle.timeout"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'cifs.sB2.enable'
+ a| 
+' * vserver cifs options modify -SMB2 -enabled *'
+
+
+
+ a| 
+"cifs.smb2입니다. signing.required"
+ a| 
+``vserver cifs security modify-is-signing-required*’
+
+
+
+ a| 
+"cifs.smb2_1.branch_cache.enable`
+ a| 
+'* SVM CIFS 공유 속성 * '
+
+
+
+ a| 
+"cifs.smb2_1.branch_cache.hash_time_out`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'cifs.snapshot_file_folding.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.symlinks.cycleguard를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+cifs.symlinks.enable을 선택합니다
+ a| 
+'* vserver cifs share modify-symlink-properties*'
+
+
+
+ a| 
+cifs.universal_nested_groups.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+CIFS.W2K_PASSWORD_CHANGE
+ a| 
+'* vserver cifs domain password change * '
+
+
+
+ a| 
+'cifs.w2K_password_change_interval
+ a| 
+'* vserver cifs domain password change schedule*'
+
+
+
+ a| 
+'cifs.w2K_password_change_within'
+ a| 
+'* vserver cifs domain password change schedule*'
+
+
+
+ a| 
+cifs.widelink.ttl을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+콘솔.인코딩
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+코어 덤프.덤프.시도
+ a| 
+'* 시스템 노드 코어 덤프 구성 수정 - 코어 덤프 - 시도 * '
+
+
+
+ a| 
+'coredump.metadata_only'
+ a| 
+'* 시스템 노드 코어 덤프 구성 수정 - 스파르세코어 사용 true*'
+
+|===
+[role="lead"]
+D * 를 선택합니다
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+disk.ASUP_on_mp_loss'입니다
+ a| 
+``시스템 노드 AutoSupport trigger modify dsk.Redun.fault *
+
+
+
+ a| 
+ddisk.auto_assign` 를 참조하십시오
+ a| 
+'* 스토리지 디스크 옵션 수정 - 자동 할당 * '
+
+
+
+ a| 
+ddisk.auto_assign_shelf` 를 참조하십시오
+ a| 
+'* 스토리지 디스크 옵션 modify-autoconfigure-shelf * '
+
+
+
+ a| 
+"디스크 maint_center.allowed_entries"를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"디스크 maint_center.enable"
+ a| 
+'* system node run-node {nodename | local} options disk.maint_center.enable *
+
+
+
+ a| 
+"디스크"
+ a| 
+'* 시스템 노드 run-node {nodename | local} options disk.maint_center.max_disks *
+
+
+
+ a| 
+"디스크 maint_center.rec_allowed_entries"를 선택합니다
+ a| 
+"* 시스템 노드 run-node {nodename | local} 옵션 disk.maint_center.rec_allowed_entries *
+
+
+
+ a| 
+"디스크 마int_center.spare_check"
+ a| 
+'* system node run-node {nodename | local} options disk.maint_center.spare_check *
+
+
+
+ a| 
+'디스크 파워사이클.활성화'
+ a| 
+"* 시스템 노드 실행 노드 {nodename | local} 옵션 disk.powercycle.enable *
+
+
+
+ a| 
+"디스크 복구 필요. 카운트"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"Disk.target_port.cmd_queue_depth"를 참조하십시오
+ a| 
+'* 스토리지 배열 수정 - name_array_name_-max-queue-depth*'
+
+
+
+ a| 
+ddns.cache.enable` 를 참조하십시오
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+dns.domainname입니다
+ a| 
+``vserver services name-service dns modify -domain*’
+
+
+
+ a| 
+dns.enable
+ a| 
+``vserver services name-service dns modify-state*’
+
+
+
+ a| 
+dns.update.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+dns.update.tl
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* E *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+"ems.autosuppress.enable`
+ a| 
+`* 이벤트 구성 수정 - 억제{_on|off_} * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+|===
+
+
+== F-K
+
+[role="lead"]
+* F *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+FCP.enable
+ a| 
+`* FCP 시작 * '
+
+
+
+ a| 
+"FlexCache.access"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"flexcache.deleg.high_water`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"flexcache.deleg.low_water`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+FlexCache.ENABLE
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"FlexCache.Per_client_stats"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'flexscale.enable'
+ a| 
+'* system node run-node_node_name_|local} options flexscale.enable *
+
+
+
+ a| 
+'flexscale.lopri_blocks'입니다
+ a| 
+' * system node run-node_node_name_|local} options flexscale.lopri_blocks * '입니다
+
+
+
+ a| 
+"flexscale.normal_data_blocks`
+ a| 
+(* system node run-node_node_name_|local} 옵션 flexscale.normal_data_blocks*`
+
+
+
+ a| 
+'flexscale.pcs_high_res'
+ a| 
+'* system node run-node_node_name_|local} options flexscale.pcs_high_res *
+
+
+
+ a| 
+'flexscale.pcs_size'를 선택합니다
+ a| 
+'* system node run-node_node_name_|local} options flexscale.pcs_size *
+
+
+
+ a| 
+'flexscale.rewarm'
+ a| 
+``system node run-node_node_name_|local} options flexscale.rewarm *'
+
+
+
+ a| 
+"FPolicy.enable"
+ a| 
+'* SVM FPolicy ENABLE*'
+
+
+
+ a| 
+"FPolicy.I2P_EMS_INTERVAL"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"FPolicy.Multiple_Pipes"입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.3way.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.anonymous.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.anonymous.home_dir
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.anonymous.name
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.auth_style`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ftpd.bypass_traverse_checking
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.dir.override"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.dir.restriction"입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.explicit.allow_secure_data_conn"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.explicit.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.idle_timeout"입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.implicit.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.ipv6.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.locking"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.log.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.log.filesize입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftpd.log.nfiles
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"ftpd.max_connections"를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ftpd.max_connections_threshold'를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ftpd.tcp_window_size'입니다
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+H * 를 선택합니다
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+'httpd.access'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.admin.access'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.admin.enable'
+ a| 
+"* vserver services web modify -enabled{true|false} *"
+
+
+
+ a| 
+'httpd.admin.hostsequiv.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.admin.max_connections'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+httpd.admin.ssl.enable
+ a| 
+'* 보안 SSL*'
+
+
+
+ a| 
+"httpd.admin.top-page.authentication`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.bypass_traverse_checking
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+httpd.ipv6.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+httpd.log.format
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+httpd.method.trace.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+httpd.rootdir
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.timeout'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'httpd.timewit.enable'
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* i *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+'ifgrp.failover.link_degraded'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+interface.blocked.cifs
+ a| 
+'* 네트워크 인터페이스 create-data-protocol*'
+
+
+
+ a| 
+인터페이스가 차단되었습니다. iSCSI
+ a| 
+'* 네트워크 인터페이스 create-data-protocol*'
+
+
+
+ a| 
+interface.blocked.mgmt_data_traffic
+ a| 
+'* 네트워크 인터페이스 create-role*'
+
+
+
+ a| 
+interface.blocked.ndmp입니다
+ a| 
+'* 시스템 서비스 방화벽 정책 수정 - policy_policy_name_-service ndmp*'
+
+
+
+ a| 
+인터페이스를 차단했습니다. nfs
+ a| 
+'* 네트워크 인터페이스 create-data-protocol*'
+
+
+
+ a| 
+'interface.blocked.snapmirror'라는 메시지가 나타납니다
+ a| 
+'* 네트워크 인터페이스 create-role*'
+
+
+
+ a| 
+IP.fastpath.enable
+ a| 
+'* system node run-node_node_name_|local} 옵션 ip.fastpath.enable *
+
+
+NOTE: ONTAP 9.2부터는 fastpath가 더 이상 지원되지 않습니다.
+
+
+
+ a| 
+IP.ipsec.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ip.match_any_ifaddr'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+IP.PATH_MTU_DISCOVERY.ENABLE
+ a| 
+'* system node run-node__node_name__|local} 옵션 ip.path_mtu_discovery.enable *
+
+
+
+ a| 
+IP.ping_throttle.alarm_interval을 선택합니다
+ a| 
+'* system node run-node__node_name__|local} 옵션 ip.ping_throttle.alarm__node_name__interval *
+
+
+
+ a| 
+IP.ping_throttle.drop_level
+ a| 
+"* system node run-node | local} 옵션 ip.ping_throttle.drop.level *
+
+
+
+ a| 
+IP.tcp.abc.enable
+ a| 
+'* 시스템 노드 run-node__node_name__|local} 옵션 ip.tcp.abc.enable *
+
+
+
+ a| 
+IP.tcp.abc.l_limit
+ a| 
+'* 시스템 노드 run-node__node_name__|local} 옵션 ip.tcp.abc.l_limit *
+
+
+
+ a| 
+IP.TCP.배치.활성화
+ a| 
+'* 시스템 노드 run-node__node_name__|local} 옵션 ip.tcp.batching.enable *
+
+
+
+ a| 
+IP.tcp.newreno.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+IP.tcp.rfc3390.enable
+ a| 
+'* 시스템 노드 run-node__node_name__|local} 옵션 ip.tcp.rfc3390.enable *
+
+
+
+ a| 
+IP.tcp.sack.enable
+ a| 
+'* 시스템 노드 run-node__node_name__|local} 옵션 ip.tcp.sack.enable *
+
+
+
+ a| 
+IP.v6.enable
+ a| 
+'* 네트워크 옵션 IPv6 수정 * '
+
+
+
+ a| 
+IP.v6.ra_enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"iscsi.auth.radius.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"iSCSI.enable"
+ a| 
+'* iSCSI 시작 * '
+
+
+
+ a| 
+'iscsi.max_connections_per_session'입니다
+ a| 
+' * iSCSI modify-max-conn-per-session * '
+
+
+
+ a| 
+'iscsi.max_error_recovery_level'
+ a| 
+'* iSCSI modify-max-error-recovery-level*'
+
+|===
+[role="lead"]
+* K *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+Kerberos.file_keytab.principal
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"Kerberos.file_keytab.realmcing"
+ a| 
+지원되지 않습니다
+
+|===
+
+
+== O-Q
+
+[role="lead"]
+L *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+LDAP.ADdomain
+ a| 
+'* vserver services name-service ldap client modify-ad-domain*'
+
+
+
+ a| 
+LDAP.BASE
+ a| 
+'* vserver services name-service LDAP client modify-base-dn*'
+
+
+
+ a| 
+"ldap.base.group`
+ a| 
+'* LDAP 클라이언트 modify-group-dn LDAP DN-group-scope*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.base.netgroup`
+ a| 
+' * LDAP 클라이언트 modify-netgroup-dn LDAP DN-netgroup-scope * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.base.passwd
+ a| 
+' * vserver services ldap client modify -user -dn * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"LDAP.ENABLE"
+ a| 
+'* vserver services name-service ldap modify*'
+
+
+
+ a| 
+'ldap.minimum_bind_level'
+ a| 
+'* vserver services name-service ldap client modify -min-bind-level*'
+
+
+
+ a| 
+ldap.name
+ a| 
+' * vserver services name-service LDAP client modify-bind-dn *'
+
+
+
+ a| 
+ldap.nssmap.attribute.gecos를 나타냅니다
+ a| 
+'* LDAP 클라이언트 스키마 수정 -gecos-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.gidNumber"
+ a| 
+'* LDAP 클라이언트 스키마 수정 -gid-number-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.groupname`
+ a| 
+'* LDAP 클라이언트 스키마 수정 -cn-group-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.attribute.homedDirectory를 선택합니다
+ a| 
+'* LDAP 클라이언트 스키마 수정 - 홈 디렉토리 - 속성 * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.attribute.loginShell입니다
+ a| 
+'* LDAP 클라이언트 스키마 modify-login-shell-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.memberNisNetgroup"
+ a| 
+'* LDAP 클라이언트 스키마 modify-member-NIS-netgroup-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.attribute.memberUid
+ a| 
+'* LDAP 클라이언트 스키마 modify-member-uid-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.netgroupname`
+ a| 
+'* LDAP 클라이언트 스키마 modify -cn-netgroup-attribute * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.attribute.nisNetgroupTriple을 선택합니다
+ a| 
+LDAP 클라이언트 스키마 modify -NIS-netgroup-triple-attribute입니다
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+LDAP.nssmap.attribute.uid
+ a| 
+'* LDAP 클라이언트 스키마 수정 -uid-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.uidNumber"
+ a| 
+'* LDAP 클라이언트 스키마 수정 -uid-number-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.nssmap.attribute.userPassword`
+ a| 
+'* LDAP 클라이언트 스키마 수정 - user-password-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+LDAP.nssmap.objectClass.nisNetgroup입니다
+ a| 
+'* LDAP 클라이언트 스키마 수정 - NIS-netgroup-object-class*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.objectClass.posixAccount입니다
+ a| 
+'* LDAP 클라이언트 스키마 수정 -posix-account-object-class*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+ldap.nssmap.objectClass.posixGroup
+ a| 
+'* LDAP 클라이언트 스키마 수정 -posix-group-object-class*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+LDAP.passwd
+ a| 
+'* vserver services name-service ldap client modify-bind-password*'
+
+
+
+ a| 
+LDAP.PORT를 선택합니다
+ a| 
+'* vserver services name-service ldap client modify-port*'
+
+
+
+ a| 
+"ldap.servers`
+ a| 
+'* vserver services name-service ldap client modify -servers*'
+
+
+
+ a| 
+"ldap.servers.preferred`
+ a| 
+'* vserver services name-service ldap client modify-preferred-ad-servers*'
+
+
+
+ a| 
+ldap.ssl.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"LDAP.TIMEOUT"
+ a| 
+'* vserver services name-service ldap client modify-query-timeout*'
+
+
+
+ a| 
+"ldap.usermap.attribute.windowsaccount`
+ a| 
+'* LDAP 클라이언트 스키마 수정 - windows-account-attribute*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.usermap.base`
+ a| 
+'* LDAP 클라이언트 수정 - user-dnldap DN - user-scope*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"ldap.usermap.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.fcp.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.flex_clone.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.flexcache_nfs.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.iscsi.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.multistore.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.NearStore_option.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+licensed_feature.vLD.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"locking.grace_lease_seconds`
+ a| 
+`* vserver nfs modify -v4-grace-seconds*'
+
+
+
+ a| 
+LUN.clone_restore
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+lun.partner_unreachable.linux.asc
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'lun.partner_unreachable.linux.ascq'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"lun.partner_unreachable.linux.behavior`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'lun.partner_unreachable.linux.hold_time
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'lun.partner_unreachable.linux.scsi_status'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'lun.partner_unreachable.linux.sskey'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"lun.partner_unreachable.vmware.behavior`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'lun.partner_unreachable.vmware.hold_time'입니다
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* N *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+'ndmpd.abort_on_disk_error'를 선택합니다
+ a| 
+'* 옵션 ndmpd.abort_on_disk_error * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'ndmpd.access'입니다
+ a| 
+'* 시스템 서비스 방화벽 정책 수정 - 정책 * - 서비스 NDMP-allow-list * '
+
+
+
+ a| 
+"ndmpd.authtype`
+ a| 
+'* 시스템 서비스 ndmpd 수정 - clear-text * '
+
+
+
+ a| 
+ndmpd.connectlog.enabled
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ndmpd.data_port_range'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'ndmpd.ignore_ctime.enabled'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.maxversion입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.offset_map.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.password_length
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.preferred_interface
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.tcpnoday.enable입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ndmpd.tcpwinsize
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+nfs.assist.queue.limit
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nfs.authsys.extended_groups_ns.enable`
+ a| 
+'_vserver nfs modify-auth-sys-extended-groups_'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.export.allow_p잠정_access
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nfs.export.auto-update`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+nfs.export.exportfs_comment_on_delete
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+nfs.export.하비스트.timeout을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+nfs.export.ng.timeout을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+NFS.Kerberos.enable
+ a| 
+``vserver NFS Kerberos 영역 생성*’
+
+
+
+ a| 
+nfs.Kerberos.file_keytab.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+NFS.Kerberos.file_keytab.principal
+ a| 
+``vserver NFS Kerberos 영역 생성*’
+
+
+
+ a| 
+nfs.Kerberos.file_keytab.realm
+ a| 
+``vserver NFS Kerberos 영역 생성*’
+
+
+
+ a| 
+'nfs.max_num_aux_groups'
+ a| 
+'* vserver NFS\{show|modify\} - extended-groups-limit *'
+
+
+
+ a| 
+'nfs.mount_rootonly'
+ a| 
+' * vserver NFS modify-mount-rootonly *'
+
+
+
+ a| 
+"nfs.netgroup.strict`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'nfs.nfs_rootonly'
+ a| 
+' * vserver NFS modify -nfs-rootonly *'
+
+
+
+ a| 
+nfs.per_client_stats.enable입니다
+ a| 
+'* 통계 설정 수정 - 클라이언트 통계 * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+NFS.Require_Valid_Mapped_uid
+ a| 
+'* vserver name-mapping create*'
+
+
+
+ a| 
+NFS.response.trace
+ a| 
+`* vserver NFS modify-trace-enabled*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.response.trigger
+ a| 
+`* vserver NFS modify-trigger*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+NFS.RPCSEC.CTX.HIGH
+ a| 
+' * NFS modify -RPCSEC-CTX-high * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.rpcsec.ctx.idle
+ a| 
+' * NFS modify -RPCSEC-CTX-idle * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.tcp.enable
+ a| 
+'* vserver nfs modify -tcp*'
+
+
+
+ a| 
+nfs.thin_prov.ejuke
+ a| 
+'* vserver NFS modify-enable-ejukeBox*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.udp.enable
+ a| 
+'* vserver nfs modify - udp*'
+
+
+
+ a| 
+nfs.udp.xfersize를 선택합니다
+ a| 
+' * vserver nfs modify -udp-max-xfer-size *'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+nfs.v2.df_2GB_lim
+ a| 
+"지원되지 않습니다
+
+
+
+ a| 
+nfs.v2.enable
+ a| 
+"지원되지 않습니다
+
+
+
+ a| 
+nfs.v3.enable
+ a| 
+'* vserver NFS modify-v3 * '
+
+
+
+ a| 
+nfs.v4.acl.enable
+ a| 
+'* vserver nfs modify -v4.0-ac*l'
+
+
+
+ a| 
+nfs.v4.enable
+ a| 
+'* vserver nfs modify -v4.0 * '
+
+
+
+ a| 
+nfs.v4.id allow_c수치
+ a| 
+`* vserver nfs modify -v4-numeric-ids*'
+
+
+
+ a| 
+NFS.v4.id 도메인
+ a| 
+' * vserver nfs modify -v4-id-domain * '
+
+
+
+ a| 
+NFS.v4.read_delegation
+ a| 
+`* vserver nfs modify-v4.0-read-delegation*'
+
+
+
+ a| 
+nfs.v4.write_delegation
+ a| 
+`* vserver NFS modify-v4.0-write-delegation*'
+
+
+
+ a| 
+NFS.vStorage.enable입니다
+ a| 
+'* vserver NFS modify - vStorage*'
+
+
+
+ a| 
+nfs.webnfs.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+nfs.webnfs.rootdir
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nfs.webnfs.rootdir.set`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+NIS.domainname입니다
+ a| 
+`* vserver services name-service NIS-domain modify -domain * '
+
+
+
+ a| 
+NIS.ENABLE
+ a| 
+`* vserver services name-service NIS-domain modify-active*'
+
+
+
+ a| 
+"nis.group_update.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nis.group_update_schedule`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nis.netgroup.domain_search.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"nis.servers`
+ a| 
+'* vserver services name-service NIS-domain modify-servers*'
+
+
+
+ a| 
+국정원, 노예, 활성화
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+NLM.cleanup.timeout'입니다
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+P *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+"pcnfsd.enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+PCNFd.umask
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+Q *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+QoS.classify.count_all_ches
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* R *
+
+
+NOTE: 모든 RAID 옵션에는 "options_option_name_" 형식의 7-Mode 호환 노드 바로 가기가 있습니다.
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+"RAID"입니다
+ a| 
+"* 스토리지 RAID-옵션\{modify|show\} *
+
+
+
+ a| 
+"RAID.background_disk_fw_update.enable"
+ a| 
+'* 스토리지 디스크 옵션 modify-bkg-firmware-update *
+
+
+
+ a| 
+"raid.disk.copy.auto.enable`
+ a| 
+`* 스토리지 RAID-options modify -raid.disk.copy.auto.enable*`
+
+
+
+ a| 
+"RAID.DISK.TIMEOUT.ENABLE"
+ a| 
+"* 시스템 노드 run-node {_node_name_|local} 옵션 raid.disk.timeout.enable *
+
+
+
+ a| 
+RAID.disktype.enable을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+RAID.disktype.enable을 선택합니다
+ a| 
+``RAID-options modify RAID.Lost_write.enable*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+RAID.Lost_write.enable
+ a| 
+"* storage raid-options\{modify|show\} - name raid.media_scrub.enable *
+
+
+
+ a| 
+RAID.MEDIA_스크럽.RATE
+ a| 
+"* storage raid-options\{modify|show\} - name raid.media_scrub.rate *
+
+
+
+ a| 
+RAID.min_spare_count
+ a| 
+"* storage raid-options\{modify|show\} - name raid.min_spare_count * "
+
+
+
+ a| 
+"raid.mix.hdd.disktype.capacity`
+ a| 
+"* storage raid-options\{modify|show\} - name raid.mix.hdd.disktype.capacity*`
+
+
+
+ a| 
+RAID.Mix.HDD.disktype.performance
+ a| 
+"* storage raid-options\{modify|show\} - name raid.mix.hdd.disktype.performance *
+
+
+
+ a| 
+"raid.mix.hdd.rpm.capacity`
+ a| 
+"* storage raid-options\{modify|show\} - name raid.mix.hdd.rpm.capacity*`
+
+
+
+ a| 
+"RAID.Mix.HDD.rpm.performance
+ a| 
+"* storage raid-options\{modify|show\} - name raid.mix.hdd.rpm.performance *
+
+
+
+ a| 
+"RAID.MIRROR_READ_PLANCE_PREf"
+ a| 
+"* storage raid-options\{modify|show\} - name raid.mirror_read_plex_pref *
+
+
+
+ a| 
+RAID.reconstruct.perf_Impact
+ a| 
+"* storage raid-options\{modify|show\} - name raid.reconstruct.perf_impent * "
+
+
+
+ a| 
+RAID.resync.perf_Impact
+ a| 
+"* storage raid-options\{modify|show\} - name raid.resync.perf_impent *"
+
+
+
+ a| 
+RAID.rpm.ata.enable
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"RAID.rpm.FCAL.ENABLE"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"RAID.스크럽.기간"
+ a| 
+"* storage raid-options\{modify|show\} - name raid.scrub.duration *
+
+
+
+ a| 
+RAID.스크럽.perf_Impact
+ a| 
+"* storage raid-options\{modify|show\} - name raid.scrub.perf_impent *"
+
+
+
+ a| 
+RAID 스크럽 일정
+ a| 
+"* storage raid-options\{modify|show\} - name raid.scrub.schedule * "
+
+
+
+ a| 
+"RAID.TIMEOUT"
+ a| 
+"* storage raid-options\{modify|show\}-name raid.timeout *
+
+
+
+ a| 
+"RAID.Verify.perf_impImpact"
+ a| 
+"* storage raid-options\{modify|show\} - name raid.verify.perf_impent *"
+
+
+
+ a| 
+복제 논리적 예약된 전송
+ a| 
+`* SnapMirror set-options-XDP-source-xfer-reserve-pct * '
+
+
+
+ a| 
+"가속, 스로틀, 활성화"
+ a| 
+'* SnapMirror 수정-스로틀 * '
+
+
+
+ a| 
+복제 볼륨. 예약된 전송
+ a| 
+`* SnapMirror set-options-DP-source-xfer-reserve-pct * '
+
+
+
+ a| 
+plication.volume.use_auto_resync` 참조하십시오
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+RPC.MOUNTD.tcp.port
+ a| 
+`* vserver NFS modify -mountd-port*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+RPC.MOUNTD.UDP.PORT를 선택합니다
+ a| 
+`* vserver NFS modify -mountd-port*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"rpc.nlm.tcp.port`
+ a| 
+'* vserver NFS modify -nlm-port*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"rpc.nlm.udp.port`
+ a| 
+'* vserver NFS modify -nlm-port*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+RPC.NSM.tcp.port
+ a| 
+'* vserver nfs modify -NSM-port * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+RPC.NSM.udp.port
+ a| 
+'* vserver nfs modify -NSM-port * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+RPC.pcnfsd.tcp.port
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+RPC.pcnfsd.udp.port
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+RPC.rquotad.udp.port
+ a| 
+'* vserver nfs modify-rquotad-port*'
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+"rquotad.enable"
+ a| 
+'* vserver nfs modify -rquota*'
+
+
+
+ a| 
+"rsh.access"
+ a| 
+``시스템 서비스 방화벽 정책 만들기 - 정책 관리 서비스 rsh-allow-list*’
+
+
+
+ a| 
+"rsh.enable"
+ a| 
+``시스템 서비스 방화벽 정책 만들기 - 정책 관리 서비스 rsh-allow-list*’
+
+|===
+
+
+== S-Z
+
+[role="lead"]
+S * 를 선택합니다
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+ecurity.admin.authentication`
+ a| 
+'* 보안 로그인 수정 * '
+
+
+
+ a| 
+'Security.admin.nsswitchgroup'
+ a| 
+`* vserver modify*'
+
+
+
+ a| 
+'보안.passwd.firstlogin.enable'
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+'보안.암호.잠금.numvries'
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+'security.passwd.rootaccess.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ecurity.passwd.rules.enable`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.everyone`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.history`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.maximum`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.minimum`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.minimum.alphabetic`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ecurity.passwd.rules.minimum.digit`
+ a| 
+'* 보안 로그인 역할 구성 수정 * '
+
+
+
+ a| 
+ecurity.passwd.rules.minimum.symbol`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ftp.auth_style`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sftp.dir_override'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+FTP.dir_restriction
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'FTP.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'FTP.IDLE_TIMEOUT'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'FTP.locking'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sftp.log_enable'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sftp.log_filesize'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sftp.log_nfiles'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'FTP.max_connections'을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'FTP.max_connections_threshold'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sftp.override_client_permissions'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'s.max_vFiler_active_ops'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+naplock.autocommit_period`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+naplock.compliance.write_verify`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+naplock.log.default_retention`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'초크.log.maximum_size'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+스냅미러 액세스
+ a| 
+'* SnapMirror create * '
+
+
+
+ a| 
+napmirror.checkip.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+스냅미러.cmode.suspend
+ a| 
+'* SnapMirror 정지 * '
+
+
+
+ a| 
+napmirror.delayed_acks.enable`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"napmirror.VSM.volread.smtape_enable"
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'검증기.버전'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'napvault.access'를 선택합니다
+ a| 
+'* vserver peer*'
+
+
+
+ a| 
+'napvault.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'s napvault.lockVault_log_volume'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"냅볼트, 방부실.
+ a| 
+냅미러 정책
+
+
+
+ a| 
+'napvault.snapshot_for_dr_backup'을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'NMP.ACCESS
+ a| 
+'* 시스템 서비스 방화벽 정책 수정 - policy__policy_name_- service snmp-allow-list*'
+
+
+
+ a| 
+'NMP.ENABLE'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'쉬액세스'
+ a| 
+'* 시스템 서비스 방화벽 정책 수정 - policy__policy_name_-service ssh-allow-list*'
+
+
+
+ a| 
+"쉬.활성화"
+ a| 
+'* 시스템 서비스 방화벽 정책 수정 - policy__policy_name__- service ssh-allow-list *
+
+
+
+ a| 
+'sh.idle.timeout'을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'sh.passwd_auth.enable'
+ a| 
+'* 보안 로그인\{show|create|delete\} - user-or-group-name_user_name_-application ssh-AuthMethod publickey-role_role_name_-vserver_vserver_name_ *'
+
+
+
+ a| 
+ssh.pubkey_auth.enable"
+ a| 
+'* 보안 로그인 수정 - AuthMethod publickey*'
+
+
+
+ a| 
+'SH1.enable'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'SH2.ENABLE'(SH2.ENABLE)
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ssl.enable을 선택합니다
+ a| 
+'* 보안 SSL 수정 - 서버 사용 * '
+
+
+
+ a| 
+sl.v2.enable
+ a| 
+'* 시스템 서비스 웹 수정 - SSLv2 사용 * '
+
+
+
+ a| 
+sl.v3.enable
+ a| 
+'* 시스템 서비스 웹 수정 - SSLv3 사용 * '
+
+
+
+ a| 
+tats.archive.frequency_config`
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+* T *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+테이프 예약
+ a| 
+``옵션 테이프.예약 *’
+
+
+
+ a| 
+텔넷접속
+ a| 
+``시스템 서비스 방화벽 정책 만들기 - 정책 관리 서비스 telnet-allow-list*’
+
+
+
+ a| 
+telnet.DISTINCT.ENABLE을 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+telnet.enable을 선택합니다
+ a| 
+``시스템 서비스 방화벽 정책 만들기 - 정책 관리 서비스 telnet-allow-list*’
+
+
+
+ a| 
+"TFTPD.ENABLE"(TFTPD.ENABLE)
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+TFTPD.로깅
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"TFTPD.max_connections"를 선택합니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+TFTPD.rootdir
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"시간 제한 활성화"
+ a| 
+'* 시스템 서비스 NTP 구성 수정 사용 * '
+
+
+
+ a| 
+'타임 제어식 로그'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'Timed.max_skew'입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+시간 제한 min_skew
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"timed.proto`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"시간 제한.
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"timed.servers`
+ a| 
+`_ 클러스터 시간 서비스 NTP 서버 _ '
+
+
+
+ a| 
+시간제한 창입니다
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'신뢰, 호스트'
+ a| 
+지원되지 않습니다
+
+|===
+[role="lead"]
+V *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+'vol move.cutover.cpu.busy.limit'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'vol move.cutover.disk.busy.limit'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+"vsm.smtape.concurrent.cascade.support`
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ a| 
+
+|===
+[role="lead"]
+W *
+
+|===
+| 7-Mode 옵션 | clustered Data ONTAP 명령 
+
+
+ a| 
+"wafl.default_nt_user`
+ a| 
+'* vserver nfs modify -default-win-user*'
+
+
+
+ a| 
+"wafl.default_unix_user`
+ a| 
+'* vserver cifs options modify-default-unix-user*'
+
+
+
+ a| 
+"wafl.inconsistent.asup_frequency.blks`
+ a| 
+(* system node run-node {_node_name_|local} 옵션 wafl.inconsistent.asup_frequency.blks*`
+
+
+
+ a| 
+"wafl.inconsistent.asup_frequency.time`
+ a| 
+(* system node run-node {_node_name_|local} 옵션 wafl.inconsistent.asup_frequency.time*`
+
+
+
+ a| 
+"wafl.inconsistent.ems_suppress`
+ a| 
+(* system node run-node {_node_name_|local} 옵션 wafl.inconsistent.ems_suppress*`
+
+
+
+ a| 
+WAFL.maxdirsize입니다
+ a| 
+'* vol create-maxdir-size * '
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'WAFL.nt_admin_priv_map_to_root'
+ a| 
+'* vserver name-mapping create*'
+
+
+
+ a| 
+"WAFL.root_only_chown"
+ a| 
+``vserver nfs modify-chown-mode *’’를 사용합니다
+
+
+NOTE: 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+'WAFL.wcc_minutes_valid'
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+'WebDAV.enable'
+ a| 
+지원되지 않습니다
+
+|===

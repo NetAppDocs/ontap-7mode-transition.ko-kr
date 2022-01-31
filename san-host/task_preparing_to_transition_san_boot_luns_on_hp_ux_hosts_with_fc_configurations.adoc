@@ -1,0 +1,58 @@
+---
+permalink: san-host/task_preparing_to_transition_san_boot_luns_on_hp_ux_hosts_with_fc_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, hp, ux, hosts, fc, configurations 
+summary: FC 구성을 사용하여 HP-UX 호스트에서 SAN 부팅 LUN을 전환하기 전에 HP-UX가 설치된 7-Mode LUN의 이름, 해당 LUN의 SCSI 장치 이름, Agile 명명 규칙 및 WWID를 기록해야 합니다. 
+---
+= FC 구성이 있는 HP-UX 호스트에서 SAN 부팅 LUN 전환 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 구성을 사용하여 HP-UX 호스트에서 SAN 부팅 LUN을 전환하기 전에 HP-UX가 설치된 7-Mode LUN의 이름, 해당 LUN의 SCSI 장치 이름, Agile 명명 규칙 및 WWID를 기록해야 합니다.
+
+. 7-Mode 컨트롤러의 콘솔에서 "'HPUX11v3 March 2014'" 운영 체제가 설치된 LUN 이름을 식별하기 위해 7-Mode LUN을 표시합니다.
++
+' * lun show * '
+
+. LUN의 SCSI 디바이스 이름을 가져옵니다.
++
+' * sanlun lun show -p * '
+
++
+이 예에서는 전환 LUN이 bootun_94입니다. 이 LUN의 SCSI 디바이스는 '/dev/dsk/c14t0d0', '/dev/dsk/c27t0d0', '/dev/dsk/c40t0d0' 및 '/dev/dsk/c31t0d0'입니다.
+
++
+[listing]
+----
+        ONTAP Path: f8040-211-183:/vol/vol_183/bootlun_94
+               LUN: 0
+          LUN Size: 100g
+       Host Device: /dev/rdisk/disk6
+              Mode: 7
+Multipath Provider: None
+host      vserver   /dev/dsk
+path      path      filename           host     vserver
+state     type      or hardware path   adapter  LIF
+-----     -------   ----------------   -------  -------
+up        secondary /dev/dsk/c14t0d0   fcd0     fc4
+up        primary   /dev/dsk/c27t0d0   fcd0     fc2
+up        primary   /dev/dsk/c40t0d0   fcd1     fc1
+up        secondary /dev/dsk/c31t0d0   fcd1     fc3
+----
+. 호스트에서 LUN의 WWID를 식별합니다.
++
+'* scsimgr get_info-D_scsi_device_name_|grep WWID*'
+
++
+다음 예에서는 디바이스 '/dev/rdisk/disk6의 LUN WWID가 0x600a09804d537739422445386b75556입니다.
+
++
+[listing]
+----
+bash-2.05# scsimgr get_info -D /dev/rdisk/disk6 | grep WWID
+World Wide Identifier (WWID)      = 0x600a09804d537739422445386b755564
+bash-2.05#
+----
+

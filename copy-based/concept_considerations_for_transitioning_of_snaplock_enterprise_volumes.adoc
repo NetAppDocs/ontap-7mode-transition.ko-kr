@@ -1,0 +1,20 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, enterprise, volumes 
+summary: 7-Mode 전환 툴은 독립 실행형 SnapLock 엔터프라이즈 볼륨과 SnapMirror 관계에 있는 SnapLock 엔터프라이즈 볼륨의 전환을 지원합니다. 
+---
+= SnapLock 엔터프라이즈 볼륨의 전환을 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 독립 실행형 SnapLock 엔터프라이즈 볼륨과 SnapMirror 관계에 있는 SnapLock 엔터프라이즈 볼륨의 전환을 지원합니다.
+
+SnapLock 엔터프라이즈 볼륨을 전환하기 위한 워크플로는 FlexVol 볼륨과 동일합니다.
+
+전환 중에 SnapMirror 관계가 유지됩니다.
+
+
+NOTE: 7-Mode 전환 툴은 SnapLock 엔터프라이즈 볼륨의 SnapMirror 관계에 있어 유사 전이만 지원합니다. 즉, 소스 볼륨과 타겟 볼륨 모두 SnapLock 엔터프라이즈 볼륨이어야 합니다.

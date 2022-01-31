@@ -1,0 +1,13 @@
+---
+permalink: copy-free/task_preparing_for_san_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, san, prepare 
+summary: SAN 환경을 전환하기 전에 SAN 전환에 지원되는 구성을 파악하고, SVM에 SAN LIF를 생성하고, SAN 호스트의 전환을 준비해야 합니다. 
+---
+= SAN 전환 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경을 전환하기 전에 SAN 전환에 지원되는 구성을 파악하고, SVM에 SAN LIF를 생성하고, SAN 호스트의 전환을 준비해야 합니다.

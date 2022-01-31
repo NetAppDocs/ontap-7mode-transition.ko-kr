@@ -1,0 +1,24 @@
+---
+permalink: copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, delete, volume, snapshot, copy 
+summary: 7-Mode 볼륨 스냅샷 복사본은 전환된 볼륨에서 자동으로 삭제되지 않으므로 전환 작업이 완료된 후 이러한 스냅샷 복사본을 수동으로 삭제해야 합니다. 
+---
+= 전환된 볼륨에서 7-Mode 볼륨 스냅샷 복사본 삭제
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 볼륨 스냅샷 복사본은 전환된 볼륨에서 자동으로 삭제되지 않으므로 전환 작업이 완료된 후 이러한 스냅샷 복사본을 수동으로 삭제해야 합니다.
+
+스냅샷 복사본의 명명 규칙은 7-Mode 환경과 clustered Data ONTAP 간에 다르므로 clustered Data ONTAP 환경의 스냅샷 복사본이 7-Mode 스냅샷 복사본을 자동으로 덮어쓸 수 없습니다.
+
+공간 활용률을 개선하려면 7-Mode에서 7-Mode SnapMirror 관계로, 7-Mode에서 clustered Data ONTAP SnapMirror 관계로 경우를 포함하여 원하지 않는 7-Mode Snapshot 복사본을 삭제해야 합니다.
+
+.단계
+. 스토리지 컷오버 작업이 완료된 후, 원치 않는 7-Mode 스냅샷 복사본을 삭제합니다.
++
+'* snap delete-vserver <svm_name> - volume <volume_name> - snapshot <snapshot_name> * '
+
+

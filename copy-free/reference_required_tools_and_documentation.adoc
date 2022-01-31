@@ -1,0 +1,29 @@
+---
+permalink: copy-free/reference_required_tools_and_documentation.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, tools, documentation, required 
+summary: Config Advisor는 복사 없는 전환을 위한 필수 툴입니다. Config Advisor를 사용하여 디스크 쉘프의 케이블 연결을 확인해야 합니다. SAN 호스트 조정에 대한 추가 설명서도 제공됩니다. 
+---
+= 복사 없는 전환을 위해 필요한 툴 및 문서
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Config Advisor는 복사 없는 전환을 위한 필수 툴입니다. Config Advisor를 사용하여 디스크 쉘프의 케이블 연결을 확인해야 합니다. SAN 호스트 조정에 대한 추가 설명서도 제공됩니다.
+
+
+
+== Config Advisor
+
+7-Mode 디스크 쉘프가 타겟 클러스터 노드에 연결된 후 Config Advisor의 "'전환' 실행 프로필을 사용하여 케이블 연결을 확인해야 합니다.
+
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+
+
+
+== 문서화
+
+에는 Copy-Free 전환을 사용하여 전환할 때 SAN 호스트에서 수행해야 하는 전환 전 및 전환 후 단계가 설명되어 있습니다.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]

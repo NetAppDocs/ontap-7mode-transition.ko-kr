@@ -1,0 +1,47 @@
+---
+permalink: copy-free/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, ha, pair 
+summary: 전환을 시작하기 전에 7-Mode 시스템이 타겟 클러스터와 통신하도록 설정하고 HTTPS 및 TLS를 사용하도록 설정하는 등 7-Mode 시스템에서 특정 작업을 완료해야 합니다. 
+---
+= 전환을 위해 7-Mode HA 쌍 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 시작하기 전에 7-Mode 시스템이 타겟 클러스터와 통신하도록 설정하고 HTTPS 및 TLS를 사용하도록 설정하는 등 7-Mode 시스템에서 특정 작업을 완료해야 합니다.
+
+HA 2노드가 정상 상태여야 하며 CF 상태 명령을 사용하여 확인할 수 있는 테이크오버 모드에 있는 노드는 없어야 합니다. 또한 NetApp AutoSupport 툴을 사용하여 오류나 위험 상태를 모두 감지할 수 있습니다.
+
+. 스토리지 시스템에서 HTTPS가 설정되어 있지 않으면 HTTPS를 사용하도록 설정합니다.
++
+' * options httpd.admin.ssl.enable on * '
+
++
+HTTPS는 기본적으로 활성화되어 있습니다.
+
+. 7-Mode 스토리지 시스템에서 TLS를 활성화하여 7-Mode 전환 툴이 7-Mode 시스템과 통신하도록 지원:
++
+.. 스토리지 시스템에서 SSL이 아직 설정되어 있지 않은 경우 SSL: + " * SecureAdmin setup SSL * "을 설정하고 시작합니다
++
+SSL은 기본적으로 스토리지 시스템에 대해 설정됩니다. 이전에 스토리지 시스템에 대해 SSL을 설정한 경우 계속 진행할지 묻는 메시지가 표시됩니다. 변경하지 않으려면 SSL 설정을 종료할 수 있습니다.
+
+.. SSL:+' * options ssl.enable on *'을 활성화합니다
++
+TLS를 통한 통신을 사용하려면 이 옵션을 활성화해야 합니다.
+
+.. TLS 사용: + `* 옵션 tls.enable on * '
+.. 7-Mode 시스템에서 SSLv2 및 SSLv3을 비활성화합니다. + ' * options SSL.v2. enable off * '
++
+' * options ssl.v3.enable off * '
+
+
+
++
+7-Mode 전환 툴은 TLS 또는 SSL 프로토콜을 사용하여 7-Mode 스토리지 시스템과 통신합니다. 이 툴은 스토리지 시스템에서 TLS가 활성화된 경우 TLS 프로토콜을 사용하여 스토리지 시스템과 통신합니다. TLS가 비활성화되어 있고 스토리지 시스템에서 SSLv3이 활성화되어 있는 경우 이 툴은 SSLv3을 사용하여 스토리지 시스템과 통신합니다.
+
++
++중요: 보안 취약점을 방지하려면 TLS를 활성화하고 SSLv2 및 SSLv3을 사용하지 않도록 설정하는 것이 가장 좋습니다.
+
+

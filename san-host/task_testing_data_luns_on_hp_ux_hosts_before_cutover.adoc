@@ -1,0 +1,56 @@
+---
+permalink: san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, data, lun, hp, ux, citover, phase, copy, based 
+summary: '7MTT\(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 HP-UX 호스트 데이터 LUN의 복사 기반 전환을 수행하는 경우 전환된 clustered Data ONTAP LUN을 테스트하여 MPIO 디바이스를 컷오버 단계 전에 마운트할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.' 
+---
+= 복사 기반 전환의 컷오버 단계 전에 HP-UX 호스트에서 데이터 LUN 테스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 HP-UX 호스트 데이터 LUN의 복사 기반 전환을 수행하는 경우, 전환된 clustered Data ONTAP LUN을 테스트하여 MPIO 디바이스를 컷오버 단계 전에 마운트할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.
+
+새 ONTAP LUN을 테스트 호스트에 매핑해야 하며 LUN을 전환할 준비가 되어 있어야 합니다
+
+테스트 호스트와 소스 호스트 간에 하드웨어 패리티를 유지해야 하며 테스트 호스트에서 다음 단계를 수행해야 합니다.
+
+ONTAP LUN은 테스트 중에 읽기/쓰기 모드에 있습니다. 테스트가 완료되고 컷오버 단계에 대비하는 동안 읽기 전용 모드로 전환됩니다.
+
+.단계
+. 기본 데이터 복사가 완료되면 7MTT 사용자 인터페이스(UI)에서 * 테스트 모드 * 를 선택합니다.
+. 7MTT UI에서 * 구성 적용 * 을 클릭합니다.
+. 테스트 호스트에서 새 ONTAP LUN을 다시 검색합니다.
++
+'* ioscan-fNC disk*'
+
+. ONTAP LUN이 있는지 확인합니다.
++
+``sanlun lun show *’
+
+. 이전에 외부 소스에 복사한 '/tmp/mapfile.vg01 mapfile'을 새 호스트에 복사합니다.
+. 맵 파일을 사용하여 볼륨 그룹을 가져옵니다.
++
+' * vgimport -s -m /tmp/mapfile/vg01 vg01 * '
+
+. VG Status가 Available로 표시되는지 확인
++
+' * vgdisplay * '
+
+. 기존 장치 특수 파일 이름(DSF)을 영구 DSF로 변환:
++
+' * vgdsf-c/dev/vg01 * '
+
+. mount 명령을 사용하여 각 논리 볼륨을 수동으로 마운트합니다.
+. 메시지가 나타나면 fsck 명령을 실행합니다.
+. 마운트 지점을 확인합니다.
++
+"* bdf*"
+
+. 필요에 따라 테스트를 수행합니다.
+. 테스트 호스트를 종료합니다.
+. 7MTT UI에서 * 테스트 완료 * 를 클릭합니다.
+
+
+ONTAP LUN을 소스 호스트에 다시 매핑해야 하는 경우 소스 호스트에서 컷오버 단계를 준비해야 합니다. ONTAP LUN이 테스트 호스트에 매핑된 상태를 유지해야 하는 경우 테스트 호스트에 추가 단계가 필요하지 않습니다.

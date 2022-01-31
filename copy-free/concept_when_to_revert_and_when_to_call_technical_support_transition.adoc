@@ -1,0 +1,32 @@
+---
+permalink: copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, roll, back, transition, technical, support 
+summary: 테스트 또는 랩 클러스터에서 롤백을 수행할 때 도움 없이 롤백할 수 있지만 전환 중 또는 전환 후에 문제가 발생하거나 운영 클러스터에서 수행된 전환을 롤백하려는 경우 기술 지원 부서에 요청해야 합니다. 
+---
+= 전환 시점 및 기술 지원 부서에 언제 전화해야 하는 경우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테스트 또는 랩 클러스터에서 롤백을 수행할 때 도움 없이 롤백할 수 있지만 전환 중 또는 전환 후에 문제가 발생하거나 운영 클러스터에서 수행된 전환을 롤백하려는 경우 기술 지원 부서에 요청해야 합니다.
+
+
+IMPORTANT: 기술 지원 부서의 지원 없이 운영 환경에서 전환을 롤백하려고 해서는 안 됩니다.
+
+다음과 같은 상황이 발생하면 즉시 기술 지원 부서에 문의하십시오.
+
+* 전환 프로세스가 실패하여 완료할 수 없으며 다음에 수행할 작업이 확실하지 않습니다.
+* 전환 프로세스가 완료되지만 운영 환경에서는 클러스터를 사용할 수 없습니다.
+* 전환 프로세스가 완료되고 클러스터가 운영 환경으로 전환되지만 클러스터 동작이 만족스럽지 않습니다.
+* 전환 프로세스는 일부 데이터 및 구성에 대해 완료되지만, 일부 데이터 및 구성에서는 전환을 롤백할 것인지 결정합니다.
+* 전환 프로세스에 문제가 있으며 7-Mode 전환 툴, Data ONTAP EMS 이벤트 메시지 및 NetApp Knowledgebase의 오류 응답 메시지에 대한 문제를 해결할 수 없습니다.
++
+https://kb.netapp.com/["NetApp 기술 자료"]
+
+
+
+* 관련 정보 *
+
+xref:task_collecting_tool_logs.adoc[전환 로그 파일을 다운로드하는 중입니다]

@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_transitioning_volumes_using_7mtt_cli.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cli, tool, columes 
+summary: 7-Mode 전환 툴은 7-Mode 볼륨을 전환할 수 있는 명령을 제공합니다. Linux 시스템에 7-Mode Transition Tool이 설치되어 있는 경우 CLI를 사용하여 전환을 수행해야 합니다. 
+---
+= 7-Mode 전환 툴 CLI를 사용하여 볼륨 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 7-Mode 볼륨을 전환할 수 있는 명령을 제공합니다. Linux 시스템에 7-Mode Transition Tool이 설치되어 있는 경우 CLI를 사용하여 전환을 수행해야 합니다.
+
+이 툴은 7-Mode 스토리지 시스템의 볼륨 및 IP 주소 정보를 수집하고 7-Mode 구성을 검증하며, 클러스터와 상호 작용하여 SVM에 구성을 적용합니다.

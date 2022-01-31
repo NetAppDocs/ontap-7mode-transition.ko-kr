@@ -1,0 +1,236 @@
+---
+permalink: copy-based/reference_configurations_that_can_be_excluded.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configurations, excluded 
+summary: 7-Mode Transition Tool CLI에서 CBT 속성 세트 명령을 사용하여 속성 이름을 지정하여 NFS, CIFS, SAN 및 네임 서비스 구성에 대한 일부 볼륨 레벨 또는 SVM 레벨 구성을 제외하고 구성 전환을 사용자 지정할 수 있습니다. 
+---
+= 전이를 제외할 수 있는 설정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴 CLI의 'Transition CBT 속성 세트' 명령으로 속성 이름을 지정하여 NFS, CIFS, SAN 및 네임 서비스 구성에 대한 일부 볼륨 레벨 또는 SVM 레벨 구성을 제외하고 구성 전환을 사용자 지정할 수 있습니다.
+
+
+
+== NFS 를 참조하십시오
+
+|===
+| 제외할 7-Mode 구성입니다 | 속성 이름 
+
+
+ a| 
+엑스포트 정책
+ a| 
+nfs-exports-transition 무시
+
+
+
+ a| 
+NFS 옵션
+ a| 
+nore-nfs-options-transition
+
+
+
+ a| 
+모든 NFS 구성
+ a| 
+nore-all-nfs-configurations-transition
+
+|===
+
+
+== CIFS를 선택합니다
+
+|===
+| 제외할 7-Mode 구성입니다 | 속성 이름 
+
+
+ a| 
+로컬 사용자 및 그룹
+ a| 
+'ignore-local-users-groups-transition'
+
+
+
+ a| 
+홈 디렉토리 경로
+ a| 
+ignore-cifs-home-directory-paths-transition
+
+
+
+ a| 
+심볼 링크
+ a| 
+'ignore-cifs-symlinks-transition
+
+
+
+ a| 
+Widelink
+ a| 
+'ignore-cifs-wizelink-transition
+
+
+
+ a| 
+ACL 공유 및 공유
+ a| 
+ignore-cifs-공유 및-acs-전환
+
+
+
+ a| 
+CIFS 옵션
+ a| 
+'ignore-cifs-options-transition
+
+
+
+ a| 
+이름 매핑
+ a| 
+ignore-cifs-name-mapping-transition입니다
+
+
+
+ a| 
+구성을 감사합니다
+ a| 
+ignore-cifs-audit-transition
+
+
+
+ a| 
+기본 도메인 컨트롤러 목록
+ a| 
+'ignore-cifs-preferred-domain-controllers-list-transition
+
+
+
+ a| 
+모든 CIFS 구성
+ a| 
+'ignore-all-cifs-configurations-transition
+
+|===
+
+
+== 네임 서비스
+
+|===
+| 제외할 7-Mode 구성입니다 | 속성 이름 
+
+
+ a| 
+넷그룹
+ a| 
+무시넷그룹-전이
+
+
+
+ a| 
+Unix 사용자 및 그룹
+ a| 
+'ignore-unix-users-groups-transition'
+
+
+
+ a| 
+NIS를 선택합니다
+ a| 
+'nore-NIS-transition'
+
+
+
+ a| 
+DNS
+ a| 
+DNS 전이를 무시한다
+
+
+
+ a| 
+LDAP를 지원합니다
+ a| 
+'ignore-ldap-transition'
+
+
+
+ a| 
+'/etc/nsswitch.conf' 파일입니다
+ a| 
+nsswitch-transition을 무시합니다
+
+
+
+ a| 
+LDAP 기반 사용자 매핑
+ a| 
+nmswitch-transition 무시
+
+
+
+ a| 
+'/etc/hosts' 파일
+ a| 
+'무시-etc-hosts-transition'
+
+
+
+ a| 
+모든 네임 서비스 구성
+ a| 
+'ignore-all-nameservices-configurations-transition
+
+|===
+
+
+== 산
+
+|===
+| 제외할 7-Mode 구성입니다 | 속성 이름 
+
+
+ a| 
+Igroup 및 LUN 매핑
+ a| 
+'ignore-igroup-and-lunmapping-transition
+
+
+
+ a| 
+모든 설정
+ a| 
+'ignore-all-san-configurations-transition'
+
+|===
+
+
+== Snapshot 스케줄
+
+|===
+| 제외할 7-Mode 구성입니다 | 속성 이름 
+
+
+ a| 
+Snapshot 스케줄
+ a| 
+ignore-snapshot-schedule-transition을 참조하십시오
+
+
+NOTE: 이 옵션을 true로 설정하면 '기본' 스냅샷 정책이 전환된 볼륨에 적용됩니다.
+
+|===
+* 관련 정보 *
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[ONTAP로의 전환을 위해 지원 및 지원되지 않는 CIFS 구성]
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS 전환: 지원되는 구성과 지원되지 않는 구성, 필요한 수동 단계]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[이름 서비스 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계]
+
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계]

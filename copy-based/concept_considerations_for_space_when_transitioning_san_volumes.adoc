@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_space_when_transitioning_san_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, space, considerations, san, volumes 
+summary: 전환 중에 볼륨에서 충분한 공간을 사용할 수 있는지 확인해야 합니다. 데이터 및 스냅샷 복사본을 저장하는 데 필요한 공간 외에도 전환 프로세스에는 특정 파일 시스템 메타데이터를 업데이트하기 위한 LUN당 1MB의 공간도 필요합니다. 
+---
+= SAN 볼륨을 전환할 때의 공간 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 중에 볼륨에서 충분한 공간을 사용할 수 있는지 확인해야 합니다. 데이터 및 스냅샷 복사본을 저장하는 데 필요한 공간 외에도 전환 프로세스에는 특정 파일 시스템 메타데이터를 업데이트하기 위한 LUN당 1MB의 공간도 필요합니다.
+
+컷오버하기 전에 7-Mode 볼륨에서 df-h" 명령을 사용하여 볼륨에서 LUN당 여유 공간 1MB를 사용할 수 있는지 확인할 수 있습니다. 또한 최종 컷오버를 수행하기 전에 볼륨에 쓸 데이터의 양과 동일한 여유 공간을 가져야 합니다. 볼륨에 사용 가능한 공간이 충분하지 않은 경우 7-Mode 볼륨에 필요한 공간을 추가해야 합니다.
+
+대상 볼륨에 공간이 부족하여 LUN 전환이 실패하면 "공간이 부족하여 볼륨 vol1의 LUN에 대한 LUN.vol.proc.fail.no.space: 처리가 실패했습니다"라는 EMS 메시지가 생성됩니다.
+
+이 경우 대상 볼륨에서 'filesys-size-fixed' 속성을 'false'로 설정한 다음 볼륨에 사용 가능한 공간의 LUN당 1MB를 추가해야 합니다.
+
+공간 예약 LUN이 포함된 볼륨이 있는 경우 LUN당 1MB씩 볼륨을 증가해도 공간이 충분하지 않을 수 있습니다. 이 경우 추가해야 하는 추가 공간의 양은 볼륨에 대한 스냅숏 예비 공간의 크기입니다. 대상 볼륨에 공간이 추가된 후 'lun transition start' 명령을 사용하여 LUN을 전환할 수 있습니다.
+
+* 관련 정보 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

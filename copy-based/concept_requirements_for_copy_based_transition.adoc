@@ -1,0 +1,83 @@
+---
+permalink: copy-based/concept_requirements_for_copy_based_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, requirements 
+summary: ONTAP 릴리즈 요구사항, 라이센스 요구사항, 복사본 기반 전환을 위한 7-Mode 전환 툴 요구사항에 대해 알고 있어야 합니다. 
+---
+= 복사본 기반 전환을 위한 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 릴리즈 요구사항, 라이센스 요구사항, 복사본 기반 전환을 위한 7-Mode 전환 툴 요구사항에 대해 알고 있어야 합니다.
+
+* * Data ONTAP 7-Mode 소스 시스템 *
++
+7-Mode 전환 툴을 통해 마이그레이션이 지원되는 7-Mode 릴리즈 목록은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"].
+
+* * ONTAP 대상 시스템 *
++
+이러한 ONTAP 타겟 릴리즈에는 복사 기반 전환이 지원됩니다.
+
++
+|===
+| 전환 목표가 실행 중인 경우... | 이 7-Mode 전환 툴 버전을 사용해야 합니다. 
+
+
+ a| 
+ONTAP 9.8 이하 지원 릴리스
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 이상 9.7 P 릴리스
+
+
+NOTE: 이전 9.7 릴리즈는 지원되지 않습니다.
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 이상 9.6 P 릴리스
+
+
+NOTE: 이전 9.6 릴리스는 지원되지 않습니다.
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 또는 이전 ONTAP 9 릴리스
+ a| 
+3.3.2 또는 3.3.1
+
+
+
+ a| 
+Clustered Data ONTAP 8.1.4P4 이상 8.x 릴리즈
+ a| 
+3.3.2 또는 3.3.1
+
+|===
+* * 라이선스 요구 사항 *
++
+SnapMirror의 라이센스는 7-Mode 스토리지 시스템에서 제공되어야 합니다. 7-Mode 시스템에 SnapMirror 라이센스가 없는 경우 세일즈 담당자로부터 전환을 위한 임시 SnapMirror 라이센스를 받을 수 있습니다.
+
++
+체인 보호 검증을 수행해야 하는 경우 대상 클러스터에서 SnapLock 라이센스가 있어야 합니다.
+
+* * 7-Mode 전환 툴 서비스 *
++
+데이터 복사 일정이 적용되도록 7-Mode 전환 툴 서비스는 도구가 설치된 Windows 또는 Linux 시스템에서 항상 실행 중이어야 합니다. 그러나 일정이 적용되려면 웹 인터페이스가 활성 또는 열려 있지 않아도 됩니다. 웹 인터페이스를 닫고 필요할 때마다 다시 로그인할 수 있습니다.
+
+* * 전환 평가를 위한 스토리지, 호스트 및 FC 스위치 버전 요구 사항 *
++
+7-Mode 전환 툴 에서 평가를 지원하는 7-Mode 버전, 호스트 및 FC 스위치 목록은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"].
+
+

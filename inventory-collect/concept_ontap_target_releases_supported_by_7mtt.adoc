@@ -1,0 +1,77 @@
+---
+permalink: inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, target, releases, supported, tool 
+summary: ONTAP 전환 타겟 클러스터에 대한 릴리즈 지원은 사용 중인 전환 방법, 복사 기반 또는 복사를 수행할 수 없음, 7-Mode 전환 툴 버전에 따라 달라집니다. 
+---
+= 7-Mode 전환 툴을 통해 지원되는 ONTAP 타겟 릴리즈
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 전환 타겟 클러스터에 대한 릴리즈 지원은 사용 중인 전환 방법, 복사 기반 또는 복사를 수행할 수 없음, 7-Mode 전환 툴 버전에 따라 달라집니다.
+
+최신 7-Mode 전환 툴을 참조하십시오 link:http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["릴리즈 노트"] 지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보를 확인하십시오.
+
+이러한 ONTAP 타겟 릴리즈에는 복사 기반 전환이 지원됩니다.
+
+|===
+| 전환 목표가 실행 중인 경우... | 이 7-Mode 전환 툴 버전을 사용해야 합니다. 
+
+
+ a| 
+ONTAP 9.9.1 이하 지원 릴리스
+ a| 
+3.4.0
+
+
+
+ a| 
+ONTAP 9.8 이하 지원 릴리스
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 이상 9.7 P 릴리스
+
+
+NOTE: 이전 9.7 릴리즈는 지원되지 않습니다.
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 이상 9.6 P 릴리스
+
+
+NOTE: 이전 9.6 릴리스는 지원되지 않습니다.
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 또는 이전 ONTAP 9 릴리스
+ a| 
+3.3.2 또는 3.3.1
+
+
+
+ a| 
+Clustered Data ONTAP 8.1.4P4 이상 8.x 릴리즈
+ a| 
+3.3.2 또는 3.3.1
+
+|===
+7-Mode 전환 툴 3.3.1을 사용하는 ONTAP 타겟 릴리즈에는 무복사 전환이 지원됩니다.
+
+* ONTAP 9.4 및 이전 ONTAP 9 릴리스.
+* Clustered Data ONTAP 8.3.2 이상 8.x 릴리즈
+
+
+
+NOTE: 7-Mode 전환 툴을 사용하여 ONTAP 9.5 이상으로 전환할 때는 무복사 방법을 사용할 수 없습니다. 그러려면 먼저 7-Mode 전환 툴 3.3.1을 사용하여 ONTAP 9.4로 전환한 다음 클러스터를 ONTAP 9.5 이상으로 업그레이드해야 합니다. 7-Mode 전환 툴 3.2.2에서는 복사 없는 전환을 지원하지 않습니다.

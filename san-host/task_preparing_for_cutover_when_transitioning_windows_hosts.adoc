@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, windows, hosts 
+summary: 7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP으로 Windows 호스트를 전환하는 경우 전환이 시작된 후에 컷오버 단계가 시작되기 전에 수행해야 합니다. 
+---
+= Windows 호스트를 전환할 때 컷오버 단계를 준비합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP으로 Windows 호스트를 전환하는 경우 전환이 시작된 후에 컷오버 단계가 시작되기 전에 수행해야 합니다.
+
+Data ONTAP DSM을 실행 중인 경우, 서버에 설치된 Data ONTAP DSM 버전이 대상 clustered Data ONTAP 노드에서 실행 중인 Data ONTAP 버전에 대해 지원되어야 합니다.
+
+MSDSM을 실행하는 경우 서버에 설치된 Windows Host Utilities 버전이 대상 clustered Data ONTAP 노드에서 실행 중인 Data ONTAP 버전에 대해 지원되어야 합니다.
+
+* 복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. Disk Manager를 사용하여 전환할 디스크를 오프라인으로 전환합니다.
+. 호스트가 SAN에서 부팅되고 부팅 LUN이 전환 중인 경우 부팅 호스트를 종료합니다.
+. 호스트가 클러스터링되어 있는 경우 페일오버 클러스터 관리자를 사용하여 쿼럼 디스크를 포함하여 클러스터링된 디스크를 오프라인으로 만듭니다.
+. 호스트가 Windows Server 2003을 실행 중이고 쿼럼 장치를 마이그레이션해야 하는 경우 모든 클러스터 노드에서 클러스터 서비스를 중지합니다.
+. Hyper-V가 설정된 서버에서 LUN을 전환하는 경우 게스트 운영 체제에 대해 적절한 호스트 측 전환 단계를 수행합니다.
+. Hyper-V가 활성화된 서버에서 LUN을 전환하고 게스트 OS의 부팅 디바이스가 전환 중인 Data ONTAP LUN에 상주하는 경우 다음을 수행합니다.
++
+.. 게스트 OS를 종료합니다.
+.. 상위 시스템에서 해당 디스크를 오프라인 상태로 만듭니다.
+
+
+

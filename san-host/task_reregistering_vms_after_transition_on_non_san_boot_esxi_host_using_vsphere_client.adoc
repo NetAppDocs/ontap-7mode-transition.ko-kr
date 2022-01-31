@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vm, esxi, vsphere, client 
+summary: '비 SAN 부팅 호스트를 전환한 후 가상 시스템 \(VM\)을 다시 등록해야 합니다.' 
+---
+= vSphere Client를 사용하여 비 SAN 부팅 ESXi 호스트에서 전환 후 VM 재등록
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+비 SAN 부팅 호스트를 전환한 후 가상 머신(VM)을 다시 등록해야 합니다.
+
+호스트가 온라인 상태여야 하며 LUN을 검색할 수 있어야 합니다.
+
+* 복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 시스템 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. ICT(Inventory Collect Tool)에서 생성한 _Inventory Assessment Workbook_을 엽니다.
+. 호스트 VM 탭으로 이동한 다음 VM의 * VM 구성 파일 * 경로 및 * 위치/데이터 저장소 이름 * 을 기록합니다.
+. vSphere Client를 사용하여 ESXi 호스트를 관리하는 vCenter Server 또는 ESXi 호스트에 로그인합니다.
+. 호스트 및 클러스터 * 에서 ESXi 호스트를 선택합니다.
+. Configuration * > * Hardware * > * Storage * 로 이동합니다.
+. 이전에 기록한 데이터 저장소 이름이 있는 데이터 저장소를 선택합니다.
+. 마우스 오른쪽 버튼을 클릭하고 * 데이터 저장소 찾아보기 * 를 선택합니다.
++
+Datastore Browser 창이 열립니다.
+
+. 이전에 기록한 * VM Config File * 경로로 이동합니다.
+. ".vmx" 파일을 마우스 오른쪽 단추로 클릭한 다음 * 인벤토리에 추가 * 를 선택합니다.
+. ICT에서 생성한 _Inventory Assessment Workbook_의 * 호스트 VM * 탭에 나열된 각 VM에 대해 이 단계를 반복합니다.
+

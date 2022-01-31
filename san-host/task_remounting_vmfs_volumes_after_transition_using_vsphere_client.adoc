@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remount, vmfs, volumes, vshpere, client 
+summary: '전환 후에는 VMFS 볼륨을 다시 마운트하여 데이터 저장소 및 가상 머신 \(VM\)을 이전 상태로 전환해야 합니다. ESXi CLI에 익숙하지 않거나 환경에서 더 편리한 경우 vSphere Client를 사용하여 볼륨을 다시 마운트할 수 있습니다.' 
+---
+= vSphere Client를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 후에는 VMFS 볼륨을 다시 마운트하여 데이터 저장소와 가상 머신(VM)을 전환 전의 상태로 전환해야 합니다. ESXi CLI에 익숙하지 않거나 환경에서 더 편리한 경우 vSphere Client를 사용하여 볼륨을 다시 마운트할 수 있습니다.
+
+다음 단계는 볼륨 및 스팬 볼륨에 적용됩니다.
+
+.단계
+. ESXi 호스트를 관리하는 vCenter Server 또는 ESXi 호스트에 로그인합니다.
+. 호스트 및 클러스터 * 에서 ESXi 호스트를 선택합니다.
+. Configuration * > * Hardware * > * Storage * 로 이동합니다.
+. 오른쪽 위 모서리에서 * 스토리지 추가 * 를 클릭합니다.
+. 디스크/LUN * 을 선택합니다.
+. 다음 * 을 클릭합니다.
+. LUN 목록에서 데이터 저장소의 이름을 표시하는 * VMFS_label * 열을 찾습니다.
+. LUN을 선택하여 다시 마운트 작업을 완료합니다.
++
+스팬된 VMFS 볼륨을 다시 마운트하는 경우 스팬 내의 첫 번째 LUN이 ""헤드""로 표시됩니다. "헤드" LUN을 선택하여 다시 마운트 작업을 완료해야 합니다.
+
+. 다음 * 을 클릭합니다.
+. Select VMFS Mount Options 창에서 * Keep the existing signature * 를 선택합니다.
+. 마법사를 완료합니다.
+. VMFS_label 열에 데이터 저장소 이름을 표시하는 모든 LUN에 대해 이 단계를 반복합니다.
++
+데이터 저장소가 다시 마운트되고 VM이 활성화됩니다.
+
+

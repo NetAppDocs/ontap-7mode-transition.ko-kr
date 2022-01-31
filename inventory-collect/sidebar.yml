@@ -1,0 +1,28 @@
+---
+section: inventory-collect
+title: 호스트 및 스토리지 정보 수집 가이드
+url: "/inventory-collect/index.html"
+entries:
+- title: 스토리지 및 호스트 인벤토리 정보를 수집하는 중입니다
+  url: "/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html"
+  entries:
+  - title: 7-Mode 전환 툴을 통해 지원되는 ONTAP 타겟 릴리즈
+    url: "/inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: Inventory Collect Tool을 실행하기 위한 시스템 요구 사항입니다
+    url: "/inventory-collect/concept_system_requirements_for_running_ict.html"
+  - title: 인벤토리 수집을 위한 스토리지, 호스트 및 FC 스위치 버전 요구 사항
+    url: "/inventory-collect/concept_storage_and_host_version_requirements.html"
+  - title: 인벤토리 수집을 위해 7-Mode 시스템 및 호스트 준비
+    url: "/inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: FC 존 계획 생성을 위한 지원 구성
+    url: "/inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 구문 및 옵션
+    url: "/inventory-collect/reference_syntax_and_options.html"
+  - title: 재고 수집 및 재고 보고서 생성
+    url: "/inventory-collect/task_collecting_inventory_and_generating_inventory_report.html"
+  - title: FC 존 계획을 생성하는 중입니다
+    url: "/inventory-collect/task_generating_fc_zone_plan.html"
+  - title: 수집 및 평가 명령
+    url: "/inventory-collect/reference_collection_and_assessment_commands.html"
+  - title: 전환 평가에 대한 정보를 찾을 수 있는 위치
+    url: "/inventory-collect/concept_where_to_find_information_about_transition_assessment.html"

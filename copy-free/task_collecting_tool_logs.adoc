@@ -1,0 +1,26 @@
+---
+permalink: copy-free/task_collecting_tool_logs.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, download, log, files 
+summary: 7-Mode 전환 툴은 시스템에서 실행되는 전환 평가 및 마이그레이션 작업의 처리 세부 정보를 제공하는 로그 파일을 생성합니다. 
+---
+= 전환 로그 파일을 다운로드하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 시스템에서 실행되는 전환 평가 및 마이그레이션 작업의 처리 세부 정보를 제공하는 로그 파일을 생성합니다.
+
+.단계
+. 상단 메뉴에서 * Logs * 를 클릭합니다.
+. 모든 프로젝트와 관련된 로그를 수집하려면 * 프로젝트 로그 수집 * 을 클릭합니다.
+. 지정된 프로젝트의 로그를 수집하려면 프로젝트 목록에서 프로젝트를 찾은 다음 * 다운로드 * 를 클릭합니다.
++
+로그는 ".zip" 파일로 다운로드되고 폴더 이름은 타임 스탬프입니다.
+
+
+
+* 관련 정보 *
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법"]

@@ -1,0 +1,107 @@
+---
+permalink: san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, hp, ux, host, lun, file, system 
+summary: 파일 시스템이 포함된 HP-UX 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 전에 전환 프로세스에 필요한 정보를 수집해야 합니다. 
+---
+= HP-UX 호스트 LUN을 파일 시스템으로 전환하기 위한 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 시스템이 포함된 HP-UX 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 전에 전환 프로세스에 필요한 정보를 수집해야 합니다.
+
+.단계
+. LUN을 표시하여 전환할 LUN의 이름을 식별합니다.
++
+' * lun show * '
+
+. 전환할 LUN의 SCSI 디바이스 이름과 SCSI 디바이스의 Agile 이름을 찾습니다.
++
+' * sanlun lun show -p * '
+
++
+다음 예에서는 전환 LUN이 lun1과 LUN3입니다. lun1의 SCSI 디바이스 이름은 '/dev/dsk/c14t0d1', '/dev/dsk/c27t0d1', '/dev/dsk/c40t0d1', '/dev/dsk/c31t0d1'입니다. LUN3의 SCSI 디바이스 이름은 /dev/dsk/c14t0d2, '/dev/dsk/c27t0d2', '/dev/dsk/c40t0d2', '/dev/dsk/c31t0d2'입니다.
+
++
+SCSI 디바이스 '/dev/dsk/c31t0d1의 Agile 이름은 '/dev/rdisk/disk11'입니다.
+
++
+[listing]
+----
+        ONTAP Path: f8040-211-185:/vol/vol185_n1/lun3
+               LUN: 1
+          LUN Size: 3g
+       Host Device: /dev/rdisk/disk11
+              Mode: 7
+Multipath Provider: None
+host      vserver   /dev/dsk
+path      path      filename           host     vserver
+state     type      or hardware path   adapter  LIF
+-----     --------- ----------------   -------  -------
+up        secondary /dev/dsk/c14t0d1   fcd0     fc4
+up        primary   /dev/dsk/c27t0d1   fcd0     fc2
+up        primary   /dev/dsk/c40t0d1   fcd1     fc1
+up        secondary /dev/dsk/c31t0d1   fcd1     fc3
+----
++
+[listing]
+----
+        ONTAP Path: f8040-211-183:/vol/vol183_n1/lun1
+               LUN: 3
+          LUN Size: 3g
+       Host Device: /dev/rdisk/disk14
+              Mode: 7
+Multipath Provider: None
+host      vserver   /dev/dsk
+path      path	     filename           host     vserver
+state     type      or hardware path   adapter  LIF
+-----     --------- ----------------   -------  -------
+up        secondary /dev/dsk/c14t0d1   fcd0     fc4
+up        primary   /dev/dsk/c27t0d1   fcd0     fc2
+up        primary   /dev/dsk/c40t0d1   fcd1     fc1
+up        secondary /dev/dsk/c31t0d1   fcd1     fc3
+----
+. 호스트에서 LUN의 WWID를 식별합니다.
++
+'* scsimgr get_info-D_Agile_name_for_scsi_device_ * '
+
++
+이 예에서 디바이스 '/dev/rdisk/disk11의 LUN WWID는 0x600a09804d537739422445386b755529입니다.
+
++
+[listing]
+----
+bash-2.05# scsimgr get_info -D /dev/rdisk/disk11 |grep WWID
+World  Wide Identifier (WWID)     = 0x600a09804d537739422445386b755529
+----
+. 볼륨 그룹 나열 및 기록:
++
+' * vgdisplay * '
+
+. 볼륨 그룹, 논리적 볼륨 및 물리적 볼륨을 나열하고 기록합니다.
++
+' * vgdisplay -v_vg_name_ * '
+
+. 볼륨 그룹의 VGID 및 논리 볼륨을 맵 파일에 씁니다.
++
+' * vgexport -p -s -m /tmp/mapfile/vg01 vg01 * '
+
+. mapfile.vg01의 백업 사본을 외부 소스로 만듭니다.
+. 마운트 지점을 나열하고 기록합니다.
++
+"* bdf*"
+
++
+다음 예에서는 마운트 지점을 표시하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+bash-2.05# bdf
+Filesystem     kbytes      used        avail   	used   Mounted on
+/dev/vg01/lvol 123592960   1050952   22189796   5%   /mnt/qa/vg01
+/dev/vg01/lvol2 23592960   588480    22645044   3%   /mnt/qa/vg02
+----
+

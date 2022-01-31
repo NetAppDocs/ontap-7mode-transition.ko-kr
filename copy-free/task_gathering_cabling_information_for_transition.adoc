@@ -1,0 +1,102 @@
+---
+permalink: copy-free/task_gathering_cabling_information_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, gather, cabling, information 
+summary: 복사를 사용하지 않는 전환을 시작하기 전에 7-Mode 컨트롤러의 어댑터, 포트, 디스크 쉘프 및 스토리지 연결에 대한 정보를 수집한 다음 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 연결하는 방법을 계획해야 합니다. 
+---
+= 전환을 위한 케이블 정보를 수집하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+복사를 사용하지 않는 전환을 시작하기 전에 7-Mode 컨트롤러의 어댑터, 포트, 디스크 쉘프 및 스토리지 연결에 대한 정보를 수집한 다음 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 연결하는 방법을 계획해야 합니다.
+
+복사를 사용하지 않는 전환 케이블링 워크시트를 인쇄해야 합니다.
+
+xref:reference_copy_free_transition_cabling_worksheet.adoc[복사 없는 전환 케이블링 워크시트]
+
+. Config Advisor를 사용하여 7-Mode 스토리지 및 케이블 연결 상태 점검을 수행하고 케이블링 데이터를 수집하십시오.
++
+"Data ONTAP 7, 8(7-Mode)" 실행 프로파일에서 '7-Mode 설치 점검' 옵션을 사용해야 합니다.
+
+. 다음 명령을 사용하여 각 7-Mode 컨트롤러에 대한 필수 정보를 수집합니다.
++
+' * sysconfig_slot_number_ *'
+
++
+이 명령의 출력을 사용하여 디스크 쉘프 연결에 사용할 포트를 식별할 수 있습니다.
+
++
+[listing]
+----
+host1> sysconfig 3
+        slot 3: SAS Host Adapter 3a
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3b
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3c
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+        slot 3: SAS Host Adapter 3d
+                24 Disks:            13440.0GB
+                1 shelf with IOM3
+----
+. 클러스터에서 각 노드에 대해 다음 notes지옥을 실행하십시오.
++
+' * system node run-node_node_name_-command sysconfig -a * '
+
++
+이 명령의 출력을 사용하여 사용 가능한 포트 및 확장 카드 슬롯에 대한 정보를 얻을 수 있습니다.
+
+. 타겟 클러스터 노드에서 7-Mode 디스크 쉘프 연결에 사용할 포트를 계획합니다.
++
+.. 사용 가능한(열린) 포트를 검토합니다.
+.. 확장 카드 슬롯을 검토합니다.
+.. 확장 카드 구성을 계획합니다.
++
+타겟 플랫폼 및 ONTAP 버전에서도 확장 카드가 지원되는 경우 7-Mode 시스템에서 확장 카드를 이동할 수 있습니다. 필요한 경우 PAM 카드를 계획할 수도 있습니다.
+
++
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+
+.. 디스크 쉘프 케이블링에 사용할 대상 포트를 계획합니다.
++
+대상 포트 선택은 다음 요소 중 일부에 따라 달라집니다.
+
++
+*** 별도의 디스크 쉘프 스택 또는 기존 디스크 쉘프 스택
+*** 포트 가용성
+*** SAS 또는 FC 연결
+*** 온보드 포트 또는 확장 카드의 가용성
+
+
+
+
+. 데이터 센터로 이동하여 케이블 연결 워크시트에 7-Mode 컨트롤러 및 타겟 클러스터 노드의 포트 연결을 물리적으로 기록합니다.
++
+.. 케이블 연결 워크시트에 7-Mode 컨트롤러의 사용된 포트를 기록합니다.
+.. 대상 클러스터 노드의 사용된 포트를 케이블링 워크시트에 기록합니다.
+.. 단계에서 계획된 대로 7-Mode 디스크 쉘프 연결에 사용할 타겟 포트를 기록합니다 <<STEP_D0CFE719A0384F7FA5D9E73C8EA6C2E7,STEP_D0CFE719A0384F7FA5D9E73C8EA6C2E7>>.
+.. 디스크 쉘프를 연결하는 데 적합한 케이블이 있는지 확인합니다.
++
+새로운 디스크 쉘프 스택 위치를 기준으로 케이블 연결과 관련된 문제를 모두 식별해야 합니다.
+
+.. 래더 랙 장착 또는 데이터 센터 요구 사항으로 인해 케이블 길이를 연장하는 계획을 수립합니다.
+.. 각 디스크 쉘프 스택과 케이블에 7-Mode 컨트롤러에 레이블을 부착합니다.
++
+모범 사례는 전환을 롤백하여 디스크 쉘프를 7-Mode 컨트롤러에 다시 연결해야 할 경우 7-Mode 디스크 쉘프 스택의 레이블을 지정하는 것입니다.
+
+
+
+
+
+* 관련 정보 *
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]

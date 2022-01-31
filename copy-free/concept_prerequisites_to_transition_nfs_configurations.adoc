@@ -1,0 +1,40 @@
+---
+permalink: copy-free/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prerequisites, nfs, configurations 
+summary: NFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족될 경우에만 7-Mode 전환 툴에 의해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다. 
+---
+= NFS 구성 전환을 위한 사전 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족될 경우에만 7-Mode 전환 툴에 의해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다.
+
+
+
+== 7-Mode 사전 요구사항
+
+* NFS 라이센스가 있어야 합니다.
+* MultiStore 라이센스가 있는 경우 모든 vFiler 유닛에서 NFS를 활성화해야 합니다.
+* 전환 중에는 7-Mode 시스템에서 NFS 서비스를 실행해야 합니다.
++
+클라이언트 액세스가 끊기고 내보내기 단계를 시작할 준비가 된 후에도 7-Mode 시스템에서 서비스가 실행되고 있어야 합니다.
+
+* 메모리 내 내보내기 규칙을 이전하려면 전환하기 전에 해당 규칙을 '/etc/exports' 파일에 추가해야 합니다.
++
+7-Mode Transition Tool은 '/etc/exports' 파일에 정의된 영구 내보내기 규칙만 전환합니다.
+
+
+
+
+
+== 클러스터 사전 요구 사항
+
+* NFS 라이센스가 있어야 합니다.
+
+
+* 관련 정보 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

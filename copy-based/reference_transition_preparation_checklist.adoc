@@ -1,0 +1,404 @@
+---
+permalink: copy-based/reference_transition_preparation_checklist.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, preparation, checklist 
+summary: 전환을 시작하기 전에 전환을 위한 모든 사전 요구 사항이 충족되었는지 확인해야 합니다. 
+---
+= 전환 준비 체크리스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 시작하기 전에 전환을 위한 모든 사전 요구 사항이 충족되었는지 확인해야 합니다.
+
+
+
+== ONTAP 버전 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+지원되는 7-Mode 버전 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+ a| 
+
+
+
+ a| 
+클러스터가 다음 Data ONTAP 버전 중 하나를 실행 중이어야 합니다.
+
+* Data ONTAP 8.2.x
+* Data ONTAP 8.3.x
+
+ a| 
+
+
+
+ a| 
+다음 ONTAP 릴리스 중 하나로 전환해야 합니다.
+
+* 7-Mode Transition Tool 사용 3.3.3:
++
+** ONTAP 9.8 이하 지원 릴리스
+
+
+* 7-Mode Transition Tool 사용 3.3.2:
++
+** ONTAP 9.7P2 이상 9.7 P 릴리스(이전 9.7 릴리스는 지원되지 않음)
+** ONTAP 9.6P7 이상 9.6 P 릴리스(이전 9.6 릴리스는 지원되지 않음)
+** ONTAP 9.5 또는 이전 ONTAP 9 릴리스
+** Clustered Data ONTAP 8.1.4P4 이상 8.x 릴리즈
+
+
+* 7-Mode Transition Tool 사용 3.3.1:
++
+** ONTAP 9.5 또는 이전 ONTAP 9 릴리스
+** Clustered Data ONTAP 8.1.4P4 이상 8.x 릴리즈
+
+
+
+ a| 
+
+|===
+
+
+== 라이센스 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+7-Mode 시스템에서 SnapMirror 라이센스가 활성화됩니다
+ a| 
+
+
+
+ a| 
+SnapMirror 라이센스는 볼륨 SnapMirror 관계를 전환하기 위해 기본 및 보조 클러스터에서 설정됩니다
+ a| 
+
+
+
+ a| 
+7-Mode 시스템에서 CIFS 라이센스가 설정된 경우 클러스터에 대해 CIFS 라이센스가 설정됩니다
+ a| 
+
+
+
+ a| 
+7-Mode 시스템에서 NFS 라이센스가 활성화된 경우 클러스터에 대해 NFS 라이센스가 활성화됩니다
+ a| 
+
+
+
+ a| 
+7-Mode 시스템에서 iSCSI 라이센스가 활성화된 경우 클러스터에서 iSCSI 라이센스가 활성화됩니다
+ a| 
+
+
+
+ a| 
+FC 라이센스가 7-Mode 시스템에서 활성화되어 있는 경우 클러스터에 대해 설정됩니다
+ a| 
+
+
+
+ a| 
+기타 기능 라이센스(7-Mode 시스템에서 사용 가능한 경우)가 클러스터에 추가됩니다
+ a| 
+
+|===
+
+
+== 7-Mode 시스템의 SnapMirror 요구사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+SnapMirror 라이센스
+ a| 
+
+
+
+ a| 
+'options SnapMirror.enable on'(SnapMirror.enable 설정)을 선택합니다
+ a| 
+
+
+
+ a| 
+"options interface.snapmirror.blocked"""
+ a| 
+
+
+
+ a| 
+다음 중 하나가 사실인지 확인합니다.
+
+* 'napmirror.access' 옵션은 모두 로 설정되어 있습니다
+* 'napmirror.access' 옵션은 클러스터에 있는 모든 LIF의 IP 주소로 설정됩니다
+* 'napmirror.access' 옵션이 'legacy'로 설정되어 있고 'napmirror.checkip.enable` 옵션이 'off'인 경우 SVM 이름이 '/etc/snapmirror.allow' 파일에 추가됩니다
+* 'napmirror.access' 옵션이 legacy로 설정되어 있고 'napmirror.checkip.enable`' 옵션이 on인 경우, 인터클러스터 LIF의 IP 주소가 '/etc/snapmirror.allow' 파일에 추가됩니다
+
+ a| 
+
+|===
+
+
+== 7-Mode 시스템의 볼륨 설정입니다
+
+|===
+| 항목 | 예 
+
+
+ a| 
+볼륨이 온라인 상태입니다
+ a| 
+
+
+
+ a| 
+볼륨이 제한되지 않습니다
+ a| 
+
+
+
+ a| 
+다음 볼륨 옵션이 비활성화됩니다.
+
+* NO_I2P
+* read_realloc'입니다
+* "nvfail"
+
+ a| 
+
+|===
+
+
+== 클러스터에 대한 액세스 관리
+
+|===
+| 항목 | 예 
+
+
+ a| 
+SSL이 활성화되었습니다
+
+'시스템 서비스 웹 쇼'
+ a| 
+
+
+
+ a| 
+클러스터 관리 LIF에서 HTTPS가 허용됩니다
+
+'시스템 서비스 방화벽 정책 표시
+ a| 
+
+|===
+
+
+== 7-Mode 시스템에 대한 액세스 관리
+
+|===
+| 항목 | 예 
+
+
+ a| 
+HTTPS가 활성화되었습니다
+
+옵션 httpd.admin.ssl.enable on
+ a| 
+
+
+
+ a| 
+SSL이 활성화되었습니다
+
+'ecudreadmin setup ssl'을 선택합니다
+
+옵션 ssl.enable on
+ a| 
+
+
+
+ a| 
+SSLv2 및 SSLv3이 비활성화됩니다
+
+옵션 ssl.v2.enable off
+
+옵션 ssl.v3.enable off
+ a| 
+
+|===
+
+
+== 네트워킹 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+클러스터 관리 LIF를 사용하여 클러스터에 연결할 수 있습니다
+ a| 
+
+
+
+ a| 
+다중 경로를 위해 클러스터의 각 노드에 하나 이상의 인터클러스터 LIF를 설정하는 경우 각 노드에 두 개의 LIF가 필요합니다
+ a| 
+
+
+
+ a| 
+정적 라우트는 인터클러스터 LIF에 대해 생성됩니다
+ a| 
+
+
+
+ a| 
+7-Mode 시스템 및 클러스터는 7-Mode 전환 툴이 설치된 Windows 시스템에서 연결할 수 있습니다
+ a| 
+
+
+
+ a| 
+NTP 서버가 구성되고 7-Mode 시스템 시간이 클러스터 시간과 동기화됩니다
+ a| 
+
+|===
+
+
+== 포트 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+7-Mode 시스템
+
+* 10565/TCP
+* 10566/TCP
+* 10567/TCP
+* 10568/TCP
+* 10569/TCP
+* 10670/TCP
+* 80/TCP
+* 443/TCP
+
+ a| 
+
+
+
+ a| 
+클러스터
+
+* 10565/TCP
+* 10566/TCP
+* 10567/TCP
+* 10568/TCP
+* 10569/TCP
+* 10670/TCP
+* 11105/TCP
+* 80/TCP
+* 443/TCP
+
+ a| 
+
+|===
+
+
+== NFS 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+NFS 라이센스가 클러스터에 추가됩니다
+ a| 
+
+
+
+ a| 
+SVM에서 AD 도메인에 대해 DNS 항목을 구성해야 합니다
+ a| 
+
+
+
+ a| 
+NFS는 SVM에 대해 허용된 프로토콜 목록에 추가됩니다
+ a| 
+
+
+
+ a| 
+KDC와 클러스터 간의 클록 편중이 5분 이하입니다
+ a| 
+
+|===
+
+
+== CIFS 요구 사항
+
+|===
+| 항목 | 예 
+
+
+ a| 
+CIFS 라이센스가 클러스터에 추가됩니다
+ a| 
+
+
+
+ a| 
+MultiStore 라이센스가 활성화된 경우 전환 볼륨을 소유하는 vFiler 유닛에 대해 허용되는 프로토콜 목록에 CIFS를 추가해야 합니다
+ a| 
+
+
+
+ a| 
+CIFS는 7-Mode 시스템에서 설정 및 실행됩니다
+ a| 
+
+
+
+ a| 
+CIFS에 대해 7-Mode의 인증 유형은 AD(Active Directory) 또는 Workgroup입니다
+ a| 
+
+
+
+ a| 
+CIFS가 SVM에 대해 허용되는 프로토콜 목록에 추가됩니다
+ a| 
+
+
+
+ a| 
+SVM을 위해 DNS가 구성됩니다
+ a| 
+
+
+
+ a| 
+CIFS 서버는 SVM용으로 구성됩니다
+ a| 
+
+
+
+ a| 
+SVM에서 CIFS가 실행 중입니다
+ a| 
+
+|===
+* 관련 정보 *
+
+xref:concept_preparing_for_copy_based_transition.adoc[복사 기반 전환을 준비 중입니다]

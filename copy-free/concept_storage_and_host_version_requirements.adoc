@@ -1,0 +1,17 @@
+---
+permalink: copy-free/concept_storage_and_host_version_requirements.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, storage, host, fc, switches, version, requirements, assessment 
+summary: 전환 평가를 지원하는 7-Mode, 호스트 및 FC 스위치에서 작동하는 Data ONTAP 버전에 대해 알고 있어야 합니다. 
+---
+= 전환 평가를 위한 스토리지, 호스트 및 FC 스위치 버전 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 평가를 지원하는 7-Mode, 호스트 및 FC 스위치에서 작동하는 Data ONTAP 버전에 대해 알고 있어야 합니다.
+
+7-Mode 전환 툴 에서 평가를 지원하는 7-Mode 버전, 호스트 및 FC 스위치 목록은 NetApp 상호 운용성 매트릭스 툴을 참조하십시오.
+
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]

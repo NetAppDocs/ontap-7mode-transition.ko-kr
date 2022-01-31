@@ -1,0 +1,73 @@
+---
+permalink: san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, primary, hp, ux, emulex, hba 
+summary: 7-Mode HP-UX 호스트에서 작동하는 Data ONTAP가 SAN 부팅된 경우 clustered Data ONTAP으로 전환한 후 SAN 부팅 LUN을 운영 부팅 LUN으로 만들어야 합니다. 
+---
+= 전환 후 SAN 부팅 LUN을 HP-UX Emulex HBA의 기본 부팅 LUN으로 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode HP-UX 호스트에서 작동하는 Data ONTAP가 SAN 부팅된 경우 clustered Data ONTAP으로 전환한 후 SAN 부팅 LUN을 운영 부팅 LUN으로 만들어야 합니다.
+
+데이터 마이그레이션이 완료되고 부팅 LUN이 clustered Data ONTAP 노드에서 호스트에 매핑되어야 합니다.
+
+복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행하십시오. HP-UX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 쉘 프롬프트에서 Emulex HBA를 나열합니다.
++
+' * 드라이버 * '
+
+. Emulex HBA를 선택한 다음 Enter 키를 누릅니다.
+. 설정 유틸리티 * 를 선택합니다.
+. Configure Boot Parameters * 를 선택합니다.
+. 부트 장치 구성 * 을 선택합니다.
+. 목록에서 장치를 선택한 다음 Enter 키를 누릅니다.
+. 스캔 대상 * 을 선택합니다.
+. 부팅 경로가 원하는 LUN을 선택한 다음 Enter 키를 누릅니다.
+. 모드로 * Peripheral dev * 를 선택한 다음 Enter 키를 누릅니다.
+. WWN*을 통해 이 장치 부팅 을 선택한 다음 Enter 키를 누릅니다.
++
+부팅 LUN이 표시됩니다.
+
+. 쉘 프롬프트로 돌아갈 때까지 * Esc * 를 누릅니다.
+. LUN을 표시하여 부팅할 LUN의 경로를 가져옵니다.
++
+' * map-r * '
+
++
+LUN 경로는 Device 열에 나열됩니다. 부팅 가능한 SAN 디스크는 매핑 테이블 열 아래에 표시되며 출력 문자열에는 ""WWN"" 및 ""Part 1""이 표시됩니다.
+
+. SAN 부팅 LUN의 LUN 경로를 입력합니다.
++
+LUN 경로의 예는 fs0입니다.
+
+. EFI 쉘을 종료합니다.
++
+'* CD EFI*'
+
+. HPUX 디렉토리 입력:
++
+'* CD HPUX*'
+
+. 새로운 clustered Data ONTAP SAN 부팅 LUN을 운영 부팅 LUN으로 설정합니다.
++
+"* bcfg boot add 1 HPUX.efi "HP-UX-Primary Boot" * "
+
+. SAN 부트 LUN에 대한 EFI 항목을 만들어 HBA BIOS를 수동으로 업데이트합니다.
+. 대체 부팅 경로 생성:
++
+"* bcfg boot add 2 HPUX.efi "HPUX alternate boot" * "
+
+. 세 번째 부팅 경로를 생성합니다.
++
+"* bcfg boot add 2 HPUX.efi "HPUX third boot" * "
+
+. 네 번째 부팅 경로 생성:
++
+"* bcfg boot add 2 HPUX.efi "HPUX fourth boot" * "
+
+

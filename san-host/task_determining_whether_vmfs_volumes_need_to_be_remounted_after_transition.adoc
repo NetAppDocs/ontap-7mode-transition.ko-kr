@@ -1,0 +1,39 @@
+---
+permalink: san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vmfs, volumes, remounted 
+summary: 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 VMFS 데이터 저장소와 VM을 사전 전환 상태로 전환하려면 다시 마운트해야 하는 VMFS 볼륨이 있을 수 있습니다. 
+---
+= 전환 후 VMFS 볼륨을 다시 마운트해야 하는지 여부를 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 VMFS 데이터 저장소와 VM을 사전 전환 상태로 전환하려면 다시 마운트해야 하는 VMFS 볼륨이 있을 수 있습니다.
+
+* 복사 기반 전환의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 시작하기 전에 다음 단계를 수행하십시오.
+* 복사를 수행하지 않는 전환의 경우, 7MTT에서 내보내기 및 중지 7-Mode 시스템 작업을 시작하기 전에 다음 단계를 수행하십시오.
+
+
+.단계
+. ICT(Inventory Collect Tool)에서 생성한 _Inventory Assessment Workbook_을 엽니다.
+. SAN 호스트 파일 시스템 * 탭을 클릭합니다.
+. 전환 전에 호스트에 마운트된 파일 시스템 및 데이터 저장소의 * Drive/Mount/Datastore Name * 열을 확인합니다.
+. 데이터 저장소의 * SCSI 디바이스 ID/디바이스 이름 * 열에 해당하는 LUN naa ID를 기록해 둡니다.
+. 데이터 저장소에 대해 기록해 둔 naa ID가 전환 후 생성된 7MTT 매핑 파일에 나열되어 있는지 확인합니다.
++
+** 7MTT 매핑 파일에 naa ID가 없는 경우, 데이터 저장소와 기본 LUN이 7MTT 전환에 포함되지 않아 수정이 필요하지 않습니다.
+** 7MTT 매핑 파일에 naa ID의 일부만 있는 경우 전환이 완료되지 않아 계속 진행할 수 없습니다.
+** 모든 naa ID가 있는 경우 VMFS 볼륨을 다시 마운트해야 합니다.
+
+
+
+
+* 관련 정보 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSphere Client를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다]
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[재고 수집 도구의 정의]

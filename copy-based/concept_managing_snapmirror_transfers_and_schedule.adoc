@@ -1,0 +1,21 @@
+---
+permalink: copy-based/concept_managing_snapmirror_transfers_and_schedule.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, snapmirror, transfer, schedule 
+summary: 데이터 복사 단계에서는 clustered Data ONTAP 볼륨이 데이터 복사본 일정에 따라 7-Mode 볼륨의 데이터로 정기적으로 업데이트됩니다. SnapMirror 기본 복제, 업데이트 및 재동기화 작업에 사용할 데이터 복사본 스케줄을 생성, 편집 및 삭제할 수 있습니다. 
+---
+= SnapMirror 전송 및 일정 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 복사 단계에서는 clustered Data ONTAP 볼륨이 데이터 복사본 일정에 따라 7-Mode 볼륨의 데이터로 정기적으로 업데이트됩니다. SnapMirror 기본 복제, 업데이트 및 재동기화 작업에 사용할 데이터 복사본 스케줄을 생성, 편집 및 삭제할 수 있습니다.
+
+시작 시간, 기간, 업데이트 빈도, 해당 일정 중에 실행할 동시 SnapMirror 전송 수 및 제한 임계치 제한과 같은 세부 정보로 구성된 여러 데이터 복사본 일정을 지정하여 전환을 위해 선택한 모든 볼륨의 복사 작업을 관리할 수 있습니다.
+
+평일, 주말, 업무 시간, 업무 시간, 근무 외 시간 등 서로 다른 기간에 대해 여러 건의 동시 전송 수와 임계치 제한을 제공할 수 있습니다. DR 스케줄 및 비 DR 스케줄
+
+* 관련 정보 *
+
+xref:task_creating_a_transition_project.adoc[전이 프로젝트 작성]

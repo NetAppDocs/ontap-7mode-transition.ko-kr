@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names 
+summary: 별칭 이름을 사용하여 마운트 지점으로 LUN을 전환하는 경우 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후 LUN을 다시 마운트해야 합니다. 
+---
+= DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+별칭 이름을 사용하여 마운트 지점으로 LUN을 전환하는 경우 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후 LUN을 다시 마운트해야 합니다.
+
+* 관련 정보 *
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[Linux 호스트에서 DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN을 전환할 때 컷오버 단계를 준비합니다]
+
+xref:task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.adoc[전환 후 Linux 호스트에서 DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN을 다시 마운트합니다]

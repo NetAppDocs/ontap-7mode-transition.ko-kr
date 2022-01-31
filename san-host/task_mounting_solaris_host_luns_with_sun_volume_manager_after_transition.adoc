@@ -1,0 +1,115 @@
+---
+permalink: san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, solaris, host, lun, volume, manager 
+summary: Solaris 볼륨 관리자가 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 ONTAP에서 clustered ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다. 
+---
+= 전환 후 Solaris 볼륨 관리자로 Solaris 호스트 LUN 마운트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Solaris 볼륨 관리자가 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 ONTAP에서 clustered ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다.
+
+복사 기반의 전환의 경우 7MTT(7-Mode 전환 툴)에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행합니다.
+
+7MTT에서 데이터 및 구성 가져오기 작업이 완료된 후에 복사를 수행하지 않는 전환을 수행할 수 있습니다.
+
+.단계
+. 호스트를 다시 검색하여 새로운 clustered ONTAP LUN을 검색합니다.
++
+.. FC 호스트 포트(유형 fc-fabric):+' *#cfgadm_–l_ *'를 식별합니다
+.. 첫 번째 fc-fabric 포트: + " *#cfgadm –c unconfigure_C1_ * "의 구성을 해제합니다
+.. 두 번째 fc-fabric 포트:+' *#cfgadm –c unconfigure_c2_ *'를 구성 해제합니다
+.. 다른 FC-패브릭 포트에 대해서도 이 단계를 반복합니다.
+.. 호스트 포트 및 연결된 장치를 확인합니다. + "*#cfgadm_–al_ *"
+.. '*#devfsadm-CV *' 드라이버를 다시 로드합니다
++
+'*#devfsadm-i iscsi *'
+
+
+
+. 다음과 같이 clustered ONTAP LUN이 검색되었는지 확인합니다.
++
+``sanlun lun show *’
+
++
+** Clustered ONTAP LUN의 LUN-경로 이름 값은 전환 전에 7-Mode LUN의 LUN-경로 이름 값과 같아야 합니다.
+** '모드' 열에는 '7' 대신 'C'가 표시되어야 합니다.
+
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_sru17_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_sru17_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. 동일한 디스크 세트 이름을 사용하여 기존 Solaris Volume Manager 구성으로 디스크 세트를 가져옵니다.
++
+'* metaimport-s_set-name_*'
+
++
+[listing]
+----
+# metaimport -s svm
+Drives in regular diskset including disk c0t60A98000383035356C2447384D39654Ad0:
+  c0t60A98000383035356C2447384D39654Ad0
+  c0t60A98000383035356C2447384D396548d0
+More info:
+  metaimport -r -v c0t60A98000383035356C2447384D39654Ad0
+
+# metastat -s svm
+svm/d2: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D396548d0s0          0     No      Yes
+
+svm/d1: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D39654Ad0s0          0     No      Yes
+
+Device Relocation Information:
+Device                                           Reloc  Device ID
+/dev/dsk/c0t60A98000383035356C2447384D396548d0   Yes    id1,sd@n60a98000383035356c2447384d396548
+/dev/dsk/c0t60A98000383035356C2447384D39654Ad0   Yes    id1,sd@n60a98000383035356c2447384d39654a
+----
+. 파일 시스템 검사 실행:
++
+' * fsck-F ufs/dev/md/svm/rdsk/d1 * '
+
++
+[listing]
+----
+# fsck -F ufs /dev/md/svm/rdsk/d1
+** /dev/md/svm/rdsk/d1
+** Last Mounted on /d1
+** Phase 1 - Check Blocks and Sizes
+** Phase 2 - Check Pathnames
+** Phase 3a - Check Connectivity
+** Phase 3b - Verify Shadows/ACLs
+** Phase 4 - Check Reference Counts
+** Phase 5 - Check Cylinder Groups
+3 files, 1573649 used, 3568109 free (13 frags, 446012 blocks, 0.0% fragmentation)
+----
+. 'mount' 명령을 사용하여 각 디바이스를 수동으로 마운트합니다.
++
+[listing]
+----
+# /sbin/mount -F ufs -o largefiles /dev/md/svm/dsk/d1  /d1
+  # /sbin/mount -F ufs -o largefiles /dev/md/svm/dsk/d2  /d2
+----
+. 마운트 지점을 확인합니다.
++
+"* df-ah*"
+
+

@@ -1,0 +1,33 @@
+---
+permalink: snapmirror/concept_guidelines_for_transitioning_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, guidelines, snaplock, volumes, requirements 
+summary: 7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapLock 볼륨으로 전환할 수 있습니다. SnapLock 볼륨 전환을 위한 요구사항과 지침을 숙지해야 합니다. 
+---
+= SnapLock 볼륨 전환을 위한 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapLock 볼륨으로 전환할 수 있습니다. SnapLock 볼륨 전환을 위한 요구사항과 지침을 숙지해야 합니다.
+
+* SnapLock 볼륨에 LUN이 포함된 경우 7-Mode SnapLock 볼륨의 전환은 지원되지 않습니다.
+* 7-Mode SnapLock 엔터프라이즈 볼륨은 ONTAP 9.5 이전 버전에서 SnapLock 엔터프라이즈 볼륨으로 전환할 수 있습니다.
+* 7-Mode SnapLock Compliance 볼륨은 ONTAP 9.5 이전 버전의 SnapLock Compliance 볼륨으로만 전환할 수 있습니다.
+* 7-Mode 볼륨 SnapMirror 관계를 전환할 때 SnapLock 엔터프라이즈 볼륨에 대해 지그재그형 전환(2차 전환 후 1차 전환)을 사용할 수 있습니다.
++
+7-Mode 운영 볼륨과 ONTAP 2차 볼륨 간의 SnapMirror DR(재해 복구) 관계는 SnapLock 엔터프라이즈 볼륨에서만 지원되지만 SnapLock 규정 준수 볼륨에서는 지원되지 않습니다.
+
++
+xref:task_transitioning_a_data_protection_relationship.adoc[시차 구성에서 볼륨 SnapMirror 관계 전환]
+
+* 운영 볼륨과 2차 볼륨을 병렬로 전환하여 SnapLock 규정 준수 볼륨 간에 7-Mode 볼륨 SnapMirror 관계를 전환해야 합니다.
++
+xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[볼륨 SnapMirror 관계를 병렬로 전환]
+
+
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]

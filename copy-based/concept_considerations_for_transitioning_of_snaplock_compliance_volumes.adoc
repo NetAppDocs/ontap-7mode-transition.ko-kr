@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, compliance, volumes 
+summary: 7-Mode 전환 툴은 독립 실행형 SnapLock 규정 준수 볼륨과 SnapMirror 관계에 있는 SnapLock 규정 준수 볼륨의 전환을 지원합니다. 
+---
+= SnapLock 규정 준수 볼륨의 전환을 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 독립 실행형 SnapLock 규정 준수 볼륨과 SnapMirror 관계에 있는 SnapLock 규정 준수 볼륨의 전환을 지원합니다.
+
+독립 실행형 SnapLock Compliance 볼륨을 전환하기 위한 워크플로는 FlexVol 볼륨을 전환하기 위한 워크플로와 동일합니다.
+
+SnapLock 규정 준수 볼륨의 SnapMirror 관계 전환은 7-Mode 전환 툴을 통해 자동화되지 않습니다. 운영 및 보조 SnapLock Compliance 볼륨을 독립 실행형 볼륨으로 전환한 다음 관계를 수동으로 재동기화해야 합니다.
+
+독립 실행형, 운영, 2차 프로젝트에서는 SnapLock 규정 준수 볼륨(독립 실행형 및 SnapMirror 관계에 있는 볼륨)을 독립 실행형 볼륨으로 포함할 수 있습니다.
+
+SnapLock 규정 준수 볼륨이 있는 프로젝트에서는 사전 컷오버 읽기/쓰기 모드가 지원되지 않습니다. SnapLock 규정 준수 볼륨이 프로젝트에 포함되어 있는 경우 사전 컷오버 읽기/쓰기 모드가 지원되지 않으므로 SnapLock 규정 준수 볼륨 및 비 SnapLock Compliance 볼륨에 대해 별도의 프로젝트를 생성하는 것이 좋습니다.
+
+컷오버 중에 선택한 볼륨이 SnapLock 규정 준수 볼륨이고 SnapMirror 관계의 타겟인 경우, 7-Mode 볼륨과 ONTAP 볼륨 간의 SnapMirror 관계가 SnapMirror 중단 작업 없이 삭제됩니다. 이렇게 하면 보조 ONTAP SnapLock Compliance 볼륨을 읽기 전용 모드로 유지할 수 있습니다. 운영 및 보조 SnapLock Compliance 볼륨 간에 재동기화 작업을 수행하려면 보조 ONTAP SnapLock Compliance 볼륨이 읽기 전용 모드여야 합니다.
+
+을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_transition_the_7-Mode_SnapLock_Compliance_volumes_with_SnapMirror_relationship_to_clustered_Data_ONTAP["SnapMirror 관계가 있는 7-Mode SnapLock Compliance 볼륨을 clustered Data ONTAP으로 전환하는 방법"]

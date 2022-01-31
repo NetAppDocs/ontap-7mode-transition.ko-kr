@@ -1,0 +1,25 @@
+---
+permalink: copy-free/concept_collecting_and_assessing_inventory_information.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, collecting, assessing, inventory, information 
+summary: 컨트롤러, 호스트 및 FC 스위치에서 인벤토리 정보를 수집할 수 있습니다. 그런 다음 이러한 시스템의 기능과 특징을 평가하고, 전환을 위해 선택된 ONTAP 버전에서 이러한 기능이 어떻게 작동하는지를 확인할 수 있습니다. 
+---
+= 재고 정보 수집 및 평가
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+컨트롤러, 호스트 및 FC 스위치에서 인벤토리 정보를 수집할 수 있습니다. 그런 다음 이러한 시스템의 기능과 특징을 평가하고, 전환을 위해 선택된 ONTAP 버전에서 이러한 기능이 어떻게 작동하는지를 확인할 수 있습니다.
+
+다음 두 가지 방법으로 재고 정보를 수집할 수 있습니다.
+
+* 귀사의 환경 보안에 따라 7-Mode 전환 툴을 설치한 다음 이를 사용하여 인벤토리 정보를 수집할 수 있습니다.
+* Inventory Collect Tool에서 생성한 Inventory XML 보고서를 가져온 다음 평가를 수행할 수 있습니다.
+
+
+두 경우 모두 재고 수집 도구 3.3을 사용하여 재고를 수집해야 합니다.
+
+무료 전환에 대한 인벤토리 정보를 평가하려면 소스 7-Mode HA 쌍의 노드 두 개를 모두 선택해야 합니다. 평가는 노드 단위로 수행되지만, 단일 노드가 전환을 위해 검증되지 않은 경우에는 전체 HA 쌍을 전환할 수 없습니다.
+
+image::../media/delete_me_cbt_assessment_workflow.gif[CBT 평가 워크플로를 삭제합니다]

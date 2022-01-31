@@ -1,0 +1,24 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, host, fc, fcoe, configurations 
+summary: FC 또는 FCoE 구성이 있는 AIX 호스트의 컷오버 단계를 시작하기 전에 특정 단계를 수행해야 합니다. 
+---
+= FC/FCoE 구성을 사용하여 AIX 호스트를 전환할 때 컷오버 단계를 준비합니다.
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 또는 FCoE 구성이 있는 AIX 호스트의 컷오버 단계를 시작하기 전에 특정 단계를 수행해야 합니다.
+
+Clustered Data ONTAP 노드에 대한 패브릭 연결 및 조닝을 설정해야 합니다.
+
+복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행하십시오. AIX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 호스트 종료:
++
+'* shutdown-h*'
+
+

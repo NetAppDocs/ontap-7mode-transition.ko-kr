@@ -1,0 +1,13 @@
+---
+permalink: copy-free/concept_troubleshooting_transition_issues.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, troubleshooting, issues 
+summary: 7-Mode 전환 툴 관련 문제를 해결하는 방법과 로그 파일을 찾는 위치를 알고 있어야 합니다. 7-Mode 전환 툴을 사용하면 문제를 식별하고 솔루션을 제공하는 오류 메시지가 나타날 수 있습니다. 
+---
+= 전환 문제 해결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴 관련 문제를 해결하는 방법과 로그 파일을 찾는 위치를 알고 있어야 합니다. 7-Mode 전환 툴을 사용하면 문제를 식별하고 솔루션을 제공하는 오류 메시지가 나타날 수 있습니다.

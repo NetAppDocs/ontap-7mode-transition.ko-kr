@@ -1,0 +1,110 @@
+---
+permalink: copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, nfs, transition, supported, unsupported, required, manual, steps 
+summary: 일부 NFS 구성은 ONTAP에서 지원되지 않으므로 ONTAP로 전환되지 않거나, 7-Mode와 기능의 차이가 있거나, 수동으로 전환해야 하는 경우가 있습니다. 이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다. 
+---
+= NFS 전환: 지원되는 구성과 지원되지 않는 구성, 필요한 수동 단계
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일부 NFS 구성은 ONTAP에서 지원되지 않으므로 ONTAP로 전환되지 않거나, 7-Mode와 기능의 차이가 있거나, 수동으로 전환해야 하는 경우가 있습니다. 이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다.
+
+
+
+== 전환이 지원되는 구성입니다
+
+상위 레벨에서 다음 NFS 구성은 7-Mode 전환 툴을 통해 전환됨
+
+* NFS 옵션:
++
+** nfs.udp.xfersize를 선택합니다
+** NFS.v4.id 도메인
+** NFS.v4.acl.max.aces
+** nfs.tcp.xfersize를 선택합니다
+** NFS.RPCSEC.CTX.HIGH
+** nfs.rpcsec.ctx.idle
+** nfs.response.trigger
+** "wafl.default_nt_user`
+** 'nfs.mount_rootonly'
+** nfs.tcp.enable
+** nfs.udp.enable
+** NFS.response.trace
+** NFS.v4.read_delegation
+** nfs.v4.write_delegation
+** nfs.v4.acl.enable
+** NFS.vStorage.enable입니다
+** nfs.v3.enable
+** nfs.v4.enable
+
+
+* NFS 엑스포트 규칙:
++
+내보내기 규칙이 -actual 옵션으로 구성된 경우 내보낸 경로(별칭 경로)가 무시되고 내보내기 규칙이 실제 경로로 구성됩니다.
+
+* Kerberos 보안 krb5p를 사용하여 규칙을 내보냅니다
+
+
+이러한 NFS 구성에 대한 자세한 내용은 사전 점검 결과를 참조하십시오.
+
+
+
+== ONTAP에서 지원되지 않는 구성입니다
+
+다음 NFS 구성은 ONTAP에서 지원되지 않습니다.
+
+* Qtree 레벨 NFS 엑스포트 이외의 하위 볼륨 NFS 엑스포트
+* 웹NFS
+* PC - NFS
+* NFSv2
+* 하나 이상의 파일 시스템 경로에서 NFS 클라이언트 펜싱
+* 일부 NFS 옵션
++
+지원되지 않는 옵션의 전체 목록은 사전 점검 경고 메시지를 참조하십시오.
+
+
+
+
+
+== 수동으로 전환해야 하는 구성
+
+ONTAP에서 지원되는 NFS 구성은 일부 있지만 7-Mode 전환 툴을 통해 전환되지 않습니다.
+
+다음 NFS 구성은 사전 점검 작업에서 경고 메시지를 생성하고 SVM에 구성을 수동으로 적용해야 합니다.
+
+* NFS 감사 구성
+* NFS 옵션:
++
+** RPC.NSM.tcp.port
+** RPC.NSM.udp.port
+** RPC.MOUNTD.tcp.port
+** RPC.MOUNTD.UDP.PORT를 선택합니다
+** nfs.export.ng.timeout을 선택합니다
+** nfs.export.pos.timeout을 선택합니다
+** NFS.export.하비스트.timeout 'vserver nfs modify' 명령을 사용하여 NFS 지원 스토리지 가상 시스템(SVM)의 구성을 수정합니다.
+
+
+* Kerberos 구성
+
+
+
+
+== ONTAP에서 기능적으로 다른 구성
+
+다음 NFS 구성은 ONTAP에서 기능적으로 다릅니다.
+
+* NFS 엑스포트 규칙
+* NFS 엑스포트 액세스 캐시
+* NFS 진단 명령
+* 'howmount' 명령어 지원
+* NFS Kerberos 암호화
+* NLM 버전 지원
+
+
+* 관련 정보 *
+
+xref:task_customizing_configurations_for_transition.adoc[7-Mode 구성의 전환 사용자 지정]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]

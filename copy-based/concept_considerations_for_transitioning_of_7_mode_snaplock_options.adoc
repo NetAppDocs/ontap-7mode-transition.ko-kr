@@ -1,0 +1,29 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, options, 7, mode 
+summary: 7-Mode 전환 툴은 SnapLock 볼륨과 관련된 몇 가지 7-Mode 옵션의 전환을 지원합니다. 
+---
+= 7-Mode SnapLock 옵션의 전환을 위한 고려사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 SnapLock 볼륨과 관련된 몇 가지 7-Mode 옵션의 전환을 지원합니다.
+
+7-Mode에서 작동하는 Data ONTAP에는 SnapLock 볼륨과 관련된 다음 옵션이 있습니다.
+
+* naplock.autocommit_period`
++
+이 옵션은 ONTAP의 볼륨 레벨에 있으며, 전환 중에 ONTAP로 전환됩니다.
+
+* naplock.compliance.write_verify`
++
+이 옵션은 ONTAP에는 적용되지 않습니다.
+
+* naplock.log.default_retention`
+* '초크.log.maximum_size'입니다
+
+
+ONTAP에서는 'naplock.log.default_retention` 및 'snaplock.log.maximum_size' 옵션이 지원되지만 이 옵션에서 설정된 설정은 7-Mode Transition Tool에 의해 전환되지 않습니다. 전환이 완료된 후 감사 볼륨에 대해 이러한 옵션을 수동으로 설정해야 합니다.

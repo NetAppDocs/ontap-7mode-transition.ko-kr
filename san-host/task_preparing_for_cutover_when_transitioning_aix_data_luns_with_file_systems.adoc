@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, data, lun 
+summary: 파일 시스템이 있는 AIX 호스트 데이터 LUN을 7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP으로 전환하려는 경우 컷오버 단계를 시작하기 전에 특정 단계를 수행해야 합니다. 
+---
+= AIX 호스트 데이터 LUN을 파일 시스템으로 전환할 때 컷오버 단계를 준비합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 시스템이 있는 AIX 호스트 데이터 LUN을 7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP으로 전환하려는 경우 컷오버 단계를 시작하기 전에 특정 단계를 수행해야 합니다.
+
+Clustered Data ONTAP 노드에 대한 패브릭 연결 및 조닝을 설정해야 합니다.
+
+복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행하십시오. AIX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 모든 마운트 지점에서 입출력을 중지합니다.
+. 애플리케이션 공급업체의 권장 사항에 따라 LUN에 액세스하는 각 애플리케이션을 종료합니다.
+. 모든 마운트 지점을 마운트 해제합니다.
++
+'* umount_mount_point_ *'
+
+. 볼륨 그룹 비활성화:
++
+'* varyoffvq_vg_name_ *'
+
+. 볼륨 그룹 내보내기:
++
+'* exportvg_vg_name_ *'
+
+. 볼륨 그룹 상태를 확인합니다.
++
+' * lsvg * '
+
++
+내보낸 볼륨 그룹이 출력에 나열되지 않아야 합니다.
+
+. 오래된 항목이 있으면 제거합니다.
++
+'* rmdev-rdl hdisk # * '
+
+

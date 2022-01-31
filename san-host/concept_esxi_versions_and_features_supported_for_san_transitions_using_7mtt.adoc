@@ -1,0 +1,26 @@
+---
+permalink: san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html 
+sidebar: sidebar 
+keywords: esxi, ontap, san, host, transition, versions, san, 7mtt, features 
+summary: '7MTT(7-Mode 전환 툴)\(을 사용하여 SAN으로 전환하는 경우 ESXi의 특정 버전 및 기능만 지원됩니다.' 
+---
+= 7MTT를 사용하여 SAN 전환을 지원하는 ESXi 버전 및 기능
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴)를 사용한 SAN 전환에는 ESXi의 특정 버전 및 기능만 지원됩니다.
+
+다음 버전과 기능은 에 나열된 대로 지원됩니다 link:https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+* ESXi 5.0, 5.1, 5.5 이상
++
+ESX/ESXi 4.x 또는 그 이전 버전을 실행하는 호스트를 ESX/ESXi 5.0 이상으로 업그레이드해야 전환할 수 있습니다.
+
+* VMFS3 및 VMFS5 데이터 저장소
+* SAN 부팅 구성
+* RDM(Raw Device Map) 디바이스
+* 상호 운용성 매트릭스에서 지원되는 모든 게스트 OS
+* 모든 SAN 프로토콜(FC/FCoE/iSCSI)
+

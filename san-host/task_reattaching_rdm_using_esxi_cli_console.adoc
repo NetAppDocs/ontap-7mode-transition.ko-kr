@@ -1,0 +1,84 @@
+---
+permalink: san-host/task_reattaching_rdm_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, esxi, cli, console 
+summary: '7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 RDM\(원시 장치 매핑)을 다시 연결해야 합니다.' 
+---
+= ESXi CLI/콘솔을 사용하여 RDM 다시 연결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 RDM(원시 장치 매핑)을 다시 연결해야 합니다.
+
+* Inventory Assessment 워크북 _ 의 Disk 열에 나열된 RDM 디스크 파일을 검색해야 합니다.
+* 7MTT 매핑 파일에서 새로운 clustered Data ONTAP LUN naa ID를 검색해야 합니다.
+
+
+.단계
+. SSH를 사용하여 ESXi 콘솔에 로그인합니다.
+. mv 명령을 사용하여 RDM 디스크 파일과 관련 디바이스 파일을 백업합니다.
++
+RDM 디스크 파일은 _Inventory Assessment Workbook_의 Disk 열에 나열됩니다.
+
++
+RDM 디스크 파일이 '/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-winbus-a.vmdk'인 경우 다음 명령을 실행합니다.
+
++
+``MV/VMFS/볼륨/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-win-bus-a/VM2-win-bus-a/VM2-win-bus-a3ac3d-df5aca03-3a94-3a94-001ec9d631cbb-VMab-vb-vb-vb-vb-vb-vb-vb-vb-vb-vb-vb
+
++
+** 물리적 호환성 RDM(PTRDM): + ``MV__RDM_DISK_FILE_NAME__- Rdmp.vdmk__RDM_DISK_NAME__- Rdmp.vdmk_bak*'
++
+예를 들면 다음과 같습니다.
+
++
+``mv/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-win-bus-a/VM2-win-bus-a-Rdmp.vmdk/VMFS/volumes/53a3ac3d-df5aca03-3a94-001cbak-001cb-3d-VM2d-3a3a9d639k-3c-001d639b-3c-3c-3c-3c-00
+
+** 가상 호환성 RDM(NPTRDM): + ``MV_ RDM_DISK_FILE_NAME___- Rdmp.vdmk__RDM_DISK_NAME__- Rdmp.vdmk_bak*'
++
+예를 들면 다음과 같습니다.
+
++
+``mv/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-win-bus-a/VM2-win-bus-a-Rdmp.vmdk/VMFS/volumes/53a3ac3d-df5aca03-3a94-001cbak-001cb-3d-VM2d-3a3a9d639k-3c-001d639b-3c-3c-3c-3c-00
+
+
+
+. 새로운 clustered Data ONTAP LUN naa ID 및 RDM 디스크 파일을 사용하여 RDM 구성 및 디바이스 파일을 다시 생성합니다.
++
+** PTRDM의 경우: + " * # vmkfstools –z/VMFS/devices/disks/__new_clustered_Data_ONTAP_naa_ID_.vmdk *
++
+예를 들면 다음과 같습니다.
+
++
+'* vmkfstools –z/VMFS/devices/disks/naa.600a098054314c6c442b446f79712313/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-bus-a-win-bus-vmdk-bus-bb-bus-bus-bk
+
+** NPTRDM의 경우: + " * # vmkfstools – r/VMFS/devices/disks/__new_clustered_Data_ONTAP_naa_ID_.vmdk * "
++
+예를 들면 다음과 같습니다.
+
++
+'* vmkfstools –r/VMFS/devices/disks/naa.600a098054314c6c442b446f79712313/VMFS/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a/VM2-bus-a-win-bus-vmdk-bus-bk
+
+
+
+. 설정 및 포인터 파일이 작성되었는지 확인합니다.
++
+'*#ls/vmfs/volumes/__datastore/vm_directory__ *'
+
++
+'*#ls/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a *'
+
++
+새 구성 및 포인터 파일이 VM 디렉터리 경로 아래에 표시됩니다.
+
+. RDM이 연결된 모든 VM에 대해 이 단계를 반복합니다.
+. ESXi 호스트에서 hostd 및 vpxa 에이전트를 다시 시작합니다.
++
+' * /etc/init.d/hostd/restart *'
+
++
+' * /etc/init.d/vpxa/restart *'
+
+

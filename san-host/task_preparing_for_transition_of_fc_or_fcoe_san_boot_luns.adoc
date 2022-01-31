@@ -1,0 +1,91 @@
+---
+permalink: san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rhel 
+summary: 'FC 또는 FCoE SAN 부팅 LUN을 전환하기 전에 Red Hat Enterprise Linux\(RHEL\) 호스트에서 특정 단계를 수행해야 합니다.' 
+---
+= RHEL 호스트에서 FC 또는 FCoE SAN 부팅 LUN 전환 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 또는 FCoE SAN 부팅 LUN을 전환하기 전에 RHEL(Red Hat Enterprise Linux) 호스트에서 특정 단계를 수행해야 합니다.
+
+재고 평가 워크북 _ 에서 다음 정보를 확인해야 합니다.
+
+* RHEL 5 또는 RHEL 6이 설치된 7-Mode LUN 이름입니다
+* 전환 LUN의 SCSI 디바이스 이름입니다
+* 전환 LUN의 DMMP 디바이스 이름입니다
+* 마운트 디렉토리
+* DMMP 장치에 구성된 파일 시스템입니다
+* /boot 파티션의 UUID 번호입니다
+* "initrid" 이미지의 이름입니다
+
+
+이 절차는 복사 기반 전환 및 무복사 전환에 적용됩니다.
+
+. DMMP 디바이스가 /dev/mapper 디렉토리에 있는지 확인합니다.
++
+' * ls /dev/mapper/_DMMP_device_name_ * '
+
++
+DMMP 장치를 찾을 수 없는 경우 별칭이나 사용자 친화적인 이름을 사용하고 있을 수 있습니다.
+
+. RHEL 5 또는 RHEL 6 운영 체제/부팅 및 루트(/) 디렉토리가 설치된 DMMP 장치 및 LVM(Logical Volume Manager) 이름을 확인합니다.
++
+"* df-h*"
+
++
+기본적으로 RHEL 5와 RHEL 6은 논리 볼륨의 루트(/) 파티션에 설치됩니다. 루트 파티션이 논리 볼륨에 설치된 경우 구성을 미리 변경하지 않아도 됩니다.
+
+. /boot 파티션이 DMMP 장치에 설치된 경우 /boot 파티션이 부팅 시 '/etc/fstab'에 마운트되도록 어떻게 참조되는지 확인합니다.
+. dmp 디바이스 이름으로 '/etc/fstab'에서 /boot 파티션을 참조하는 경우 dmp 디바이스 이름을 파일 시스템 UUID 이름으로 바꿉니다.
+. '/etc/fstab' 파일을 백업합니다.
++
+' * cp/etc/fstab/etc/__fstab_pre_transition_file_name__ *'
+
+. '/etc/fstab' 파일을 편집하여 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿉니다.
+. "initrd" 이미지 파일을 백업합니다.
++
+' * cp/boot/__initrd_image_file_nameinitrd_image_file_name__.bak *'
+
+. RHEL 5만 해당:
++
+.. '/etc/mutpath.conf' 파일에서 스왑 파티션 디바이스를 식별합니다.
++
+다음 예제에서 '/dev/VolGroup00/LogVol01'은 스왑 파티션 장치입니다.
+
++
+'/dev/VolGroup00/LogVol01 스왑 기본값 0 0'
+
+.. 스왑 파티션을 마운트하기 위한 레이블을 만듭니다. + "* swapoff_swap -partition_device_*"
++
+'* mkswap-L_label-for-swapswap-partition-device_*'
+
++
+'* swapon_swap-partition_device_*'
+
+.. '/etc/fstab' 파일의 스왑 파티션 디바이스 이름을 스왑 레이블로 바꿉니다.
++
+'/etc/fstab' 파일의 업데이트된 줄은 다음과 같아야 합니다.
+
++
+[listing]
+----
+LABEL=SwapPartition  swap  swap   defaults    0 0
+----
+
+
+. initrd 이미지를 다시 생성합니다.
++
+** RHEL5:+" * mkinitrd -f /boot/initrd-"'uname -r'".img 'uname -r'--multipath * 포함
+** RHEL 6의 경우: + " * dracut - -force - -add multipath - -verbose * "
+
+
+. 호스트를 다시 시작하여 새로운 "initrd" 이미지에서 부팅합니다.
+
+
+* 관련 정보 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[재고 평가 워크북에서 전이가 완료된 정보를 수집합니다]

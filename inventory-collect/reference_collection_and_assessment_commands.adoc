@@ -1,0 +1,250 @@
+---
+permalink: inventory-collect/reference_collection_and_assessment_commands.html 
+sidebar: sidebar 
+keywords: collection, assessment, commands, transition, 7, mode, inventory, collect, tool, ict 
+summary: 'ICT(Inventory Collect Tool) \(Inventory Collect Tool)는 명령 목록을 사용하여 컨트롤러, 호스트 및 FC 스위치로부터 인벤토리 정보를 수집하여 인벤토리 XML 보고서를 생성하고 이러한 시스템의 기능과 특징을 평가합니다. 및 에서는 clustered Data ONTAP 버전에서 전환 시 선택한 기능과 특징을 확인할 수 있습니다.' 
+---
+= 수집 및 평가 명령
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령 목록을 사용하여 컨트롤러, 호스트 및 FC 스위치로부터 인벤토리 정보를 수집하고 이러한 시스템의 기능과 특징을 평가합니다. 및 에서는 clustered Data ONTAP 버전에서 전환 시 선택한 기능과 특징을 확인할 수 있습니다.
+
+
+
+== ONTAP 7-Mode API
+
+* 'aggr-list-info'
+* CF 상태
+* cifs-homedir-paths-get을 선택합니다
+* cifs-list-config를 선택합니다
+* CIFS-nbalias-names-get을 선택합니다
+* 'cifs-share-acl-list-ITER-start'를 선택합니다
+* 'cifs-share-list-ITER-start'를 선택합니다
+* 'cifs-status'
+* '디스크 목록-정보'
+* fcp-adapter-list-info
+* 'FPolicy-list-info'
+* 'igroup-list-info'
+* 'iscsi-interface-list-info'
+* 'iSCSI-node-get-name'입니다
+* 'license-list-info'
+* license-v2-list-info
+* LUN-get-comment를 선택합니다
+* 'lun-list-info
+* 'lun-map-list-info
+* 네트-구성-활성
+* 'nfs-exportfs-list-rules'
+* NFS-exportfs-list-rules-2
+* NFS-exportfs-list-rules-2
+* NFS 상태
+* '옵션-GET'
+* 'options-list-info'입니다
+* 'qtree-list-ITER-start'를 선택합니다
+* quota-list-entries-ITER-start를 선택합니다
+* 할당량 보고서-ITER-START
+* '궤도-목록-정보-ITER-시작'을 선택합니다
+* '상태'입니다
+* 스냅미러-GET-STATUS
+* 스냅미러-리스트-스케줄
+* '스냅샷-목록-동기화-일정'을 선택합니다
+* '스냅샷-get-schedule'
+* '스냅샷-목록-정보'
+* '스냅샷-볼륨-정보'
+* 'napvault-primary-relationship-status-list-ITER-start'를 선택합니다
+* 나프볼트-이차관계-상태-목록-ITER-START
+* NMP 상태
+* 스토리지-디스크-GET-ITER
+* 'System-Available-replication-transfers'라는 문구가 있습니다
+* 시스템-get-info
+* 'system-get-ontapi-version'입니다
+* 'System-get-version'입니다
+* 'useradmin-group-list
+* 'useradmin-role-list
+* 'useradmin-user-list
+* 'vFiler-get-allowed-protocols'
+* vFiler-get-status
+* 'vFiler-list-info'
+* '볼륨-charmap-get'
+* 'volume-get-filer-info'를 선택합니다
+* 볼륨-언어
+* 볼륨 리스트-정보-ITER-START
+* '볼륨-옵션-목록-정보'
+
+
+
+
+== ONTAP 7-Mode CLI
+
+* CIFS 공유
+* IC 1차 쇼
+* ifconfig-a
+* ifconfig VIP
+* ifgrp 상태
+* '$volumes_path/metadir/slag/'
+* 'printflag WAFL_metadata_visible'
+* '$rdfile$root_vol/etc/cifsconfig_share.cfg'
+* '$rdfile$root_vol/etc/group'
+* '$rdfile$root_vol/etc/hosts'
+* '$rdfile$root_vol/etc/krb5auto.conf'
+* '$rdfile$root_vol/etc/mCRC'
+* '$rdfile$root_vol/etc/netgroup'
+* '$rdfile$root_vol/etc/nsswitch.conf'
+* '$rdfile$root_vol/etc/passwd'
+* '$rdfile$root_vol/etc/resolv.conf'
+* '$rdfile$root_vol/etc/snapmirror.conf'
+* '$rdfile$root_vol/etc/symlink.translations'
+* '$rdfile$root_vol/etc/usermap.cfg'
+* '$rdfile$vfiler_roots/etc/cifsconfig_share.cfg'
+* '$vfiler_roots/etc/group'
+* '$vfiler_roots/etc/hosts'
+* '$vfiler_roots/etc/krb5auto.conf' 파일이 생성됩니다
+* '$rdfile$vFiler_roots/etc/mCRC'
+* '$vfiler_roots/etc/netgroup'
+* '$vfiler_roots/etc/nsswitch.conf' 파일을 엽니다
+* '$vfiler_roots/etc/passwd' 파일
+* '$vfiler_roots/etc/resolv.conf' 파일을 엽니다
+* '$rdfile$vFiler_roots/etc/snapmirror.conf'
+* '$vfiler_roots/etc/symlink.translations'
+* '$rdfile$vfiler_roots/etc/usermap.cfg'
+* RLM 상태
+* '경로 상태'
+* 루트SN
+* 'Setup flag WAFL_metadata_visible 0'
+* '셋플래그 WAFL_metadata_visible 1'
+* SnapVault 상태 - l
+* 시즈config-a
+* 가동 시간
+* 'vFiler status-a'
+* VLAN 통계
+
+
+
+
+== ONTAP 7-Mode NetApp 관리 SDK
+
+* '클러스터-아이덴티티-GET'
+* 클러스터 노드-GET-ITER
+* FCP-어댑터-GET-ITER
+* fcp-initiator-get-ITER를 선택합니다
+* fcp-interface-get-ITER의 약어입니다
+* LUN-GET-ITER
+* LUN-map-get-ITER의 약어다
+* 네트-인터페이스-GET-ITER
+* 'System-get-node-info-ITER'입니다
+* 'System-get-version'입니다
+* 볼륨-GET-ITER
+* 'vserver-get-ITER'입니다
+
+
+
+
+== Windows
+
+* "HKEY_LOCAL_MACHINE\\SOFTWARE\\NetApp *
+* "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall"을 선택합니다
+* 'Select * from MPIO_registered_DSM'을 선택합니다
+* 'MSCluster_Cluster에서 * 선택'
+* 'MSCluster_Disk에서 * 선택'
+* 'MSCluster_Node에서 * 선택
+* 'MSCluster_NodeToActiveResource에서 * 선택'
+* 'MSCluster_Resource에서 * 선택
+* 'MSCluster_ResourceToDisk에서 * 선택'
+* 'MSFC_FCAdapterHBAAttributes에서 * 선택'
+* 'Select * from MSFC_FiberPortHBAAttributes'(MSFC_FiberPortHBAAttributes에서 * 선택)
+* 'MSiSCSI_HBAInformation에서 * 선택'
+* 'MSiSCSIInitiator_MethodClass에서 * 선택'
+* 'Select * from Win32_ComputerSystem'을 선택합니다
+* 'Select * from Win32_DiskDrive'를 선택합니다
+* 'Select * from Win32_OperatingSystem'(Win32_OperatingSystem에서 선택 *)
+* DeviceClass = "SCSIADAPTER""인 Win32_PnPSignedDriver에서 * 선택
+* 'Select * from Win32_Product'를 선택합니다
+
+
+
+
+== Linux CLI를 참조하십시오
+
+* 블키즈
+* cat/boot/grub/device.map
+* 'cat/etc/grub.conf'입니다
+* "cat /etc/iscsi/initiatorname.iscsi"
+* 'cman_tool nodes'(cman_tool nodes)
+* cman_tool 상태
+* 'df-h'입니다
+* 미데크제도
+* ''find /etc-maxdepth 1-name * -release-type f-print-exec cat-v{}\;'
+* '/sys/block/sd*** 파일에 대해, ${file/\#\/sys}; scsi_id -p 0x80-g-x-a-s ${file/#\/sys}; 완료'
+* '/sys/class/scsi_host/****; 에코를 수행합니다; ${file}/****; echo -n "$ent:"; if [-f "${ent}"]; 그런 다음 [-r "${ent}"]; cat -v -s ${ent} 2>/dev/null; if [$" !="0"]; 그 다음 에코; fi; fi; else 에코; fi;done;done'입니다
+* '/sys/class/fc_host/****; 에코를 수행합니다; ${file}/****; echo -n "$ent:"; if [-f "${ent}"]; 그런 다음 [-r "${ent}"]; cat -v -s ${ent} 2>/dev/null; if [$? !="0"]; 그 다음 에코; fi; fi; else 에코; fi;done;done'입니다
+* iscsiadm -m node
+* "LSB_RELEASE-A"
+* 'lvdisplay -m'입니다
+* '마운트'입니다
+* "rpm-QA--QF"%{name}___%{summary}____%{vendor}___%{PROVIDEVERSION}\n"
+* 'lun fcp show adapter-v'입니다
+* '선LUN show-pv'를 선택합니다
+* '선 LUN show -v'를 선택합니다
+* 안런 버전
+* 'San_version'입니다
+* 'fdisk-us-l'입니다
+* 불이름-A
+* 'vxclusteradm nidmap'입니다
+* 'vxclusteradm-v nodestate'입니다
+
+
+
+
+== VMware CLI를 참조하십시오
+
+* esxcfg-info-a-F XML
+* esxcfg-mpath -l
+* esxcfg-scsidevs-a
+* esxcfg-scsidevs-l
+* "esxcli software vib get"
+* ' find /proc/scsi-type f| 읽기 라인; do echo$line; cat$line; done'
+* 'San_version'입니다
+* 불임입니다
+* 불이름
+* '/usr/lib/vmware/vmkmgmt_keyval/vmkmgmt_keyval-a'
+* '/usr/lib/vmware/vm-support/bin/dump-vmdk-rdm-info.sh $vmx_paths'
+* 'vim-cmd/vmsvc/getallvms'
+* vim-cmd vmsvc/snapshot.get $vm_ids
+* ' vmkload_mod -s NMP '
+* 'VMware-l'입니다
+* 'VMware-v'입니다
+
+
+
+
+== Cisco CLI를 참조하십시오
+
+* 'fcdomain domain-list 표시
+* 'How flogi database'를 선택합니다
+* 'How switchname'입니다
+* 'How version'입니다
+* 'How VSAN'입니다
+* '더 존스넷'
+* "조소네의 활성 상태"
+* 불임입니다
+* 'nsshow'
+* 재치쇼
+* '내전'
+* "존스하수"
+* vim-cmd vmsvc/snapshot.get $vm_ids
+* ' vmkload_mod -s NMP '
+* 'VMware-l'입니다
+* 'VMware-v'입니다
+
+
+
+
+== Brocade CLI를 사용합니다
+
+* 'nsshow'
+* 재치쇼
+* '내전'
+* "존스하수"
+

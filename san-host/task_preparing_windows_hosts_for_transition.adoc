@@ -1,0 +1,38 @@
+---
+permalink: san-host/task_preparing_windows_hosts_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, host 
+summary: 7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하기 전에 먼저 Windows 호스트를 수행해야 하는 단계가 있습니다. 
+---
+= 전환을 위해 Windows 호스트 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하기 전에 먼저 Windows 호스트를 수행해야 하는 단계가 있습니다.
+
+이 절차는 복사 기반 전환 및 무복사 전환에 적용됩니다.
+
+
+NOTE: Windows 2003을 사용하는 경우 Windows 2008로 업그레이드해야 합니다. HRT(Host Remediation Tool)는 Windows 2003에서 지원되지 않으며 Windows 2008 이상을 제대로 실행해야 합니다.
+
+.단계
+. 전환 중인 LUN의 LUN 일련 번호, LUN ID 및 해당 Windows 물리적 디스크 번호를 식별합니다.
++
+** 시스템에서 Data ONTAP DSM을 실행 중인 경우, Data ONTAP DSM 관리 확장 스냅인(서버 관리자 또는 "get-sandisk" Windows PowerShell cmdlet)을 사용합니다.
+** 시스템에서 MSDSM을 실행 중인 경우 ICT(Inventory Collect Tool)를 사용합니다.
+
+
+. 전환이 완료된 후 LUN이 호스트에 표시되도록 준비합니다.
++
+** 전환 중인 LUN이 FC 또는 FCoE LUN인 경우 패브릭 조닝을 생성하거나 수정합니다.
+** 전환 중인 LUN이 iSCSI LUN인 경우 clustered Data ONTAP 컨트롤러에 연결하는 iSCSI 세션을 생성합니다.
+
+
+. ICT를 사용하여 Inventory Assessment 워크북을 생성합니다.
+
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanconf/home.html["SAN 구성"]

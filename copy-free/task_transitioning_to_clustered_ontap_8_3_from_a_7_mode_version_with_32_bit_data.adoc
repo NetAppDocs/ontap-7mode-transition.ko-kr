@@ -1,0 +1,32 @@
+---
+permalink: copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, 32, aggregates 
+summary: 32비트 애그리게이트, 볼륨 및 스냅샷 복사본은 ONTAP 8.3 이상에서 지원되지 않습니다. 따라서 32비트 애그리게이트를 64비트로 확장해야 하고, 전환 전에 7-Mode 시스템에서 32비트 볼륨 및 스냅샷 복사본을 찾아 제거해야 합니다. 
+---
+= 32비트 애그리게이트를 사용하는 7-Mode 시스템의 전환을 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+32비트 애그리게이트, 볼륨 및 스냅샷 복사본은 ONTAP 8.3 이상에서 지원되지 않습니다. 따라서 32비트 애그리게이트를 64비트로 확장해야 하고, 전환 전에 7-Mode 시스템에서 32비트 볼륨 및 스냅샷 복사본을 찾아 제거해야 합니다.
+
+* * 32비트 애그리게이트 *
++
+.. xref:task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.adoc[64비트 형식으로 애그리게이트 확장]
+.. xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[32비트 볼륨 및 스냅샷 복사본 찾기 및 제거]
+
+
+* * 32비트 볼륨 또는 스냅샷 복사본 *
++
+64비트 애그리게이트와 볼륨만 있는 경우에도 일부 32비트 또는 혼합 형식의 FlexVol 볼륨 또는 스냅샷 복사본이 그대로 유지될 수 있습니다. 전환하기 전에 이러한 볼륨 및 스냅샷 복사본을 제거해야 합니다.
+
++
+xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[32비트 볼륨 및 스냅샷 복사본 찾기 및 제거]
+
+
+
+* 관련 정보 *
+
+http://www.netapp.com/us/media/tr-3978.pdf["NetApp 기술 보고서 3978: 32비트 애그리게이트를 64비트로 확장: 개요 및 모범 사례"]

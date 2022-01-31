@@ -1,0 +1,167 @@
+---
+permalink: copy-free/concept_how_nfs_exports_are_transitioned.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, nfs, exports 
+summary: 전환 후 SVM에서 NFS 엑스포트를 구성하는 방법을 알고 있어야 합니다. ONTAP에서 7-Mode 엑스포트 구성이 지원되지 않는 경우 몇 가지 수동 단계를 수행해야 할 수 있습니다. 
+---
+= NFS 내보내기의 전환 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 후 SVM에서 NFS 엑스포트를 구성하는 방법을 알고 있어야 합니다. ONTAP에서 7-Mode 엑스포트 구성이 지원되지 않는 경우 몇 가지 수동 단계를 수행해야 할 수 있습니다.
+
+NFS 내보내기 전환에 대한 다음 고려 사항에 유의해야 합니다.
+
+* SVM 루트 볼륨을 내보내어 모든 NFS 클라이언트에 읽기 전용 액세스를 허용하지 않으면 7-Mode 전환 툴을 통해 새 엑스포트 정책을 생성하므로, 모든 NFS 클라이언트에 대해 읽기 전용 액세스를 허용하고 SVM의 루트 볼륨을 새로운 엑스포트 정책으로 엑스포트할 수 있습니다.
++
+전환된 모든 볼륨 또는 qtree를 마운트할 수 있도록 SVM의 루트 볼륨에서 모든 NFS 클라이언트에 대해 읽기 전용 액세스를 허용해야 합니다.
+
+* ONTAP에서 지원되지 않는 내보내기 구성의 7-Mode 볼륨이 전환되면 이러한 볼륨을 내보내어 모든 NFS 클라이언트에 대한 액세스를 차단합니다.
++
+필요한 액세스 권한을 제공하려면 전환 후 이러한 볼륨에 대한 내보내기 정책을 수동으로 구성해야 합니다.
+
+* ONTAP에서 지원되지 않는 엑스포트 구성이 있는 7-Mode qtree가 전환되면 상위 볼륨의 엑스포트 정책을 상속합니다.
++
+필요한 액세스 권한을 제공하려면 전환 후 이러한 qtree에 대한 엑스포트 정책을 수동으로 구성해야 합니다.
+
+* ONTAP에서 NFS 클라이언트가 qtree를 마운트하려면 SVM의 루트 볼륨 접합 경로(즉, /)까지 모든 상위 접합 경로에 읽기 전용 권한이 NFS 클라이언트에 있어야 합니다.
++
+NFS 클라이언트가 qtree를 마운트하려면 Qtree가 읽기 전용 권한이 있는 볼륨에 속해야 합니다. 볼륨 레벨에서 읽기 전용 권한이 없으면 NFS 클라이언트가 qtree를 마운트할 수 없습니다.
+
+* 동일한 호스트가 읽기 전용, 읽기/쓰기 및 루트 액세스 권한 목록의 조합에 지정된 경우 전환 후 전환된 내보내기 규칙을 평가하여 호스트에 대한 적절한 액세스 권한을 결정해야 합니다.
+
+
+http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
+
+
+
+== 예: qtree에 대한 액세스를 허용하도록 볼륨의 엑스포트 정책을 수정합니다
+
+NFS 클라이언트 192.168.10.10에 대해 볼륨 volstd10 및 qtree qtree1 에 대한 읽기/쓰기 액세스를 허용하는 7-Mode 스토리지 시스템(192.168.26.18)에 구성된 다음과 같은 엑스포트 규칙을 고려하십시오.
+
+[listing]
+----
+/vol/volstd10/qtree1 -sec=sys,rw=192.168.10.10,nosuid
+/vol/volstd10 -sec=sys,rw=192.168.11.11,nosuid
+----
+전환 후 ONTAP에서 볼륨 volsdt10의 내보내기 정책은 다음과 같습니다.
+
+[listing]
+----
+cluster-01::> export-policy rule show -vserver std_22 -policyname std_2226 -instance
+ (vserver export-policy rule show)
+
+                                               Vserver: std_22
+                                           Policy Name: std_2226
+                                            Rule Index: 1
+                                       Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.11.11
+                                        RO Access Rule: sys
+                                        RW Access Rule: sys
+           User ID To Which Anonymous Users Are Mapped:65534
+                              Superuser Security Types: none
+                          Honor SetUID Bits in SETATTR: false
+                             Allow Creation of Devices: true
+cluster-01::>
+----
+전환 후 ONTAP에서 qtree qtree1 의 엑스포트 정책은 다음과 같습니다.
+
+[listing]
+----
+ cluster-01::> export-policy rule show -vserver std_22 -policyname std_2225 -instance
+  (vserver export-policy rule show)
+
+                                    Vserver: std_22
+                                Policy Name: std_2225
+                                 Rule Index: 1
+                            Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.10.10
+                             RO Access Rule: sys
+                             RW Access Rule: sys
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true
+cluster-01::>
+----
+NFS 클라이언트 192.168.10.10에서 qtree에 액세스하려면 NFS 클라이언트 192.168.10.10에서 qtree의 상위 볼륨에 대한 읽기 전용 액세스 권한이 있어야 합니다.
+
+다음 출력에서는 qtree를 마운트하는 동안 NFS 클라이언트가 액세스가 거부됨을 보여 줍니다.
+
+[listing]
+----
+ [root@192.168.10.10 ]# mount 192.168.35.223:/vol/volstd10/qtree1
+transition_volume_qtreemount:192.168.35.223:/vol/volstd10/qtree1 failed, reason
+given by server: Permission denied [root@192.168.10.10 ]#
+----
+NFS 클라이언트 192.168.10.10에 대한 읽기 전용 액세스를 제공하려면 볼륨의 내보내기 정책을 수동으로 수정해야 합니다.
+
+[listing]
+----
+cluster-01::> export-policy rule create -vserver std_22 -policyname std_2226 -clientmatch
+192.168.10.10 -rorule sys -rwrule never -allow-suid false -allow-dev true -superuser none -protocol nfs
+  (vserver export-policy rule create)
+
+cluster-01::> export-policy rule show -vserver std_22 -policyname std_2226 -instance
+  (vserver export-policy rule show)
+
+                                    Vserver: std_22
+                                Policy Name: std_2226
+                                 Rule Index: 1
+                            Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.11.11
+                             RO Access Rule: sys
+                             RW Access Rule: sys
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true
+
+**                                    Vserver: std_22
+                                Policy Name: std_2226
+                                 Rule Index: 2
+                            Access Protocol: nfs
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.10.10
+                             RO Access Rule: sys
+                             RW Access Rule: never
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true**
+
+cluster-01::>
+----
+
+
+== 예: 7-Mode와 ONTAP에서 qtree 엑스포트 규칙이 어떻게 다른지 설명
+
+7-Mode 스토리지 시스템에서 NFS 클라이언트가 상위 볼륨의 마운트 지점을 통해 qtree에 액세스할 때 qtree 엑스포트 규칙이 무시되고 상위 볼륨의 엑스포트 규칙이 적용됩니다. 그러나 ONTAP에서는 NFS 클라이언트가 qtree에 직접 마운트하든, 부모 볼륨의 마운트 지점을 통해 qtree에 액세스하든 qtree 엑스포트 규칙이 항상 적용됩니다. 이 예는 NFSv4에 특히 적용됩니다.
+
+다음은 7-Mode 스토리지 시스템(192.168.26.18)의 엑스포트 규칙의 예입니다.
+
+[listing]
+----
+/vol/volstd10/qtree1 -sec=sys,ro=192.168.10.10,nosuid
+/vol/volstd10   -sec=sys,rw=192.168.10.10,nosuid
+----
+7-Mode 스토리지 시스템에서 NFS 클라이언트 192.168.10.10은 qtree에 대한 읽기 전용 액세스만 가지고 있습니다. 그러나 클라이언트가 상위 볼륨의 마운트 지점을 통해 qtree에 액세스할 때 클라이언트는 볼륨에 대한 읽기/쓰기 액세스가 있기 때문에 qtree에 쓸 수 있습니다.
+
+[listing]
+----
+[root@192.168.10.10]# mount 192.168.26.18:/vol/volstd10 transition_volume
+[root@192.168.10.10]# cd transition_volume/qtree1
+[root@192.168.10.10]# ls transition_volume/qtree1
+[root@192.168.10.10]# mkdir new_folder
+[root@192.168.10.10]# ls
+new_folder
+[root@192.168.10.10]#
+----
+ONTAP에서 NFS 클라이언트 192.168.10.10은 클라이언트가 qtree의 상위 볼륨의 마운트 지점을 통해 직접 qtree에 액세스할 때 qtree qtree1 에 대한 읽기 전용 액세스만 가집니다.
+
+전환 후에는 NFS 엑스포트 정책 적용의 영향을 평가하고, 필요한 경우 ONTAP에서 NFS 엑스포트 정책을 적용하는 새로운 방식으로 프로세스를 수정해야 합니다.
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]

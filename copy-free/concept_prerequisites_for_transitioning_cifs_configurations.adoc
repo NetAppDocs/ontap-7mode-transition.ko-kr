@@ -1,0 +1,117 @@
+---
+permalink: copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, cifs, configurations, prerequisites 
+summary: CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족되는 경우에만 7-Mode 전환 툴을 통해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다. 
+---
+= CIFS 구성을 전환하기 위한 사전 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족되는 경우에만 7-Mode 전환 툴을 통해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다.
+
+
+
+== 7-Mode 사전 요구사항
+
+* CIFS 라이센스를 추가해야 합니다.
+* MultiStore 라이센스가 활성화된 경우 전환 볼륨을 소유하는 vFiler 유닛에 대해 허용되는 프로토콜 목록에 CIFS를 추가해야 합니다.
+* 전환 중에 CIFS를 설정하고 실행해야 합니다.
++
+클라이언트 액세스가 끊기고 내보내기 단계를 시작할 준비가 된 후에도 7-Mode 시스템에서 CIFS 서비스가 실행 중이어야 합니다.
+
+* CIFS에 대한 인증 유형은 AD(Active Directory) 또는 워크그룹이어야 합니다.
+
+
+
+
+== 클러스터 사전 요구 사항
+
+* CIFS 라이센스를 추가해야 합니다.
+* 다양한 ONTAP 버전에서 지원되는 CIFS 인증 방법은 다음과 같습니다.
++
+** Clustered Data ONTAP 8.2.x 및 8.3.x는 AD 인증을 지원합니다.
+** ONTAP 9.0 이상은 AD 인증 및 워크그룹 인증을 지원합니다.
+
+
+* 다음 표에는 타겟 SVM에서 사용해야 하는 인증 방법이 나와 있습니다.
++
+|===
+| 7-Mode 인증 방법 | Clustered Data ONTAP 8.2.x 및 8.3.x 인증 방법 | ONTAP 9.5 또는 이전 인증 방법 
+
+
+ a| 
+광고
+ a| 
+광고
+ a| 
+광고
+
+
+
+ a| 
+작업 그룹
+ a| 
+광고
+ a| 
+작업 그룹 또는 AD
+
+|===
+* AD 도메인이 7-Mode CIFS 서버와 타겟 SVM CIFS 서버 간에 일치하지 않을 경우 CIFS 구성을 7-Mode에서 ONTAP로 전환할 수 있습니다.
++
+이 도구는 AD 도메인 이름 불일치가 감지되면 ignorable blocking 오류를 트리거합니다. 전환을 계속하려면 차단 오류를 확인할 수 있습니다.
+
+* CIFS 서버는 구성 적용(사전 컷오버) 단계 전에 수동으로 구성해야 합니다.
++
+다음과 같은 두 가지 방법으로 SVM에서 CIFS 서버를 생성할 수 있습니다.
+
++
+|===
+| 원하는 작업 | 다음을 수행합니다. 
+
+
+ a| 
+CIFS 서버 ID를 타겟 SVM으로 전송 또는 보존합니다
+ a| 
+ You have the following two options to create the CIFS server:
+.. 모든 ONTAP 버전에 적용 가능:
++
+*** SVM 프로비저닝 단계를 수행하기 전에 임시 CIFS ID를 사용하여 7-Mode 시스템 시스템에서 CIFS 서버를 다시 구성해야 합니다.
++
+이 재구성을 통해 SVM에서 원래 CIFS 서버 ID를 구성할 수 있습니다. 새로운 임시 ID를 갖는 "VM provision" 및 "Export & Halt" 단계에서 CIFS 서버가 7-Mode 시스템에서 실행 중인지 확인해야 합니다. 이 작업은 SVM 프로비저닝 및 "'내보내기 및 중지'' 단계 중에 7-Mode에서 CIFS 구성을 읽는 데 필요합니다.
+
+*** 원래 7-Mode CIFS ID로 타겟 SVM에서 CIFS 서버를 구성해야 합니다.
+*** 이러한 조건이 충족되면 "VM 프로비전" 작업을 수행한 다음 "내보내기 및 중지" 작업을 수행하여 ONTAP 볼륨에 대한 클라이언트 액세스를 활성화할 수 있습니다.
+
+
+.. ONTAP 릴리스 9.0 ~ 9.5에 적용:
++
+*** CIFS 서버 이름(CIFS 서버 NetBIOS 이름)을 변경하려면 'vserver cifs modify' 명령을 사용하십시오.
++
+이 기능을 사용하면 임시 ID를 사용하여 타겟 SVM에 CIFS 서버를 생성한 다음 "VM 프로비저닝" 작업을 수행해야 합니다.
+
+*** "'import'" 단계가 끝나면 타겟 클러스터에서 'vserver cifs modify' 명령을 실행하여 타겟 SVM CIFS ID를 7-Mode CIFS ID로 대체할 수 있습니다.
+
+
+
+
+
+
+ a| 
+새 ID를 사용하십시오
+ a| 
+** "VM 프로비저닝" 단계에서는 CIFS 서버를 타겟 SVM에서 새 CIFS ID로 구성해야 합니다.
+** "VM provision(VM 프로비저닝)" 및 "Export & Halt(내보내기 및 중지)" 단계에서 CIFS 서버가 7-Mode 시스템에서 실행 중인지 확인해야 합니다.
++
+이 작업은 "VM provision(VM 프로비저닝)" 및 "Export & Halt(내보내기 및 중지)" 중에 7-Mode에서 CIFS 구성을 읽는 데 필요합니다.
+
+** 이러한 조건을 확인한 후 "VM 프로비전" 작업을 수행할 수 있습니다.
++
+그런 다음 SVM 구성을 테스트하고 스토리지 컷오버를 계획할 수 있습니다.
+
+
+
+|===
+

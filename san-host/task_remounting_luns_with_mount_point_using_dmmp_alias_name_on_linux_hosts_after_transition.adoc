@@ -1,0 +1,116 @@
+---
+permalink: san-host/task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remount, lun, points, dmmp, alias, names 
+summary: 7-Mode에서 작동하는 ONTAP에서 clustered Data ONTAP으로 전환한 후 마운트 지점으로 LUN을 다시 마운트해야 합니다. 7-Mode 볼륨은 오프라인 상태이며 호스트에서 7-Mode LUN에 액세스할 수 없습니다. 
+---
+= 전환 후 Linux 호스트에서 DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN을 다시 마운트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 작동하는 ONTAP에서 clustered Data ONTAP으로 전환한 후 마운트 지점으로 LUN을 다시 마운트해야 합니다. 7-Mode 볼륨은 오프라인 상태이며 호스트에서 7-Mode LUN에 액세스할 수 없습니다.
+
+CFT(Copy-Free Transition)를 수행하는 경우 'vol rehost' 절차를 완료해야 합니다.
+
+를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["7-Mode 전환 툴 Copy-Free Transition Guide를 참조하십시오"] 를 참조하십시오.
+
+* CTBT(Copy-Based 전이)의 경우 7MTT에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행합니다.
+* CFT의 경우, 7MTT에서 데이터 및 구성 가져오기 작업 후에 다음 단계를 수행합니다.
++
+.. 7-Mode에서 ONTAP로 LUN 매핑 파일을 생성합니다.
++
+*** 복사 기반 전환의 경우 7MTT가 설치된 Linux 호스트에서 + " * transition CBT export lunMAP -p_project-name_-o_file_path_ * "를 실행하여 다음 명령을 실행합니다
++
+예를 들면 다음과 같습니다.
+
++
+'* 전이 CBT 내보내기 lunmap-p SanWorkLoad-o c:/Libraires/Documents/7-to-C-LUN-mapping.csv *
+
+*** 복사를 사용하지 않는 전환을 사용하려면 7MTT가 설치된 시스템에서 + ` * transition CFT export lunmap -p_project -name_-s_svm -name_-o_output -file_' 명령을 실행합니다
++
+예를 들면 다음과 같습니다.
+
++
+' * transition CFT export lunmap -p SanWorkLoad -s svml -0 c:/libraries/Documents/7-to-C-LUN-mapping-svml.csv *
+
++
+
+NOTE: 각 SVM(스토리지 가상 머신)에 대해 이 명령을 실행해야 합니다.
+
+
+
+.. LUN 매핑 파일에서 ONTAP 디바이스 핸들 ID를 기록해 둡니다.
+.. 7-Mode LUN에 대해 생성된 SCSI 디바이스를 제거합니다.
++
+*** 모든 SCSI 장치를 분리하려면: + "* rescan-scsi-bus.sh -r*"
+*** 각 SCSI 장치를 개별적으로 제거하려면: + ``echo 1>/sys/block/__scsi_ID__/delete_'
++
+이 명령은 모든 7-Mode LUN SCSI 장치에서 실행해야 합니다. Inventory Assessment 워크북 _ 의 SAN 호스트 LUN 탭에서 SCSI 디바이스 ID 열을 참조하여 LUN에 대한 SCSI 디바이스 ID를 식별합니다.
+
+
+
+.. 새로운 ONTAP LUN 검색:
++
+'* rescan-scsi-bus.sh *'
+
+.. ONTAP LUN이 검색되었는지 확인합니다.
++
+``sanlun lun show *’
+
++
+ONTAP LUN의 SCSI 디바이스는 device filename 열에 나열되어야 합니다.
+
++
+SCSI 디바이스 이름의 예는 '/dev/sdp'입니다.
+
+.. '/etc/multipath.conf' 파일에서 7-Mode 디바이스 핸들 ID를 clustered Data ONTAP LUN의 디바이스 핸들 ID로 교체하여 '별칭 이름'이 clustered Data ONTAP LUN ID를 가리키도록 합니다.
++
+아래 표시된 대로 다중 경로 섹션을 업데이트해야 합니다. 다음 예에서는 7-Mode LUN ID를 교체하기 전에 '/etc/multipath.conf 파일'을 보여 줍니다. 이 예에서 LUN ID인 360a9800037534562572b453855496b43은 dmmp_fs_lun 별칭 이름을 가리킵니다.
+
++
+[listing]
+----
+multipaths {
+        multipath {
+             wwid	360a9800037534562572b453855496b43
+             alias		dmmp_fs_lun
+    }
+}
+----
++
+7-Mode LUN ID를 ONTAP LUN ID인 360a9800037534562572b453855496b43으로 교체한 후 예제 파일은 다음과 같습니다.
+
++
+[listing]
+----
+multipaths {
+        multipath {
+             wwid	3600a098051764937303f4479515a7452
+             alias		dmmp_fs_lun
+    }
+}
+----
+.. ONTAP LUN용 DMMP 디바이스 구성:
++
+' * multipath * '
+
+.. DMMP 별칭이 ONTAP LUN 디바이스 핸들 ID를 가리키는지 확인합니다.
++
+'* multipath-ll_device_handle_ID_ * '
+
+.. ONTAP LUN을 마운트 지점 디렉토리에 마운트합니다.
++
+"* mount/dev/mapper/__alias_namount_dir_name__ * "
+
++
+/etc/fstab 파일에 마운트 지점이 정의되어 있는 경우 mount -a 명령을 사용하여 LUN을 마운트합니다.
+
+.. DMMP 장치가 마운트되었는지 확인합니다.
++
+'_mount_'
+
+
+
+

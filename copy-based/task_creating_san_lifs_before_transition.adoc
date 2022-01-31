@@ -1,0 +1,36 @@
+---
+permalink: copy-based/task_creating_san_lifs_before_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, create, san, lif 
+summary: FC 및 iSCSI LIF는 7-Mode 전환 툴을 통해 전환되지 않으므로 전환 전에 SVM에 이러한 LIF를 생성해야 합니다. LUN을 소유하는 노드와 노드의 HA 파트너에 SAN LIF를 구성해야 합니다. 
+---
+= 전환 전에 SAN LIF를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 및 iSCSI LIF는 7-Mode 전환 툴을 통해 전환되지 않으므로 전환 전에 SVM에 이러한 LIF를 생성해야 합니다. LUN을 소유하는 노드와 노드의 HA 파트너 모두에서 SAN LIF를 구성해야 합니다.
+
+필요한 SAN(FC 또는 iSCSI) 라이센스를 클러스터에 추가해야 합니다.
+
+이중화를 위해서는 LUN을 호스팅하는 노드와 해당 HA 파트너 모두에 SAN LIF를 생성해야 합니다.
+
+.단계
+. 사용되는 프로토콜에 따라 LUN이 전환될 타겟 노드에 FC 또는 iSCSI LIF를 생성합니다.
++
+'* 네트워크 인터페이스 생성 * '
+
++
+iSCSI LIF에 7-Mode IP 주소를 재사용하려면 관리 다운 상태에서 LIF를 생성해야 합니다. 전환 작업 후 LIF를 관리 상태로 전환할 수 있습니다.
+
+. 노드의 HA 파트너에 LIF를 생성합니다.
+. LIF를 올바르게 설정했는지 확인하십시오.
++
+'* 네트워크 인터페이스 쇼 * '
+
+
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 관리"]

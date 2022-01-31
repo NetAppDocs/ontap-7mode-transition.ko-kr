@@ -1,0 +1,24 @@
+---
+permalink: copy-based/reference_compression_fails_to_start_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, compression, data, enable, error 
+summary: Data ONTAP 7.3.x를 실행하는 시스템에서 32비트 볼륨을 64비트 애그리게이트에 있는 ONTAP 볼륨으로 전환할 경우 전환 후 ONTAP 볼륨에서 압축이 활성화되지 않습니다. 볼륨이 32비트에서 64비트로 업그레이드될 때까지 압축을 활성화할 수 없습니다. 
+---
+= Data ONTAP 7.3.x에서 전환한 후 압축이 활성화되지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 7.3.x를 실행하는 시스템에서 32비트 볼륨을 64비트 애그리게이트에 있는 ONTAP 볼륨으로 전환할 경우 전환 후 ONTAP 볼륨에서 압축이 활성화되지 않습니다. 볼륨이 32비트에서 64비트로 업그레이드될 때까지 압축을 활성화할 수 없습니다.
+
+
+
+== 해결 방법
+
+. 업그레이드가 완료될 때까지 기다립니다.
++
+'volume show-fields block-type-volume_vol_name_' 명령을 사용하여 볼륨의 블록 유형이 64비트로 변경되는지 확인할 수 있습니다.
+
+. 'volume Efficiency modify' 명령을 사용하여 압축을 활성화하십시오.
+

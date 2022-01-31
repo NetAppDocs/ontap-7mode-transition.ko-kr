@@ -1,0 +1,105 @@
+---
+permalink: command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, clustered, commands, options, configuration, file, maps, interpret 
+summary: 7-Mode에서 실행 중인 Data ONTAP에서 clustered Data ONTAP으로 이동하는 경우, 7-Mode 명령, 옵션 및 구성 파일에 해당하는 clustered Data ONTAP을 보여주는 명령 맵을 참조하는 것이 좋습니다. 
+---
+= 7-Mode 관리자를 위해 clustered Data ONTAP 명령, 옵션 및 구성 파일을 해석하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 실행 중인 Data ONTAP에서 clustered Data ONTAP으로 이동하는 경우, 7-Mode 명령, 옵션 및 구성 파일에 해당하는 clustered Data ONTAP을 보여주는 명령 맵을 참조하는 것이 좋습니다.
+
+
+
+== 포함된 매핑 정보
+
+7-Mode 관리자를 위한 명령 맵에는 7-Mode 명령, 옵션 및 구성 파일을 clustered Data ONTAP에 상응하는 다음과 같은 매핑이 포함됩니다.
+
+* xref:reference_how_7_mode_commands_map_to_clustered_ontap_commands.adoc[7-Mode 명령이 clustered Data ONTAP 명령에 매핑되는 방법]
+* xref:reference_how_7_mode_options_map_to_clustered_ontap_commands.adoc[7-Mode 옵션이 clustered Data ONTAP 명령에 매핑되는 방법]
+* xref:reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.adoc[7-Mode 구성 파일이 clustered Data ONTAP 명령에 매핑되는 방법]
+
+
+
+
+== 7-Mode 호환 바로 가기 명령을 해석하는 방법
+
+Data ONTAP CLI(Command Line Interface)는 클러스터 작업을 위해 크게 재구성되지만, 대부분의 명령에는 7-Mode 호환 바로 가기 버전이 있어 스크립트 변경 작업이나 다른 자동화 작업이 필요하지 않습니다. 이러한 바로 가기 버전은 여기에 나와 있는 표의 첫 번째 및 * 굵게 * 로 표시됩니다. 7-Mode와 호환되지 않는 바로 가기 버전이 다음 목록에 표시되며 이어서 명령의 전체 긴 버전이 표시됩니다.
+
+|===
+| 7-Mode 명령 | clustered Data ONTAP 명령 
+
+
+ a| 
+'aggr add'
+ a| 
+' * aggr add * '
+
+'aggr 추가 디스크'
+
+'스토리지 집계 추가 디스크'
+
+|===
+목록에 * bold * 바로 가기가 없으면 7-Mode 호환 버전을 사용할 수 없습니다. 일부 명령 형식은 표에 표시되지 않습니다. CLI는 유연성이 매우 뛰어나므로 여러 가지 축약형 형태를 사용할 수 있습니다.
+
+
+
+== CLI 명령에 대한 다양한 clustered Data ONTAP 셸 이해
+
+클러스터에는 CLI 명령을 위한 3개의 서로 다른 셸이 있습니다.
+
+* clustershell_은 기본 셸이며 클러스터에 로그인할 때 자동으로 시작됩니다.
++
+클러스터 구성 및 관리에 필요한 모든 명령을 제공합니다.
+
+* nodes지옥은 7-Mode 명령의 하위 세트를 실행할 수 있는 특별한 쉘입니다.
++
+이러한 명령은 노드 수준에서만 적용됩니다. 클러스터 쉘에서 노드 쉘로 전환하여 대화식으로 노드 쉘을 실행하거나 클러스터 쉘에서 노드 쉘을 한 개 실행할 수 있습니다. 'system node run-node {_nodename_|local}CommandName'이라는 긴 형식의 명령이 있는 경우 명령을 노드 명령으로 인식할 수 있습니다.
+
+* _systemshell_은 진단 및 문제 해결 목적으로만 사용되는 하위 셸입니다.
++
+이 문서는 일반적인 관리 목적으로 사용할 수 없습니다. 시스템 쉘은 기술 지원 부서의 안내에 따라서만 액세스할 수 있습니다.
+
+
+
+
+
+== 고데지옥(nodeschell)으로 전환
+
+노드 쉘의 명령의 7-Mode 호환 바로 가기 버전이 표시되면 명령을 실행하는 것으로 간주됩니다. 노드 쉘로 전환하려면 다음을 입력합니다.
+
+'* 시스템 노드 run-node {_nodename_|local} *'
+
+또 다른 형태의 노데스쉘 명령은 클러스터쉘에서 실행되어야 합니다.
+
+
+
+== 자세한 정보
+
+|===
+| 원하는 작업 | 자세한 정보... 
+
+
+ a| 
+클러스터 셸 명령을 사용합니다
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]
+
+
+
+ a| 
+노드 쉘을 사용합니다
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1511537["Data ONTAP 8. 2 명령: 7-Mode의 경우 수동 페이지 참조, 볼륨 1"]
+
+
+
+ a| 
+CLI 명령 실행, CLI 명령 디렉토리 탐색, CLI에서 값 설정, 쿼리, 패턴 및 와일드카드 사용
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
+
+|===

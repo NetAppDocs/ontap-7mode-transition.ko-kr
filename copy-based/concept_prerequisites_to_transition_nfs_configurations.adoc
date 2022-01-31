@@ -1,0 +1,45 @@
+---
+permalink: copy-based/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prerequisites, nfs, configurations 
+summary: NFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족될 경우에만 7-Mode 전환 툴에 의해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다. 
+---
+= NFS 구성 전환을 위한 사전 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족될 경우에만 7-Mode 전환 툴에 의해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다.
+
+
+
+== 7-Mode 사전 요구사항
+
+* NFS 라이센스가 있어야 합니다.
+* MultiStore 라이센스가 있는 경우, 전환 볼륨을 소유한 vFiler 유닛에서 NFS를 활성화해야 합니다.
+* Microsoft AD(Active Directory) 기반 Kerberos 서버를 새 SVM으로 전환하려면 AD 도메인에 대한 DNS 항목이 있어야 합니다.
++
+
+NOTE: Kerberos 구성을 이전하려면 적어도 하나의 LIF가 프로젝트의 일부로 전환되어야 하며 LIF는 호스트 이름으로 확인되어야 합니다.
+
+* 메모리 내 내보내기 규칙을 이전하려면 전환하기 전에 해당 규칙을 '/etc/exports' 파일에 추가해야 합니다.
++
+7-Mode Transition Tool은 '/etc/exports' 파일에 정의된 영구 내보내기 규칙만 전환합니다.
+
+
+
+
+
+== 클러스터 사전 요구 사항
+
+* NFS 라이센스가 있어야 합니다.
+* Microsoft AD 기반 Kerberos 서버를 DNS가 구성된 기존 SVM으로 전환하려면 AD 도메인에 대한 DNS 항목이 있어야 합니다.
+* Kerberos KDC(Key Distribution Center)와 ONTAP 시스템 간의 시간 편중은 5분 이하여야 합니다.
+
+
+* 관련 정보 *
+
+xref:concept_how_nfs_exports_are_transitioned.adoc[NFS 내보내기의 전환 방법]
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/task_preparing_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, storage, system, cluster 
+summary: '전환을 시작하기 전에 7-Mode 볼륨을 clustered Data ONTAP으로 전환하기 전에 7-Mode 스토리지 시스템 및 클러스터를 준비해야 합니다. 또한 7-Mode 시스템과 스토리지 가상 시스템(SVM\) 간에 전환 피어 관계를 생성해야 합니다.' 
+---
+= 전환 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 시작하기 전에 7-Mode 볼륨을 clustered Data ONTAP으로 전환하기 전에 7-Mode 스토리지 시스템 및 클러스터를 준비해야 합니다. 또한 7-Mode 시스템과 스토리지 가상 시스템(SVM) 간에 전환 피어 관계를 생성해야 합니다.

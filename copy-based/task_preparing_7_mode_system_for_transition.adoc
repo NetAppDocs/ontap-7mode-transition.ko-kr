@@ -1,0 +1,107 @@
+---
+permalink: copy-based/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, 7, mode 
+summary: 전환을 시작하기 전에 7-Mode 시스템에서 SnapMirror 라이센스 추가, 7-Mode 시스템이 타겟 클러스터와 통신하도록 설정, TLS 활성화 등과 같은 특정 작업을 완료해야 합니다. 
+---
+= 전환을 위해 7-Mode 시스템 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 시작하기 전에 7-Mode 시스템에서 SnapMirror 라이센스 추가, 7-Mode 시스템이 타겟 클러스터와 통신하도록 설정, TLS 활성화 등과 같은 특정 작업을 완료해야 합니다.
+
+전환할 모든 7-Mode 볼륨은 온라인 상태여야 합니다.
+
+.단계
+. 7-Mode 시스템에서 SnapMirror 라이센스를 추가하고 사용하도록 설정합니다.
++
+.. 7-Mode 시스템에 SnapMirror 라이센스를 추가합니다.
++
+' * license add_license_code_ * '
+
++
+'_license_code_'는 구입한 라이센스 코드입니다.
+
+.. SnapMirror 기능 사용: + `* options SnapMirror.enable on * '
+
+
+. 다음 옵션 중 하나를 선택하여 7-Mode 시스템과 타겟 클러스터가 서로 통신하도록 구성합니다.
++
+** 'napmirror.access' 옵션을 모두 로 설정합니다.
+** 클러스터에 있는 모든 LIF의 IP 주소로 'napmirror.access' 옵션의 값을 설정합니다.
+** 'napMirror.access' 옵션이 'legacy'이고 'napmirror.checkip.enable` 옵션이 'off'인 경우 SVM 이름을 '/etc/snapmirror.allow' 파일에 추가합니다.
+** 'napmirror.access' 옵션이 'legacy'이고 'napmirror.checkip.enable` 옵션이 'on'이면 '/etc/snapmirror.allow' 파일에 인터클러스터 LIF의 IP 주소를 추가합니다.
+
+
+. 스토리지 시스템에서 HTTPS가 설정되어 있지 않으면 HTTPS를 사용하도록 설정합니다.
++
+' * options httpd.admin.ssl.enable on * '
+
++
+HTTPS는 기본적으로 활성화되어 있습니다.
+
+. 7-Mode 스토리지 시스템에서 TLS를 활성화하여 7-Mode 전환 툴이 7-Mode 시스템과 통신하도록 지원:
++
+.. 스토리지 시스템에서 SSL이 아직 설정되어 있지 않은 경우 SSL을 설정하고 시작합니다.
++
+'* SecureAdmin 설정 SSL*'
+
++
+SSL은 기본적으로 스토리지 시스템에 대해 설정됩니다. 이전에 스토리지 시스템에 대해 SSL을 설정한 경우 계속 진행할지 묻는 메시지가 표시됩니다. 변경하지 않으려면 SSL 설정을 종료할 수 있습니다.
+
+.. SSL 활성화:
++
+' * options ssl.enable on * '
+
++
+TLS를 통한 통신을 사용하려면 이 옵션을 활성화해야 합니다.
+
+.. TLS 활성화:
++
+' * options tls.enable on * '
+
+.. 7-Mode 시스템에서 SSLv2 및 SSLv3 비활성화:
++
+' * options ssl.v2.enable off * '
+
++
+' * options ssl.v3.enable off * '
+
+
+
++
+7-Mode 전환 툴은 TLS 또는 SSL 프로토콜을 사용하여 7-Mode 스토리지 시스템과 통신합니다. 이 툴은 스토리지 시스템에서 TLS가 활성화된 경우 TLS 프로토콜을 사용하여 스토리지 시스템과 통신합니다. TLS가 비활성화되어 있고 스토리지 시스템에서 SSLv3이 활성화되어 있는 경우 이 툴은 SSLv3을 사용하여 스토리지 시스템과 통신합니다.
+
++
++중요: 보안 취약점을 방지하려면 TLS를 활성화하고 SSLv2 및 SSLv3을 사용하지 않도록 설정하는 것이 가장 좋습니다.
+
+. 7-Mode 시스템의 Data ONTAP 버전에 따라 다음 단계를 수행하십시오.
++
+.. 모든 인터페이스에서 SnapMirror 트래픽 허용:
++
+"* 옵션 인터페이스. 차단됨. SnapMirror""*"
+
+.. Data ONTAP 버전 7.3.7, 8.0.3 또는 8.1을 실행 중이고 e0M 인터페이스의 IP 주소를 관리 IP 주소로 사용하여 7-Mode 전환 툴과 상호 작용하는 경우 e0M 인터페이스에서 데이터 트래픽을 허용합니다.
++
+' * options interface.blocked.mgmt_data_traffic off * '
+
+
+
+. 볼륨에 I2P, 읽기 할당 또는 NVFAIL 옵션을 설정한 경우 다음 단계를 수행하십시오.
++
+.. 이러한 옵션을 사용하지 않도록 설정하면 다른 작업이 영향을 받지 않는지 확인합니다.
+.. 옵션을 비활성화합니다.
++
+``vol options vol_name no_I2P off * '
+
++
+``vol options vol_name read_realloc off * '
+
++
+' * vol options vol_name nvfail off * '
+
+
+
+

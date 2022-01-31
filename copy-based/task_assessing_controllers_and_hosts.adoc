@@ -1,0 +1,25 @@
+---
+permalink: copy-based/task_assessing_controllers_and_hosts.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, assess, controller, host 
+summary: 환경의 보안 규정에 따라 7-Mode 전환 툴 또는 인벤토리 수집 툴을 사용하여 컨트롤러 및 호스트에 대한 정보를 수집하고 평가할 수 있습니다. 
+---
+= 컨트롤러 및 호스트 평가
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+환경의 보안 규정에 따라 7-Mode 전환 툴 또는 인벤토리 수집 툴을 사용하여 컨트롤러 및 호스트에 대한 정보를 수집하고 평가할 수 있습니다.
+
+* 7-Mode Transition Tool은 시스템을 추가하거나 Inventory Collect Tool에서 생성한 인벤토리 보고서를 사용하여 컨트롤러 및 호스트에 대한 인벤토리 정보를 수집합니다.
++
+그런 다음 7-Mode 전환 툴을 사용하여 인벤토리 정보를 평가하고 전환 평가 보고서를 생성합니다.
+
+* 전환 평가를 수행할 때는 다음 사항을 고려해야 합니다.
++
+** 컨트롤러에서 평가 및 마이그레이션 작업을 동시에 수행해서는 안 됩니다.
+** 사용량이 많은 시간에는 활성 스토리지 컨트롤러에 대한 평가 작업을 수행하지 마십시오.
+
+
+

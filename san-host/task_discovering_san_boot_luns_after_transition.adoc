@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_discovering_san_boot_luns_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, discover, san, boot, lun 
+summary: 'SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 호스트에서 SAN 부팅 LUN을 검색해야 합니다. 이는 복사 기반 전환\(cts\) 및 복사 없는 전환\(cts\)에 필요합니다. 이 제한은 FC, FCoE 및 iSCSI 구성에 적용됩니다.' 
+---
+= 전환 후 SAN 부팅 LUN 검색
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 호스트에서 SAN 부팅 LUN을 검색해야 합니다. 이는 CBTs(Copy-Based 전이) 및 CPST(Copy-Free 전이)에 필요합니다. 이 제한은 FC, FCoE 및 iSCSI 구성에 적용됩니다.
+
+CFT를 수행하는 경우 'vol rehost' 절차를 완료해야 합니다. 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["7-Mode 전환 툴 Copy-Free Transition Guide를 참조하십시오"] 를 참조하십시오.
+
+. 호스트를 부팅합니다.
+. FC 및 FCoE 구성만 해당:
++
+.. HBA BIOS 설정 모드로 들어갑니다.
+.. Rescan * 을 선택하여 호스트에서 clustered Data ONTAP SAN 부팅 LUN을 검색합니다.
+.. 7-Mode 부팅 LUN ID를 제거합니다.
+.. HBA BIOS에서 clustered Data ONTAP 부팅 LUN ID를 추가합니다.
+.. HBA BIOS 설정 모드를 종료한 다음 호스트를 재부팅합니다.
+
+
+. 재부팅이 완료되면 clustered Data ONTAP LUN을 확인합니다.
++
+``sanlun lun show *’
+
+. DMMP 장치를 확인합니다.
++
+'* multipath-ll*'
+
+

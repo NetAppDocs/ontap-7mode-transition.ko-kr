@@ -1,0 +1,153 @@
+---
+permalink: san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, solaris, host, lun, zfs, file, system 
+summary: ZFS 파일 시스템이 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다. 
+---
+= 전환 후 ZFS 파일 시스템에 Solaris 호스트 LUN 마운트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ZFS 파일 시스템이 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다.
+
+복사 기반의 전환의 경우 7MTT(7-Mode 전환 툴)에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행합니다.
+
+7MTT에서 데이터 및 구성 가져오기 작업이 완료된 후에 복사를 수행하지 않는 전환을 수행할 수 있습니다.
+
+. 호스트를 다시 검색하여 새로운 clustered Data ONTAP LUN을 검색합니다.
++
+.. FC 호스트 포트(FC-fabric 유형):+' *#cfgadm –l *'를 식별합니다
+.. 첫 번째 fc-fabric 포트: + " *#cfgadm –c unconfigure C1 * "의 구성을 해제합니다
+.. 두 번째 fc-fabric 포트 unonfigure: + " *#cfgadm –c unconfigure C2 *"
+.. 다른 FC-패브릭 포트에 대해서도 이 단계를 반복합니다.
+.. 호스트 포트 및 연결된 장치에 대한 정보가 올바른지 확인합니다: + "*#cfgadm –al *"
+.. '*#devfsadm-CV * '" *#devfsadm –i iscsi *' 드라이버를 다시 로드합니다
+
+
+. 다음과 같이 clustered Data ONTAP LUN이 검색되었는지 확인합니다.
++
+"* sanlun lun show * "** Clustered Data ONTAP LUN의 "lun-pathname" 값은 전환 전에 7-Mode LUN의 "lun-pathname" 값과 같아야 합니다. [모드] 열에는 [7] 대신 [C] 가 표시되어야 합니다.
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_sru17_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_sru17_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. 가져올 수 있는 zpool이 있는지 확인합니다.
++
+``zpool import *’’입니다
+
++
+[listing]
+----
+# zpool import
+  pool: n_vg
+    id: 3605589027417030916
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_vg                                     ONLINE
+          c0t600A098051763644575D445443304134d0  ONLINE
+          c0t600A098051757A46382B445441763532d0  ONLINE
+----
+. 풀 이름 또는 풀 ID를 사용하여 전환에 사용된 zpool을 가져옵니다.
++
+** ' * zpool import_pool-name_ * '
+** ``zpool import_pool -id_ *’
+
+
++
+[listing]
+----
+# zpool list
+no pools available
+
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c0t60A98000383035356C2447384D396550d0  ONLINE
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE
+
+# zpool import n_pool
+----
++
+를 누릅니다
+
++
+[listing]
+----
+# zpool import 5049703405981005579
+
+[59] 09:55:53 (root@sunx2-shu04) /tmp
+# zpool list
+NAME     SIZE  ALLOC   FREE  CAP  HEALTH  ALTROOT
+n_pool  11.9G  2.67G  9.27G  22%  ONLINE  -
+----
+. zpool이 온라인 상태인지 확인하려면 다음 중 하나를 수행합니다.
++
+** ``zpool 상태 *’
+** ' * zpool list * '
+
+
++
+[listing]
+----
+# zpool status
+  pool: n_pool
+ state: ONLINE
+ scan: none requested
+config:
+
+        NAME                                     STATE     READ WRITE CKSUM
+        n_pool                                   ONLINE       0     0     0
+          c0t60A98000383035356C2447384D396550d0  ONLINE       0     0     0
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE       0     0     0
+
+errors: No known data errors
+----
++
+를 누릅니다
+
++
+[listing]
+----
+# zpool list
+NAME     SIZE  ALLOC   FREE  CAP  HEALTH  ALTROOT
+n_pool  11.9G  2.67G  9.27G  22%  ONLINE  -
+----
+. 다음 명령 중 하나를 사용하여 마운트 지점을 확인합니다.
++
+** ' * ZFS list * '
+** " * df – ah * "
+
+
++
+[listing]
+----
+# zfs list
+NAME           USED  AVAIL  REFER  MOUNTPOINT
+n_pool        2.67G  9.08G   160K  /n_pool
+n_pool/pool1  1.50G  2.50G  1.50G  /n_pool/pool1
+n_pool/pool2  1.16G  2.84G  1.16G  /n_pool/pool2
+
+#df –ah
+n_pool                  12G   160K   9.1G     1%    /n_pool
+n_pool/pool1           4.0G   1.5G   2.5G    38%    /n_pool/pool1
+n_pool/pool2           4.0G   1.2G   2.8G    30%    /n_pool/pool2
+----
+

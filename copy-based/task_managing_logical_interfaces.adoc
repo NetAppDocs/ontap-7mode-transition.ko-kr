@@ -1,0 +1,76 @@
+---
+permalink: copy-based/task_managing_logical_interfaces.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, logical, interfaces 
+summary: 프로젝트에서 7-Mode IP 주소를 추가, 편집 또는 제거할 수 있습니다. 
+---
+= 논리 인터페이스 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+프로젝트에서 7-Mode IP 주소를 추가, 편집 또는 제거할 수 있습니다.
+
+LIF는 SVM(스토리지 가상 시스템)의 Apply 구성(사전 컷오버) 단계에서 구성됩니다.
+
+* 기존의 7-Mode IP 주소는 관리 "down" 상태로 생성됩니다.
+* 새 IP 주소는 관리 "UP" 상태에서 생성됩니다.
+
+
+
+IMPORTANT: FC 및 iSCSI LIF는 7-Mode 전환 툴을 통해 전환되지 않습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+기존 LIF를 편집합니다
+ a| 
+.. 을 클릭합니다 image:../media/edit_schedule.gif[""] .
+.. Modify LIF(LIF 수정) 대화 상자에서 필요한 내용을 변경한 다음 * Save * (저장 *)를 클릭합니다.
+
+
+
+
+ a| 
+기존 LIF를 제거합니다
+ a| 
+.. 을 클릭합니다 image:../media/delete_schedule.gif[""] 를 참조하십시오.
++
+
+NOTE: 프로젝트가 준비, 기본 데이터 복사, 일시 중지, 사전 컷오버 또는 업데이트 상태에 있을 때만 LIF를 제거할 수 있습니다. 그러나 컷오버 작업에 실패한 경우 LIF를 제거할 수 없습니다.
+
+.. 7-Mode LIF * 선택을 클릭합니다.
+.. 전환할 7-Mode IP 주소를 선택합니다.
+.. 타겟 노드 및 타겟 포트 세부 정보를 입력합니다.
+.. 저장 * 을 클릭합니다.
+
+
+
+
+ a| 
+7-Mode IP 주소를 추가합니다
+ a| 
+** 7-Mode LIF * 선택을 클릭합니다.
+** 전환할 7-Mode IP 주소를 선택합니다.
+** 타겟 노드 및 타겟 포트 세부 정보를 입력합니다.
+** 저장 * 을 클릭합니다.
+
+
+
+
+ a| 
+새 LIF를 추가합니다
+ a| 
+.. 표 아래에서 * 새 LIF 추가 * 를 클릭합니다.
+.. 필요한 값을 입력합니다.
+.. 저장 * 을 클릭합니다.
+
+
+|===
+

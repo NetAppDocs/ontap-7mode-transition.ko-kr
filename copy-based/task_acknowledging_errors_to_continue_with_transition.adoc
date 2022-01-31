@@ -1,0 +1,31 @@
+---
+permalink: copy-based/task_acknowledging_errors_to_continue_with_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, continue, ignorable, errors 
+summary: 전환 중에 전환을 차단하는 데 오류가 발생할 수 있습니다. 7-Mode 전환 툴 CLI를 통해 문제를 확인하여 이러한 오류 중 일부를 무시할 수 있습니다. 전환을 계속하려면 오류를 무시하고 실패한 작업을 다시 실행해야 합니다. 
+---
+= 오류가 발생할 경우 전환을 계속합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 중에 전환을 차단하는 데 오류가 발생할 수 있습니다. 7-Mode 전환 툴 CLI를 통해 문제를 확인하여 이러한 오류 중 일부를 무시할 수 있습니다. 전환을 계속하려면 오류를 무시하고 실패한 작업을 다시 실행해야 합니다.
+
+오류를 확인하면 이러한 오류의 영향을 이해하고 이를 확인했음을 의미합니다.
+
+오류를 무시하고 전환 작업을 다시 실행해야 합니다. 경우에 따라 문제를 인지한 후 Data ONTAP은 다음 번에 작업을 실행할 때 영향을 받는 애그리게이트 및 볼륨에 대해 수정 조치를 수행합니다.
+
+.단계
+. 전환 작업에 ignorable 오류가 발생하는 경우 7-Mode Transition Tool CLI에서 다음 명령을 실행합니다.
++
+'* 전이 CBT ignorableerrors add -p_project_name_-c_ignorable_errorcategory_ * '
+
++
+`_ ignorable_errorcategory_'는 무시할 수 있는 오류의 유형입니다.
+
+. 전환 작업을 다시 실행합니다.
++
+차단 오류가 경고로 바뀌고 오류가 '확인됨'으로 표시됩니다. 경고로 전환을 계속할 수 있습니다.
+
+

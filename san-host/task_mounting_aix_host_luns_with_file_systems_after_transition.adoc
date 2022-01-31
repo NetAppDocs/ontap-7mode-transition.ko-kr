@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, aix, host, lun, file, system 
+summary: 파일 시스템이 있는 AIX 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 LUN을 마운트해야 합니다. 
+---
+= 전환 후 AIX 호스트 데이터 LUN을 파일 시스템과 함께 마운트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 시스템이 있는 AIX 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 LUN을 마운트해야 합니다.
+
+LUN 전환 후 논리적 볼륨 이름 및 볼륨 그룹 이름과 같은 LVM(Logical Volume Manager) 속성은 변경되지 않습니다. 전환 후 구성에 선전환 논리적 볼륨 이름과 볼륨 그룹 이름을 계속 사용합니다.
+
+복사본 기반 전환의 경우 7-Mode 전환 도구에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행하십시오. AIX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 새로운 clustered Data ONTAP LUN 검색:
++
+' * cfgmgr * '
+
+. 다음과 같이 clustered Data ONTAP LUN이 검색되었는지 확인합니다.
++
+``sanlun lun show *’
+
++
+Clustered Data ONTAP LUN이 나열되고 모드 열의 출력이 7에서 C로 변경되어야 합니다
+
+. 볼륨 그룹 가져오기:
++
+'* importvg-y_vg_name pv_name_ *'
+
++
+볼륨 그룹에서 모든 물리적 볼륨 이름을 사용할 수 있습니다.
+
+. 볼륨 그룹을 가져왔는지 확인합니다.
++
+' * lsvg_vg_name_ * '
+
+. 각 디바이스를 마운트합니다.
++
+' * mount-o log=/dev/loglv00_file_system mount_point_ *'
+
+. 마운트 지점을 확인합니다.
++
+"* df*"
+
+

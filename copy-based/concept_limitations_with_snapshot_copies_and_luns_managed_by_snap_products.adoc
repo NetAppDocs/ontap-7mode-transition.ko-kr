@@ -1,0 +1,59 @@
+---
+permalink: copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, limitations, snapshot, lun, snapdrive, snapmanager 
+summary: 'Clustered Data ONTAP 8.3으로 전환할 때 SnapManager 및 SnapDrive 백업 검증 및 복원 작업은 전환된 7-Mode 스냅샷 복사본에서 실패합니다. Clustered Data ONTAP 8.3.1로 전환할 때 SME(Microsoft Exchange Server용 SnapManager) 백업 검증 및 SMHV(Hyper-V용 SnapManager\) 복원 작업은 전환된 7-Mode 스냅샷 복사본에서 실패합니다.' 
+---
+= 전환 후 SnapDrive 및 SnapManager에서 관리하는 LUN의 7-Mode 스냅샷 복사본과 관련된 제한 사항이 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Clustered Data ONTAP 8.3으로 전환할 때 SnapManager 및 SnapDrive 백업 검증 및 복원 작업은 전환된 7-Mode 스냅샷 복사본에서 실패합니다. Clustered Data ONTAP 8.3.1로 전환할 때, Microsoft Exchange Server(SME)용 SnapManager 백업 검증 및 Hyper-V(SMHV)용 SnapManager는 전환된 7-Mode 스냅샷 복사본에서 파일 복원 작업에 실패합니다.
+
+7-Mode 시스템에 연결된 호스트와 클러스터에서 실행 중인 Data ONTAP 버전에 사용되는 SnapDrive 또는 SnapManager에 따라 7-Mode 전환 툴에 사전 점검 중에 이 제한 사항에 대한 경고 메시지가 표시됩니다.
+
+
+NOTE: Clustered Data ONTAP에서 새로 생성한 모든 스냅샷 복사본에 대해 모든 SnapDrive 및 SnapManager 백업 검증 및 복원 작업이 지원됩니다.
+
+
+
+== Clustered Data ONTAP 8.3에서 SnapDrive 및 SnapManager를 사용한 백업 및 복원 작업의 해결 방법
+
+다음 작업 중 하나를 수행합니다.
+
+* 7-Mode 스냅샷 복사본이 만료될 때까지 7-Mode 시스템을 유지하십시오.
++
+7-Mode 시스템을 사용하여 7-Mode 스냅샷 복사본의 LUN에서 파일을 복원한 다음, 필요한 경우 clustered Data ONTAP으로 마이그레이션할 수 있습니다.
+
+* ONTAP에서 단일 파일 SnapRestore를 사용하여 7-Mode 스냅샷 복사본의 LUN을 액티브 파일 시스템으로 복원한 다음, 단일 파일 복원을 위해 복원된 LUN을 마운트합니다.
+
+
+
+
+== ONTAP 8.3.1 이상 버전에서 SME 및 SMHV를 사용한 백업 및 복원 작업의 해결 방법
+
+다음 작업 중 하나를 수행합니다.
+
+* SnapManager로 스토리지 컷오버를 수행하기 전에 7-Mode에서 생성된 ONTAP 백업이 유효한지 확인합니다.
+* 전환된 7-Mode 스냅샷 복사본에서 ONTAP의 볼륨 클론을 생성한 다음 클론 복제된 볼륨에 LUN을 마운트하여 백업 검증 및 복원 작업을 수행합니다.
+
+
+모범 사례는 7-Mode 스냅샷 복사본이 만료될 때까지 7-Mode 시스템을 유지하는 것입니다.
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["NetApp 문서: Microsoft Exchange Server용 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["NetApp 설명서: Hyper-V용 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["NetApp 설명서: SAP용 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["NetApp 설명서: Oracle용 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 설명서: UNIX용 SnapDrive"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["NetApp 설명서: Microsoft SQL Server용 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["NetApp 문서: Microsoft SharePoint용 SnapManager"]

@@ -1,0 +1,82 @@
+---
+permalink: copy-free/concept_requirements_for_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, requirements 
+summary: 7-Mode 시스템, 클러스터, ONTAP 릴리즈, 디스크 쉘프의 복사 없이 전환을 위한 요구사항을 알고 있어야 합니다. 
+---
+= 무복사 전환에 대한 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 시스템, 클러스터, ONTAP 릴리즈, 디스크 쉘프의 복사 없이 전환을 위한 요구사항을 알고 있어야 합니다.
+
+지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보는 최신 7-Mode Transition Tool_Release Notes_를 참조하십시오.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["7-Mode 전환 툴 릴리즈 노트"]
+
+* * 플랫폼 모델 *
++
+무복사 전환은 미드레인지 및 하이엔드 FAS 시스템 및 IBM N 시리즈 시스템에서만 지원됩니다. 를 클릭합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"] 에서는 7-Mode 시스템 및 타겟 클러스터 노드에 대해 지원되는 플랫폼에 대한 최신 정보를 제공합니다.
+
+* * 7-Mode 소스 시스템의 Data ONTAP *
++
+7-Mode 전환 툴을 통해 마이그레이션이 지원되는 7-Mode 릴리즈 목록은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+* * ONTAP 대상 시스템 *
++
+7-Mode 전환 툴 버전 3.1 에서는 무복사 방식을 사용하여 다음 ONTAP 릴리즈로 전환할 수 있습니다.
+
++
+** ONTAP 9.4 및 이전 ONTAP 9 릴리스
+** Clustered Data ONTAP 8.3.2 이상 8.x 릴리즈 * 참고: * 7-Mode 전환 툴을 사용하여 ONTAP 9.5 이상 또는 카피를 사용하지 않는 방법으로 전환할 수 없습니다. 그러려면 먼저 7-Mode 전환 툴 3.3.1을 사용하여 ONTAP 9.4로 전환한 다음 클러스터를 ONTAP 9.5 이상으로 업그레이드해야 합니다. 7-Mode 전환 툴 3.2.2에서는 복사 없는 전환을 지원하지 않습니다.
+
+
+* * HA 구성 *
++
+7-Mode 컨트롤러 및 타겟 클러스터 노드는 HA 구성에 있어야 합니다. HA 쌍이 정상 상태여야 하며 테이크오버 모드에서는 노드를 사용할 수 없습니다. 독립 실행형 컨트롤러는 복사 없는 전환이 지원되지 않습니다.
+
+* * 디스크 쉘프 모델 *
++
+지원되는 디스크 쉘프 모델은 다음과 같습니다.
+
++
+** DS4486
+** DS4246
+** DS4243
++
+
+NOTE: 디스크 쉘프 모델 DS4243은 ONTAP 9.2 및 ONTAP 9.4에서 지원되지 않습니다. 이 모델은 ONTAP 9.2P1 및 ONTAP 9.3부터 모든 ONTAP 9.2 패치 릴리스가 지원됩니다. 7-Mode 전환 툴 3.3.1은 ONTAP 9.2P1에서 ONTAP 9.3으로의 복사를 사용하지 않는 전환을 위해 디스크 쉘프 모델 DS4243과의 전환을 지원합니다.
+
+** DS2246
+** DS14mk4 FC(ONTAP 9.0 이상에서 지원되지 않음)
+** DS14mk2 AT(ONTAP 9.0 이상에서 지원되지 않음)
+
+
+
+
+
+NOTE: 디스크 쉘프 모델 DS14mk2 FC는 지원되지 않습니다.
+
+* * 디스크 펌웨어 *
++
+7-Mode 시스템 및 타겟 클러스터 노드에서 최신 디스크 검증 패키지, 디스크 펌웨어, 디스크 쉘프 및 ACP 펌웨어를 다운로드하여 설치해야 합니다.
+
++
+https://mysupport.netapp.com/NOW/download/tools/diskqual/["NetApp 다운로드: 디스크 검증 패키지"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 다운로드: 디스크 드라이브 펌웨어"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 다운로드: 디스크 쉘프 펌웨어"]
+
+* * 케이블 연결 확인 도구 *
++
+전환 중에 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 연결한 후, Config Advisor를 사용하여 케이블 연결을 확인해야 합니다.
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+
+

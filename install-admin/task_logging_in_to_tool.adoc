@@ -1,0 +1,65 @@
+---
+permalink: install-admin/task_logging_in_to_tool.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, login, transition, tool 
+summary: '도구가 설치된 Windows 시스템의 자격 증명을 사용하여 7-Mode 전환 툴\(웹 인터페이스\)에 로그인할 수 있습니다. 로그인 절차는 사용 중인 사용자 자격 증명 유형에 따라 다릅니다.' 
+---
+= 7-Mode 전환 툴에 로그인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+툴이 설치된 Windows 시스템의 자격 증명을 사용하여 7-Mode 전환 툴(웹 인터페이스)에 로그인할 수 있습니다. 로그인 절차는 사용 중인 사용자 자격 증명 유형에 따라 다릅니다.
+
+게스트 사용자는 도구에 로그인할 수 없습니다.
+
+.단계
+. 로그인 페이지로 이동합니다.
++
+|===
+| 귀하의 경우... | 그러면... 
+
+
+ a| 
+관리자 그룹의 구성원이며 도구가 설치된 서버에서 도구(웹 인터페이스)에 액세스하는 경우
+ a| 
+바탕 화면에서 7-Mode 전환 툴 아이콘을 두 번 클릭합니다.
+
+
+
+ a| 
+관리자 그룹의 구성원이고 도구를 설치하지 않은 사용자입니다
+ a| 
+지원되는 브라우저를 사용하여 다음 URL 중 하나로 이동합니다.
+
+** "https://_IP_address:port_/transition`
+** http://_IP_address:port_/transition` `_ip_address_'는 서버의 IP 주소이고 '_port_'는 '_transition-tool.conf_' 파일의 '_tool.https.port_' 또는 8088에 지정된 값인 8443(기본값)일 수 있습니다.
+
+
+
+
+ a| 
+관리자 그룹의 구성원이고 다른 컴퓨터에서 도구(웹 인터페이스)에 액세스하는 사용자입니다
+ a| 
+지원되는 브라우저를 사용하여 다음 URL 중 하나로 이동합니다.
+
+** "https://_IP_address:port_/transition`
+** http://_IP_address:port_/transition` `_ip_address_'는 서버의 IP 주소이며, '_transition-tool.conf_' 파일의 '_tool.http.port_' 매개변수에 지정된 값인 8443(기본값)이 포트일 수 있습니다.
+
+
+
+
+ a| 
+관리자 그룹의 구성원이 아닌 사용자 및 도구가 설치된 서버 또는 다른 컴퓨터에서 도구(웹 인터페이스)에 액세스하는 경우
+ a| 
+지원되는 브라우저를 사용하여 다음 URL 중 하나로 이동합니다.
+
+** "https://_IP_address:port_/transition`
+** http://_IP_address:port_/transition` `_ip_address_'는 서버의 IP 주소이며, '_transition-tool.conf_' 파일의 '_tool.https.port_' 또는 8088에 지정된 값인 8443(기본값)일 수 있습니다.
+
+
+|===
+. 브라우저에 자체 서명된 SSL 인증서에 대한 메시지가 표시되면 자체 서명된 인증서를 수락하여 계속합니다.
+. 도구가 설치된 Windows 시스템의 자격 증명을 사용하여 웹 인터페이스에 로그인합니다.
+

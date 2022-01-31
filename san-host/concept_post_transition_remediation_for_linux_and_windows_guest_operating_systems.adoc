@@ -1,0 +1,25 @@
+---
+permalink: san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remediation, linux, windows, guest, operating, systems 
+summary: Linux 및 Windows 게스트 운영 체제는 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환한 후 추가 조정을 필요로 할 수 있습니다. 
+---
+= Linux 및 Windows 게스트 운영 체제에 대한 전환 후 문제 해결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux 및 Windows 게스트 운영 체제는 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환한 후 추가 조정을 필요로 할 수 있습니다.
+
+복사 기반 전환의 경우 7MTT에서 스토리지 컷오버 작업을 완료한 후 다음을 수행하십시오. 7MTT에서 데이터 및 구성 가져오기 작업이 완료된 후 복사를 수행하지 않는 전환을 위해 다음을 수행합니다.
+
+* 리눅스
++
+마운트 지점이 '/etc/fstab' 파일에 정의된 경우 LUN('mount--a')을 마운트해야 합니다.
+
+* Windows
++
+VM에 장애 조치 클러스터가 구성되어 있는 경우 장애 조치 클러스터 관리자에서 디스크를 온라인 상태로 가져와야 합니다.
+
+

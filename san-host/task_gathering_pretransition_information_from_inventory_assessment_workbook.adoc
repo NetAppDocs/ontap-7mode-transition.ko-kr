@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, pretransition, information, inventory, assessment, workbook 
+summary: 재고 평가 워크북에는 전환의 다양한 단계에서 필요한 정보가 있습니다. 전환을 시작하기 전에 이 정보를 수집하고 기록하여 프로세스 전반에 걸쳐 필요한 정보를 참조할 수 있도록 해야 합니다. 
+---
+= 재고 평가 워크북에서 전이가 완료된 정보를 수집합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+재고 평가 워크북 _ 에 전환의 다양한 단계에서 필요한 정보가 있습니다. 전환을 시작하기 전에 이 정보를 수집하고 기록하여 프로세스 전반에 걸쳐 필요한 정보를 참조할 수 있도록 해야 합니다.
+
+.단계
+. ICT(Inventory Collect Tool)를 사용하여 _Inventory Assessment 워크북 _ 을(를) 생성합니다.
+. 재고 평가 워크북 _ 을(를) 엽니다.
+. LUN * 탭으로 이동합니다.
+. LUN name * 열에서 전환할 LUN의 이름을 식별하고 기록합니다.
+. SAN 호스트 LUN * 탭으로 이동합니다.
+. SCSI 장치 ID* 열에서 SCSI 장치 이름을 확인하고 기록합니다.
+. OS Device ID * 열에서 전환할 LUN의 DMMP 디바이스 이름을 식별하고 기록합니다.
+. Filesystems * 열에서 DMMP 디바이스에 구성된 파일 시스템을 식별하고 기록합니다.
+. UUID * 열에서 LUN의 UUID 번호를 확인하고 기록합니다.
+. Mount * 열에서 DMMP 디바이스가 마운트된 디렉토리를 식별하고 기록합니다.
+. LVMs * 탭으로 이동합니다.
+. Physical Volume Name * 열에서 논리적 볼륨에서 사용되는 DMMP 디바이스를 식별하고 기록합니다.
+. SAN 호스트 LVM * 탭으로 이동합니다.
+. 볼륨 그룹 이름 * 열에서 볼륨 그룹을 식별하고 기록합니다.
+. Logical Volume Path * 열에서 논리적 볼륨을 식별 및 기록합니다.
+. SAN 호스트 파일 시스템 * 탭으로 이동합니다.
+. Filesystem * 열에서 논리적 볼륨에 구성된 파일 시스템을 식별하고 기록합니다.
+. Mount * 열에서 논리 볼륨이 마운트되는 디렉토리를 식별하고 기록합니다.
+. GRUB Configuration * 탭으로 이동합니다.
+. initrd * 열에서 수정할 initrd 이미지를 식별하고 기록합니다.
+. SAN 호스트 HBA * 탭으로 이동합니다.
++
+또한 * iSCSI SAN Interfaces * 탭을 통해 7-Mode 컨트롤러에 구성된 iSCSI IQN 번호 및 IP 주소를 식별할 수 있습니다.
+
+. Target IPs (iSCSI) * 열에서 7-Mode 컨트롤러의 iSCSI 세션을 식별 및 기록합니다.
+
+
+* 관련 정보 *
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[재고 수집 도구의 정의]

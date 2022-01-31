@@ -1,0 +1,52 @@
+---
+permalink: san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, aix, cutover, phase, copy, based, test 
+summary: '7MTT\(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 AIX 호스트 LUN을 전환하는 경우 전환된 clustered Data ONTAP LUN을 테스트하여 MPIO 디바이스를 컷오버 단계 전에 마운트할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.' 
+---
+= 복사 기반 전환의 컷오버 단계 전에 AIX 호스트에서 전환된 LUN 테스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 AIX 호스트 LUN을 전환하는 경우 전환된 clustered Data ONTAP LUN을 테스트하여 컷오버 단계 전에 MPIO 디바이스를 마운트할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.
+
+LUN을 전환할 준비가 되어 있어야 합니다.
+
+테스트 호스트와 소스 호스트 간에 하드웨어 패리티를 유지해야 하며 테스트 호스트에서 다음 단계를 수행해야 합니다.
+
+Clustered Data ONTAP LUN은 테스트 중에 읽기/쓰기 모드로 전환됩니다. 테스트가 완료되고 컷오버 단계에 대비하는 동안 읽기 전용 모드로 전환됩니다.
+
+.단계
+. 기본 데이터 복사가 완료되면 7MTT 사용자 인터페이스(UI)에서 * 테스트 모드 * 를 선택합니다.
+. 7MTT UI에서 * 구성 적용 * 을 클릭합니다.
+. 테스트 호스트에서 새 clustered Data ONTAP LUN을 다시 검색합니다.
++
+' * cfgmgr * '
+
+. 새 clustered Data ONTAP LUN이 있는지 확인합니다.
++
+``sanlun lun show *’
+
+. 볼륨 그룹 상태를 확인합니다.
++
+' * lsvg vg_name * '
+
+. 각 논리적 볼륨을 마운트합니다.
++
+'* mount-o log/dev/loglv00_file_system_mount_point_ * '
+
+. 마운트 지점을 확인합니다.
++
+"* df*"
+
+. 필요에 따라 테스트를 수행합니다.
+. 테스트 호스트를 종료합니다.
++
+'* shutdown-h*'
+
+. 7MTT UI에서 * 테스트 완료 * 를 클릭합니다.
+
+
+Clustered Data ONTAP LUN을 소스 호스트에 다시 매핑하려면 소스 호스트에서 컷오버 단계를 준비해야 합니다. Clustered Data ONTAP LUN을 테스트 호스트에 매핑된 상태로 유지하려면 테스트 호스트에 추가 단계가 필요하지 않습니다.

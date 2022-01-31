@@ -1,0 +1,25 @@
+---
+permalink: san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, dmmp, device, file, system 
+summary: '파일 시스템 없이 Red Hat Enterprise Linux\(RHEL\) DMMP 장치를 전환하기 전에 DMMP 장치에 파일 시스템이 없는지 확인해야 합니다. 또한 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후에는 WWID를 교체해야 합니다.' 
+---
+= 파일 시스템 없이 RHEL DMMP 장치 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 시스템 없이 RHEL(Red Hat Enterprise Linux) DMMP 장치를 전환하기 전에 DMMP 장치에 파일 시스템이 없는지 확인해야 합니다. 또한 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후에는 WWID를 교체해야 합니다.
+
+* 관련 정보 *
+
+xref:task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.adoc[Inventory Assessment 워크북을 사용하여 RHEL LUN을 전환할 준비가 되었는지 확인]
+
+xref:task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.adoc[CLI를 사용하여 RHEL 5 LUN을 전환할 준비가 되었는지 확인]
+
+xref:task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.adoc[CLI를 사용하여 RHEL 6 DDMP 디바이스를 전환할 준비가 되었는지 확인]
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.adoc[파일 시스템 없이 Linux 호스트 DMMP 디바이스를 전환할 때 컷오버를 준비합니다]
+
+xref:task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.adoc[LUN 전환 후 Linux 호스트에서 7-Mode LUN WWID 교체]

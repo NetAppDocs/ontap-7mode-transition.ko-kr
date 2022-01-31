@@ -1,0 +1,21 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, audit, volumes 
+summary: 7-Mode 전환 툴은 SnapLock 감사 볼륨의 전환을 지원합니다. SnapLock 감사 볼륨을 전환하는 워크플로는 SnapLock 규정 준수 볼륨의 전환과 같습니다. 
+---
+= SnapLock 감사 볼륨의 전환을 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 SnapLock 감사 볼륨의 전환을 지원합니다. SnapLock 감사 볼륨을 전환하는 워크플로는 SnapLock 규정 준수 볼륨의 전환과 같습니다.
+
+감사 볼륨을 ONTAP로 전환한 후에는 전환된 감사 볼륨을 대상 SVM에 대한 SnapLock 감사 볼륨으로 수동으로 지정해야 합니다.
+
+ONTAP에서는 감사 볼륨이 SVM 레벨에서 구성됩니다. 7-Mode로 운영되는 Data ONTAP에서는 감사 볼륨이 vFiler 유닛 전체에 있는 컨트롤러의 모든 볼륨에 대한 통합 리포지토리 역할을 합니다.
+
+SnapLock 감사 볼륨은 SnapLock 준수 볼륨의 한 유형입니다. 타겟 클러스터가 MetroCluster 구성에 있는 경우 SnapLock 감사 볼륨의 전환은 지원되지 않습니다.
+
+을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_audit_volume_in_clustered_Data_ONTAP_for_the_transitioned_SnapLock_volumes["Clustered Data ONTAP에서 전환된 SnapLock 볼륨의 감사 볼륨을 구성하는 방법"]

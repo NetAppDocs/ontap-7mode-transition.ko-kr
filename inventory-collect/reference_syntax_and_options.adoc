@@ -1,0 +1,89 @@
+---
+permalink: inventory-collect/reference_syntax_and_options.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection, tool 
+summary: 'Inventory Collection Tool\(ICT\) 명령은 명령줄 인터페이스\(CLI\) 또는 시스템 세부 정보가 포함된 텍스트 파일에 지정된 컨트롤러 및 호스트의 구성 및 인벤토리 정보를 수집합니다. ICT 명령에 구문 및 옵션을 사용할 수 있습니다.' 
+---
+= 구문 및 옵션
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ICT(Inventory Collection Tool) 명령은 CLI(Command-Line Interface) 또는 시스템 세부 정보가 포함된 텍스트 파일에 지정된 컨트롤러 및 호스트의 구성 및 인벤토리 정보를 수집합니다. ICT 명령에 구문 및 옵션을 사용할 수 있습니다.
+
+
+
+== 구문
+
+* (* ICT--cmd collect[--output<inventory.xml>]<Uri>[<Uri>...] *)
+* "* ICT--cmd collect[--output<inventory.xml>]--input<credential_file.txt>*"
+* "* ICT--cmd generate-fc-zones--source-filers<filer-ip>[,<filer-ip>]--dest-svm<cluster-name:svm-name>--fc-switches<switch-ip>[:<vsan-id>][,<switch-ip>[:<vsan-id>]...] inventory_xml>[<inventory_xml>...] *
+* "* ICT--cmd generate-fc-zones--source-filers<filer-ip>[<filer-ip>]--dest-svm<cluster-name:svm-name>--fc-switches<switch-ip>[:<vsan-id>][,<switch-ip>[:<vsan-id>]...] -fc-switches-target <switch-ip>[:<vsan-id>] [, <switch-ip>[:<vsan-id>]...] inventory_xml>[<inventory_xml>...] *
+* '* ICT--help*'
+* '* ICT--version*'
+
+
+
+
+== 옵션
+
+텍스트 파일에는 각 시스템의 시스템 세부 정보가 별도의 줄에 포함되어야 합니다.
+
+* uri1
+* uri2
+* uri3
+
+
+CLI 또는 텍스트 파일에서 암호가 ' * '이거나 생략된 경우 CLI에 암호를 입력하라는 메시지가 표시됩니다. ICT를 실행하는 데 사용할 수 있는 옵션은 다음과 같습니다.
+
+* '- 도움말'
++
+도움말 메시지를 표시하고 종료합니다.
+
+* '- 버전'
++
+도구 버전을 인쇄하고 종료합니다.
+
+* '-- cmd [collect | generate -fc-zones]'
++
+Collect(수집): 컨트롤러 및 호스트로부터 구성 및 인벤토리 정보를 수집합니다.
+
++
+생성 - FC-존: 지정된 인벤토리에 FC 존 플래너 문서를 생성합니다.
+
+* '--output<filename[.xml[.gz]]>'
++
+파일이 생성되는 위치를 지정합니다. 파일 이름이 "".gz"로 접미사로 붙으면 파일이 압축됩니다. 이 옵션은 재고 보고서 및 재고 보고서 통합 문서라는 두 개의 파일(보고서)을 생성합니다.
+
+* '--input<credentials_file.txt>'
++
+시스템 자격 증명을 사용하여 파일을 저장할 위치를 지정합니다. 이 옵션은 '--cmd generate-fc-' 영역에서 사용되지 않습니다.
+
++
+
+NOTE: ASCII로 인코딩된 텍스트 파일만 지원됩니다.
+
+* Uri 형식('ONTAP|Windows|VMware|Linux|Cisco|Brocade):/[(<user>|<domain_user>)[:(<password>| *)]@](<hostname>|<ip>')
++
+컨트롤러 또는 호스트의 시스템 유형, IP 주소 및 자격 증명을 지정합니다. 입력한 암호가 ' * '이거나 암호가 제공되지 않으면 명령줄에 암호를 입력하라는 메시지가 표시됩니다.
+
+* 소스 파일러입니다
++
+FC Zone Plan을 생성하는 데 사용할 소스 컨트롤러의 IP 주소를 쉼표로 구분하여 지정합니다.
+
+* '--dest-svm'입니다
++
+FC 존 계획을 생성하는 데 사용할 '_cluster-name:svm-name_'으로 포맷된 대상 clustered Data ONTAP SVM을 지정합니다.
+
+* '--fc-switches'
++
+에는 FC 존 계획을 생성해야 하는 FC 스위치가 나와 있습니다. 쉼표로 구분된 스위치 식별자 목록입니다. Cisco의 경우 FC 스위치는 '_switch-ip:vsan-id_'로 포맷되어야 하며 Brocade의 경우 FC 스위치를 '_switch-ip_'로 포맷해야 합니다. 예: 10.61.187.6:200,10.61.187.7:200(Cisco) 또는 10.61.187.4, 10.61.187.5(Brocade)
+
+* '--fc-switches-target'을 선택합니다
++
+FC Zone Plan을 생성해야 하는 FC 스위치(클러스터에 연결됨)의 목록을 지정합니다. 이 목록은 원래 FC 스위치(--fc-switches)와 동일한 순서로 나열된 타겟 스위치 식별자의 쉼표로 구분된 목록입니다. FC 조닝 스크립트는 FC-SWITCs 매개 변수 목록에 추가된 각 원본 스위치에 대해 생성됩니다. 이 매개 변수는 선택 사항입니다.
+
+
+
+FC Zone Planner의 경우 입력 인벤토리 XML은 이름 없는 인수로 제공됩니다.

@@ -1,0 +1,25 @@
+---
+permalink: copy-based/task_editing_a_subproject.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, edit, project 
+summary: 프로젝트를 편집하여 볼륨을 추가 또는 제거하고 전환 구성을 수정할 수 있습니다. 
+---
+= 프로젝트 편집
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+프로젝트를 편집하여 볼륨을 추가 또는 제거하고 전환 구성을 수정할 수 있습니다.
+
+* 프로젝트를 만들어야 합니다.
+* 편집할 프로젝트를 시작하지 않아야 합니다.
+
+
+프로젝트를 편집하여 전환을 위해 선택한 볼륨을 변경할 수 있습니다. 프로젝트를 편집하여 SVM 매핑, 볼륨 매핑 및 인터페이스 매핑과 데이터 복사 일정을 변경할 수도 있습니다. 프로젝트를 편집할 때는 프로젝트 유형 또는 vFiler 유닛을 변경할 수 없습니다.
+
+.단계
+. Dashboard * 창에서 편집할 프로젝트를 선택합니다.
+. 프로젝트 편집 * 을 클릭한 다음 드롭다운 목록에서 필요한 단계를 선택합니다.
+. 마법사를 완료하여 프로젝트를 편집합니다.
+

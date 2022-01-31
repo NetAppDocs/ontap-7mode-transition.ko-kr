@@ -1,0 +1,17 @@
+---
+permalink: snapmirror/task_recovering_from_a_disaster_at_7_mode_site_during_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, recover, disaster, site 
+summary: '7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR\(SnapMirror 재해 복구) 관계를 설정한 경우 7-Mode 운영 사이트에서 재해가 발생할 경우 클라이언트가 clustered Data ONTAP 2차 볼륨에 직접 액세스할 수 있습니다. 7-Mode 운영 볼륨을 다시 온라인 상태로 전환한 후 클라이언트를 clustered Data ONTAP 운영 볼륨으로 리디렉션하는 추가 단계를 수행해야 합니다.' 
+---
+= 전환 중 7-Mode 사이트의 재해 복구
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR(SnapMirror 재해 복구) 관계를 구축한 경우 7-Mode 운영 사이트에서 재해가 발생할 경우 클라이언트가 clustered Data ONTAP 2차 볼륨에 직접 액세스할 수 있습니다. 7-Mode 운영 볼륨을 다시 온라인 상태로 전환한 후 클라이언트를 clustered Data ONTAP 운영 볼륨으로 리디렉션하는 추가 단계를 수행해야 합니다.
+
+재해 발생 후 clustered Data ONTAP 2차 볼륨에 기록된 데이터를 유지하려면 7-Mode 운영 볼륨이 다시 온라인 상태가 된 후 7-Mode 운영 볼륨을 전환하고 clustered Data ONTAP 1차 볼륨과 2차 볼륨 사이에 SnapMirror 관계를 구축해야 합니다. 그런 다음 클라이언트를 clustered Data ONTAP 운영 볼륨으로 리디렉션할 수 있습니다.
+
+Clustered Data ONTAP 볼륨에서 7-Mode 볼륨으로 SnapMirror 재동기화는 지원되지 않습니다. 따라서 재해 발생 후 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR 관계를 다시 설정할 경우 보조 clustered Data ONTAP에 기록된 데이터가 모두 손실됩니다.

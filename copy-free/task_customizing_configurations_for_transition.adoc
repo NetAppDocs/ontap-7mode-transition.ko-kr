@@ -1,0 +1,42 @@
+---
+permalink: copy-free/task_customizing_configurations_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, customize, 7, mode 
+summary: 7-Mode에서 ONTAP로 구성을 전환할 때 두 가지 방법으로 구성 전환을 사용자 지정할 수 있습니다. 하나 이상의 설정 전환을 무시하거나 건너뛸 수 있습니다. 7-Mode NFS 엑스포트 규칙을 통합한 다음, 타겟 SVM에서 기존 NFS 엑스포트 정책과 스냅샷 정책을 재사용할 수 있습니다. 
+---
+= 7-Mode 구성의 전환 사용자 지정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 ONTAP로 구성을 전환할 때 두 가지 방법으로 구성 전환을 사용자 지정할 수 있습니다. 하나 이상의 설정 전환을 무시하거나 건너뛸 수 있습니다. 7-Mode NFS 엑스포트 규칙을 통합한 다음, 타겟 SVM에서 기존 NFS 엑스포트 정책과 스냅샷 정책을 재사용할 수 있습니다.
+
+7-Mode 전환 툴에서 제외된 구성에 대해 사전 점검을 수행하지 않습니다.
+
+기본적으로 모든 7-Mode 구성이 전환을 위해 선택됩니다.
+
+모든 구성에서 사전 점검을 실행한 다음, 후속 사전 점검을 실행하는 데 하나 이상의 구성을 제외하는 것이 가장 좋습니다. 그러면 전환을 통해 제외되는 구성과 이후에 건너뛴 사전 점검을 이해하는 데 도움이 됩니다.
+
+.단계
+. 구성 계획 페이지의 * SVM 구성 * 창에서 다음 옵션을 선택합니다.
++
+** 설정 전환을 제외하려면 해당 설정의 확인란을 선택 취소합니다.
+** 유사한 7-Mode NFS 엑스포트 규칙을 ONTAP의 단일 엑스포트 정책으로 통합하여 전환된 볼륨 또는 qtree에 적용할 수 있는 경우, 7-Mode에서 NFS 엑스포트 정책 통합 * 확인란을 선택합니다.
+** 툴에서 생성할 엑스포트 정책과 일치하는 SVM에서 기존 NFS 엑스포트 정책을 재사용하려면 전환된 볼륨 또는 qtree에 적용할 수 있음, SVM * Export Policies of SVM * 확인란을 선택합니다.
+** 유사한 7-Mode 스냅샷 일정을 ONTAP의 단일 스냅샷 정책에 통합하여 전환된 볼륨에 적용할 수 있는 경우 * 7-Mode 스냅샷 정책 통합 * 확인란을 선택합니다.
+** 툴에서 생성할 스냅샷 정책과 일치하는 SVM에서 기존 스냅샷 정책을 재사용하고 전환된 볼륨에 적용할 수 있는 SVM에서 * SVM의 스냅샷 정책 재사용 * 확인란을 선택합니다.
+
+
+. 저장 을 클릭하고 대시보드 * 로 이동합니다.
+
+
+* 관련 정보 *
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS 전환: 지원되는 구성과 지원되지 않는 구성, 필요한 수동 단계]
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[ONTAP로의 전환을 위해 지원 및 지원되지 않는 CIFS 구성]
+
+xref:concept_supported_and_unsupported_data_protection_relationships.adoc[데이터 보호 전환: 지원 구성 및 지원되지 않는 구성]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[이름 서비스 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계]

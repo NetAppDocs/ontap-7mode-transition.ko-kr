@@ -1,0 +1,128 @@
+---
+permalink: copy-based/concept_prerequisites_for_transitioning_cifs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prerequisites, cifs, configurations 
+summary: CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족되는 경우에만 7-Mode 전환 툴을 통해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다. 
+---
+= CIFS 구성을 전환하기 위한 사전 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족되는 경우에만 7-Mode 전환 툴을 통해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다.
+
+
+
+== 7-Mode 사전 요구사항
+
+* CIFS 라이센스를 추가해야 합니다.
+* MultiStore 라이센스가 활성화된 경우 전환 볼륨을 소유하는 vFiler 유닛에 대해 허용되는 프로토콜 목록에 CIFS를 추가해야 합니다.
+* 전환 중에 CIFS를 설정하고 실행해야 합니다.
+* CIFS에 대한 인증 유형은 AD(Active Directory) 또는 워크그룹이어야 합니다.
+
+
+
+
+== 클러스터 사전 요구 사항
+
+* CIFS 라이센스를 추가해야 합니다.
+* SVM에 대해 허용되는 프로토콜 목록에 CIFS를 추가해야 합니다.
+* SVM을 위해 DNS를 구성해야 합니다.
+* 다양한 ONTAP 버전에서 지원되는 CIFS 인증 방법은 다음과 같습니다.
++
+** Clustered Data ONTAP 8.2.x 및 8.3.x는 AD 인증을 지원합니다.
+** ONTAP 9.0 이상은 AD 인증 및 워크그룹 인증을 지원합니다.
+
+
+* 다음 표를 사용하여 타겟 SVM에 사용해야 하는 인증을 결정하십시오.
++
+|===
+| 7-Mode 인증 방법 | Clustered Data ONTAP 8.2.x 및 8.3.x 인증 방법 | ONTAP 9.5 또는 이전 인증 방법 
+
+
+ a| 
+광고
+ a| 
+광고
+ a| 
+광고
+
+
+
+ a| 
+작업 그룹
+ a| 
+광고
+ a| 
+작업 그룹 또는 AD
+
+|===
+* AD 도메인이 7-Mode CIFS 서버와 타겟 SVM CIFS 서버 간에 일치하지 않을 경우 CIFS 구성을 7-Mode에서 ONTAP로 전환할 수 있습니다. 이 도구는 AD 도메인 이름 불일치가 감지되면 ignorable blocking 오류를 트리거합니다. 전환을 계속하려면 차단 오류를 확인합니다.
+* 적용 구성 단계(precutover) 전에 CIFS 서버를 수동으로 구성해야 합니다.
++
+다음과 같은 두 가지 방법으로 SVM에서 CIFS 서버를 생성할 수 있습니다.
+
++
+|===
+| 원하는 작업 | 다음을 수행합니다. 
+
+
+ a| 
+CIFS 서버 ID를 타겟 SVM으로 전송 또는 보존합니다
+ a| 
+** 단일 프로젝트에서 소스 7-Mode 시스템 또는 vFiler 유닛의 모든 볼륨을 전환할 계획을 세워야 합니다.
++
+이 계획은 전환 후 7-Mode 시스템에서 원래 CIFS 서버 ID가 손실되고 클라이언트에 서비스를 제공할 수 없기 때문에 필요합니다. 한 프로젝트에서 전환할 수 있는 최대 볼륨 수는 160개입니다. 따라서 CIFS 서버 ID를 유지하려면 7-Mode 시스템에서 최대 160개의 볼륨을 가질 수 있으며 이러한 모든 볼륨은 단일 프로젝트로 전환되어야 합니다.
+
++
+CIFS 서버를 생성할 수 있는 두 가지 옵션은 다음과 같습니다.
+
++
+... 모든 ONTAP 버전에 적용 가능:
++
+**** "'Apply configuration'(구성 적용) 단계(precutover)를 수행하기 전에 임시 CIFS ID를 사용하여 7-Mode 시스템에서 CIFS 서버를 재구성해야 합니다.
++
+이 재구성을 통해 SVM에서 원래 CIFS 서버 ID를 구성할 수 있습니다. 새 임시 ID를 사용하여 ""구성 적용" 단계(precutover) 작업 중에 CIFS 서버가 7-Mode 시스템에서 실행 중인지 확인해야 합니다. 이 작업은 사전 컷오버 중에 7-Mode에서 CIFS 구성을 읽는 데 필요합니다.
+
+**** 원래 7-Mode CIFS ID로 타겟 SVM에서 CIFS 서버를 구성해야 합니다.
+**** 이러한 조건이 충족되면 사전 컷오버 작업을 수행할 수 있습니다.
++
+그런 다음 precutover 후 즉시 스토리지 컷오버를 수행하여 클라이언트가 ONTAP 볼륨에 액세스할 수 있도록 해야 합니다.
+
+
+
+... ONTAP 릴리스 9.0 ~ 9.5에 적용:
++
+**** CIFS 서버 이름(CIFS 서버 NetBIOS 이름)을 변경하려면 'vserver cifs modify' 명령을 사용하십시오.
++
+이 기능을 사용하면 임시 ID를 사용하여 타겟 SVM에 CIFS 서버를 생성한 다음 적용 구성(사전 컷오버) 작업을 수행해야 합니다.
+
+**** "'설정 적용'" 단계가 끝나면 타겟 클러스터에서 'vserver cifs modify' 명령을 실행하여 타겟 SVM CIFS ID를 7-Mode CIFS ID로 대체할 수 있습니다.
+
+
+
+
+
+
+
+
+ a| 
+새 ID를 사용하십시오
+ a| 
+** ""Apply configuration" 단계(precutover)를 수행하기 전에 새 CIFS ID를 사용하여 타겟 SVM에서 CIFS 서버를 구성해야 합니다.
+** ""구성 적용" 단계(precutover) 작업 중에 CIFS 서버가 7-Mode 시스템에서 실행 중인지 확인해야 합니다.
++
+이 작업은 ""Apply configuration(구성 적용)" 단계(사전 컷오버) 중에 7-Mode 시스템에서 CIFS 구성을 읽는 데 필요합니다.
+
++
+이러한 조건이 충족되면 사전 컷오버 작업을 수행할 수 있습니다. 그런 다음 SVM 구성을 테스트하고 스토리지 컷오버 작업을 수행할 계획을 수립합니다.
+
+
+
+|===
+
+
+* 관련 정보 *
+
+xref:concept_considerations_for_local_users_and_groups_transition.adoc[CIFS 로컬 사용자 및 그룹을 전환하기 위한 고려 사항]

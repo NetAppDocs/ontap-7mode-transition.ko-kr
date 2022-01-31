@@ -1,0 +1,79 @@
+---
+permalink: snapmirror/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, prepare, transition, cluster, requirements 
+summary: 7-Mode 시스템을 전환하기 전에 클러스터를 설정하고, LIF 설정 및 전환을 위한 네트워크 연결 확인 등의 요구사항을 클러스터에서 충족하는지 확인해야 합니다. 
+---
+= 클러스터를 전환 준비 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 시스템을 전환하기 전에 클러스터를 설정하고, LIF 설정 및 전환을 위한 네트워크 연결 확인 등의 요구사항을 클러스터에서 충족하는지 확인해야 합니다.
+
+* 클러스터와 SVM이 이미 설정되어 있어야 합니다.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["소프트웨어 설정"]
+
++
+타겟 SVM이 SVM 재해 복구 관계에 있을 수 없습니다.
+
+* 클러스터 관리 LIF를 사용하여 클러스터에 연결할 수 있어야 합니다.
+* 클러스터가 정상 상태여야 하며 테이크오버 모드 상태인 노드는 없어야 합니다.
+* 전환된 볼륨을 포함할 타겟 애그리게이트에는 SFO 정책이 있어야 합니다.
+* 애그리게이트는 최대 볼륨 제한에 도달하지 않은 노드에 있어야 합니다.
+* 볼륨 SnapMirror 관계를 전환할 때 SVM 피어 관계를 설정할 경우 다음 조건을 충족해야 합니다.
++
+** 2차 클러스터에는 1차 SVM과 동일한 이름의 SVM이 있으면 안 됩니다.
+** 운영 클러스터에는 2차 SVM과 동일한 이름의 SVM이 있으면 안 됩니다.
+** 소스 7-Mode 시스템의 이름은 이미 피어링된 로컬 SVM 또는 SVM과 충돌해서는 안 됩니다.
+
+
+
+
+클러스터의 각 노드에 대한 기본 IPspace 또는 인터클러스터 LIF에 있는 로컬 LIF를 설정하여 클러스터와 7-Mode 시스템 간에 통신할 수 있습니다. 로컬 LIF를 설정한 경우 인터클러스터 LIF를 설정할 필요가 없습니다. 인터클러스터 LIF와 로컬 LIF를 모두 설정한 경우 로컬 LIF가 권장됩니다.
+
+. 클러스터와 7-Mode 시스템 간의 통신을 위해 클러스터의 각 노드에 대한 인터클러스터 LIF를 생성합니다.
++
+.. 인터클러스터 LIF 만들기:
++
+'* 네트워크 인터페이스 create-vserver_svm_name_-lif_lif_-role s인터클러스터 -home-node_home_node_-home-port_home_port_-address_ip_address_-netmask_netmask_*'
+
++
+[listing]
+----
+cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+----
+.. 인터클러스터 LIF에 대한 정적 경로를 생성합니다.
++
+' * network route create-vserver_svm_name_-destination_ip_address/mask_-gateway_ip_address_ *'
+
++
+[listing]
+----
+cluster1::> network route create -vserver vs0 -destination 0.0.0.0/0 -gateway 10.61.208.1
+----
+.. 인터클러스터 LIF를 사용하여 7-Mode 시스템에 ping을 수행할 수 있는지 확인합니다.
++
+'* network ping-lif_인터클러스터_lif_-vserver_svm_name_-destination_remote_inetaddress_*'
+
++
+[listing]
+----
+cluster1::> network ping -lif intercluster_lif -vserver cluster1 -destination system7mode
+system7mode is alive
+----
+
+
+
+
+다중 경로의 경우 각 노드에 두 개의 인터클러스터 LIF가 있어야 합니다.
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["네트워크 및 LIF 관리"]
+
+* 관련 정보 *
+
+xref:task_creating_a_transition_peering_relationship.adoc[전환 피어 관계 생성]
+
+https://mysupport.netapp.com/site/docs-and-kb["NetApp 설명서: 제품 라이브러리 A-Z"]

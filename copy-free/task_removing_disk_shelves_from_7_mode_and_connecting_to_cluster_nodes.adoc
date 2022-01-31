@@ -1,0 +1,122 @@
+---
+permalink: copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, disconnect, disk, shelves, connect, cluster, node 
+summary: 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 케이블로 연결하는 것은 수동 프로세스입니다. 디스크 쉘프의 케이블을 연결한 후 Config Advisor 을 사용하여 케이블을 확인하는 것이 좋습니다. 그런 다음 7-Mode 전환 툴을 사용하여 케이블 연결을 확인할 수 있습니다. 이 도구는 Config Advisor에서 수행하는 검사의 하위 집합만 수행합니다. 
+---
+= 7-Mode 시스템에서 디스크 쉘프의 연결을 끊고 클러스터 노드에 연결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 디스크 쉘프를 타겟 클러스터 노드에 케이블로 연결하는 것은 수동 프로세스입니다. 디스크 쉘프의 케이블을 연결한 후 Config Advisor 을 사용하여 케이블을 확인하는 것이 좋습니다. 그런 다음 7-Mode 전환 툴을 사용하여 케이블 연결을 확인할 수 있습니다. 이 도구는 Config Advisor에서 수행하는 검사의 하위 집합만 수행합니다.
+
+7-Mode 컨트롤러 포트에 대한 디스크 쉘프 연결 정보를 기록해야 합니다.
+
+SAS 디스크 쉘프 연결 시 고려해야 할 몇 가지 사항은 다음과 같습니다.
+
+* SAS 사각형 및 원형 포트의 케이블 연결 규칙을 따라야 합니다.
+* IOM6 및 IOM3 쉘프는 동일한 스택에서 혼합될 수 있지만, 서로 다른 IOM 유형을 사용하는 쉘프 간에 단일 전환을 수행해야 합니다.
++
+예를 들어, IOM6e(컨트롤러) -- IOM6(쉘프) -- IOM3(쉘프) -- IOM3(쉘프)는 지원되는 구성입니다. 그러나 IOM6e(컨트롤러) -- IOM3(쉘프) -- IOM6(쉘프) -- IOM3(쉘프)은 지원되는 구성이 아닙니다.
+
+
+
+.단계
+. 7-Mode HA 쌍 및 타겟 클러스터 노드에서 디스크 쉘프 ID를 확인합니다.
++
+.. 중복 쉘프 ID가 있는 경우(타겟 클러스터 노드의 디스크 쉘프에서 7-Mode 디스크 쉘프 ID를 사용하는 경우) 디스크 쉘프 ID를 변경합니다.
++
+*** SAS 디스크 쉘프의 경우 유효한 쉘프 ID는 00~99입니다.
+*** SAS 쉘프 ID는 HA 쌍 내에서 고유해야 합니다.https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+*** FC 디스크 쉘프의 경우 유효한 쉘프 ID는 1~7입니다.
+*** FC 쉘프 ID는 각 FC 루프 내에서 고유해야 합니다.https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
+
+
+.. 새 ID가 적용되도록 디스크 쉘프의 전원을 껐다가 켭니다.
+
+
+. 7-Mode 디스크 쉘프의 전원을 끕니다.
+. 타겟 클러스터 노드에서 추가 포트를 사용할 수 있는지 여부에 따라 다음 옵션 중 하나를 선택합니다.
++
+|===
+| 만약... | 그러면... 
+
+
+ a| 
+추가 포트를 사용하여 디스크 쉘프를 연결할 수 있습니다
+ a| 
+다중 경로 구성에서 새 스택의 디스크 쉘프를 타겟 클러스터 노드에 연결합니다.
+
+
+NOTE: 디스크 쉘프를 별도의 스택에 연결하는 것이 가장 좋습니다. 7-Mode 전환 툴은 사전 점검을 실행할 때 타겟 클러스터 노드에서 필요한 포트 수를 사용할 수 있는지 감지합니다.
+
+
+
+ a| 
+디스크 쉘프를 연결하는 데 포트를 사용할 수 없습니다
+ a| 
+다음 작업 중 하나를 수행합니다.
+
+** 새 확장 카드를 추가하고 새 스택의 디스크 쉘프를 다중 경로 구성의 타겟 클러스터 노드에 연결합니다.
++
+대상 플랫폼에서 확장 카드가 지원되는지 확인해야 합니다.
+
+** 다중 경로 구성의 기존 스택에 디스크 쉘프를 연결합니다.
+
+
+|===
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
+
+. 디스크 쉘프의 전원을 켭니다.
++
+
+IMPORTANT: 계속하려면 70초 이상 기다려야 합니다.
+
+. Config Advisor를 사용하여 연결을 확인합니다.
++
+Config Advisor로 식별된 모든 케이블 연결 문제를 해결해야 합니다.
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+
+. 7-Mode 전환 도구에서 케이블링 확인 * 을 클릭합니다.
++
+이 작업에 대한 중요한 고려 사항을 나열하는 메시지가 표시됩니다.
+
++
+* 문제 해결: * aggregate에 누락된 디스크가 있는 경우, 애그리게이트의 성능이 저하되며 케이블링 확인이 실패합니다. 누락된 디스크 수가 허용되는 한도 내에 있는 경우 7-Mode Transition Tool CLI에서 다음 명령을 실행하여 저하된 애그리게이트를 계속 전환할 수 있습니다.
+
++
+' * transition CFT aggregate degraded-transition -p_project_name_-n 7-__mode_host_name__- A_7-mode_aggregate_name_- I ACKNOWLEDGE *
+
++
+그런 다음 케이블링 확인 작업을 다시 실행하고 전환을 계속할 수 있습니다. 애그리게이트가 전환된 후 타겟 클러스터 노드에서 이러한 RAID 그룹을 재구성할 수 있는 충분한 스페어 디스크가 타겟 클러스터 노드에 있는지 확인해야 합니다.
+
+. 계속하려면 * 예 * 를 클릭하십시오.
+. 작업이 완료될 때까지 기다린 후 다음 단계를 수행하여 작업 결과를 저장하고 도구 로그를 수집합니다.
++
+.. 작업 결과를 파일로 저장하려면 * CSV로 저장 * 을 클릭합니다.
+.. 모든 전환 로그 파일의 백업을 만들려면 * Collect Tool Logs * 를 클릭합니다.
++
+각 전환 작업 후에 로그 파일을 저장하는 것이 가장 좋습니다.
+
+.. 닫기 * 를 클릭합니다.
+
+
++
+작업을 완료하는 데 시간이 오래 걸리는 경우 * 백그라운드에서 실행 * 을 클릭하여 작업 결과 창을 종료할 수 있습니다. 작업이 백그라운드에서 실행 중일 때는 프로젝트를 편집하거나 다른 작업을 수행하지 않아야 합니다. 그런 다음 작업 내역 탭에서 작업 결과를 볼 수 있습니다.
+
+
+
+* 관련 정보 *
+
+xref:task_gathering_cabling_information_for_transition.adoc[전환을 위한 케이블 정보를 수집하는 중입니다]

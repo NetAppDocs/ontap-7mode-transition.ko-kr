@@ -1,0 +1,77 @@
+---
+permalink: install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, interfaces, transition, capabilities, windows, linux 
+summary: Windows 또는 Linux에 7-Mode 전환 툴을 설치할 수 있습니다. 7-Mode 전환 툴을 설치하기 전에 지원되는 기능 및 사용자 인터페이스를 숙지해야 합니다. 
+---
+= Windows 및 Linux에서 사용할 수 있는 인터페이스 및 전환 기능
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows 또는 Linux에 7-Mode 전환 툴을 설치할 수 있습니다. 7-Mode 전환 툴을 설치하기 전에 지원되는 기능 및 사용자 인터페이스를 숙지해야 합니다.
+
+|===
+| 마이그레이션 방법 | 피처 | Windows에서 지원됩니다 | Linux에서 지원됩니다 
+
+
+ a| 
+* 복사 없는 전환 *
+ a| 
+그래픽 사용자 인터페이스(GUI)
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
+CLI(Command-Line Interface)
+ a| 
+아니요
+
+CLI를 사용하여 프로젝트를 만들고 관리할 수는 없지만 Windows CLI에서 전환하는 동안에는 차단 오류를 무시하는 명령 같은 특정 명령을 실행해야 합니다.
+ a| 
+아니요
+
+
+
+ a| 
+수집 및 평가
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
+* 복사 기반 전환 *
+ a| 
+GUI
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
+CLI를 참조하십시오
+ a| 
+예
+ a| 
+예
+
+
+
+ a| 
+수집 및 평가
+ a| 
+예
+ a| 
+아니요
+
+|===

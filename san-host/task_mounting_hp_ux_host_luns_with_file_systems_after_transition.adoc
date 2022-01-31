@@ -1,0 +1,64 @@
+---
+permalink: san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, hp, ux, host, lun, file, system 
+summary: 파일 시스템이 있는 HP-UX 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다. 
+---
+= 전환 후 HP-UX 호스트 LUN을 파일 시스템과 함께 마운트하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 시스템이 있는 HP-UX 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다.
+
+복사 기반의 전환의 경우 7MTT(7-Mode 전환 툴)에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행합니다. HP-UX 호스트에서는 복사 없는 전환이 지원되지 않습니다.
+
+.단계
+. 새로운 clustered Data ONTAP LUN 검색:
++
+'* ioscan-fNC disk*'
+
+. Clustered Data ONTAP LUN이 검색되었는지 확인:
++
+``sanlun lun show *’
+
+. Clustered Data ONTAP LUN의 'LUN-경로 이름'이 7-Mode LUN의 'LUN-경로 이름'과 동일한지 확인합니다.
+. 모드 열의 출력이 7에서 C로 변경되었는지 확인합니다.
+. 'mapfile' 파일을 사용하여 볼륨 그룹을 가져옵니다.
++
+' * vgimport -s -v -m /tmp/mapfile.vg01/dev/vg01" * '
+
+. 논리 볼륨 활성화:
++
+' * vgchange-a y_vg_name_ *'
+
+. 기존 장치 특수 파일 이름(DSF)을 영구 DSF로 변환:
++
+' * vgdsf-c/dev/vg01 * '
+
+. VG Status가 Available로 표시되는지 확인합니다.
++
+' * vgdisplay * '
+
+. 각 디바이스를 수동으로 마운트합니다.
++
+'* mount-F vxfs-o largefiles_device_name mount_point_ * '
+
+. 메시지가 표시되면 fsck 명령을 실행합니다.
+. 마운트 지점을 확인합니다.
++
+"* bdf*"
+
++
+다음 예에서는 마운트 지점을 표시하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+bash-2.05# bdf
+Filesystem          kbytes     used     avail     used   Mounted on
+/dev/vg01/lvol1   23592960   1050952   22189796    5%   /mnt/qa/vg01
+/dev/vg01/lvol2   23592960    588480   22645044    3%   /mnt/qa/vg02
+----
+

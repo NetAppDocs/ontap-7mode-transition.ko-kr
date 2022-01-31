@@ -1,0 +1,49 @@
+---
+section: install-admin
+title: 7-Mode 전환 툴 설치 및 관리
+url: "/install-admin/index.html"
+entries:
+- title: 7-Mode 전환 툴을 사용하여 clustered ONTAP으로 전환합니다
+  url: "/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html"
+  entries:
+  - title: 7-Mode 전환 툴을 통해 지원되는 ONTAP 타겟 릴리즈
+    url: "/install-admin/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: 무복제 전환 및 복사 기반 전환 비교
+    url: "/install-admin/concept_comparison_of_copy_free_transition_and_copy_based_transition.html"
+  - title: Windows 및 Linux에서 사용할 수 있는 인터페이스 및 전환 기능
+    url: "/install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html"
+- title: Windows 시스템에서 7-Mode 전환 도구 설치 또는 제거
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt.html"
+  entries:
+  - title: Windows 시스템에 7-Mode Transition Tool을 설치하기 위한 시스템 요구 사항
+    url: "/install-admin/concept_system_requirements_for_7mtt_on_windows.html"
+  - title: Windows 시스템에 7-Mode 전환 툴 설치
+    url: "/install-admin/task_installing_7mtt.html"
+  - title: 관리자 그룹에 속하지 않은 사용자에 대해 로그인을 사용하도록 설정합니다
+    url: "/install-admin/task_enabling_login_for_users_not_part_of_administrator_group.html"
+  - title: 7-Mode 전환 툴에 로그인합니다
+    url: "/install-admin/task_logging_in_to_tool.html"
+  - title: Windows 시스템에서 7-Mode 전환 도구 제거
+    url: "/install-admin/task_uninstalling_7mtt.html"
+- title: Linux에서 7-Mode 전환 툴 설치 또는 제거(복사 기반 전환 전용)
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt_on_linux.html"
+  entries:
+  - title: Linux에 7-Mode 전환 툴 설치를 위한 시스템 요구사항
+    url: "/install-admin/concept_system_requirements_for_7_mode_transition_tool_on_linux.html"
+  - title: Linux에 7-Mode 전환 툴 설치
+    url: "/install-admin/task_installing_7_mode_transition_tool_on_linux.html"
+  - title: Linux에서 7-Mode 전환 툴 제거
+    url: "/install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html"
+- title: 7-Mode 전환 툴의 구성 옵션 수정
+  url: "/install-admin/task_modifying_default_configuration_settings_of_7mtt.html"
+- title: 문제 해결
+  url: "/install-admin/concept_troubleshooting_web_interface_issues.html"
+  entries:
+  - title: 호환되지 않는 OS 오류로 인해 도구 설치가 실패합니다
+    url: "/install-admin/reference_tool_installation_fails_with_incompatible_os_error.html"
+  - title: 7-Mode Transition Tool의 설치 또는 제거가 차단됩니다
+    url: "/install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html"
+  - title: Windows 시스템에서 7-Mode 전환 도구를 재설치하거나 업그레이드하지 못했습니다
+    url: "/install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html"
+  - title: 도구를 설치하는 동안 Windows 프로그램 호환성 관리자 알림이 표시됩니다
+    url: "/install-admin/reference_windows_compatibility_assistant_notification_displayed_while_installing.html"

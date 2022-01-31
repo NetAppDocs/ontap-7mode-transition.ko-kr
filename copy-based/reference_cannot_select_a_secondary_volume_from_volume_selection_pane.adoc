@@ -1,0 +1,23 @@
+---
+permalink: copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, select, secondary, volume, pan, selection 
+summary: 볼륨 선택 창에서 2차 볼륨을 선택하고 볼륨이 온라인 상태가 아니거나 SnapMirror 관계가 깨진 경우 볼륨 SnapMirror 관계로 전환할 수 없습니다. 
+---
+= 볼륨 선택 창에서 보조 볼륨을 선택할 수 없습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 선택 창에서 2차 볼륨을 선택하고 볼륨이 온라인 상태가 아니거나 SnapMirror 관계가 깨진 경우 볼륨 SnapMirror 관계로 전환할 수 없습니다.
+
+
+
+== 해결 방법
+
+ONTAP 명령줄을 사용하여 다음 해결 방법 중 하나를 수행합니다.
+
+* 보조 볼륨이 오프라인 상태인 경우 온라인으로 전환합니다.
+* SnapMirror 관계가 손상된 경우 수정합니다.
+

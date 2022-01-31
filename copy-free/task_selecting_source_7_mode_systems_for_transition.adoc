@@ -1,0 +1,44 @@
+---
+permalink: copy-free/task_selecting_source_7_mode_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, create, project 
+summary: 전환 프로젝트를 계획하는 첫 번째 단계는 디스크 쉘프, 애그리게이트, 볼륨, 구성을 전환할 소스 7-Mode HA 쌍을 선택한 다음, 전환 프로젝트를 생성하는 것입니다. 
+---
+= 복사 없는 전이 프로젝트 작성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 프로젝트를 계획하는 첫 번째 단계는 디스크 쉘프, 애그리게이트, 볼륨, 구성을 전환할 소스 7-Mode HA 쌍을 선택한 다음, 전환 프로젝트를 생성하는 것입니다.
+
+* HA 쌍의 7-Mode 컨트롤러는 복사 없는 전환을 지원하는 플랫폼에서 지원되는 ONTAP 버전을 실행해야 합니다.
++
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+* HA 구성의 두 컨트롤러가 모두 정상 상태여야 합니다.
++
+.. 홈페이지에서 * Copy-Free Transition * 마이그레이션 방법을 선택하고 * Start Planning * 을 클릭합니다.
++
+새 프로젝트에 필요한 컨트롤러 및 클러스터가 추가되지 않은 경우 장치 자격 증명 입력 창에 세부 정보를 입력할 수 있습니다.
+
+.. 전환할 소스 7-Mode HA 쌍을 선택합니다.
+.. 프로젝트 만들기 * 를 클릭합니다.
++
+... 프로젝트 세부 정보 창에서 프로젝트의 이름을 입력합니다.
+... 프로젝트를 추가할 프로젝트 그룹을 선택합니다.
++
+새 프로젝트 그룹을 만들거나 프로젝트를 기본 그룹에 추가할 수 있습니다.
+
++
+프로젝트 그룹을 만들면 관련 프로젝트를 그룹화하고 모니터링할 수 있습니다.
+
+... 저장 * 을 클릭합니다.
++
+Select Target Cluster 화면이 표시됩니다.
+
+
+
+
+
+

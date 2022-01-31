@@ -1,0 +1,19 @@
+---
+permalink: copy-based/concept_impact_of_takeover_and_giveback_on_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, impact, takeover, giveback 
+summary: 전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 컨트롤러 테이크오버 또는 반환 중에 실패합니다. 
+---
+= Takeover와 Giveback이 전환에 미치는 영향
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 컨트롤러 테이크오버 또는 반환 중에 실패합니다.
+
+테이크오버 때문에 전환 작업이 실패하면 기브백이 완료될 때까지 기다린 다음 전환 작업을 다시 실행해야 합니다.
+
+기본 전송 중에 컨트롤러 테이크오버가 발생하는 경우 전송에 실패합니다. 중단된 지점부터 기본 전송을 재개하려면 반환이 완료될 때까지 기다려야 합니다.
+
+구성된 스케줄에 따라 데이터 복제가 재개됩니다.

@@ -1,0 +1,48 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_dns_and_ldap_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, dns, nis, loap, configurations 
+summary: 7-Mode로 운영되는 Data ONTAP의 DNS, NIS 및 LDAP 구성이 ONTAP에서 어떻게 전환 및 적용되는지를 알아야 합니다. 
+---
+= DNS, NIS 및 LDAP 구성을 전환하기 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode로 운영되는 Data ONTAP의 DNS, NIS 및 LDAP 구성이 ONTAP에서 어떻게 전환 및 적용되는지를 알아야 합니다.
+
+
+
+== DNS 전환에 대한 고려 사항
+
+DNS 구성의 경우 ONTAP에서 SVM당 최대 6개의 도메인 이름과 3개의 이름 서버가 지원됩니다. 7-Mode 시스템 간에 고유한 도메인 이름 또는 이름 서버가 있고 타겟 SVM이 지원되는 제한을 초과하는 경우 7-Mode 전환 툴에서 차단 오류를 보고합니다. 전환을 계속하려면 도구에서 DNS 구성의 전환을 무시해야 합니다.
+
+
+NOTE: DNS 구성의 전환을 무시하는 경우 타겟 SVM에서 DNS를 수동으로 구성해야 합니다.
+
+
+
+== NIS 전환을 위한 고려 사항
+
+* 7-Mode 시스템에서 NIS 도메인 이름의 길이는 64자를 초과할 수 없습니다.
+* ONTAP 9.1 이하 버전을 실행하는 타겟 클러스터 버전으로 전환하려면 7-Mode 시스템의 nis.servers` 옵션은 FQDN(정규화된 도메인 이름)이 아니라 IP 주소만 사용하여 구성해야 합니다.
++
+ONTAP 9.1 이하를 실행하는 클러스터로 전환하는 경우, 전환하기 전에 7-Mode 시스템에서 IP 주소를 사용하여 nis.servers` 옵션을 구성해야 합니다. FQDN으로 구성된 7-Mode 시스템에서 'nis.servers` 옵션이 있고 9.2 - 9.5 사이의 ONTAP 버전을 실행 중인 클러스터로 전환하는 경우 전환이 지원됩니다.
+
+
+
+
+
+== LDAP 전환에 대한 고려 사항
+
+* LDAP.BASE, 'LDAP.BASE.passwd', 'ldap.base.group` 또는 'ldap.base.netgroup`' 옵션에 여러 개의 기본 값과 범위 값을 설정하고 clustered Data ONTAP 8.2 또는 8.2.1로 전환하는 경우 각 옵션에 대해 하나의 값만 전환됩니다.
++
+전환 후 이러한 옵션에 대한 조회 문제가 발생할 수 있습니다. 전환 후 기본 값과 범위 값을 수동으로 추가해야 합니다.
+
+* ldap.base, ldap.base.passwd, ldap.base.group` 또는 ldap.base.netgroup` 옵션에 대해 여러 범위 값을 설정하고 clustered Data ONTAP 8.2.2로 전환하는 경우 각 옵션에 대해 하나의 값만 전환됩니다.
+* 7-Mode 시스템에서 사용자 매핑('ldap.usermap.base`) 및 사용자 암호('LDAP.base.passwd') 조회를 위해 별도의 기본 값과 범위 값을 지정하면 사용자 암호만 사용할 수 있는 기본 값과 범위 값이 전환됩니다.
++
+기본 값과 범위 값은 ONTAP에서 사용자 매핑 및 사용자 암호 조회에 사용되며, 이로 인해 보안 문제가 발생할 수 있습니다. 필요한 경우 전환 후 ONTAP의 사용자 고유 이름(DN) 옵션에 사용자 매핑을 위한 기본 값과 범위 값을 수동으로 추가해야 합니다.
+
+

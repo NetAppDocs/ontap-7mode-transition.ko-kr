@@ -1,0 +1,51 @@
+---
+permalink: snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, volumes, snapmirror, ontap, clustered, data 
+summary: Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다 
+---
+= SnapMirror를 사용하여 7-Mode 볼륨 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다.
+
+* 권장 사항: * 7-Mode 전환 툴을 사용하여 7-Mode 볼륨으로 복사본 기반 전환을 수행해야 합니다. 사전 점검을 통해 마이그레이션 프로세스의 모든 단계에서 7-Mode와 클러스터를 모두 확인할 수 있으므로 잠재적 문제를 방지할 수 있습니다. 이 툴은 데이터 마이그레이션과 함께 모든 프로토콜, 네트워크 및 서비스 구성의 마이그레이션을 크게 단순화합니다.
+
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-Mode 전환 툴 릴리즈 노트"]
+
+이 절차에서는 SnapMirror를 사용하여 전환하는 데 필요한 고급 작업을 제공합니다.
+
+. xref:concept_planning_for_transition.adoc[전환할 볼륨이 전환을 지원하는지 확인합니다].
+. xref:task_preparing_7_mode_system_for_transition.adoc[7-Mode 시스템의 전환을 준비합니다].
+. xref:task_preparing_cluster_for_transition.adoc[전환을 위해 클러스터를 준비합니다].
+. xref:task_creating_a_transition_peering_relationship.adoc[7-Mode 시스템 간에 전환 피어 관계를 소스로, SVM을 대상으로 생성합니다].
+. xref:task_transitioning_volumes.adoc[두 볼륨 간에 SnapMirror 관계를 생성하여 7-Mode 볼륨에서 clustered Data ONTAP 볼륨으로 데이터를 복사합니다].
+
+
+데이터 마이그레이션이 완료된 후 다음 작업을 수행해야 합니다.
+
+* 선택 사항: SVM에 데이터 LIF를 생성하여 클라이언트 액세스를 지원합니다.
++
+https://docs.netapp.com/us-en/ontap/networking/index.html["네트워크 및 LIF 관리"].
+
+* SVM에서 프로토콜, 네트워킹, 서비스를 구성합니다.
++
+** https://docs.netapp.com/us-en/ontap/networking/index.html["네트워크 및 LIF 관리"].
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 관리"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+
+
+* Igroup 생성 및 LUN 매핑
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 관리"]
+
+* LUN으로 볼륨을 전환하는 경우 전환된 clustered Data ONTAP 볼륨에 대한 액세스를 복원하기 전에 호스트에서 필요한 전환 후 작업을 수행해야 합니다.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
+
+
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]

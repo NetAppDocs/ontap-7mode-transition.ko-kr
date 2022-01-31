@@ -1,0 +1,80 @@
+---
+permalink: san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, esxi, applications, cutover, phase, copy, based 
+summary: '7MTT\(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 ESXi 호스트를 전환하는 경우, 전환된 clustered Data ONTAP LUN을 테스트하여 컷오버 단계 전에 호스트 및 애플리케이션을 온라인 상태로 전환할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.' 
+---
+= 복제 기반 전환의 컷오버 단계 전에 전환된 LUN 및 ESXi 호스트 애플리케이션 테스트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴) 2.2 이상 및 Data ONTAP 8.3.2 이상을 사용하여 ESXi 호스트를 전환하는 경우, 전환된 clustered Data ONTAP LUN을 테스트하여 컷오버 단계 전에 호스트 및 애플리케이션을 온라인 상태로 전환할 수 있는지 확인할 수 있습니다. 테스트 중에 소스 호스트에서 소스 7-Mode LUN에 대한 I/O를 계속 실행할 수 있습니다.
+
+* 새 테스트 호스트는 새로운 테스트 환경에서 프로비저닝되어야 합니다.
++
+IP/MAC 또는 UUID 중복이나 충돌을 방지하려면 테스트 호스트를 전용 네트워크에 구성해야 합니다.
+
+* 로컬 하드 디스크에서 부팅된 호스트를 전환하는 경우 테스트 호스트에 소스 호스트와 동일한 ESXi 버전 및 드라이버가 있어야 합니다.
+* FC 또는 FCoE 호스트와 새로운 clustered Data ONTAP 노드 간에 조닝을 완료해야 합니다.
+* 소스 호스트와 새로운 clustered Data ONTAP 호스트 간에 조닝이 없어야 합니다.
++
+테스트 모드 중에 전환된 clustered Data ONTAP LUN이 소스 호스트에 표시되는 경우 소스 호스트에서 예기치 않은 서비스 중단이 발생할 수 있습니다.
+
+* SAN 부팅 호스트를 전환하는 경우 네트워크 어댑터를 비활성화해야 합니다.
+
+
+테스트 호스트와 소스 호스트 간에 하드웨어 패리티를 유지해야 하며 테스트 호스트에서 다음 단계를 수행해야 합니다.
+
+Clustered Data ONTAP LUN은 테스트 중에 읽기/쓰기 모드로 전환됩니다. 테스트가 완료되고 컷오버 단계에 대비하는 동안 읽기 전용 모드로 전환됩니다.
+
+.단계
+. 기본 데이터 복사가 완료되면 7MTT 사용자 인터페이스(UI)에서 * 테스트 모드 * 를 선택합니다.
+. 7MTT UI에서 * 구성 적용 * 을 클릭합니다.
+. 테스트 호스트에 clustered Data ONTAP 노드를 조닝(Zoning)합니다.
+. Clustered Data ONTAP 노드에 로그인한 다음, 테스트 단계 동안 7MTT에서 생성한 igroup에 새 테스트 호스트 이니시에이터를 추가합니다.
+. 'C:\Program Files\NetApp\Operating in 7-Mode Transition Tool\'으로 이동합니다.
+. 7MTT가 설치된 Linux 호스트에서 7-Mode를 clustered Data ONTAP LUN 매핑 파일로 생성합니다.
++
+'* 전이 CBT 내보내기 lunmap-p_project-name_-o_file_path_ *
+
++
+예를 들면 다음과 같습니다.
+
++
+'* 전이 CBT 내보내기 lunmap-p SanWorkLoad-o c:/Libraires/Documents/7-to-C-LUN-mapping.csv *
+
+. 테스트 호스트를 온라인으로 전환합니다.
++
+** xref:concept_reconfiguration_of_vmware_software_iscsi_initiator.adoc[전환 후 VMware 소프트웨어 iSCSI 이니시에이터를 재구성합니다]
+** xref:task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.adoc[전환 후 SAN 부팅에 대해 구성된 ESXi 호스트를 설정합니다]
+
+
+. 전환된 모든 clustered Data ONTAP LUN이 검색되는지 확인합니다.
+. 비 SAN 부팅 호스트를 전환하는 경우 VM을 다시 등록합니다.
++
+xref:task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.adoc[ESXi 호스트를 전환한 후 VM을 다시 등록합니다.]
+
+. ESXi 호스트에 필요한 전환 후 단계를 완료합니다.
++
+xref:concept_post_transition_requirements_for_esxi_hosts.adoc[ESXi 호스트에 대한 사후 전환 요구 사항]
+
+. 호스트와 애플리케이션을 온라인으로 전환합니다.
+. 필요에 따라 테스트를 수행합니다.
+. 테스트 호스트를 종료합니다.
+. 7MTT UI에서 * 테스트 완료 * 를 클릭합니다.
++
+이제 새로운 clustered Data ONTAP LUN이 읽기 전용이며 소스 7-Mode LUN의 데이터가 다시 동기화됩니다.
+
+. 전환을 완료한 후 동일한 소스를 사용할 계획이라면 clustered Data ONTAP 노드에서 igroup을 편집하여 적절한 이니시에이터를 추가하십시오.
++
+테스트 호스트를 운영 환경으로 승격할 계획이라면 igroup을 편집할 필요가 없습니다.
+
+
+
+테스트를 완료한 후 7-Mode에서 작동 중인 Data ONTAP를 실행하는 컨트롤러에 연결된 소스 호스트를 종료할 시간을 계획합니다. Complete Transition * 을 클릭하면 소스 7-Mode 볼륨 및 LUN이 오프라인 상태가 되고 전환된 clustered Data ONTAP LUN이 읽기/쓰기 상태가 됩니다.
+
+* 관련 정보 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["복사 기반 전환"]

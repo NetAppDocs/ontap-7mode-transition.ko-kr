@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_windows_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, host, remediation 
+summary: '7-Mode 전환 툴(7MTT\)을 사용하여 7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하는 경우, Windows 호스트가 전환할 수 있도록 특정 단계를 수행해야 합니다. 또한 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후에는 Windows 호스트를 온라인 상태로 전환해야 합니다.' 
+---
+= Windows 호스트 문제 해결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴)를 사용하여 7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하려는 경우 Windows 호스트 전환을 위해 특정 단계를 수행해야 합니다. 또한 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후에는 Windows 호스트를 온라인 상태로 전환해야 합니다.
+
+* 관련 정보 *
+
+xref:task_preparing_windows_hosts_for_transition.adoc[전환을 위해 Windows 호스트 준비 중]
+
+xref:task_preparing_for_cutover_when_transitioning_windows_hosts.adoc[Windows 호스트를 전환할 때 컷오버 단계를 준비합니다]
+
+xref:task_bringing_windows_hosts_online_after_transition.adoc[전환 후 Windows 호스트를 온라인으로 전환합니다]

@@ -1,0 +1,49 @@
+---
+permalink: install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, linux 
+summary: CLI를 사용하여 Linux에서 7-Mode 전환 툴을 제거할 수 있습니다. 
+---
+= Linux에서 7-Mode 전환 툴 제거
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CLI를 사용하여 Linux에서 7-Mode 전환 툴을 제거할 수 있습니다.
+
+* 진행 중인 모든 전환을 완료해야 합니다.
++
+
+IMPORTANT: 최신 버전을 설치하거나 같은 버전의 도구를 다시 설치해도 설치 제거된 인스턴스에서 시작된 전환 작업에 액세스할 수 없습니다.
+
+* 7-Mode 전환 툴을 실행 중인 경우 툴을 중지해야 합니다.
+
+
+설치 제거 과정에서 JRE가 제거되지 않습니다.
+
+.단계
+. 7-Mode Transition Tool을 추출한 위치에서 다음 명령을 실행하여 7-Mode Transition Tool을 제거합니다.
++
+'*./unconfigure*'
+
+. 7-Mode Transition Tool 디렉토리 제거:
++
+.. '* cd...*'
+.. ' * rm-rf netapp_7ModeTransitionTool * '
+
+
+
+
+
+
+== 예
+
+[listing]
+----
+
+bash-4.2# cd /root/Downloads/extracted_folder/NetApp_7ModeTransitionTool
+bash-4.2# ./unconfigure
+bash-4.2# cd ..
+bash-4.2# rm -rf NetApp_7ModeTransitionTool
+----

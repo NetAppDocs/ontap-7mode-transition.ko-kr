@@ -1,0 +1,17 @@
+---
+permalink: snapmirror/concept_licensing_requirements_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, license, requirements, transition, snapmirror, clusters, volume 
+summary: 볼륨을 7-Mode에서 clustered Data ONTAP으로 전환하기 전에 7-Mode 스토리지 시스템에서 SnapMirror 라이센스가 있는지 확인해야 합니다. 7-Mode 볼륨 SnapMirror 관계를 전환 중인 경우 소스 및 타겟 클러스터에도 SnapMirror 라이센스가 필요합니다. 
+---
+= 전환을 위한 라이센스 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨을 7-Mode에서 clustered Data ONTAP으로 전환하기 전에 7-Mode 스토리지 시스템에서 SnapMirror 라이센스가 있는지 확인해야 합니다. 7-Mode 볼륨 SnapMirror 관계를 전환 중인 경우 소스 및 타겟 클러스터에도 SnapMirror 라이센스가 필요합니다.
+
+7-Mode 시스템에서 SnapMirror 라이센스가 이미 있는 경우 동일한 라이센스를 사용하여 전환할 수 있습니다. 7-Mode SnapMirror 라이센스가 없는 경우 세일즈 담당자로부터 전환을 위한 임시 SnapMirror 라이센스를 받을 수 있습니다.
+
+7-Mode 시스템에서 활성화된 기능 라이센스를 클러스터에 추가해야 합니다. 클러스터에서 기능 라이센스를 얻는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리 참조"].

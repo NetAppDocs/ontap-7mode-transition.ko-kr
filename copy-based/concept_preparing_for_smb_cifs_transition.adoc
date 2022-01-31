@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_preparing_for_smb_cifs_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, smb, cifs 
+summary: SMB/CIFS 라이센스가 있고 SMB/CIFS 서비스가 7-Mode 시스템에서 실행 중인 경우, 타겟 클러스터에서 SMB/CIFS 라이센스를 추가하고 SMB/CIFS 서버 생성, SMB/CIFS 구성을 전환하기 위한 SVM 등의 일부 작업을 수동으로 수행해야 합니다. 
+---
+= SMB/CIFS 전환 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB/CIFS 라이센스가 있고 SMB/CIFS 서비스가 7-Mode 시스템에서 실행 중인 경우, 타겟 클러스터에서 SMB/CIFS 라이센스를 추가하고 SMB/CIFS 서버 생성, SMB/CIFS 구성을 전환하기 위한 SVM 등의 일부 작업을 수동으로 수행해야 합니다.
+
+또한 어떤 구성이 전환되어 있는지도 알아야 합니다. 7-Mode에서 운영되는 일부 SMB/CIFS 구성은 ONTAP에서 지원되지 않습니다. 일부 구성은 7-Mode 전환 툴을 통해 전환되지 않으므로 SVM에 수동으로 적용해야 합니다.

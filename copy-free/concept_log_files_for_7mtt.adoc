@@ -1,0 +1,91 @@
+---
+permalink: copy-free/concept_log_files_for_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, log, files, tool 
+summary: 7-Mode 전환 툴은 시스템에서 수행된 전환 작업의 처리 세부 정보를 제공하는 로그 파일을 생성합니다. 로그 파일은 7-Mode Transition Tool이 설치된 경로의 로그 디렉토리에 있습니다. 
+---
+= 7-Mode 전환 툴의 로그 파일
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 시스템에서 수행된 전환 작업의 처리 세부 정보를 제공하는 로그 파일을 생성합니다. 로그 파일은 7-Mode Transition Tool이 설치된 경로의 로그 디렉토리에 있습니다.
+
+7-Mode 시스템 및 클러스터의 SnapMirror 로그와 관련된 EMS 메시지를 사용하여 문제를 해결할 수도 있습니다.
+
+다음 표에서는 특정 전환 프로젝트와 관련된 로그 파일을 보여 줍니다.
+
+|===
+| 로그 파일 경로 | 에 대한 정보가 있습니다. 
+
+
+ a| 
+'_PROJECT_NAME_/transition.log'
+ a| 
+프로젝트와 관련된 디버그 메시지입니다
+
+
+
+ a| 
+'_project_name_/ZAPI - outbound.log'
+ a| 
+특정 프로젝트에 대해 7-Mode 전환 툴을 통해 실행되는 모든 Data ONTAP API의 출력
+
+|===
+다음 표에서는 특정 프로젝트와 관련되지 않은 로그 파일을 보여 줍니다.
+
+|===
+| 로그 파일 경로 | 에 대한 정보가 있습니다. 
+
+
+ a| 
+전환-gui.log
+ a| 
+웹 인터페이스를 사용하여 수행하는 모든 작업의 항목
+
+
+
+ a| 
+Default/audit.log
+ a| 
+* 7-Mode Transition Tool을 실행할 때마다 도구에서 사용되는 HTTP 또는 HTTPS 포트, 로그 디렉토리 경로 등의 모든 매개 변수입니다
+* 출력에서 실행되는 모든 전환 명령입니다
+
+
+
+
+ a| 
+Default/default/transition.log'입니다
+ a| 
+특정 프로젝트에 국한되지 않는 디버그 메시지입니다
+
+
+
+ a| 
+기본 /stream_management/stream_management.log
+ a| 
+스케줄러가 기록한 디버그 메시지와 일정 관리 중 프로젝트에 속하지 않는 디버그 메시지입니다
+
+
+
+ a| 
+Default/default/ZAPI-outbound.log'입니다
+ a| 
+7-Mode Transition Tool에 의해 실행되고 프로젝트에 속하지 않는 모든 Data ONTAP API의 출력
+
+
+
+ a| 
+Default/stream_management/ZAPI-outbound.log
+ a| 
+스케줄을 관리하는 동안 7-Mode Transition Tool 스케줄러에서 실행되는 모든 Data ONTAP API의 출력이며 어떤 프로젝트에도 속하지 않습니다
+
+
+
+ a| 
+'서버 콘솔.로그'
+ a| 
+7-Mode Transition Tool 서버에서 수행된 모든 패킷 교환의 로그 항목. 이 파일은 서버 충돌과 관련된 문제를 해결하는 데 도움이 됩니다.
+
+|===

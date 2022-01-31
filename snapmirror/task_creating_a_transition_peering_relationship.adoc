@@ -1,0 +1,66 @@
+---
+permalink: snapmirror/task_creating_a_transition_peering_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, create, peer, relationship, snapmirror 
+summary: 7-Mode 시스템과 클러스터 간 전환을 위해 SnapMirror 관계를 설정하려면 먼저 전환 피어 관계를 생성해야 합니다. 클러스터 관리자는 vserver peer transition create 명령을 사용하여 anSVM과 7-Mode 시스템 간에 전환 피어 관계를 생성할 수 있습니다. 
+---
+= 전환 피어 관계 생성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 시스템과 클러스터 간 전환을 위해 SnapMirror 관계를 설정하려면 먼저 전환 피어 관계를 생성해야 합니다. 클러스터 관리자는 'vserver peer transition create' 명령을 사용하여 anSVM과 7-Mode 시스템 간에 전환 피어 관계를 생성할 수 있습니다.
+
+* 소스 7-Mode 시스템의 이름이 로컬 SVM과 충돌하지 않는지, 또는 이미 SVM을 피어링했는지 확인해야 합니다.
+* 7-Mode 데이터를 전환해야 하는 DP 유형의 clustered Data ONTAP 볼륨을 생성해야 합니다.
++
+Clustered Data ONTAP 볼륨의 크기는 7-Mode 볼륨의 크기와 같거나 그보다 커야 합니다.
+
+* SVM 이름에 ""가 포함되지 않도록 해야 합니다.
+* 로컬 LIF를 사용하는 경우 다음을 확인해야 합니다.
++
+** 로컬 LIF는 기본 IPspace에 생성됩니다
+** 로컬 LIF는 볼륨이 상주하는 노드에 구성됩니다
+** LIF 마이그레이션 정책은 볼륨 노드와 동일하므로 둘 다 동일한 대상 노드로 마이그레이션할 수 있습니다
+
+
+
+
+전환 피어 관계를 생성할 때 데이터 전송 로드 밸런싱을 위해 다중 경로 FQDN 또는 IP 주소를 지정할 수도 있습니다.
+
+.단계
+. 'vserver peer transition create' 명령을 사용하여 전환 피어 관계를 생성합니다.
+. 'vserver peer transition show'를 사용하여 전환 피어 관계가 성공적으로 생성되었는지 확인합니다.
+
+
+
+
+== 전환 피어 관계를 만들고 보는 예
+
+다음 명령을 실행하면 다중 경로 주소 src1-e0d 및 로컬 LIF lif1 및 lif2를 사용하여 SVM VS1 및 7-Mode 시스템 src1 간에 전환 피어 관계가 생성됩니다.
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src1 -multi-path-address src1-e0d -local-lifs lif1,lif2
+----
+다음 예에서는 단일 SVM(VS1)과 여러 7-Mode 시스템 간의 전환 피어 관계를 보여줍니다.
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src3
+Transition peering created
+
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src2
+Transition peering created
+----
+다음 출력에서는 SVM VS1 의 전환 피어 관계를 보여 줍니다.
+
+[listing]
+----
+cluster1::> vserver peer transition show
+Vserver  Source Filer  Multi Path Address   Local LIFs
+-------  ------------  -----------------    ---------
+vs1      src2	         	-				    	-
+vs1      src3	        	-				     	-
+----

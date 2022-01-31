@@ -1,0 +1,23 @@
+---
+permalink: inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, supported, configuration, fc, zone, plan 
+summary: FC 존 계획을 생성하려면 7-Mode 시스템, 호스트, FC 스위치 및 클러스터가 지원되는 구성을 알고 있어야 합니다. 마이그레이션 후 계획을 사용하여 클러스터에 대한 영역을 구성해야 합니다. 
+---
+= FC 존 계획 생성을 위한 지원 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 존 계획을 생성하려면 7-Mode 시스템, 호스트, FC 스위치 및 클러스터가 지원되는 구성을 알고 있어야 합니다. 마이그레이션 후 계획을 사용하여 클러스터에 대한 영역을 구성해야 합니다.
+
+7-Mode 시스템(단일 컨트롤러 또는 HA 쌍), 호스트 및 클러스터를 데이터 센터 요구사항에 따라 동일한 패브릭 또는 다른 패브릭의 스위치에 연결할 수 있습니다.
+
+다음 그림에서는 7-Mode 시스템, 호스트 및 클러스터가 동일한 패브릭의 스위치에 연결되는 구성을 보여 줍니다.
+
+image::../media/delete_me2_fc_zone_config1.gif[다음 그림은 7-Mode 시스템의 구성을 보여줍니다,hosts,and cluster are connected to the switches in the same fabric]
+
+다음 그림에서는 7-Mode 시스템과 클러스터가 다른 패브릭의 스위치에 연결되는 구성을 보여 줍니다.
+
+image::../media/delete_me2_fc_zone_config2.gif[다음 그림에서는 7-Mode 시스템과 클러스터가 다른 패브릭의 스위치에 연결되는 구성을 보여 줍니다]

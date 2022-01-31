@@ -1,0 +1,28 @@
+---
+permalink: san-host/concept_rolling_back_luns_to_7_mode_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rolling, lun, 7, mode 
+summary: 'Clustered Data ONTAP LUN의 성능에 만족하지 못하는 경우, clustered Data ONTAP을 7-Mode에서 운영되는 Data ONTAP로 롤백하여 복사 없는 전환 \(CFT\)을 사용할 수 있습니다. 롤백은 복사 기반 전이\(cbts\)에 지원되지 않습니다. 롤백은 특정 호스트에서만 지원됩니다.' 
+---
+= 전환 후 LUN을 7-Mode로 롤백 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Clustered Data ONTAP LUN의 성능에 만족하지 못하면, CPST(Copy-Free 전이) 위해 clustered Data ONTAP을 7-Mode에서 작동하는 Data ONTAP로 롤백할 수 있습니다. CBTs(Copy-Based 전이)에서는 롤백이 지원되지 않습니다. 롤백은 특정 호스트에서만 지원됩니다.
+
+7MTT(7-Mode 전환 툴)에서 * 커밋 * 을 클릭하기 전에 언제든지 clustered Data ONTAP에서 7-Mode로 운영되는 Data ONTAP으로 롤백할 수 있습니다. commit * 을 클릭한 후에는 롤백할 수 없습니다.
+
+다음 호스트는 롤백을 지원합니다.
+
+* Windows
+* Red Hat Enterprise Linux(RHEL)
+* ESXi
+
+
+다음 호스트는 롤백을 지원하지 않습니다.
+
+* HP-UX를 참조하십시오
+* AIX
+

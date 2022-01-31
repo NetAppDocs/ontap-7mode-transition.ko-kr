@@ -1,0 +1,31 @@
+---
+permalink: install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked 
+summary: '7-Mode Transition Tool 설치 관리자 또는 제거 프로그램을 사용하여 작업을 수행하는 경우\(설치, 복구, 재설치, 업그레이드, 제거\ 등) 다음 오류 메시지가 표시됩니다.NetApp 7-Mode Transition Tool 설치 또는 제거 의 다른 인스턴스가 실행 중입니다. 한 번에 하나의 인스턴스만 실행할 수 있습니다.' 
+---
+= 7-Mode Transition Tool의 설치 또는 제거가 차단됩니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode Transition Tool 설치 관리자 또는 제거 프로그램을 사용하여 작업을 수행하는 경우(설치, 복구, 재설치, 업그레이드, 제거 등) "NetApp 7-Mode Transition Tool 설치 또는 제거 의 다른 인스턴스가 실행 중입니다."라는 오류 메시지가 표시됩니다. 한 번에 한 인스턴스만 실행할 수 있습니다.
+
+
+
+== 해결 방법
+
+시작하기 전에 7-Mode 전환 도구의 열려 있는 인스턴스 또는 대화 상자가 없는지 확인합니다. 그렇지 않으면 단계를 다시 수행해야 할 수 있습니다.
+
+. 시작 * 을 클릭하여 * 레지스트리 * 를 엽니다.
+. 프로그램 및 파일 검색 * 에서 ' * regedit * '을 입력합니다.
+. 레지스트리 편집기가 열리면 HKEY_LOCAL_MACHINE 레지스트리 하이브를 찾습니다.
+. 폴더 아이콘 왼쪽에 있는 확장 아이콘을 클릭하여 HKEY_LOCAL_MACHINE 하이브를 확장합니다.
+. HKEY_LOCAL_MACHINE\SOFTWARE\NetApp\7-Mode Transition Tool을 찾을 때까지 레지스트리 키와 하위 키를 계속 확장합니다.
+. 7-Mode 전환 툴 * 을 클릭합니다.
+. INSTALATION_STATUS를 마우스 오른쪽 버튼으로 클릭하고 * Modify * 를 선택합니다.
+. 값을 installer_running에서 installed로 변경하고 * OK * 를 클릭합니다.
+
+
+이제 7-Mode Transition Tool 설치 관리자 또는 제거 프로그램을 사용하여 모든 작업을 수행할 수 있습니다.

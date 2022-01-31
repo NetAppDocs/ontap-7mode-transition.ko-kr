@@ -1,0 +1,268 @@
+---
+permalink: snapmirror/task_transitioning_a_primary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, primary, volume, snapmirror 
+summary: 운영 볼륨을 전환하려면 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨으로 데이터를 복사하고, 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 재해 복구 관계를 삭제한 다음, clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 설정해야 합니다. 
+---
+= 운영 볼륨을 전환하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+운영 볼륨을 전환하려면 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨으로 데이터를 복사하고, 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 재해 복구 관계를 삭제한 다음, clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 설정해야 합니다.
+
+운영 클러스터와 SVM이 이미 설정되어 있어야 합니다.
+
+.단계
+. 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨으로 데이터를 복사합니다.
++
+.. TDP로 관계 유형과 함께 'napmirror create' 명령을 사용하여 7-Mode 시스템과 SVM 간에 SnapMirror 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror create -source-path src_system:finance -destination-path src_vserver:src_c_vol -type TDP
+Operation succeeded: snapmirror create the relationship with destination src_vserver:src_c_vol.
+----
+.. 기본 전송을 시작하려면 'napmirror initialize' 명령을 사용합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror  initialize -destination-path src_vserver:src_c_vol
+Operation is queued: snapmirror initialize of destination src_vserver:src_c_vol.
+----
+.. Clustered Data ONTAP 볼륨을 수동으로 업데이트할지 또는 SnapMirror 일정을 설정할지 여부에 따라 적절한 작업을 수행합니다.
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+전송을 수동으로 업데이트합니다
+ a| 
+... 'napmirror update' 명령어를 사용한다.
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+... 'napmirror show' 명령을 사용하여 데이터 복사 상태를 모니터링합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror show -destination-path src_vserver:src_c_vol
+                            Source Path: pri_system:src_7_vol
+                       Destination Path: src_vserver:src_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: -
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+ ...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 473163808768
+         Total Transfer Time in Seconds: 43405
+----
+... 3단계로 이동합니다.
+
+
+
+
+ a| 
+예약된 업데이트 전송을 수행합니다
+ a| 
+... job schedule cron create 명령을 사용하여 업데이트 전송을 위한 스케줄을 생성합니다.
++
+[listing]
+----
+pri_cluster::> job schedule cron create -name 15_minute_sched -minute 15
+----
+... SnapMirror 관계에 스케줄을 적용하려면 'napmirror modify' 명령을 사용합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror modify -destination-path src_vserver:src_c_vol -schedule 15_minute_sched
+----
+... SnapMirror show 명령을 사용하여 데이터 복사 상태를 모니터링합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror show -destination-path src_vserver:src_c_vol
+                            Source Path: pri_system:src_7_vol
+                       Destination Path: src_vserver:src_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: 15_minute_sched
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 473163808768
+         Total Transfer Time in Seconds: 43405
+----
+
+
+|===
+
+
+. 증분 전송 일정이 있는 경우 컷오버를 수행할 준비가 되면 다음 단계를 수행합니다.
++
+.. 'napmirror quiesce' 명령을 사용하여 향후 업데이트 전송을 모두 비활성화합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror quiesce -destination-path src_vserver:src_c_vol
+----
+.. 'napmirror modify' 명령을 사용하여 SnapMirror 스케줄을 삭제합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror modify -destination-path src_vserver:src_c_vol -schedule ""
+----
+.. 이전에 SnapMirror 전송을 중단한 경우 'napMirror resume' 명령을 사용하여 SnapMirror 전송을 활성화합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror resume -destination-path src_vserver:src_c_vol
+----
+
+
+. Clustered Data ONTAP 2차 및 운영 SVM 간에 SVM 피어 관계를 생성합니다.
++
+.. 'cluster peer create' 명령을 사용하여 클러스터 피어 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> cluster peer create -peer-addrs cluster2-d2, 10.98.234.246 -timeout 60
+
+Notice: Choose a passphrase of 8 or more characters. To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase: ********
+Confirm the passphrase: ********
+----
+.. 소스 클러스터에서 'vserver peer create' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SVM 피어 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> vserver peer create -vserver src_vserver -peervserver src_c_vserver -applications snapmirror -peer-cluster sec_cluster
+----
+.. 대상 클러스터에서 'vserver peer accept' 명령을 사용하여 SVM 피어 요청을 수락하고 SVM 피어 관계를 설정하십시오.
++
+[listing]
+----
+sec_cluster::> vserver peer accept -vserver dst_vserver -peervserver src_vserver
+----
+
+
+. 업데이트 전송을 위한 일정이 설정된 경우 대상 클러스터에서 'sapmirror quiesce' 명령을 사용하여 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 데이터 전송을 일시 중지하십시오.
++
+[listing]
+----
+sec_cluster::> snapmirror quiesce -destination-path dst_vserver:dst_c_vol
+----
+. 데이터 복사 작업을 모니터링하고 컷오버를 시작합니다.
++
+.. 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨 및 clustered Data ONTAP 2차 볼륨으로 전송이 완료될 때까지 기다린 다음, 7-Mode 운영 볼륨에서 클라이언트 액세스를 끊어 컷오버를 시작합니다.
+.. 'napMirror update' 명령을 사용하여 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨에 대한 최종 데이터 업데이트를 수행합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+.. 'napmirror break' 명령을 사용하여 7-Mode 운영 볼륨과 clustered Data ONTAP 운영 볼륨 간의 SnapMirror 관계를 중단하십시오.
++
+[listing]
+----
+pri_cluster::> snapmirror  break -destination-path src_vserver:src_c_vol
+[Job 1485] Job is queued: snapmirror break for destination src_vserver:src_c_vol.
+----
+.. 볼륨에 LUN이 구성되어 있는 경우 고급 권한 수준에서 'lun transition 7-mode show' 명령을 사용하여 LUN이 전환되었는지 확인하십시오.
++
+또한 clustered Data ONTAP 볼륨에서 'lun show' 명령을 사용하여 성공적으로 전환된 모든 LUN을 볼 수도 있습니다.
+
+.. 'napmirror delete' 명령을 사용하여 관계를 삭제합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror  delete -destination-path src_vserver:src_c_vol
+----
+.. 'napMirror release' 명령을 사용하여 7-Mode 시스템에서 SnapMirror 관계 정보를 제거합니다.
++
+[listing]
+----
+system7mode> snapmirror release dataVol20 vs1:dst_vol
+----
+
+
+. 타겟 클러스터에서 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 재해 복구 관계를 끊기 및 삭제합니다.
++
+.. 'napmirror break' 명령을 사용하여 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 재해 복구 관계를 중단하십시오.
++
+[listing]
+----
+sec_cluster::> snapmirror  break -destination-path dst_vserver:dst_c_vol
+[Job 1485] Job is queued: snapmirror break for destination dst_vserver:dst_c_vol.
+----
+.. 'napmirror delete' 명령을 사용하여 관계를 삭제합니다.
++
+[listing]
+----
+sec_cluster::> snapmirror  delete -destination-path dst_vserver:dst_c_vol
+----
+.. 'napMirror release' 명령을 사용하여 7-Mode 시스템에서 SnapMirror 관계 정보를 제거합니다.
++
+[listing]
+----
+system7mode> snapmirror release dataVol20 vs1:dst_vol
+----
+
+
+. 타겟 클러스터에서 clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 설정합니다.
++
+.. 'napMirror create' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 생성합니다.
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol -type DP -schedule 15_minute_sched
+----
+.. 'napmirror resync' 명령을 사용하여 clustered Data ONTAP 볼륨 간의 SnapMirror 관계를 재동기화합니다.
++
+재동기화가 성공적으로 수행되려면 클러스터링된 Data ONTAP 운영 볼륨과 2차 볼륨 사이에 공통 스냅샷 복사본이 있어야 합니다.
+
++
+[listing]
+----
+sec_cluster::> snapmirror  resync -destination-path dst_vserver:dst_c_vol
+----
+.. 'napmirror show' 명령을 사용하여 SnapMirror 재동기화 상태가 '스냅샷 표시'로 표시되는지 확인합니다.
++
+
+NOTE: 클러스터된 Data ONTAP 보조 볼륨을 읽기 전용 액세스용으로 사용하려면 SnapMirror 재동기화가 성공했는지 확인해야 합니다.
+
+
+
+
+
+7-Mode 시스템에서 필요한 모든 볼륨이 SVM으로 전환된 경우 7-Mode 시스템과 SVM 간 SVM 피어 관계를 삭제해야 합니다.
+
+* 관련 정보 *
+
+xref:task_recovering_from_a_failed_lun_transition.adoc[장애가 발생한 LUN 전환 복구]
+
+xref:task_configuring_a_tcp_window_size_for_snapmirror_relationships.adoc[SnapMirror 관계에 대한 TCP 윈도우 크기 구성]

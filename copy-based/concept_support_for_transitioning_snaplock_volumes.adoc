@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_support_for_transitioning_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, support, snaplock, volumes 
+summary: 7-Mode 전환 툴은 ONTAP 볼륨을 9.6을 제외한 모든 SnapLock 9.0 릴리즈를 실행하는 타겟 클러스터로 전환할 수 있도록 지원합니다. 
+---
+= SnapLock 볼륨 전환을 지원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 ONTAP 볼륨을 9.6을 제외한 모든 SnapLock 9.0 릴리즈를 실행하는 타겟 클러스터로 전환할 수 있도록 지원합니다.
+
+SnapLock 엔터프라이즈 및 SnapLock 규정 준수 볼륨은 9.6을 제외한 모든 ONTAP 릴리즈를 실행 중인 타겟 클러스터로 전환하는 데 지원됩니다. 그러나 SnapLock 규정 준수 볼륨 전환은 MetroCluster 구성에 있는 타겟 클러스터로는 지원되지 않습니다.

@@ -1,0 +1,23 @@
+---
+permalink: copy-free/task_transitioning_a_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, snapmirror, relationship 
+summary: 2차 HA 쌍을 먼저 전환하고 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 지그재그형 SnapMirror 관계를 설정한 다음, 나중에 운영 HA 쌍으로 전환할 수 있습니다. 일부 시나리오에서는 7-Mode SnapMirror 관계의 2차 HA 및 1차 HA 쌍을 병렬로 전환해야 합니다. 
+---
+= SnapMirror 관계 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2차 HA 쌍을 먼저 전환하고 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 지그재그형 SnapMirror 관계를 설정한 다음, 나중에 운영 HA 쌍으로 전환할 수 있습니다. 일부 시나리오에서는 7-Mode SnapMirror 관계의 2차 HA 및 1차 HA 쌍을 병렬로 전환해야 합니다.
+
+모든 운영 볼륨이 하나의 HA 쌍에 속해 있고 모든 보조 볼륨이 다른 HA 쌍에 속한 경우 지그재그형 방법을 사용하여 전환할 수 있습니다.
+
+두 HA 쌍 중 하나에 운영 볼륨과 2차 볼륨이 혼합되어 있는 경우 병렬 방법을 사용하여 전환해야 합니다.
+
+1차 및 2차 HA 쌍을 전환한 후 clustered Data ONTAP에서 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다. 재동기화에 성공하려면 Data ONTAP 8.1 이상에서 생성된 공통 스냅샷 복사본이 하나 이상 SnapMirror 관계의 운영 볼륨과 보조 볼륨 사이에 있어야 합니다.
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["System Manager를 사용하여 클러스터 관리"]

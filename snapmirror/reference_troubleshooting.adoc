@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/reference_troubleshooting.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, troubleshoot, transition, snapmirror, issues, problems 
+summary: 문제 해결 정보는 SnapMirror 명령을 사용하여 7-Mode 데이터를 전환할 때 발생하는 문제를 식별하고 해결하는 데 도움이 됩니다. 
+---
+= SnapMirror를 사용할 때의 전환 문제 해결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+문제 해결 정보는 SnapMirror 명령을 사용하여 7-Mode 데이터를 전환할 때 발생하는 문제를 식별하고 해결하는 데 도움이 됩니다.

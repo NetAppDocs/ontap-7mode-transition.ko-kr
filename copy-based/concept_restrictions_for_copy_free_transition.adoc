@@ -1,0 +1,60 @@
+---
+permalink: copy-based/concept_restrictions_for_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, restrictions, 7, mode, volumes 
+summary: 7-Mode 볼륨의 전환에 대한 특정 제한 사항을 알고 있어야 합니다. 일부 제한 사항은 ONTAP에서 지원되지 않는 기능 때문입니다. 일부 제한의 경우, 전환을 계속할 수 있도록 수정 조치를 수행할 수 있습니다. 
+---
+= 7-Mode 볼륨의 전환 제한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 볼륨의 전환에 대한 특정 제한 사항을 알고 있어야 합니다. 일부 제한 사항은 ONTAP에서 지원되지 않는 기능 때문입니다. 일부 제한의 경우, 전환을 계속할 수 있도록 수정 조치를 수행할 수 있습니다.
+
+
+
+== 볼륨 유형
+
+다음 유형의 볼륨은 전환이 지원되지 않습니다.
+
+* 기존 볼륨
++
+호스트 기반 전환 방법을 사용하여 기존 볼륨을 전환할 수 있습니다.
+
++
+http://www.netapp.com/us/media/tr-4052.pdf["NetApp 기술 보고서 4052: clustered Data ONTAP으로 성공적으로 전환(Data ONTAP 8.2.x 및 8.3)"]
+
+* FlexCache 볼륨
+
+
+
+
+== 볼륨 상태
+
+전환을 위해 선택한 7-Mode 볼륨 중 다음 상태 중 하나에 있으면 전환이 차단됩니다.
+
+* 오프라인
+* 제한
+* 불일치('WAFL inconsistent')
+
+
+
+
+== 다른 vFiler 유닛에 속하는 qtree가 있는 볼륨입니다
+
+qtree가 볼륨의 vFiler 유닛과 다른 vFiler 유닛에서 소유되는 qtree로 볼륨을 전환할 수 없습니다. 전환하기 전에 다음 작업 중 하나를 수행하여 각 볼륨과 모든 qtree가 동일한 vFiler 유닛에 속하는지 확인해야 합니다.
+
+* Qtree를 볼륨을 소유하는 vFiler 장치로 이동합니다.
+* qtree를 삭제합니다.
+
+
+
+
+== inode to parent pathname 변환 설정입니다
+
+inode to parent pathname translations는 각 볼륨에서 설정해야 합니다. 'no_I2P' 옵션을 해제하여 상위-경로 이름 변환을 활성화할 수 있습니다.
+
+' * vol options_vol_name_no_I2P off * '
+
+I2P 스캔이 끝날 때까지 기다릴 필요가 없으며 전환 준비를 계속할 수 있습니다.

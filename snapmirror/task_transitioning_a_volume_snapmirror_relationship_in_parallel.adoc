@@ -1,0 +1,59 @@
+---
+permalink: snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel 
+summary: 7-Mode SnapMirror 관계의 운영 볼륨과 2차 볼륨을 동일한 컷오버 기간에 병렬로 전환할 수 있습니다. 그런 다음 전환 후 ONTAP 클러스터에서 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다. SnapLock 규정 준수 볼륨을 전환하려면 이 방법을 사용해야 합니다. 
+---
+= 볼륨 SnapMirror 관계를 병렬로 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode SnapMirror 관계의 운영 볼륨과 2차 볼륨을 동일한 컷오버 기간에 병렬로 전환할 수 있습니다. 그런 다음 전환 후 ONTAP 클러스터에서 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다. SnapLock 규정 준수 볼륨을 전환하려면 이 방법을 사용해야 합니다.
+
+* 1차 및 2차 클러스터와 SVM을 설정해야 합니다.
+* 볼륨 SnapMirror 관계를 전환할 때 anSVM 피어 관계를 설정할 경우 다음 조건을 충족해야 합니다.
++
+** 2차 클러스터에는 1차 SVM과 동일한 이름의 SVM이 있으면 안 됩니다.
+** 운영 클러스터에는 2차 SVM과 동일한 이름의 SVM이 있으면 안 됩니다.
+** 전환 준비에 대한 정보를 검토해야 합니다.
++
+xref:task_preparing_for_transition.adoc[전환 준비 중]
+
+
+
+
+
+SnapLock 규정 준수 볼륨과의 TDP(전환 데이터 보호) 관계의 SnapMirror 재동기화가 지원되지 않으므로 SnapLock 규정 준수 볼륨 간의 7-Mode SnapMirror 관계는 병렬로 전환되어야 합니다. 따라서 7-Mode 운영 볼륨과 SnapLock 규정 준수 볼륨이 있는 ONTAP 보조 볼륨 간에 DR(SnapMirror 재해 복구) 관계를 설정할 수 없습니다.
+
+. 독립 실행형 볼륨을 전환하기 위한 단계에 따라 SnapMirror 관계의 2차 볼륨과 1차 볼륨을 전환합니다.
++
+7-Mode 보조 볼륨을 전환하기 전에 7-Mode SnapMirror 관계에 대한 수동 개입이 필요하지 않습니다. 따라서 7-Mode 보조 볼륨이 읽기 전용 볼륨으로 ONTAP에 전환되도록 합니다.
+
++
+xref:task_transitioning_a_stand_alone_volume.adoc[독립 실행형 볼륨 전환]
+
+. 전환된 운영 볼륨과 2차 볼륨이 포함된 SVM 간에 인터클러스터 SVM 피어 관계를 생성합니다.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
+
+. 전환된 운영 볼륨과 2차 볼륨 사이에 볼륨 SnapMirror 관계를 생성합니다.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["볼륨 재해 복구 빠른 준비"]
+
+. 대상 볼륨에서 SnapMirror 관계의 소스 볼륨과 타겟 볼륨을 다시 동기화합니다.
++
+
+IMPORTANT: 소스 볼륨과 타겟 볼륨 사이에 공통 스냅샷 복사본이 하나 이상 있어야 합니다.
+
+. SnapMirror 데이터 전송 상태를 모니터링합니다.
++
+
+IMPORTANT: 재동기화가 성공적으로 완료될 때까지 소스 볼륨과 타겟 볼륨에서 볼륨 이동 또는 SnapMirror 중단 등의 작업을 수행하면 안 됩니다. 재동기화가 중단되지 않고 성공적으로 완료되지 않았는지 확인해야 합니다. 그렇지 않으면 볼륨이 정합성이 보장되지 않는 상태로 변경될 수 있습니다.
+
+
+
+* 관련 정보 *
+
+xref:concept_guidelines_for_transitioning_snaplock_volumes.adoc[SnapLock 볼륨 전환을 위한 지침]

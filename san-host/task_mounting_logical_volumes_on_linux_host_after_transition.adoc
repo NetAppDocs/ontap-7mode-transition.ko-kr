@@ -1,0 +1,102 @@
+---
+permalink: san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts 
+summary: 7-Mode에서 운영되는 ONTAP을 clustered Data ONTAP으로 전환한 후 논리적 볼륨이 오프라인 상태가 됩니다. 호스트에서 LUN에 액세스할 수 있도록 해당 논리 볼륨을 마운트해야 합니다. 
+---
+= 전환 후 Linux 호스트에 논리적 볼륨 마운트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 운영되는 ONTAP을 clustered Data ONTAP으로 전환한 후 논리적 볼륨이 오프라인 상태가 됩니다. 호스트에서 LUN에 액세스할 수 있도록 해당 논리 볼륨을 마운트해야 합니다.
+
+CFT(Copy-Free Transition)를 수행하는 경우 볼륨 재호스팅 절차를 완료해야 합니다. 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["7-Mode 전환 툴 Copy-Free Transition Guide를 참조하십시오"] 를 참조하십시오.
+
+* CTBT(Copy-Based Transition)의 경우 7MTT(7-Mode Transition Tool)에서 스토리지 컷오버 작업을 완료한 후 다음 단계를 수행합니다.
+* CFT의 경우, 7MTT에서 데이터 및 구성 가져오기 작업 후에 다음 단계를 수행합니다.
++
+.. 7-Mode에서 clustered Data ONTAP으로 매핑 파일 생성:
++
+*** 복사 기반 전환의 경우 7MTT가 설치된 Linux 호스트에서 + " * transition CBT export lunMAP -p_project-name_-o_file_path_ * "를 실행하여 다음 명령을 실행합니다
++
+예를 들면 다음과 같습니다.
+
++
+'* 전이 CBT 내보내기 lunmap-p SanWorkLoad-o c:/Libraires/Documents/7-to-C-LUN-mapping.csv *
+
+*** 무복사 전환의 경우 7MTT가 설치된 시스템에서 다음 명령을 실행합니다.
++
+'* 전이 CFT 내보내기 lunmap -p_roject-name_-s_svm-name_-o_output-file_ *
+
++
+예를 들면 다음과 같습니다.
+
++
+' * transition CFT export lunmap -p SanWorkLoad -s svml -0 c:/libraries/Documents/7-to-C-LUN-mapping-svml.csv *
+
++
+
+NOTE: 각 SVM(스토리지 가상 머신)에 대해 이 명령을 실행해야 합니다.
+
+
+
+.. 7-Mode LUN에 대해 생성된 SCSI 디바이스를 제거합니다.
++
+*** 모든 SCSI 장치를 분리하려면: + "* rescan-scsi-bus.sh -r*"
+*** 각 SCSI 장치를 개별적으로 제거하려면: + ``echo 1>/sys/block/__scsi_ID__/delete *'
++
+이 명령은 모든 7-Mode LUN SCSI 장치에서 실행해야 합니다. Inventory Assessment 워크북 _ 의 SAN 호스트 LUN 탭에서 SCSI 디바이스 ID 열을 참조하여 LUN에 대한 SCSI 디바이스 ID를 식별합니다.
+
+
+
+.. 새 ONTAP LUN 검색:
++
+'* rescan-scsi-bus.sh *'
+
+.. ONTAP LUN용 DMMP 디바이스 구성:
++
+' * multipath * '
+
+.. ONTAP LUN이 검색되었는지 확인합니다.
++
+``sanlun lun show *’
+
+.. 새 ONTAP LUN 디바이스 핸들 ID 확인:
++
+'* multipath-ll_Device_handle_name_*'
+
+.. 볼륨 그룹 가져오기:
++
+' * vgimport_vg_name_ * '
+
+.. 볼륨 그룹 상태를 확인합니다.
++
+' * vgdisplay * '
+
+.. 논리적 볼륨 활성화:
++
+' * vgchange-ay_vg_name_ * '
+
+.. 논리적 볼륨 상태를 확인합니다.
++
+' * lvdisplay * '
+
++
+LV 상태는 "Available(사용 가능)"으로 표시되어야 합니다.
+
+.. ONTAP LUN의 논리 볼륨을 해당 마운트 지점 디렉토리로 마운트합니다.
++
+'마운트_LV_namount_point_'
+
++
+"etc/fstab" 파일에 마운트 지점이 정의되어 있으면 'mount-a' 명령을 사용하여 논리적 볼륨을 마운트할 수 있습니다.
+
+.. 마운트 지점을 확인합니다.
++
+' * 마운트 * '
+
+
+
+

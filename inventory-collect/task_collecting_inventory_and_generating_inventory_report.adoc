@@ -1,0 +1,102 @@
+---
+permalink: inventory-collect/task_collecting_inventory_and_generating_inventory_report.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, collect, inventory, generating, inventory, report, transition 
+summary: 'Data ONTAP 시스템\(클러스터의 7-Mode 시스템 및 노드\), 스위치, 호스트 및 호스트 애플리케이션에 대한 정보를 수집할 수 있습니다. 이 정보를 사용하여 전환 평가를 위한 7-Mode 시스템, 호스트 및 호스트 애플리케이션에 대한 자세한 정보가 포함된 인벤토리 보고서를 생성할 수 있습니다.' 
+---
+= 재고 수집 및 재고 보고서 생성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Data ONTAP 시스템(클러스터의 7-Mode 시스템 및 노드), 스위치, 호스트 및 호스트 애플리케이션에 대한 정보를 수집할 수 있습니다. 이 정보를 사용하여 전환 평가를 위한 7-Mode 시스템, 호스트 및 호스트 애플리케이션에 대한 자세한 정보가 포함된 인벤토리 보고서를 생성할 수 있습니다.
+
+* NetApp Support 사이트에서 'ICT.exe' 파일을 다운로드해야 합니다.
+* 인벤토리 보고서가 필요한 스토리지 시스템 및 호스트의 사용자 이름, 암호 및 IP 주소가 있어야 합니다.
+* 스토리지 시스템 및 호스트의 사용자 이름에 명령을 실행할 수 있는 충분한 권한이 있어야 합니다.
+* 인벤토리 수집을 위해 여러 시스템을 추가하는 경우 ASCII 또는 UTF-8 형식으로 인코딩되고 시스템 세부 정보가 포함된 텍스트 파일을 만들어야 합니다(한 줄에 시스템 한 대).
++
+각 시스템 세부 정보는 다음 형식이어야 합니다.
+
++
+((ONTAP|Windows|VMware|Linux|Cisco|Brocade):/[(_DOMAIN_USER_\\_USER__):_[PASSWORD]@](HOST_NAME|IP)_'
+
++
+암호로 '*'를 입력하면 명령줄에 암호를 입력하라는 메시지가 표시됩니다.
+
+* 통합 문서에 기능에 대한 인벤토리 정보가 포함될 수 있도록 모든 기능을 구성하고 해당 라이센스를 활성화해야 합니다.
+* CIFS 공유 이름, 사용자 이름 및 그룹 이름과 같은 모든 스토리지 시스템 구성은 UTF-8 형식이어야 합니다.
+* FC 존 계획의 경우, 7-Mode 시스템과 호스트를 스위치에 연결해야 합니다.
++
+클러스터는 7-Mode 시스템과 동일한 스위치에 연결하거나 동일한 패브릭의 새 스위치에 연결할 수 있습니다.
+
+
+
+Inventory Collect Tool은 최대 4개의 컨트롤러와 20개의 호스트에서 동시에 구성 정보를 수집할 수 있습니다. 그러나 할당량, Qtree, 엑스포트 또는 UNIX 사용자 및 그룹이 포함된 확장 구성의 경우 인벤토리 보고서를 생성하는 데 시간이 상당히 오래 걸릴 수 있습니다.
+
+
+NOTE: 사용량이 많은 시간에는 활성 스토리지 컨트롤러에 대한 인벤토리 수집 작업을 수행하지 않아야 합니다.
+
+. Windows 명령 프롬프트에서 인벤토리 수집 도구가 다운로드된 경로로 이동합니다.
+. 시스템 IP 주소 및 자격 증명을 사용하여 "ICT" 명령을 실행하여 인벤토리 보고서를 생성합니다.
++
+|===
+| 정보를 제공하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+명령줄 인터페이스를 사용하여 각 시스템에 대해
+ a| 
+(* ICT--cmd collect--output_filename_(ONTAP | Windows | VMware | Linux | Cisco | Brocade)://[(_user_|_domain_user_)[:(_password_|***)]@]_hostname_)... *
+
+** `_filename_'은 재고 보고서에 제공할 이름입니다.
+** 시스템 유형은 ONTAP|Windows|VMware|Linux입니다.
++
+예를 들어 7-Mode 스토리지 시스템의 경우 시스템 유형은 ONTAP 이고, Linux 호스트의 경우 시스템 유형은 Linux입니다.
+
+** 지원되는 FC 스위치는 Cisco|Brocade입니다.
+** '_user|domain_user_'와 '_password_'는 시스템 자격 증명입니다.
++
+컨트롤러에 암호가 없으면 "\"" 문자를 암호로 입력할 수 있습니다.
+
+** '_hostname_'은 컨트롤러, 호스트 또는 스위치의 IP 주소 또는 호스트 이름입니다.
+
+
+
+
+ a| 
+텍스트 파일에 있는 여러 시스템의 경우
+ a| 
+'* ICT--cmd collect--output_filename_--input_credentials_file.txt_ *'
+
+'_credentials_file.txt_'는 여러 시스템에 대한 시스템 세부 정보와 자격 증명이 포함된 텍스트 파일입니다.
+
+** ASCII 형식으로 인코딩된 텍스트 파일만 지원됩니다.
+** 암호로 '*'를 입력하면 명령줄에 암호를 입력하라는 메시지가 표시됩니다.
+** 컨트롤러에 암호가 없으면 ""를 암호로 입력할 수 있습니다.
+
+
+|===
++
+
+NOTE: 스토리지 시스템에서 Windows 7 이상을 실행 중이고 인벤토리 보고서에 대한 출력 XML 파일이 저장되는 폴더에 대한 권한이 제한된 경우, 출력 파일은 자동으로 'VirtualStore' 디렉토리에 저장되고 응용 프로그램은 정상적으로 실행됩니다.
+
++
+인벤토리 보고서는 스토리지 시스템과 Linux 호스트에 대해 생성됩니다. 생성된 보고서는 수집_data.xml, 수집_data_InventoryWorkbook.xml입니다.
+
++
+[listing]
+----
+ict --cmd collect --output collected_data ontap://root:test123@hostname1 linux://root@hostname2
+----
++
+컨트롤러당 인벤토리 정보를 수집하는 데 필요한 예상 시간이 표시됩니다.
+
++
+재고 통합 문서 및 재고 보고서는 XML 형식으로 생성됩니다.
+
+. Microsoft Office 2007 이상 버전을 사용하여 Microsoft Excel의 인벤토리 통합 문서를 봅니다.
+
+
+재고 보고서 XML을 7-Mode 전환 툴 으로 임포트하여 7-Mode 컨트롤러 및 호스트의 기능을 평가하고, 전환을 위해 선택한 clustered Data ONTAP 버전에서 기능이 작동하는 방식을 파악할 수 있습니다.

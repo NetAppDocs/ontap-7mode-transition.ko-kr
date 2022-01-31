@@ -1,0 +1,98 @@
+---
+permalink: san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, iscsi, san, boot, lun 
+summary: 'iSCSI SAN 부팅 LUN을 전환하기 전에 호스트에서 특정 단계를 수행해야 합니다. Red Hat Enterprise Linux\(RHEL\) 5.x의 전환은 지원되지 않습니다. RHEL 6의 전환이 지원됩니다.' 
+---
+= iSCSI SAN 부팅 LUN 전환 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI SAN 부팅 LUN을 전환하기 전에 호스트에서 특정 단계를 수행해야 합니다. RHEL(Red Hat Enterprise Linux) 5.x의 전환은 지원되지 않습니다. RHEL 6의 전환이 지원됩니다.
+
+재고 평가 워크북 _ 에서 다음 정보를 확인해야 합니다.
+
+* RHEL 6이 설치된 LUN의 이름입니다
+* 전환 LUN의 DMMP 디바이스 이름입니다
+* 논리 볼륨(LV) 이름입니다
+* 볼륨 그룹(VG) 이름입니다
+* 물리적 볼륨(PV) 장치
+* LVM(Logical Volume Manager) 이름 및 RHEL 6/boot 및 루트(/) 파티션이 설치된 마운트 디렉토리입니다
+* DMMP에 구성된 파일 시스템입니다
+* 7-Mode 컨트롤러용 iSCSI 세션
+* GRUB 정보
+* iSCSI SAN 부팅 LUN이 생성될 SVM(스토리지 가상 시스템)의 IQN 번호입니다
+* Clustered Data ONTAP SVM의 LIF IP 주소로 iSCSI SAN 부팅 LUN이 생성됩니다
+
+
+이 절차는 복사 기반 전환 및 무복사 전환에 적용됩니다.
+
+.단계
+. DMMP 디바이스가 /dev/mapper 디렉토리에 있는지 확인합니다.
++
+' * ls /dev/mapper/__DMMP_device_name__ *'
+
++
+DMMP 장치가 표시되지 않으면 장치가 별칭 또는 사용자 친화적인 이름을 사용하고 있을 수 있습니다.
+
+. DMMP 장치가 LVM의 일부인지 확인합니다.
++
+``blkid *’
+
++
+DMMP device의 type 값이 LVM2_member인 경우, DMMP는 LVM의 일부이다.
+
+. '/etc/fstab' 파일에서 '/' 및 '/boot' 파티션의 마운트 지점 세부 정보를 가져옵니다.
++
+** '/boot' 파티션이 DMMP 장치에 설치된 경우 부팅 시 '/etc/fstab' 파일에 마운트하는 것을 어떻게 참조하는지 확인하십시오.
+** "blkid" 명령 출력을 사용하여 얻은 파일 시스템 UUID를 사용하여 '/boot' 파티션을 마운트하는 경우에는 전이가 필요하지 않습니다.
+
+
+. dmp 디바이스 이름으로 '/etc/fstab' 파일에서 /boot 파티션을 참조하는 경우 dmp 디바이스 이름을 파일 시스템 UUID 이름으로 바꿉니다.
+. iSCSI SAN 부팅 호스트의 경우, '/boot/grub/grub.conf' 파일을 편집하여 clustered Data ONTAP 컨트롤러의 IQN 번호 및 iSCSI 세션 정보가 포함된 새 커널 명령줄 항목을 생성합니다.
++
+이 예제에서는 편집하기 전에 '/boot/grub/grub.conf' 파일을 보여 줍니다. 커널 명령줄에는 7-Mode 컨트롤러의 IQN 번호 및 iSCSI 세션 정보가 있습니다.
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64)
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.241::3260::iqn.1992-08.com.netapp:sn.1574168453 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.155::3260::iqn.1992-08.com.netapp:sn.1574168453 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
++
+이 예에서는 cDOT 접미사로 새 제목을 추가한 후 '/boot/grub/grub.conf' 파일과 clustered Data ONTAP 컨트롤러의 IQN 번호 및 iSCSI 세션 정보가 있는 새 커널 명령줄을 보여줍니다.
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64) - cDOT
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.99::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.98::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.97::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.96::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
+. 기존 initramfs 파일을 백업합니다.
++
+[listing]
+----
+# cd /boot
+# cp initramfs-2.6.32-71.el6.x86_64.img initramfs-2.6.32-
+71.el6.x86_64.img.img_bak
+----
+. 백업 "initrd" 이미지 이름으로 '/boot/grub/grub.conf' 파일의 7-Mode 커널 줄을 업데이트합니다.
++
+RHEL 6.4 이상의 경우, "/boot/grub/grub.conf" 파일에서 clustered Data ONTAP 커널 줄에 "" rdloaddriver=scsi_dh_ALUA""가 추가되었는지 확인하십시오.
+
+. '/boot/grub/grub.conf' 파일이 업데이트되면 커널 초기 RAM 디스크('initramfs')를 업데이트합니다.
++
+새 clustered Data ONTAP IQN 번호 및 iSCSI 세션을 참조하도록 "initramfs" 파일을 다시 생성해야 합니다. 이렇게 하면 호스트가 부팅 시 clustered Data ONTAP 컨트롤러와 iSCSI 연결을 설정할 수 있습니다.
+
+. dracut-force - -add multipath - -verbose 명령을 사용하여 initrd 이미지를 다시 만듭니다.
+
+
+* 관련 정보 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[재고 평가 워크북에서 전이가 완료된 정보를 수집합니다]

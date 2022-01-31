@@ -1,0 +1,90 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, redirect, clients, clustered, data, primary, volume, snapmirror 
+summary: 7-Mode 운영 볼륨이 다시 온라인 상태가 되면 7-Mode 운영 볼륨을 전환하고, clustered Data ONTAP 2차 볼륨과의 SnapMirror 관계를 설정한 다음, 클라이언트 액세스를 clustered Data ONTAP 운영 볼륨으로 리디렉션할 수 있습니다. 
+---
+= 클라이언트를 clustered Data ONTAP 기본 볼륨으로 리디렉션하는 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 운영 볼륨이 다시 온라인 상태가 되면 7-Mode 운영 볼륨을 전환하고, clustered Data ONTAP 2차 볼륨과의 SnapMirror 관계를 설정한 다음, 클라이언트 액세스를 clustered Data ONTAP 운영 볼륨으로 리디렉션할 수 있습니다.
+
+.단계
+. 1차 및 2차 SVM 간에 SVM 피어 관계를 생성합니다.
++
+.. 'cluster peer create' 명령을 사용하여 클러스터 피어 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> cluster peer create -peer-addrs cluster2-d2, 10.98.234.246 -timeout 60
+
+Notice: Choose a passphrase of 8 or more characters. To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase: ********
+Confirm the passphrase: ********
+----
+.. 소스 클러스터에서 'vserver peer create' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 anSVM 피어 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> vserver peer create -vserver src_vserver -peervserver src_c_vserver -applications snapmirror -peer-cluster sec_cluster
+----
+.. 대상 클러스터에서 'vserver peer accept' 명령을 사용하여 SVM 피어 요청을 수락하고 SVM 피어 관계를 설정하십시오.
++
+[listing]
+----
+sec_cluster::> vserver peer accept -vserver dst_vserver -peervserver src_vserver
+----
+
+
+. 'napMirror create' 명령을 사용하여 clustered Data ONTAP 2차 볼륨을 소스로, clustered Data ONTAP 운영 볼륨을 대상으로 SnapMirror 관계를 생성합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror create -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
+. 운영 클러스터에서 'napmirror resync' 명령을 사용하여 clustered Data ONTAP 보조 볼륨을 재동기화합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror resync -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
++
+재동기화가 완료될 때까지 기다려야 합니다. 재동기화가 완료되면 SnapMirror 상태가 '스냅샷 상태'로 변경됩니다.
+
+. Clustered Data ONTAP 운영 볼륨으로 전환할 준비가 되면 clustered Data ONTAP 보조 볼륨에서 클라이언트 액세스를 분리하십시오.
+. 운영 클러스터에서 'napmirror update' 명령을 사용하여 운영 볼륨을 업데이트합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+. 운영 클러스터에서 'napMirror break' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 중단하십시오.
++
+[listing]
+----
+pri_cluster::> snapmirror break -destination-path src_vserver:src_c_vol
+----
+. Clustered Data ONTAP 운영 볼륨에 대한 클라이언트 액세스를 설정합니다.
+. 운영 클러스터에서 'napmirror delete' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 삭제합니다.
++
+[listing]
+----
+pri_cluster::> snapmirror delete -destination-path src_vserver:src_c_vol
+----
+. 2차 클러스터에서 'napMirror create' 명령을 사용하여 clustered Data ONTAP 운영 볼륨과 SnapMirror 관계를 소스로, clustered Data ONTAP 2차 볼륨을 대상으로 생성합니다. 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 이전 일정과 유사한 예약 기능
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol -schedule 15_minute_sched
+----
+. 보조 클러스터에서 'napmirror resync' 명령을 사용하여 clustered Data ONTAP 운영 볼륨을 재동기화합니다.
++
+[listing]
+----
+sec_cluster::> snapmirror resync -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol
+----
+

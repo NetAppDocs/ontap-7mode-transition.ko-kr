@@ -1,0 +1,13 @@
+---
+permalink: copy-based/index.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, index 
+summary: 7-Mode 전환 툴을 사용하여 7-Mode 컨트롤러, 호스트, 애플리케이션을 평가하고 7-Mode 시스템에서 ONTAP로 데이터 및 구성을 복사 기반의 마이그레이션하며, 
+---
+= Copy-Based Transition Guide 를 참조하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 가이드에서는 7-Mode 전환 툴 을 사용하여 7-Mode 컨트롤러, 호스트, 애플리케이션을 평가하고 7-Mode 시스템에서 ONTAP으로 데이터 및 구성을 복사 기반으로 마이그레이션하는 방법을 설명합니다.

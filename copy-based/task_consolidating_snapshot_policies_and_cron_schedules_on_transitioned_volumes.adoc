@@ -1,0 +1,17 @@
+---
+permalink: copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, consolidate, cron, schedules, transitioned, volumes 
+summary: 7-Mode 전환 툴은 전환된 볼륨당 고유한 스케줄을 생성합니다. 따라서 전환 후에 많은 수의 cron 일정을 만들 수 있으므로 전환 후 이를 통합하는 방법을 알아야 합니다. 
+---
+= 전환된 볼륨에서 cron 일정 통합
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 전환 툴은 전환된 볼륨당 고유한 스케줄을 생성합니다. 따라서 전환 후에 많은 수의 cron 일정을 만들 수 있으므로 전환 후 이를 통합하는 방법을 알아야 합니다.
+
+.단계
+. job schedule cron 명령을 사용하여 전환 후 cron 일정을 통합합니다.
+

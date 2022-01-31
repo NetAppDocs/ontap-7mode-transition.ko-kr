@@ -1,0 +1,39 @@
+---
+permalink: copy-based/task_performing_post_transition_tasks.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, perform, manual, post, tasks 
+summary: 스토리지 컷오버를 성공적으로 완료하고 전환을 완료한 후에는 ONTAP 볼륨에 대한 클라이언트 액세스를 활성화하기 전에 전환되지 않은 기능을 구성하기 위한 몇 가지 전환 후 작업을 수행해야 합니다. 
+---
+= 수동 전이 후 작업 수행
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 컷오버를 성공적으로 완료하고 전환을 완료한 후에는 ONTAP 볼륨에 대한 클라이언트 액세스를 활성화하기 전에 전환되지 않은 기능을 구성하기 위한 몇 가지 전환 후 작업을 수행해야 합니다.
+
+.단계
+. Manual(수동): 사전 점검 보고서에 나열된 대로 전이되지 않은 기능을 구성하는 데 필요한 단계를 수행합니다.
++
+예를 들어 전환 후 수동으로 IPv6 및 FPolicy를 구성해야 합니다.
+
+. 전환된 구성을 삭제하거나 통합합니다.
++
+7-Mode 전환 툴은 7-Mode에서 전환된 모든 구성에서 새 인스턴스를 생성합니다. 따라서 cron 일정 같은 일부 구성의 인스턴스가 여러 개 있을 수 있으므로 수동으로 통합하거나 삭제해야 할 수 있습니다.
+
+. SAN 전환: 호스트를 수동으로 재구성합니다.
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
+
+. 다음을 확인하여 SVM이 클라이언트에 데이터를 제공할 준비가 되었는지 확인합니다.
++
+** SVM의 볼륨은 온라인 및 읽기/쓰기입니다.
+** SVM의 IP 주소는 이름 서버에서 연결 및 작동 가능합니다.
+
+
+. 클라이언트 액세스를 ONTAP 볼륨으로 리디렉션합니다.
+
+
+* 관련 정보 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

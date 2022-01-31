@@ -1,0 +1,37 @@
+---
+permalink: copy-based/task_pausing_and_resuming_a_subproject.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, pause, resume, project 
+summary: 데이터 복사가 시작된 프로젝트를 일시 중지하고 다시 시작할 수 있습니다. 
+---
+= 프로젝트를 일시 중지하고 다시 시작합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 복사가 시작된 프로젝트를 일시 중지하고 다시 시작할 수 있습니다.
+
+운영 프로젝트를 일시 중지할 경우 7-Mode 운영 볼륨에서 해당 clustered Data ONTAP 운영 볼륨까지의 복제 작업만 일시 중지됩니다. 7-Mode 운영 볼륨에서 ONTAP 2차 볼륨으로 전송되는 데이터 복사본은 일정에 따라 계속 실행됩니다. 따라서 운영 볼륨에 대한 지속적인 데이터 보호가 보장됩니다.
+
+. 대시보드에서 일시 중지할 프로젝트를 선택합니다.
+. 일시 중지 * 를 클릭합니다.
++
+프로젝트의 모든 볼륨에 대한 데이터 복사 작업이 중지됩니다.
+
++
+볼륨에 대한 기본 전송이 진행 중이고 SnapMirror 관계에 대해 생성된 스냅샷 복사본 체크포인트가 없으면 볼륨에 대한 일시 중지 작업이 무시됩니다. 스냅샷 복사본 체크포인트가 생성될 때까지 기다린 다음 일시 중지 작업을 다시 실행합니다.
+
+. Resume * 을 클릭합니다.
++
+일시 중지된 지점부터 복사 작업이 다시 시작됩니다.
+
++
+
+NOTE: 해당 시점에 사용 가능한 활성 스케줄에 따라 데이터 복사 작업이 재개됩니다.
+
+
+
+* 관련 정보 *
+
+xref:task_starting_baseline_data_copy.adoc[기본 데이터 복사를 시작합니다]

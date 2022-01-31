@@ -1,0 +1,13 @@
+---
+permalink: copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, complete 
+summary: 전환을 완료하려면 전환된 볼륨 및 구성을 수동으로 확인하고, 워크로드를 테스트하고, 운영을 시작한 다음, 무복제 전환 프로젝트를 커밋해야 합니다. 커밋 작업 후에는 롤백이 허용되지 않으므로 모든 워크로드를 확인하고 잠시 동안 운영을 시작하여 롤백이 필요한지 여부를 평가해야 합니다. 
+---
+= 전이를 완료합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 완료하려면 전환된 볼륨 및 구성을 수동으로 확인하고, 워크로드를 테스트하고, 운영을 시작한 다음, 무복제 전환 프로젝트를 커밋해야 합니다. 커밋 작업 후에는 롤백이 허용되지 않으므로 모든 워크로드를 확인하고 잠시 동안 운영을 시작하여 롤백이 필요한지 여부를 평가해야 합니다.

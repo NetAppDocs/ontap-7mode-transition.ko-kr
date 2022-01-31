@@ -1,0 +1,57 @@
+---
+permalink: copy-based/task_transitioning_volumes_by_excluding_a_subset_of_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, customize, cli 
+summary: 기본적으로 7-Mode 구성은 모두 ONTAP로 전환됩니다. 7-Mode 전환 툴 CLI를 사용하여 일부 또는 전체 볼륨, NFS, CIFS, SAN 및 네임 서비스 구성을 전환할 수 있습니다. 또한 7-Mode NFS 엑스포트 규칙과 스냅샷 스케줄을 통합하고, 타겟 SVM에서 기존 NFS 엑스포트 정책과 스냅샷 정책을 재사용할 수 있습니다. 
+---
+= CLI를 사용하여 7-Mode 구성의 전환 사용자 지정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 7-Mode 구성은 모두 ONTAP로 전환됩니다. 7-Mode 전환 툴 CLI를 사용하여 일부 또는 전체 볼륨, NFS, CIFS, SAN 및 네임 서비스 구성을 전환할 수 있습니다. 또한 7-Mode NFS 엑스포트 규칙과 스냅샷 스케줄을 통합하고, 타겟 SVM에서 기존 NFS 엑스포트 정책과 스냅샷 정책을 재사용할 수 있습니다.
+
+구성을 적용하기 전에 이 작업을 수행해야 합니다. 그 후에는 모든 수정 사항이 무시됩니다.
+
+7-Mode 전환 툴에서 제외된 구성에 대해 사전 점검을 수행하지 않습니다.
+
+기본적으로 모든 7-Mode 구성이 전환을 위해 선택됩니다.
+
+모든 구성에서 사전 점검을 실행한 다음, 후속 사전 점검을 실행하는 데 하나 이상의 구성을 제외하는 것이 가장 좋습니다. 그러면 전환을 통해 제외되는 구성과 이후에 건너뛴 사전 점검을 이해하는 데 도움이 됩니다.
+
+.단계
+* 구성 제외 및 확인:
++
+.. 구성 제외: + `* transition CBT property-set-p_project_name_-n_config_property_name_-v TRUE * '
++
+'_config_property_name_'은(는) 제외할 구성입니다.
+
++
+xref:reference_configurations_that_can_be_excluded.adoc[전이를 제외할 수 있는 설정]
+
+.. 구성을 제외하도록 설정된 속성 값을 확인합니다.
++
+'* 전이 CBT 속성 - get-p_project_name_-n_config_property_name_*'
+
+
+
+* 전환을 위한 NFS 엑스포트 규칙 통합:
++
+** 유사한 7-Mode NFS 내보내기 규칙을 clustered Data ONTAP의 단일 내보내기 정책에 통합합니다. 이 정책은 전환된 볼륨 또는 qtree에 적용할 수 있습니다. + " * transition CBT property-set-p_project_name_-n_nfs-Consolidate-similiar-7mode-exports_-v true *
++
+NFS-Consolidate-similiar-7mode-exports 속성이 false로 설정되어 있으면 7-Mode Transition Tool은 7-Mode NFS 내보내기 규칙마다 ONTAP에서 새 NFS 내보내기 정책을 생성합니다.
+
+** 툴에서 생성할 엑스포트 정책과 일치하는 SVM에서 기존 NFS 엑스포트 정책을 다시 사용하십시오. 전환 CBT 속성 세트 -p_project_name_-n_nfs-reuse-matching-svm-export-policies_-v TRUE * "에 적용할 수 있습니다
+
+
+* 전환을 위한 스냅샷 일정 통합:
++
+** 유사한 7-Mode 스냅샷 스케줄을 ONTAP의 단일 스냅샷 정책에 통합하십시오. 이 정책은 + " * transition CBT property-set-p_project_name_-n_Consolidate-similar-7mode-snapshot-policies_-v true *"에 적용할 수 있습니다
++
+'Consolidate-similar-7mode-snapshot-policies' 속성이 false로 설정되어 있으면 7-Mode 전환 툴은 각 스냅샷 일정에 대해 ONTAP에서 새 스냅샷 정책을 생성합니다.
+
+** 툴에서 생성할 스냅샷 정책과 일치하는 SVM에서 기존 스냅샷 정책을 다시 사용합니다. 이 정책은 전환된 볼륨에 적용할 수 있습니다. + " * transition CBT property-set-p_project_name_-n_reuse-matching-svm-snapshot-policies_-v true *"
+
+
+

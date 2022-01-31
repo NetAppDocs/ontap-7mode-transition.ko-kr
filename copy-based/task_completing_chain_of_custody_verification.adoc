@@ -1,0 +1,34 @@
+---
+permalink: copy-based/task_completing_chain_of_custody_verification.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete, chain, custody, verification 
+summary: 거래 사슬 확인을 위해 하나 이상의 SnapLock 볼륨을 선택한 경우, 관리 체인 작업을 수행하여 관리 체인 보고서를 생성해야 합니다. 
+---
+= 관리 연속성 검증 완료
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+거래 사슬 확인을 위해 하나 이상의 SnapLock 볼륨을 선택한 경우, 관리 체인 작업을 수행하여 관리 체인 보고서를 생성해야 합니다.
+
+프로젝트 전이를 완료해야 합니다.
+
+파일 이름이 ASCII 문자만 있는 볼륨에 대해서는 SnapLock 관리 작업 체인이 지원됩니다.
+
+. 마이그레이션 대시보드에서 * 보관 체인 시작 * 을 클릭합니다.
++
+Chain of Custody 검증 후 7-Mode SnapLock 볼륨을 온라인으로 유지하려면 연속 보관 검증 작업이 완료된 후 체인 보호 검증에 대해 선택된 * 7-Mode SnapLock 볼륨을 오프라인으로 전환 * 확인란의 선택을 않아야 합니다.
+
+. 계속 * 을 클릭합니다.
++
+보관 관리 사슬 확인 작업이 시작됩니다. 이 작업은 SnapLock 볼륨의 파일 수에 따라 상당한 시간이 걸릴 수 있습니다. 백그라운드에서 실행을 수행하려면 * 백그라운드에서 실행 * 을 클릭할 수 있습니다.
+
++
+마이그레이션 대시보드 창에서 SnapLock Chain of Custody 탭을 클릭하여 Chain of Custody Verification 작업의 진행 상황을 추적할 수 있습니다. 이 탭은 보관 체인 작업의 볼륨 진행 상황을 표시합니다.
+
+. 관리 연계 작업이 완료된 후, SnapLock 관리 체인 탭에서 * 보고서 다운로드 * 를 클릭하여 거래 사슬 확인 보고서를 다운로드합니다.
++
+관리 사슬 확인 보고서에는 SnapLock 관리 사슬 검증이 성공했는지 여부에 대한 세부 정보가 포함됩니다. 이 보고서에는 Chain of Custody 작업에 대해 선택한 각 7-Mode SnapLock 볼륨에서 총 파일 수와 비 WORM 파일 수가 표시됩니다. 지문이 일치하고 일치하지 않는 파일 수도 확인할 수 있습니다. 또한 이 보고서에는 Chain of Custody verification이 실패한 WORM 파일 수와 실패 이유가 표시됩니다.
+
+

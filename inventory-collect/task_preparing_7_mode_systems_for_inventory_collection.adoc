@@ -1,0 +1,92 @@
+---
+permalink: inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, system, host, inventory, collection 
+summary: 7-Mode 시스템과 호스트가 인벤토리 보고서를 성공적으로 생성하기 위한 특정 네트워크 및 프로토콜 요구사항을 충족하는지 확인해야 합니다. 
+---
+= 인벤토리 수집을 위해 7-Mode 시스템 및 호스트 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode 시스템과 호스트가 인벤토리 보고서를 성공적으로 생성하기 위한 특정 네트워크 및 프로토콜 요구사항을 충족하는지 확인해야 합니다.
+
+.단계
+. 7-Mode 시스템에서 HTTPS 활성화:
++
+' * options httpd.admin.ssl.enable on * '
+
+. 7-Mode 시스템에서 TLS 사용:
++
+' * options tls.enable on * '
+
++
+
+IMPORTANT: 모범 사례는 SSLv3의 보안 취약점 때문에 TLS를 활성화하는 것입니다.
+
+. 7-Mode 시스템에서 SSL을 활성화하고 SSLv2 및 SSLv3을 비활성화합니다.
++
+.. SSL 설정 및 시작:
++
+'* SecureAdmin 설정 SSL*'
+
+.. SSL 활성화:
++
+' * options ssl.enable on * '
+
+.. SSLv2 및 SSLv3:+' * options SSL.v2.enable off *'를 비활성화합니다
++
+' * options ssl.v3.enable off * '
+
++
+
+IMPORTANT: 모범 사례는 보안 취약점을 방지하기 위해 SSLv2 및 SSLv3을 비활성화하는 것입니다.
+
+
+
+. 7-Mode 시스템에서 SSH를 사용하도록 설정합니다.
++
+.. 7-Mode 시스템에서 SSH 설정:
++
+"* SecureAdmin setup -f ssh * "
+
++
+f 옵션은 SSH 서버가 이미 구성되어 있어도 설정을 강제로 실행합니다.
+
+.. SSH 활성화:
++
+'* SecureAdmin enable SSH2 *'
+
+.. SSH 서버에서 암호 인증 활성화:
++
+'* options ssh.passwd_auth.enable * '
+
+.. 호스트에 대한 SSH 액세스를 설정합니다.
++
+' * options ssh.access *'
+
+
+
+. Windows 호스트 시스템 준비:
++
+** WMI 액세스를 활성화합니다.
++
+WMI 액세스 설정에 대한 자세한 내용은 호스트 설명서를 참조하십시오.
+
+** Windows Server 2003을 사용하는 경우 Microsoft fcinfo(Fibre Channel Information Tool) 패키지를 설치했는지 확인하고 Windows 호스트 시스템에서 도구를 한 번 실행합니다.
++
+이 툴을 사용하여 호스트의 HBA 구성 정보를 수집할 수 있습니다.
+
+
+
+. Linux 또는 ESXi 호스트에서 SSH를 활성화합니다.
++
+SSH 설정에 대한 자세한 내용은 호스트 설명서를 참조하십시오.
+
+. 각 호스트에 대한 최신 NetApp Host Utilities 소프트웨어가 설치되어 있는지 확인합니다.
++
+NetApp Host Utilities 소프트웨어의 다운로드 및 설치에 대한 자세한 내용은 NetApp Support 사이트 를 참조하십시오.
+
+. 인벤토리 수집 도구가 실행되는 Windows 시스템에서 모든 호스트와 스토리지 시스템에 연결할 수 있는지 확인합니다.
+

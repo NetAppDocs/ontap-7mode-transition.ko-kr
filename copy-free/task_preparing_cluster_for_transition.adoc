@@ -1,0 +1,96 @@
+---
+permalink: copy-free/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, cluster, prepare 
+summary: 전환하기 전에 클러스터가 7-Mode 전환 툴과 통신하도록 준비하고 SVM이 전환할 수 있도록 준비해야 합니다. 데이터 애그리게이트가 있는 타겟 HA 쌍으로 전환할 수 있습니다. 
+---
+= 클러스터를 전환 준비 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환하기 전에 클러스터가 7-Mode 전환 툴과 통신하도록 준비하고 SVM이 전환할 수 있도록 준비해야 합니다. 데이터 애그리게이트가 있는 타겟 HA 쌍으로 전환할 수 있습니다.
+
+* 클러스터를 이미 설정하고 타겟 클러스터 노드를 클러스터에 연결해야 합니다.
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["소프트웨어 설정"]
+
+* SVM을 생성하고 IPspace에 할당해야 합니다.
+* 7-Mode 디스크 쉘프를 기존 데이터 애그리게이트 및 볼륨이 있는 타겟 HA 쌍으로 전환할 수 있습니다.
++
+2노드 클러스터의 경우 타겟 SVM의 루트 볼륨을 호스팅할 수 있는 데이터 애그리게이트가 있어야 합니다. 4개 이상의 노드가 있는 클러스터의 경우 SVM의 루트 볼륨을 전환의 타겟 노드 또는 클러스터의 다른 노드에서 호스팅할 수 있습니다.
+
+
+
+전환 중에 클러스터를 다른 ONTAP 버전으로 업그레이드해서는 안 됩니다.
+
+
+NOTE: 필요한 경우 클러스터를 동일한 ONTAP 버전의 패치 릴리즈로 업그레이드할 수 있습니다.
+
+. 관리 호스트에서 클러스터 관리 LIF를 사용하여 클러스터에 연결할 수 있는지 확인합니다.
++
+' * ssh_username@cluster_mgmt_ip_ *'
+
+. 클러스터에서 SSLv3 또는 FIPS 사용:
++
+|===
+| 을(를) 활성화하려면... | 입력... 
+
+
+ a| 
+SSLv3
+ a| 
+'* 시스템 서비스 웹 수정 - SSLv3 사용 가능 참 * '
+
+
+
+ a| 
+FIPS 140-2 규정 준수
+ a| 
+'* 시스템 서비스 웹 수정 - SSL-FIPS 지원 true*'
+
+|===
++
+FIPS 140-2 규정 준수를 활성화하면 SSLv3이 비활성화됩니다. ONTAP은 FIPS 140-2 규정 준수를 활성화한 경우 SSLv3을 활성화하지 못하도록 합니다. FIPS 140-2를 사용하도록 설정한 후 이를 사용하지 않도록 설정하는 경우 SSLv3은 비활성화 상태로 유지됩니다.
+
++
+
+IMPORTANT: 모범 사례는 SSLv3의 보안 취약점 때문에 FIPS를 사용하는 것입니다.
+
+. 클러스터 관리 LIF에서 HTTPS가 허용되는지 확인합니다.
++
+.. 클러스터 관리 LIF에 대한 방화벽 정책을 봅니다. + ` * network interface show -vserver_svm_name_-lif_cluster_mgmt_lif_-fields firewall firewall firewall -policy * '
++
+[listing]
+----
+cluster1::> network interface show -vserver cluster1 -lif cluster_mgmt -fields firewall-policy
+vserver lif          firewall-policy
+------- ------------ ---------------
+cluster1  cluster_mgmt mgmt
+----
+.. 클러스터 관리 LIF와 연결된 방화벽 정책에서 HTTPS 액세스를 허용하는지 확인합니다. + " * 시스템 서비스 방화벽 정책 show-policy mgmt * "
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy mgmt
+Policy           Service    Action IP-List
+---------------- ---------- ------ --------------------
+mgmt
+                 dns        allow  0.0.0.0/0, ::/0
+                 http       allow  0.0.0.0/0, ::/0
+                 https      allow  0.0.0.0/0, ::/0
+                 ndmp       allow  0.0.0.0/0, ::/0
+                 ntp        allow  0.0.0.0/0, ::/0
+                 rsh        deny   0.0.0.0/0, ::/0
+                 snmp       allow  0.0.0.0/0, ::/0
+                 ssh        allow  0.0.0.0/0, ::/0
+                 telnet     deny   0.0.0.0/0, ::/0
+9 entries were displayed.
+----
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
+
+

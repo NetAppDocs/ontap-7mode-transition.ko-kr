@@ -1,0 +1,48 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes 
+summary: 전환 후 ESXi CLI를 사용하여 볼륨을 다시 마운트하고 데이터 저장소와 VM을 이전 상태로 전환할 수 있습니다. 
+---
+= ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 후 ESXi CLI를 사용하여 볼륨을 다시 마운트하고 데이터 저장소와 VM을 이전 상태로 전환할 수 있습니다.
+
+원래 7-Mode LUN은 매핑 해제되거나 오프라인이어야 합니다.
+
+다음 단계는 볼륨 및 스팬 볼륨에 적용됩니다.
+
+.단계
+. SSH를 사용하여 ESXi 콘솔에 로그인합니다.
+. 기존 VMFS 서명 및 VMFS 레이블이 있는 새로 추가된 LUN을 나열합니다.
++
+'*#esxcfg-volume-l *'
+
++
+다음은 VMFS 서명 및 VMFS 레이블과 함께 나열된 LUN의 예입니다.
+
++
+[listing]
+----
+# esxcfg-volume -l
+VMFS UUID/label: 53578567-5b5c363e-21bb-001ec9d631cb/datastore1
+Can mount: Yes
+Can resignature: Yes
+Extent name: naa.600a098054314c6c445d446f79716475:1 range: 0 - 409599
+(MB)
+----
+. 동일한 서명을 사용하여 VMFS 볼륨을 영구적으로 다시 마운트합니다.
++
+** 일반 볼륨의 경우: + `* esxcfg-volume-M|--persistent-mount_vmfs UUID|label_ * '
+** 스팬된 볼륨의 경우: + "*#esxcfg-volume-M VMFS-span-DS *"
+
+
+
+
+* 관련 정보 *
+
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1011387["VMware KB: 스냅샷 LUN으로 감지된 LUN의 vSphere 처리"]

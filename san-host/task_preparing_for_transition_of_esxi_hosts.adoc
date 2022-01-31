@@ -1,0 +1,51 @@
+---
+permalink: san-host/task_preparing_for_transition_of_esxi_hosts.html 
+sidebar: sidebar 
+keywords: transition, esxi, host, initiator, hba driver, collect assess feature 
+summary: Data ONTAP에서 ESXi 호스트를 전환하기 전에 완료해야 하는 작업입니다 
+---
+= ESXi 호스트 전환 준비 중
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴)를 사용하여 ESXi 호스트를 7-Mode에서 운영되는 Data ONTAP에서 ONTAP으로 전환하기 전에 몇 가지 필수 과제를 완료해야 합니다.
+
+.단계
+. 에 설명된 대로 clustered Data ONTAP을 구성합니다 link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["7-Mode 전환 툴 복사 기반 전환 가이드"] 또는 을 누릅니다  수행하는 전환 유형에 따라 다릅니다.
+. 전환 중인 ESXi 호스트에 대해 다음 정보를 수집합니다.
++
+** IP 주소입니다
+** 호스트 이름입니다
+** 인증 세부 정보
+
+
+. FC 또는 FCoE 호스트와 새로운 clustered Data ONTAP 노드 간에 조닝을 완료합니다.
++
+수집 및 평가 기능을 사용하여 조닝 계획을 생성할 수 있습니다.
+
+. 를 사용합니다 link:https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"] Clustered Data ONTAP으로 전환하기 위해 다음 사항이 지원되는지 확인하십시오.
++
+** 7-Mode로 운영되는 Data ONTAP 버전입니다
++
+경우에 따라 7-Mode에서 작동하는 Data ONTAP 버전을 7MTT SAN 호환 버전으로 업그레이드해야 할 수 있습니다. 예를 들어, 7-Mode에서 운영되는 Data ONTAP 7.3.7은 7MTT를 사용하는 전환과 호환되지 않습니다. 이 버전을 실행 중인 경우 전환을 시작하기 전에 업그레이드해야 합니다.
+
+** ESXi 호스트 구성
+** HBA 드라이버 및 펌웨어
++
+iSCSI의 경우 소프트웨어 이니시에이터만 지원됩니다. FC 및 FCoE의 경우 QLogic 및 Emulex 이니시에이터만 지원됩니다. ESXi FC 또는 FCoE 이니시에이터가 지원되지 않는 경우 상호 운용성 매트릭스 에 설명된 대로 clustered Data ONTAP이 지원하는 버전으로 업그레이드해야 합니다.
+
+
+
+. 구성된 경우 VMware HA(High Availability) 및 DRS(Distributed Resource Scheduler)를 해제합니다.
++
+전환 중에는 VMware HA 및 DRS가 지원되지 않습니다.
+
+
+
+* 관련 정보 *
+
+http://kb.vmware.com/kb/2032893["vSphere Web Client에서 VMware DRS 클러스터를 해제할 때 리소스 풀 유지"]
+
+http://kb.vmware.com/kb/1008025["VMware HA(High Availability) 비활성화"]

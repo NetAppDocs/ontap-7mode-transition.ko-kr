@@ -1,0 +1,95 @@
+---
+permalink: copy-free/task_running_manual_steps_for_rolling_back_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, manual, roll, back 
+summary: 전환을 롤백하려는 경우 클러스터 및 7-Mode 시스템에서 몇 가지 수동 단계를 수행해야 합니다. 수동 롤백 단계 목록은 7-Mode 전환 툴을 통해 생성됩니다. 
+---
+= 수동으로 전환을 롤백합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환을 롤백하려는 경우 클러스터 및 7-Mode 시스템에서 몇 가지 수동 단계를 수행해야 합니다. 수동 롤백 단계 목록은 7-Mode 전환 툴을 통해 생성됩니다.
+
+롤백 단계는 롤백할 단계에 따라 달라집니다. 가져오기 작업이 성공적으로 완료된 후 롤백하려면 이 작업의 모든 단계를 수행해야 합니다. 이전 단계에서 롤백하려면 이 단계의 하위 집합을 수행해야 합니다.
+
+.단계
+. 클러스터에 로그인합니다.
+. 전환된 볼륨이 SnapMirror 관계에 있는 경우 다음 작업 중 하나를 선택합니다.
++
+** 전환된 볼륨이 SnapMirror 관계의 대상인 경우 + " * SnapMirror delete-destination-path_destination-path_-source-path_source-path_ * "를 삭제합니다
+** 전환된 볼륨이 SnapMirror 관계의 소스인 경우 SnapMirror 관계 ``SnapMirror 릴리스-대상-경로 대상-경로 소스-경로 소스-경로 소스-경로*'를 해제합니다
+
+
+. 클러스터에서 전환된 볼륨에서 다음 작업이 실행되고 있지 않은지 확인합니다.
++
+.. 볼륨 이동 작업: + `* 볼륨 이동 표시 * '
+.. LUN 이동 작업: + ` * lun move show * '
+.. LUN 복사 작업: + `* LUN copy show * '
+
+
+. 모든 7-Mode 애그리게이트에서 롤백 수행:
++
+.. 진단 권한 수준(+' * set-Privilege diagnostic * ')에 로그인합니다
+.. 'Storage transition revert start' 명령을 사용하여 애그리게이트를 7-Mode 상태로 되돌립니다.
++
+이 명령을 실행하려면 전환 프로젝트 ID 및 애그리게이트 속성과 같은 추가 매개 변수가 필요합니다. 7-Mode Transition Tool에서 생성된 매개 변수와 값에 전체 명령을 사용해야 합니다.
+
+.. 전환된 모든 Aggregate에 대해 롤백이 성공적인지 확인하십시오. + " * storage transition revert show-status * "
++
+롤백이 성공하면 집계에 대한 상태 코드 필드가 revert_complete로 표시됩니다.
+
+
+
+. 타겟 클러스터 노드에서 7-Mode 컨트롤러로 디스크 소유권을 재할당합니다.
++
+.. 7-Mode 컨트롤러에 디스크 소유권을 할당합니다. + ``디스크 할당 – disk_disk_id_ –s_system_id_ -force true*'
+.. 디스크 소유권이 7-Mode 컨트롤러에 할당되어 있는지 확인합니다.
++
+'* 스토리지 디스크 표시 - 필드 소유자 ID*'
+
+
+
+. SVM에서 7-Mode LIF 제거:
++
+'* 네트워크 인터페이스 삭제 - vserver_svm_name_-lif_lif_name_*'
+
+. 진단 권한 수준에서 타겟 클러스터 노드의 무복제 전환 제한을 제거합니다.
++
+' * storage transition pre-commit end-session-id_transition_project_id_ *'
+
++
+롤백 작업이 완료되고 7-Mode 컨트롤러가 작동 중인 후에 이 단계를 수행할 수도 있습니다.
+
+. 다음 진단 권한 수준 명령을 사용하여 타겟 클러스터 노드에 대한 전환 프로젝트 정보를 삭제합니다.
++
+' * storage transition purge-info-session-id_transition_project_id_ *'
+
++
+롤백 작업이 완료되고 7-Mode 컨트롤러가 작동 중인 후에 이 단계를 수행할 수도 있습니다.
+
+. 내보내기 및 중지 작업 중에 클러스터 노드에서 디스크 소유권 자동 승격을 해제한 경우 다음을 설정합니다.
++
+'* 스토리지 디스크 할당 - 자동 참 * '
+
+. 툴에서 타겟 SVM으로 전환된 모든 구성을 수동으로 제거합니다.
++
+툴에서 전환된 구성에 대한 정보를 보려면 SVM 프로비저닝 및 임포트 작업의 결과를 확인하십시오.
+
+. 타겟 클러스터 노드에서 디스크 쉘프를 제거한 다음 7-Mode 컨트롤러에 다시 연결합니다.
++
+
+TIP: Config Advisor 도구를 사용하여 케이블 연결을 확인해야 합니다.
+
+. 타겟 클러스터 노드의 디스크 쉘프 ID와 충돌을 해결하기 위해 7-Mode 디스크 쉘프 ID가 변경된 경우 해당 ID를 기존 ID로 수동으로 변경하고 새 ID가 적용될 디스크 쉘프의 전원을 껐다가 켭니다.
+. 소스 7-Mode 컨트롤러를 일반 모드로 부팅합니다.
+. 소스 7-Mode 컨트롤러 중 하나에서 테이크오버 기능을 설정합니다.
++
+' * CF ENABLE * '(CF 활성화 *)
+
+. 엑스포트 및 중지 작업 중에 애그리게이트 스냅샷 복사본의 자동 삭제를 사용하지 않도록 설정한 경우 다음을 사용하도록 설정합니다.
++
+' * options snap Autodelete_aggr_name_on * '
+
+

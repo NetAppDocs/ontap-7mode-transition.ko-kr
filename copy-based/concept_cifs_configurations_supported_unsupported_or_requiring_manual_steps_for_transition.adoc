@@ -1,0 +1,103 @@
+---
+permalink: copy-based/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, supported, unsupported, cifs, configurations 
+summary: 일부 CIFS 구성은 ONTAP에서 지원되지 않거나 수동으로 전환해야 하기 때문에 ONTAP로 전환되지 않습니다. 이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다. 
+---
+= ONTAP로의 전환을 위해 지원 및 지원되지 않는 CIFS 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일부 CIFS 구성은 ONTAP에서 지원되지 않거나 수동으로 전환해야 하기 때문에 ONTAP로 전환되지 않습니다. 이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다.
+
+
+
+== 전환이 지원되는 구성입니다
+
+7-Mode 전환 툴은 상위 레벨에서 다음 CIFS 구성을 전환합니다.
+
+* CIFS 기본 DC 구성입니다
+* 사용자 매핑 구성:
++
+** '/etc/usermap.cfg'
+** '_WAFL.NT_admin_priv_map_to_root_'
+
+
+* CIFS 로컬 사용자 및 그룹
+* symlink 및 widelink 구성("/etc/symlink.translations")
+* CIFS 감사 구성
+* CIFS 공유
+* CIFS 공유 ACL
+* CIFS 홈 디렉토리 구성
+* CIFS 옵션:
++
+** cifs.gpGPO.enable입니다
+** 'cifs.sB2.enable'
+** "cifs.smb2입니다. signing.required"
+** cifs.sWINS_servers를 선택합니다
+** "cifs.grant_implicit_exe_perms`
+** cifs.restrict_anonymous를 선택합니다
+
+
+* 도메인 컨트롤러와 같은 외부 서버에 대한 SMB2 연결입니다. 다음 명령을 실행하면 이 지원이 구현됩니다.
++
+** '* CIFS 보안 수정 - SVM SVM1-SMB2-enabled-for-DC-connections *'
+
+
+* FPolicy 기본 파일 차단 구성
+
+
+이러한 CIFS 구성에 대한 자세한 내용은 사전 확인 결과를 참조하십시오.
+
+
+
+== ONTAP에서 지원되지 않는 구성입니다
+
+ONTAP에서는 다음 7-Mode 구성이 지원되지 않습니다. 따라서 이러한 구성은 전이될 수 없습니다.
+
+* NT4 및 암호 인증 유형
+* SMB1 및 SMB2 서명에 대한 별도의 옵션이 있습니다
+* 클라이언트별로 CIFS 통계
+* 
++
+** Windows NT 이전의 클라이언트에 대한 인증입니다
+
+
+* 로컬 사용자 및 그룹에 대한 계정 관리 이벤트 감사
+* IP 주소, 호스트 이름, 네트워크 이름 또는 서브넷이 점선으로 지정된 네트워크 이름을 가진 UserMap 항목
+* 시스템 계정에 대한 액세스 제한이 있는 CIFS 공유
++
+시스템 계정은 전환 후 모든 공유에 액세스할 수 있습니다.
+
+
+
+
+
+== 수동으로 전환해야 하는 구성
+
+일부 CIFS 구성은 ONTAP에서 지원되며 7-Mode 전환 툴을 통해 전환할 수 없습니다.
+
+다음 CIFS 구성은 사전 검사에 경고 메시지를 생성합니다. SVM에 이러한 구성을 수동으로 적용해야 합니다.
+
+* 바이러스 백신 설정
+* FPolicy 구성
++
+7-Mode FPolicy 및 바이러스 백신 서버는 ONTAP에서 작동하지 않습니다. 이러한 서버를 업그레이드하려면 서버 공급업체에 문의해야 합니다. 그러나 전환을 커밋할 때까지 7-Mode FPolicy 및 바이러스 백신 서버를 해제해야 합니다. 이러한 전환은 전환을 롤백할 경우에 필요합니다.
+
+* BranchCache 구성
+* 문자 매핑 구성(charmap)
+* 지정된 UNIX 그룹을 소유 그룹으로 사용하여 파일을 생성하는 CIFS 공유의 Forcegroup 속성입니다
+* maxusers attribute of CIFS share에서 7-Mode CIFS 공유에 허용되는 최대 동시 연결 수를 지정할 수 있습니다
+* 스토리지 레벨 액세스 가드(슬래그) 구성
+* UNIX 스타일 사용 권한이 있는 공유 수준 ACL
+* UNIX 사용자 및 그룹에 대한 ACL을 공유합니다
+* LAN Manager 인증 레벨
+* NetBIOS 별칭
+* CIFS 검색 도메인입니다
+* 일부 CIFS 옵션
++
+이러한 옵션에 대한 자세한 내용은 사전 점검 결과를 참조하십시오.
+
+

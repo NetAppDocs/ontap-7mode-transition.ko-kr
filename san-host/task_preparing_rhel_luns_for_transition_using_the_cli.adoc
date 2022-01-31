@@ -1,0 +1,90 @@
+---
+permalink: san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, phel, lun, mount, points, dmmp, alias, names, cli 
+summary: DMMP 디바이스 이름을 사용하여 마운트 지점을 전환하기 전에 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿔야 합니다. 
+---
+= CLI를 사용하여 전환하기 위해 DMMP 별칭 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DMMP 디바이스 이름을 사용하여 마운트 지점을 전환하기 전에 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿔야 합니다.
+
+이 절차는 복사 기반 전환 및 무복사 전환에 적용됩니다.
+
+.단계
+. 전환할 LUN의 SCSI 디바이스 ID를 식별하고 기록합니다.
++
+``sanlun lun show *’
+
++
+SCSI 디바이스 ID는 출력에서 파일 이름 열에 나열됩니다.
+
+. 전환할 LUN의 DMMP 디바이스 이름을 식별하고 기록합니다.
++
+'* multipath-ll_scsi_device_ID_*'
+
++
+다음 예에서 '360a9800037534562572b453855496b41'은 DMMP 디바이스 이름입니다.
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# multipath -ll /dev/sdc
+dmmp_fs_lun (360a9800037534562572b453855496b41) dm-3 NETAPP, LUN
+[size=1.0G] [features=3 queue_if_no_path pg_init_retries 50] [hwhandler=0][rw]
+\_ round-robin 0 [prio=2][active]
+	\_ 9:0:0:1 sdc 8:32  [active][ready]
+	\_ 9:0:0:1 sdg 8:96  [active][ready]
+----
+. DMMP 장치에 구성된 파일 시스템을 확인합니다.
++
+' * blkid | grep-i_DMMP_device_name_ *'
+
++
+출력의 유형 값은 파일 시스템을 식별합니다.
+
++
+다음 예에서는 파일 시스템이 "ext3"입니다.
+
++
+[listing]
+----
+[root@ibmx3550-229-108 ~]#blkid | grep -i 3600a09804d532d79565d47617679658
+/dev/mapper/3600a09804d532d79565d47617679658:
+UUID="450b999a-4f51-4828-8139-29b20d2f8708" TYPE="ext3" SEC_TYPE="ext2"
+----
+. LUN의 UUID 번호를 식별합니다.
++
+'* dump2fs_device_path_name_|grep UUID*'
+
+. DMMP 장치가 마운트된 디렉토리를 확인합니다.
++
+"* df-h*"
+
++
+다음 예제에서 '/mnt/dmmp_ext3'은 DMMP 디바이스가 마운트된 디렉토리를 나타냅니다.
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# df -h
+Filesystem Size Used Avail Use% Mounted on
+/dev/mapper/dmmp_fs_lun
+1008M 34M 924M 4% /mnt/dmnp_ext3
+----
+. '/etc/fstab' 파일에서 DMMP 디바이스의 마운트 지점이 정의되어 있는지 확인합니다.
++
+' * cat /etc/fstab * '
+
++
+DMMP 디바이스 이름과 마운트 디렉토리가 출력에 표시되어야 합니다.
+
+. '/etc/fstab' 파일의 백업을 생성합니다.
++
+' * cp/etc/fstab/etc/_fstab_pre_transition_bkup_ *'
+
+. '/etc/fstab' 파일을 편집하여 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿉니다.
+

@@ -1,0 +1,37 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_unix_users_and_groups.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, netgroups, unix, user, groups 
+summary: 넷그룹 구성은 7-Mode /etc/netgroup 파일의 크기가 5MB 미만인 경우에만 전환됩니다. SVM의 총 UNIX 사용자 및 그룹 수가 ONTAP의 사용자 및 그룹 한도를 초과하지 않는 경우에만 UNIX 사용자 및 그룹이 전환됩니다. 
+---
+= Netgroup 및 UNIX 사용자 및 그룹 전환에 대한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+넷그룹 구성은 7-Mode '/etc/netgroup' 파일의 크기가 5MB 미만인 경우에만 전환됩니다. SVM의 총 UNIX 사용자 및 그룹 수가 ONTAP의 사용자 및 그룹 한도를 초과하지 않는 경우에만 UNIX 사용자 및 그룹이 전환됩니다.
+
+
+
+== 넷그룹에 대한 고려 사항
+
+7-Mode의 '/etc/netgroup' 파일이 5MB를 초과할 경우 넷그룹 구성이 전환되지 않습니다. 전환을 계속하려면 다음 작업 중 하나를 수행해야 합니다.
+
+* 넷그룹의 전이를 제외합니다.
+* 전환하기 전에 넷그룹 구성을 NIS 또는 LDAP 서버로 이동합니다.
+
+
+
+
+== UNIX 사용자 및 그룹에 대한 고려 사항
+
+전환 중인 UNIX 사용자 및 그룹의 총 수가 ONTAP의 UNIX 사용자 및 그룹 제한을 초과하면 7-Mode 전환 도구가 전환을 차단합니다. 전환을 계속하려면 다음 작업 중 하나를 수행해야 합니다.
+
+* UNIX 사용자 및 그룹의 전환은 제외합니다.
+* 전환하기 전에 UNIX 사용자 및 그룹을 NIS 또는 LDAP 서버로 이동합니다.
+
+
+* 관련 정보 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]

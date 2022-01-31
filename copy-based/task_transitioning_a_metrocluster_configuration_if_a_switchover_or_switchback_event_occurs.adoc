@@ -1,0 +1,22 @@
+---
+permalink: copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, metrocluster, configuration, failed, switchover, switchback 
+summary: 전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 MetroCluster 스위치오버 중 또는 MetroCluster 스위치백 후 오류가 발생합니다. 그런 다음, 전환을 다시 시작하려면 SnapMirror 관계를 수동으로 다시 설정해야 합니다. 
+---
+= 스위치오버 또는 스위치백 으로 인해 실패한 MetroCluster 구성 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 MetroCluster 스위치오버 중 또는 MetroCluster 스위치백 후 오류가 발생합니다. 그런 다음, 전환을 다시 시작하려면 SnapMirror 관계를 수동으로 다시 설정해야 합니다.
+
+.단계
+. 스위치백을 완료할 때까지 기다립니다.
+. 클러스터 CLI에서 'snapmirror create' 명령을 사용하여 7-Mode 볼륨과 전환의 일부인 clustered Data ONTAP 볼륨 간의 SnapMirror 관계를 재설정합니다.
+. 7-Mode 전환 도구에서 전환 작업을 다시 실행합니다.
++
+데이터 복사 작업은 다음 스케줄이 활성화될 때 시작됩니다.
+
+

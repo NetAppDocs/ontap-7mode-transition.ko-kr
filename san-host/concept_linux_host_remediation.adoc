@@ -1,0 +1,27 @@
+---
+permalink: san-host/concept_linux_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, host, remediation 
+summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode로 운영되는 Data ONTAP을 clustered Data ONTAP으로 이동하는 경우, 전환 전후 LUN 유형에 따라 Red Hat Enterprise Linux\(RHEL\) 호스트에서 일련의 단계를 수행하여 전환 문제가 발생하지 않도록 해야 합니다.' 
+---
+= RHEL 호스트 문제 해결
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7MTT(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode의 Data ONTAP를 clustered Data ONTAP으로 이동하는 경우, 전환 전에 그리고 전환 후에 LUN 유형을 기반으로 Red Hat Enterprise Linux(RHEL) 호스트에서 일련의 단계를 수행하여 전환 문제가 발생하지 않도록 해야 합니다.
+
+7MTT 전환은 RHEL 5 및 RHEL 6만 지원합니다.
+
+* 관련 정보 *
+
+xref:concept_transitioning_rhel_dmmp_devices_without_file_systems.adoc[파일 시스템 없이 RHEL DMMP 장치 전환]
+
+xref:concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.adoc[DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN 전환]
+
+xref:concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.adoc[DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN 전환]
+
+xref:concept_transitioning_linux_host_file_systems_on_lvm_devices.adoc[LVM 디바이스에서 Linux 호스트 파일 시스템을 전환하는 중입니다]
+
+xref:concept_transition_of_san_boot_luns.adoc[SAN 부팅 LUN의 전환]
