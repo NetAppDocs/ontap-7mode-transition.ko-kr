@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, solaris, host, sun, volu
 summary: Sun Volume Manager를 사용하여 Solaris 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우, 컷오버 단계로 들어가기 전에 특정 단계를 수행해야 합니다. 
 ---
 = Solaris 호스트 Sun Volume Manager 데이터 LUN 전환 시 전환 단계 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, ha, pair
 summary: 전환을 시작하기 전에 7-Mode 시스템이 타겟 클러스터와 통신하도록 설정하고 HTTPS 및 TLS를 사용하도록 설정하는 등 7-Mode 시스템에서 특정 작업을 완료해야 합니다. 
 ---
 = 전환을 위해 7-Mode HA 쌍 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

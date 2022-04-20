@@ -5,6 +5,7 @@ keywords: rhel, lun, mount, points, dmmp, device, names, inventory, assessment, 
 summary: 'DMMP 디바이스 이름을 사용하여 LUN을 마운트 지점으로 전환하기 전에 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿔야 합니다. 이는 Red Hat Enterprise Linux\(RHEL\) 5 및 RHEL 6에 적용됩니다.' 
 ---
 = Inventory Assessment 워크북을 사용하여 DMMP 디바이스 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

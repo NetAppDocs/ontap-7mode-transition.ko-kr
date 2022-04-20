@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, phases
 summary: 7-Mode 전환 툴을 이용한 복사 없는 전환은 계획, SVM 프로비저닝, 엑스포트 및 중지, 케이블 연결, 임포트, 사전 생산 테스트, 생산 시작 및 커밋. 전환을 효과적으로 관리하는 단계를 이해해야 합니다. 
 ---
 = 복사 없는 전환 단계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

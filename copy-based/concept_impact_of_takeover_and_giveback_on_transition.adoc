@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, impact, takeover, giveback
 summary: 전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 컨트롤러 테이크오버 또는 반환 중에 실패합니다. 
 ---
 = Takeover와 Giveback이 전환에 미치는 영향
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

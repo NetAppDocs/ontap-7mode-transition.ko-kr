@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, login, transition, tool
 summary: '도구가 설치된 Windows 시스템의 자격 증명을 사용하여 7-Mode 전환 툴\(웹 인터페이스\)에 로그인할 수 있습니다. 로그인 절차는 사용 중인 사용자 자격 증명 유형에 따라 다릅니다.' 
 ---
 = 7-Mode 전환 툴에 로그인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, nfs, transition, supported, unsupported
 summary: 일부 NFS 구성은 ONTAP에서 지원되지 않으므로 ONTAP로 전환되지 않거나, 7-Mode와 기능의 차이가 있거나, 수동으로 전환해야 하는 경우가 있습니다. 이러한 구성이 전환에 미치는 영향을 평가하기 위해 모든 사전 점검 오류 및 경고 메시지를 확인해야 합니다. 
 ---
 = NFS 전환: 지원되는 구성과 지원되지 않는 구성, 필요한 수동 단계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

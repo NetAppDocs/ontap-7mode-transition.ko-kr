@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, trademark
 summary: 7-Mode Transition Tool 설치 및 설정 가이드의 상표 정보 
 ---
 = 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

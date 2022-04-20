@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked
 summary: '7-Mode Transition Tool 설치 관리자 또는 제거 프로그램을 사용하여 작업을 수행하는 경우\(설치, 복구, 재설치, 업그레이드, 제거\ 등) 다음 오류 메시지가 표시됩니다.NetApp 7-Mode Transition Tool 설치 또는 제거 의 다른 인스턴스가 실행 중입니다. 한 번에 하나의 인스턴스만 실행할 수 있습니다.' 
 ---
 = 7-Mode Transition Tool의 설치 또는 제거가 차단됩니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

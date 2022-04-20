@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, select, secondary, volume, pan, select
 summary: 볼륨 선택 창에서 2차 볼륨을 선택하고 볼륨이 온라인 상태가 아니거나 SnapMirror 관계가 깨진 경우 볼륨 SnapMirror 관계로 전환할 수 없습니다. 
 ---
 = 볼륨 선택 창에서 보조 볼륨을 선택할 수 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

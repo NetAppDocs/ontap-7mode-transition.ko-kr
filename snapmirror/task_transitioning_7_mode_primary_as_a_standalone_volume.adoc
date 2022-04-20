@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, primary, stand, alone, volume
 summary: 재해 발생 후 7-Mode 운영 볼륨을 다시 온라인 상태로 전환한 후에는 7-Mode 운영 볼륨을 전환해야 합니다. 이 단계에서는 7-Mode 운영 볼륨과 SnapMirror 관계가 모두 끊어지고 삭제되므로 이 전환 유형에서는 독립 실행형 볼륨을 전환할 수 있습니다. 
 ---
 = 7-Mode 운영 볼륨을 독립 실행형 볼륨으로 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -140,7 +141,7 @@ cluster1::> snapmirror show -destination-path vs1:dst_vol
                    Total Transfer Bytes: 278528
          Total Transfer Time in Seconds: 11
 ----
-... 로 이동합니다 link:task_transitioning_a_stand_alone_volume.md#STEP_33254BEE7D2648F0A9C08FF48CF8E0F3["3"].
+... 로 이동합니다 link:task_transitioning_a_stand_alone_volume.html["3단계"].
 
 
 

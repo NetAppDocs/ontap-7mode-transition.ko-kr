@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, index
 summary: 7-Mode 전환 툴을 사용하여 데이터 및 구성을 ONTAP로 전환할 때 VMware ESXi, Red Hat Linux 및 Windows 호스트에 대한 전환 전 및 전환 후 절차를 설명합니다. 
 ---
 = SAN 호스트 전환 및 문제 해결 가이드
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

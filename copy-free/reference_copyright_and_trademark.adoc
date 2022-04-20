@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, copyright, trademark
 summary: Copy-Free Transition Guide의 저작권 및 상표. 
 ---
 = 저작권 및 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

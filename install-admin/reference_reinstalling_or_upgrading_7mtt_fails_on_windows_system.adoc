@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, w
 summary: 이 섹션에서는 Windows 시스템에서 7-Mode 전환 툴을 다시 설치하거나 업그레이드할 때 발생하는 오류에 대한 정보를 제공합니다. 또한 오류의 이유와 오류 해결 단계를 제공합니다. 
 ---
 = Windows 시스템에서 7-Mode 전환 도구를 재설치하거나 업그레이드하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

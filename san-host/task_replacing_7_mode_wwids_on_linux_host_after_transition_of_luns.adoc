@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, 7, mode, wwids, linux, lun
 summary: LUN 전환 후 7-Mode LUN WWID가 변경됩니다. 데이터 서비스를 시작하려면 해당 ONTAP LUN WWID로 교체해야 합니다. 
 ---
 = LUN 전환 후 Linux 호스트에서 7-Mode LUN WWID 교체
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

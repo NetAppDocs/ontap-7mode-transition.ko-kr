@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes
 summary: 전환 후 ESXi CLI를 사용하여 볼륨을 다시 마운트하고 데이터 저장소와 VM을 이전 상태로 전환할 수 있습니다. 
 ---
 = ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

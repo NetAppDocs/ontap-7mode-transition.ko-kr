@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, esxi, host, remediation
 summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode의 Data ONTAP를 clustered Data ONTAP으로 이동하는 경우 Data ONTAP 전환 전에 VMware ESXi 호스트에서 일련의 단계를 수행해야 합니다. 컷오버를 시작하기 전에 호스트의 전원을 끄고, 전환 후 데이터 서비스를 시작하기 전에 일련의 단계를 다시 수행해야 합니다.' 
 ---
 = VMware ESXi 호스트 수정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

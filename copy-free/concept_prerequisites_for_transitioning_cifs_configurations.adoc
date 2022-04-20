@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cifs, configurations, prerequisites
 summary: CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항이 충족되는 경우에만 7-Mode 전환 툴을 통해 전환됩니다. 조건 중 하나라도 충족되지 않으면 도구가 설정을 이전하지 않습니다. 
 ---
 = CIFS 구성을 전환하기 위한 사전 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

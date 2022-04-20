@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, solaris, host, lun, volume, manag
 summary: Solaris 볼륨 관리자가 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 ONTAP에서 clustered ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다. 
 ---
 = 전환 후 Solaris 볼륨 관리자로 Solaris 호스트 LUN 마운트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

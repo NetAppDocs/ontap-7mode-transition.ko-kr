@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configure, zone, fc, zone, plan
 summary: SAN FC 환경을 전환하기 전에 FC 존 플래너를 사용하여 이니시에이터 호스트와 타겟을 그룹화하여 존을 구성해야 합니다. 
 ---
 = FC 존 계획을 사용하여 존 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, commands, map, commands
 summary: options 명령을 제외하고 제공된 표를 사용하여 7-Mode 명령에 해당하는 ONTAP 명령을 찾을 수 있습니다. 
 ---
 = 7-Mode 명령이 ONTAP 명령에 매핑되는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

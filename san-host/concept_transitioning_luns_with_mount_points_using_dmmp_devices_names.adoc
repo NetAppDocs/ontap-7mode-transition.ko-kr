@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, mount, points, dmmp, device, name
 summary: 'DMMP 디바이스 이름을 사용하여 LUN을 마운트 지점으로 전환하기 전에 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 교체해야 합니다. 컷오버 단계를 준비하기 위해 특정 단계를 수행해야 하며 전환 후 호스트에서 DMMP 디바이스를 다시 마운트해야 합니다. Red Hat Enterprise Linux\(RHEL\) 5 및 RHEL 6에 대해서도 동일한 절차를 수행합니다.' 
 ---
 = DMMP 디바이스 이름을 사용하여 마운트 지점으로 LUN 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

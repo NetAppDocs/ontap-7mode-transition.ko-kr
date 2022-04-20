@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, configuration, files, clustered, data
 summary: 7-Mode로 운영되는 Data ONTAP에서는 일반적으로 플랫 파일을 사용하여 스토리지 시스템을 구성합니다. Clustered Data ONTAP에서는 구성 명령을 사용합니다. 7-Mode 구성 파일이 clustered Data ONTAP 구성 명령에 매핑되는 방법을 알고 있어야 합니다. 
 ---
 = 7-Mode 구성 파일이 clustered Data ONTAP 명령에 매핑되는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

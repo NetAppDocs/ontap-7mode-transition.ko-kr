@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, tool, fail, incompatible, os, error
 summary: 7-Mode Transition Tool 설치 실패, 오류 메시지 7-Mode Transition Tool is not compatible with this version of Windows. 
 ---
 = 호환되지 않는 OS 오류로 인해 도구 설치가 실패합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

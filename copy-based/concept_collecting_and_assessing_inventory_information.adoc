@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, collect, assess, inventory, informatio
 summary: 컨트롤러, 호스트 및 FC 스위치에서 인벤토리 정보를 수집할 수 있습니다. 그런 다음 이러한 시스템의 기능과 특징을 평가하고, 전환을 위해 선택된 ONTAP 버전에서 이러한 기능이 어떻게 작동하는지를 확인할 수 있습니다. 
 ---
 = 재고 정보 수집 및 평가
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

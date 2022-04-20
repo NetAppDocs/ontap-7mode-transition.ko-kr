@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, audit, volumes
 summary: 7-Mode 전환 툴은 SnapLock 감사 볼륨의 전환을 지원합니다. SnapLock 감사 볼륨을 전환하는 워크플로는 SnapLock 규정 준수 볼륨의 전환과 같습니다. 
 ---
 = SnapLock 감사 볼륨의 전환을 위한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

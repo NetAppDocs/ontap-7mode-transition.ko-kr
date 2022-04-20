@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, support, snaplock, volumes
 summary: 7-Mode 전환 툴은 ONTAP 볼륨을 9.6을 제외한 모든 SnapLock 9.0 릴리즈를 실행하는 타겟 클러스터로 전환할 수 있도록 지원합니다. 
 ---
 = SnapLock 볼륨 전환을 지원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

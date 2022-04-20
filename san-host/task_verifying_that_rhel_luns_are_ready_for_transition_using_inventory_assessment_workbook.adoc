@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, lun, inventory, assessment, workbo
 summary: 'Red Hat Enterprise Linux\(RHEL\) 5 또는 RHEL 6 LUN이 장치 매퍼 다중 경로\(DMMP\)로 구성된 경우, 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환하기 전에 파일 시스템이 구성되지 않았는지 확인해야 합니다.' 
 ---
 = Inventory Assessment 워크북을 사용하여 RHEL LUN을 전환할 준비가 되었는지 확인
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

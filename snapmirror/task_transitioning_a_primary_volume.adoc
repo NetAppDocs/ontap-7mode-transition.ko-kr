@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, primary, volume, snapmirror
 summary: 운영 볼륨을 전환하려면 7-Mode 운영 볼륨에서 clustered Data ONTAP 운영 볼륨으로 데이터를 복사하고, 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 재해 복구 관계를 삭제한 다음, clustered Data ONTAP 운영 볼륨과 2차 볼륨 간의 SnapMirror 관계를 설정해야 합니다. 
 ---
 = 운영 볼륨을 전환하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

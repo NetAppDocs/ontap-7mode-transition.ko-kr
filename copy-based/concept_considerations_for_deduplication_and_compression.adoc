@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, deduplication, compression
 summary: 압축을 사용할 경우 소스 볼륨과 타겟 볼륨이 64비트 애그리게이트에 속해 있어야 합니다. 소스 볼륨의 모든 압축 및 중복제거 절약 효과는 전환 중에 네트워크를 통해 유지됩니다. 전환이 완료되면 모든 압축 및 중복제거 특성과 스토리지 절약 효과가 소스 볼륨에서 타겟 볼륨으로 상속됩니다. 
 ---
 = 중복제거 및 압축 관련 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

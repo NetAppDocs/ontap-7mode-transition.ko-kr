@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, linux, dmmp, device, host
 summary: Linux 호스트에서 파일 시스템을 사용하지 않고 DMMP 디바이스를 전환하는 경우 컷오버 단계를 시작하기 전에 몇 가지 단계를 수행해야 합니다. 
 ---
 = 파일 시스템 없이 Linux 호스트 DMMP 디바이스를 전환할 때 컷오버를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

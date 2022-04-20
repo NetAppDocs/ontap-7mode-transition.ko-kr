@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, data, configuration, migration, proces
 summary: '7-Mode 전환 툴을 사용한 데이터 및 구성 마이그레이션 프로세스는 준비, 기본 데이터 복사, 구성 적용\(사전 컷오버\), 스토리지 컷오버로 구성됩니다. Chain of Custody 검증을 위한 SnapLock 볼륨이 있는 경우 컷오버 이후 Chain of Custody Verification이 추가 단계입니다.' 
 ---
 = 데이터 및 구성 마이그레이션 프로세스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, restrictions, 7, mode, volumes
 summary: 7-Mode 볼륨의 전환에 대한 특정 제한 사항을 알고 있어야 합니다. 일부 제한 사항은 ONTAP에서 지원되지 않는 기능 때문입니다. 일부 제한의 경우, 전환을 계속할 수 있도록 수정 조치를 수행할 수 있습니다. 
 ---
 = 7-Mode 볼륨의 전환 제한
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

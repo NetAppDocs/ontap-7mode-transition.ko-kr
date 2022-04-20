@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, guidelines, snaplock, volumes, requirement
 summary: 7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapLock 볼륨으로 전환할 수 있습니다. SnapLock 볼륨 전환을 위한 요구사항과 지침을 숙지해야 합니다. 
 ---
 = SnapLock 볼륨 전환을 위한 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

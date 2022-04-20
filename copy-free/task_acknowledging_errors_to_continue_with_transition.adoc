@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, ignorable, errors
 summary: 전환 중에 전환을 차단하는 데 오류가 발생할 수 있습니다. 7-Mode 전환 툴 CLI를 통해 문제를 확인하여 이러한 오류 중 일부를 무시할 수 있습니다. 전환을 계속하려면 오류를 무시하고 실패한 작업을 다시 실행해야 합니다. 
 ---
 = 오류가 발생할 경우 전환을 계속합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

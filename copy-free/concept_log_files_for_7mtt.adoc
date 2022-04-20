@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, log, files, tool
 summary: 7-Mode 전환 툴은 시스템에서 수행된 전환 작업의 처리 세부 정보를 제공하는 로그 파일을 생성합니다. 로그 파일은 7-Mode Transition Tool이 설치된 경로의 로그 디렉토리에 있습니다. 
 ---
 = 7-Mode 전환 툴의 로그 파일
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, add, controllers, clusters
 summary: 전환을 시작하기 전에 7-Mode HA 쌍의 두 노드와 전환에 필요한 클러스터를 포함하여 7-Mode 컨트롤러를 추가해야 합니다. 클러스터 관리 인터페이스를 사용하여 클러스터를 추가해야 합니다. 
 ---
 = 컨트롤러 및 클러스터 추가
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

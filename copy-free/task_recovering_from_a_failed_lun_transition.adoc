@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, recover, failed, lun
 summary: LUN을 사용하여 볼륨을 전환할 수 없는 경우 LUN 전환 7-Mode show 명령을 사용하여 ONTAP로 전환되지 않은 LUN을 확인하고 수정 조치를 취할 수 있습니다. 
 ---
 = 장애가 발생한 LUN 전환 복구
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

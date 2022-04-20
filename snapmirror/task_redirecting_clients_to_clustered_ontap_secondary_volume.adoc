@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, c
 summary: '7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 DR\(SnapMirror 재해 복구) 관계를 설정하고 7-Mode 운영 사이트에서 재해가 발생할 경우 클러스터 Data ONTAP 2차 볼륨으로 클라이언트 액세스를 리디렉션해야 합니다.' 
 ---
 = 재해 발생 후 클라이언트를 clustered Data ONTAP 보조 볼륨으로 리디렉션합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

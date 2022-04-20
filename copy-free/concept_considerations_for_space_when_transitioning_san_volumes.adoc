@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, space, considerations, san, volumes
 summary: 전환 중에 볼륨에서 충분한 공간을 사용할 수 있는지 확인해야 합니다. 데이터 및 스냅샷 복사본을 저장하는 데 필요한 공간 외에도 전환 프로세스에는 특정 파일 시스템 메타데이터를 업데이트하기 위한 LUN당 1MB의 공간도 필요합니다. 
 ---
 = SAN 볼륨을 전환할 때의 공간 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

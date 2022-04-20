@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregates, transition
 summary: 무복사 전환 워크플로우에는 프로젝트 계획, SVM에 7-Mode 구성 적용, 7-Mode 시스템 정보 내보내기, 7-Mode 시스템 중단, 디스크 쉘프를 클러스터 노드에 수동으로 케이블 연결, 7-Mode 데이터 및 구성 가져오기가 포함됩니다. 
 ---
 = 복사 없는 전환을 사용하여 7-Mode 애그리게이트를 전환할 수 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

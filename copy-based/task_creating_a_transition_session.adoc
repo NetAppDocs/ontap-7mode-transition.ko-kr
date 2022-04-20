@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, project
 summary: 전환 프로젝트를 생성하여 7-Mode 오브젝트를 식별하고 이러한 객체가 ONTAP 오브젝트로 매핑되는 방법을 파악할 수 있습니다. 7-Mode 전환 툴은 프로젝트를 생성하는 동안 전환 개체에 대한 정보를 수집하고 저장합니다. 이 프로젝트 정보를 사용하여 단계별로 전환을 수행할 수 있습니다. 
 ---
 = 전이 프로젝트 작성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

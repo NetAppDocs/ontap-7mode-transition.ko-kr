@@ -5,6 +5,7 @@ keywords: 7, mode, copyright, host, storage, information, collection, transition
 summary: 호스트 및 스토리지 정보 수집 가이드에 대한 저작권 정보 
 ---
 = 저작권
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, severity, levels, precheck, messages
 summary: 전환 사전 확인 작업을 실행하여 7-Mode 볼륨을 전환할 수 있는지 확인할 수 있습니다. 전환 사전 점검을 통해 모든 전환 문제를 보고합니다. 전환 문제는 전환 프로세스에 미치는 문제의 영향에 따라 다른 심각도 수준이 할당됩니다. 
 ---
 = 사전 확인 메시지의 심각도 수준입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

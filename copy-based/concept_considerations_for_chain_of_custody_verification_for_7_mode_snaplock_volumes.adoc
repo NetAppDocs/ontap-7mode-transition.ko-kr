@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, chain, custody, verification, snaplock
 summary: 7-Mode SnapLock 볼륨에 대해 체인 보호 검증을 사용할 때의 고려 사항에 유의해야 합니다. 
 ---
 = 7-Mode SnapLock 볼륨에 대해 체인 보호 검증을 사용하기 위한 고려사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

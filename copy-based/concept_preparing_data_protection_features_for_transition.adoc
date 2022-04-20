@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, data, protection, features
 summary: 7-Mode SnapMirror 관계를 전환하기 위해 몇 가지 수동 단계를 수행해야 합니다. 전환 지원 및 지원되지 않는 데이터 보호 관계도 알고 있어야 합니다. 
 ---
 = 전환을 위한 데이터 보호 기능 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

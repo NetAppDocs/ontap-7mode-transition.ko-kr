@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, project, planning, worksheet
 summary: 복사를 사용하지 않는 전환 계획 워크시트를 사용하여 노드 매핑, SVM 매핑, 볼륨 매핑 및 LIF 전환에 대한 정보를 기록할 수 있습니다. 워크시트는 7-Mode Transition Tool을 사용하여 전환 프로젝트를 생성할 때 유용합니다. 워크시트를 작성하는 데 필요한 지침을 숙지해야 합니다. 
 ---
 = 복사를 사용하지 않는 전환 프로젝트 계획 워크시트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror
 summary: Clustered Data ONTAP에서 일부 기능을 사용하지 못할 수 있으므로 기존 볼륨과 같은 특정 7-Mode 기능 및 동기식 SnapMirror 관계와 같은 특정 7-Mode 기능은 전환할 수 없습니다. 
 ---
 = 기능 및 볼륨은 전환이 지원되지 않습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: transition, esxi, host, initiator, hba driver, collect assess feature
 summary: Data ONTAP에서 ESXi 호스트를 전환하기 전에 완료해야 하는 작업입니다 
 ---
 = ESXi 호스트 전환 준비 중
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -13,7 +14,7 @@ summary: Data ONTAP에서 ESXi 호스트를 전환하기 전에 완료해야 하
 7MTT(7-Mode 전환 툴)를 사용하여 ESXi 호스트를 7-Mode에서 운영되는 Data ONTAP에서 ONTAP으로 전환하기 전에 몇 가지 필수 과제를 완료해야 합니다.
 
 .단계
-. 에 설명된 대로 clustered Data ONTAP을 구성합니다 link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["7-Mode 전환 툴 복사 기반 전환 가이드"] 또는 을 누릅니다  수행하는 전환 유형에 따라 다릅니다.
+. 에 설명된 대로 clustered Data ONTAP을 구성합니다 link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["7-Mode 전환 툴 복사 기반 전환 가이드"] 또는 을 누릅니다 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["7-Mode 전환 툴 Copy-Free Transition Guide를 참조하십시오"] 수행하는 전환 유형에 따라 다릅니다.
 . 전환 중인 ESXi 호스트에 대해 다음 정보를 수집합니다.
 +
 ** IP 주소입니다

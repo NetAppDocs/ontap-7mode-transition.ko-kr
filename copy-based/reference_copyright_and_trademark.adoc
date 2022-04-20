@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, copyright, trademark
 summary: 7-Mode 전환 툴 복사 기반 전환 가이드의 저작권 및 상표 정보 
 ---
 = 저작권, 상표 및 기계 번역
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

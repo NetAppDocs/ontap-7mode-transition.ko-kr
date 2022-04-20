@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, windows, assistant, notification, compatibili
 summary: 도구를 설치하는 동안 프로그램이 제대로 설치되지 않았을 수 있다는 Windows 프로그램 호환성 관리자 알림이 나타날 수 있습니다. 이 알림은 프로그램이 제대로 설치되지 않았음을 나타내는 것은 아닙니다. 
 ---
 = 도구를 설치하는 동안 Windows 프로그램 호환성 관리자 알림이 표시됩니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

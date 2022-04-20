@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, gather, cabling, information
 summary: 복사를 사용하지 않는 전환을 시작하기 전에 7-Mode 컨트롤러의 어댑터, 포트, 디스크 쉘프 및 스토리지 연결에 대한 정보를 수집한 다음 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 연결하는 방법을 계획해야 합니다. 
 ---
 = 전환을 위한 케이블 정보를 수집하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configurations, excluded
 summary: 7-Mode Transition Tool CLI에서 CBT 속성 세트 명령을 사용하여 속성 이름을 지정하여 NFS, CIFS, SAN 및 네임 서비스 구성에 대한 일부 볼륨 레벨 또는 SVM 레벨 구성을 제외하고 구성 전환을 사용자 지정할 수 있습니다. 
 ---
 = 전이를 제외할 수 있는 설정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

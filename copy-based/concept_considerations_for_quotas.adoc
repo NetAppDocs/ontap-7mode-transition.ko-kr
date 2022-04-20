@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, quotas
 summary: '"Apply configuration"\(precutover\)이 읽기 전용 및 읽기-쓰기 모드에서 실행될 때 할당량이 어떻게 전환되는지 알고 있어야 합니다.' 
 ---
 = 할당량에 대한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

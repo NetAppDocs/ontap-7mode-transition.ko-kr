@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, lifs, create
 summary: FC 및 iSCSI LIF는 7-Mode 전환 툴을 통해 전환되지 않으므로 전환 전에 SVM에 이러한 LIF를 생성해야 합니다. LUN을 소유하는 노드와 노드의 HA 파트너에 SAN LIF를 구성해야 합니다. 
 ---
 = 전환 전에 SAN LIF를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

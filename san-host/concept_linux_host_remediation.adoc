@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, host, remediation
 summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode로 운영되는 Data ONTAP을 clustered Data ONTAP으로 이동하는 경우, 전환 전후 LUN 유형에 따라 Red Hat Enterprise Linux\(RHEL\) 호스트에서 일련의 단계를 수행하여 전환 문제가 발생하지 않도록 해야 합니다.' 
 ---
 = RHEL 호스트 문제 해결
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

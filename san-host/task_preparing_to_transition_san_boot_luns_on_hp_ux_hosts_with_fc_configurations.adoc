@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, hp, ux, hosts, fc, configurations
 summary: FC 구성을 사용하여 HP-UX 호스트에서 SAN 부팅 LUN을 전환하기 전에 HP-UX가 설치된 7-Mode LUN의 이름, 해당 LUN의 SCSI 장치 이름, Agile 명명 규칙 및 WWID를 기록해야 합니다. 
 ---
 = FC 구성이 있는 HP-UX 호스트에서 SAN 부팅 LUN 전환 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

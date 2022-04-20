@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, consolidate, cron, schedules, transiti
 summary: 7-Mode 전환 툴은 전환된 볼륨당 고유한 스케줄을 생성합니다. 따라서 전환 후에 많은 수의 cron 일정을 만들 수 있으므로 전환 후 이를 통합하는 방법을 알아야 합니다. 
 ---
 = 전환된 볼륨에서 cron 일정 통합
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

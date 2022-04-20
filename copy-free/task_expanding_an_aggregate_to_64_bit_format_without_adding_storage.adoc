@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, expanding, aggregate, 64, bit
 summary: 시스템에 32비트 애그리게이트가 포함된 경우, Data ONTAP 8.3 이상 버전으로 전환하기 전에 7-Mode 시스템에서 64비트 형식으로 확장해야 합니다. Data ONTAP 버전은 32비트 형식을 지원하지 않습니다. 
 ---
 = 64비트 형식으로 애그리게이트 확장
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, preparation, checklist
 summary: 전환을 시작하기 전에 전환을 위한 모든 사전 요구 사항이 충족되었는지 확인해야 합니다. 
 ---
 = 전환 준비 체크리스트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

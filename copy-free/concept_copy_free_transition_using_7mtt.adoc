@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, 7, mode, tool
 summary: 7-Mode 전환 툴을 사용하면 인벤토리를 수집하고 7-Mode 컨트롤러, 호스트, 스위치 및 애플리케이션을 평가할 수 있습니다. 평가 후 무복사 전환을 사용하여 데이터 및 구성을 ONTAP로 마이그레이션할 수 있습니다. 무복사 전환의 경우 7-Mode HA 쌍에서 모든 디스크 쉘프를 분리하고 타겟 클러스터의 HA 쌍에 연결합니다. 
 ---
 = 7-Mode 전환 툴을 사용하여 무복제 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

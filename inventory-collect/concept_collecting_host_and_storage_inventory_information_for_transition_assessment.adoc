@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, collect, storage, host, inventory, informa
 summary: 인벤토리 수집 툴을 사용하면 clustered Data ONTAP 및 7-Mode 시스템, 스위치, 호스트, 이러한 호스트에서 실행되는 애플리케이션에 대한 정보를 수집하고 인벤토리 보고서를 생성할 수 있습니다. 그런 다음 전환 평가를 위해 7-Mode 전환 툴 으로 인벤토리 보고서를 가져올 수 있습니다. 
 ---
 = 스토리지 및 호스트 인벤토리 정보를 수집하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

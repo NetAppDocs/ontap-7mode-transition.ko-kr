@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, volumes, snapmirror, ontap, clustered, dat
 summary: Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다 
 ---
 = SnapMirror를 사용하여 7-Mode 볼륨 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

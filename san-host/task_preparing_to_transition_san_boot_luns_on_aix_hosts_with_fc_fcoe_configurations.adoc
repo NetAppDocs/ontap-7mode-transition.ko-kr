@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, aix, host, fc, fcoe
 summary: FC/FCoE 구성이 있는 AIX 호스트에서 SAN 부팅 LUN을 전환하기 전에 AIX가 설치된 7-Mode LUN의 이름과 해당 LUN의 SCSI 장치 이름을 기록해야 합니다. 
 ---
 = FC/FCoE 구성이 있는 AIX 호스트에서 SAN 부팅 LUN 전환을 준비 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

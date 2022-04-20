@@ -5,6 +5,7 @@ keywords: ontap, san, host, 7, mode, transition, phase
 summary: '7MTT\(7-Mode 전환 툴 Data ONTAP)를 사용하여 CFT(Copy-Free Transition)\ 또는 CBT(Copy-Based Transition)\)를 7-Mode에서 clustered Data ONTAP으로 수행할 수 있습니다. 각 전환 방법의 단계를 알아야 호스트에 필요한 특정 수정 단계를 언제 수행해야 하는지 알 수 있습니다.' 
 ---
 = 7-Mode 전환 툴 전환 단계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

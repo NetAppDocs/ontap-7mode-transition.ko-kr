@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, solaris, host, remediation
 summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode로 운영되는 ONTAP을 clustered ONTAP으로 전환하는 경우, 전환 합병증 없이 전환 전후에 Solaris 호스트에서 일련의 단계를 수행해야 합니다.' 
 ---
 = Solaris 호스트 개선
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

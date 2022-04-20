@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, import, data
 summary: 케이블 연결을 확인하고 문제를 해결한 후 가져오기 작업을 실행할 수 있습니다. 이 단계에서는 디스크 소유권이 매핑된 클러스터 노드에 할당되고 7-Mode 애그리게이트, 볼륨 및 LUN은 ONTAP 형식으로 변환됩니다. 모든 볼륨 레벨 및 LUN 레벨 구성도 적용됩니다. 
 ---
 = 7-Mode 데이터를 ONTAP로 가져오는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

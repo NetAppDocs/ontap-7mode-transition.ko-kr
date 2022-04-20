@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, trademark
 summary: 7-Mode 관리자용 명령 맵에 대한 상표 정보. 
 ---
 = 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

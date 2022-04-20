@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, options, 7, mode
 summary: 7-Mode 전환 툴은 SnapLock 볼륨과 관련된 몇 가지 7-Mode 옵션의 전환을 지원합니다. 
 ---
 = 7-Mode SnapLock 옵션의 전환을 위한 고려사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

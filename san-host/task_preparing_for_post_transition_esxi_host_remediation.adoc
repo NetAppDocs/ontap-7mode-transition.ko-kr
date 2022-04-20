@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, post, esxi, host, remediation
 summary: '7MTT(7-Mode 전환 툴)\)가 완료된 후 다양한 ESXi 호스트 수정 작업을 수행해야 합니다. 이러한 작업을 수행하기 전에 몇 가지 단계를 완료해야 합니다.' 
 ---
 = 전환 후 ESXi 호스트 문제 해결 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

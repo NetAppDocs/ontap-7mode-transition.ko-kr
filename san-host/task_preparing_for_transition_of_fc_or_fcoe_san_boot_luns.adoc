@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rh
 summary: 'FC 또는 FCoE SAN 부팅 LUN을 전환하기 전에 Red Hat Enterprise Linux\(RHEL\) 호스트에서 특정 단계를 수행해야 합니다.' 
 ---
 = RHEL 호스트에서 FC 또는 FCoE SAN 부팅 LUN 전환 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

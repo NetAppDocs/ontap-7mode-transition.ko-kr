@@ -7,6 +7,7 @@ summary: 7-Mode 전환 문서에는 7-Mode 전환 툴 설치 및 설정, SnapMir
 ---
 = 7-Mode 전환 설명서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

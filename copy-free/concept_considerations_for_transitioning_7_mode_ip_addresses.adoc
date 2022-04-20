@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, 7, mode, ip, addresses
 summary: '7-Mode IP 주소를 ONTAP의 SVM(스토리지 가상 머신)으로 전환할 때 고려해야 할 몇 가지 사항에 대해 알고 있어야 합니다.' 
 ---
 = 7-Mode IP 주소의 전환을 위한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

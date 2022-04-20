@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, sp, rlm, system, set, up
 summary: '서비스 프로세서\(SP\) 또는 원격 LAN 모듈\(RLM\)이 7-Mode 스토리지 시스템에서 아직 구성되지 않았거나 IPv6 주소로 SP 또는 RLM을 구성한 경우 IPv4 주소로 SP 또는 RLM을 구성해야 합니다.' 
 ---
 = 7-Mode 시스템에서 복사 없이 전환을 위해 SP 또는 RLM 설정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

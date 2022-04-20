@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel
 summary: 7-Mode SnapMirror 관계의 운영 볼륨과 2차 볼륨을 동일한 컷오버 기간에 병렬로 전환할 수 있습니다. 그런 다음 전환 후 ONTAP 클러스터에서 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다. SnapLock 규정 준수 볼륨을 전환하려면 이 방법을 사용해야 합니다. 
 ---
 = 볼륨 SnapMirror 관계를 병렬로 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

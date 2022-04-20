@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, enable, caw, datastore, esxi, cli
 summary: '7-Mode에서 작동하는 Data ONTAP에서 비교 및 쓰기\(caw\)를 지원하지 않은 경우 clustered Data ONTAP으로 전환할 때 수동으로 caw 지원을 활성화해야 합니다. Clustered Data ONTAP은 기본적으로 caw를 지원합니다.' 
 ---
 = ESXi CLI를 사용하여 데이터 저장소에서 caw를 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

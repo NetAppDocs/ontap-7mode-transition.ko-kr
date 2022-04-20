@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, fc, zone, plan
 summary: FC 스위치의 경우 전환 평가 보고서의 일부로 FC 존 계획을 생성하여 마이그레이션 후 이니시에이터 호스트와 타겟을 그룹화하는 영역을 구성해야 합니다. 
 ---
 = FC 존 계획을 생성하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

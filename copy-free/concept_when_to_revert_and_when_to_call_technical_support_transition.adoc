@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, roll, back, transition, technical, supp
 summary: 테스트 또는 랩 클러스터에서 롤백을 수행할 때 도움 없이 롤백할 수 있지만 전환 중 또는 전환 후에 문제가 발생하거나 운영 클러스터에서 수행된 전환을 롤백하려는 경우 기술 지원 부서에 요청해야 합니다. 
 ---
 = 전환 시점 및 기술 지원 부서에 언제 전화해야 하는 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

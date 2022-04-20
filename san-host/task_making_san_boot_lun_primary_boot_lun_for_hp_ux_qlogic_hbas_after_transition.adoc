@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, primary, hp, ux, logic, hbas
 summary: 7-Mode HP-UX 호스트에서 작동하는 Data ONTAP가 SAN 부팅된 경우 clustered Data ONTAP으로 전환한 후 SAN 부팅 LUN을 운영 부팅 LUN으로 만들어야 합니다. 
 ---
 = 전환 후 SAN 부팅 LUN을 HP-UX QLogic HBA의 기본 부팅 LUN으로 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

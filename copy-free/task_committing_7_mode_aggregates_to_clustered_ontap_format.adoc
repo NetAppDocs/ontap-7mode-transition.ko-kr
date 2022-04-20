@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, commit, project
 summary: 전환의 마지막 단계는 복사 없는 전환 프로젝트를 커밋하는 것입니다. 애그리게이트를 커밋한 후에는 7-Mode로 롤백을 수행할 수 없습니다. 
 ---
 = 복사 없는 전환 프로젝트 커밋
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

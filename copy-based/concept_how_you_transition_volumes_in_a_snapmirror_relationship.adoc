@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snapmirror, transition, volumes, relat
 summary: SnapMirror 관계에 있는 7-Mode 볼륨을 전환하려는 경우 2차 볼륨을 먼저 전환해야 합니다. 그런 다음 7-Mode 운영 볼륨과 ONTAP 2차 볼륨 사이에 볼륨 SnapMirror 관계가 형성됩니다. 
 ---
 = SnapMirror 관계에서 볼륨을 전환하는 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

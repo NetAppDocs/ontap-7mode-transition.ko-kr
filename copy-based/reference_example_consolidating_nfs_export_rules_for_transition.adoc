@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, nfs, export, rules, snapshot, schedule
 summary: 7-Mode 엑스포트 규칙과 7-Mode 스냅샷 스케줄이 ONTAP의 단일 NFS 엑스포트 정책과 단일 스냅샷 정책에 통합되는 방식의 예를 확인할 수 있습니다. 또한 통합 정책이 타겟 SVM에서 일치하는 기존 정책을 재사용 또는 재사용하지 않고 전환된 볼륨 또는 qtree에 할당되는 방식을 이해하기를 원할 수 있습니다. 
 ---
 = 전환을 위한 NFS 엑스포트 규칙 및 스냅샷 일정 통합의 예
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

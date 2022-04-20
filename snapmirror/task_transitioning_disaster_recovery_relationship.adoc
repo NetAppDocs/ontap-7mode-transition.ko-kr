@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, disaster, recovery, relationship, vfiler, 
 summary: '7-Mode 시스템에서 기본 vFiler 유닛과 보조 vFiler 유닛 사이의 DR\(재해 복구) 관계를 소스 SVM과 클러스터 내 타겟 SVM 간의 재해 복구 관계로 전환할 수 있습니다.' 
 ---
 = vFiler 유닛 간 재해 복구 관계 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

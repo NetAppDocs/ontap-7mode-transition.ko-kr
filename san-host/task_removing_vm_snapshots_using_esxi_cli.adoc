@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remove, vm, snapshots, esxi, cli
 summary: 'HRT\(Host Remediation Tool)를 사용 중이거나 CLI 사용의 유연성을 원하는 경우 ESXi CLI를 사용하여 스냅샷을 제거할 수 있습니다.' 
 ---
 = ESXi CLI를 사용하여 VM 스냅샷 제거
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

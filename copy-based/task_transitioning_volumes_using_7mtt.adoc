@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, migrate, data, configuration, volumes
 summary: 7-Mode 전환 툴을 사용하여 볼륨 또는 볼륨 SnapMirror 관계를 마이그레이션하려면 먼저 프로젝트를 구성하고, 기본 복사본을 시작하고, 프로젝트를 완료해야 합니다. 
 ---
 = 7-Mode 볼륨에서 데이터 및 구성 마이그레이션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

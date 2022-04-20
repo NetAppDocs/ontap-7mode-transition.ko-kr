@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vm, snapshots, removed, identify
 summary: '가상 RDM이 연결된 스냅샷 가상 머신 \(VM\)은 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 작동하지 않습니다. 이러한 스냅샷은 전환 전에 제거해야 합니다. VMFS vDisk 및 물리적 RDM\(PTRDM\)만 있는 VM의 스냅샷은 전환 후에도 계속 남아 있으므로 제거할 필요가 없습니다.' 
 ---
 = 전환 전에 제거해야 하는 VM 스냅샷을 식별하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

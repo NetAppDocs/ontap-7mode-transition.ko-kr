@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection
 summary: 'Inventory Collection Tool\(ICT\) 명령은 명령줄 인터페이스\(CLI\) 또는 시스템 세부 정보가 포함된 텍스트 파일에 지정된 컨트롤러 및 호스트의 구성 및 인벤토리 정보를 수집합니다. ICT 명령에 구문 및 옵션을 사용할 수 있습니다.' 
 ---
 = 구문 및 옵션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

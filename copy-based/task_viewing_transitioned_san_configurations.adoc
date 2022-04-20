@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, view, san, configurations
 summary: SAN 볼륨의 LUN 일련 번호 및 LUN ID는 전환 후 변경됩니다. 전환된 SAN 구성을 보려면 7-Mode Transition Tool CLI를 사용하여 이전 LUN을 새로운 전환된 LUN에 매핑하고 LUN 매핑 정보를 .csv 파일로 엑스포트할 수 있습니다. 
 ---
 = 전환된 SAN 구성 보기
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

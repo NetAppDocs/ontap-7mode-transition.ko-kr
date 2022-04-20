@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, solaris, host, lun, zfs, file, sy
 summary: ZFS 파일 시스템이 있는 Solaris 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후에는 LUN을 마운트해야 합니다. 
 ---
 = 전환 후 ZFS 파일 시스템에 Solaris 호스트 LUN 마운트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

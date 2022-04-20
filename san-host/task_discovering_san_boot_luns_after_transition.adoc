@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, discover, san, boot, lun
 summary: 'SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 호스트에서 SAN 부팅 LUN을 검색해야 합니다. 이는 복사 기반 전환\(cts\) 및 복사 없는 전환\(cts\)에 필요합니다. 이 제한은 FC, FCoE 및 iSCSI 구성에 적용됩니다.' 
 ---
 = 전환 후 SAN 부팅 LUN 검색
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

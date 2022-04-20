@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, copyright, trademark
 summary: SAN Host Transition and Remediation Guide에 대한 저작권 및 상표 정보. 
 ---
 = 저작권 및 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

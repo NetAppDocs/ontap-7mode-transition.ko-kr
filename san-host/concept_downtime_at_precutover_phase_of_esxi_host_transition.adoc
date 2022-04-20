@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, downtime, apply, configurations, precuto
 summary: 'ESXi 호스트를 전환하는 동안 Apply configuration\(precutover\) 단계에서 다운타임을 계획해야 합니다.' 
 ---
 = ESXi 호스트 전환의 적용 구성(사전 컷오버) 단계에서 다운타임
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

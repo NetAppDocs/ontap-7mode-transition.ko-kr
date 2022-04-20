@@ -5,6 +5,7 @@ keywords: transition, ontap, san, host, transition, hp, ux, host, lun, file, sys
 summary: '7-Mode 전환 툴(7MTT\)을 사용하여 7-Mode에서 운영되는 Data ONTAP에서 clustered Data ONTAP으로 HP-UX 호스트 LUN을 전환하는 경우, 전환 전후에 특정 단계를 수행하여 호스트의 전환 문제를 해결해야 합니다.' 
 ---
 = 파일 시스템을 사용하여 HP-UX 호스트 LUN 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

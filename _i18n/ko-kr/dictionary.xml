@@ -4284,8 +4284,6 @@
   <block id="886173df92c0034b326a1bcc9e227238" category="paragraph">전환 복사 작업이 더 빨리 완료되도록 SnapMirror 전송 처리량을 높이기 위해 256KB ~ 7MB 범위의 TCP 윈도우 크기를 구성할 수 있습니다. TCP 윈도우 크기의 기본값은 2MB입니다.</block>
   <block id="c865d9cd7991e4989e6edda6e0bb5ca8" category="paragraph">TCP 윈도우 크기를 구성하기 위한 SnapMirror 정책을 만든 경우 이 SnapMirror 관계에 정책을 적용해야 합니다.</block>
   <block id="bb7067c9d2f235ab43290aba7bd8550e" category="list-text">상태를 모니터링하려면 'napmirror show' 명령을 사용합니다.</block>
-  <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="inline-link-macro">3</block>
-  <block id="28acec5f339fb46ca1474cb88ccf309c" category="list-text">로 이동합니다 <block ref="48ce72b476c65036e53bbf45851aa391" category="inline-link-macro-rx"></block>.</block>
   <block id="0ccc9d80f1c8754d2c17283bad8f46a9" category="list-text">'napmirror break' 명령을 사용하여 7-Mode 볼륨과 clustered Data ONTAP 볼륨 간의 SnapMirror 관계를 중단하십시오.</block>
   <block id="bf146c5e3896575ab73c3810e4a3fe77" category="list-text">'napmirror delete' 명령을 사용하여 7-Mode 볼륨과 clustered Data ONTAP 볼륨 간의 SnapMirror 관계를 삭제합니다.</block>
   <block id="8051fc6b3e5d7c60a4eea7e405c92176" category="summary">7-Mode 볼륨에서 clustered ONTAP 볼륨으로 데이터를 복사하기 전에, 언제 SnapMirror를 사용하여 전환을 수행해야 하는지 이해하고, 전환을 위해 지원되는 7-Mode 버전 및 지원되는 볼륨에 대한 정보를 검토해야 합니다. 또한 특정한 전환 고려 사항을 알고 있어야 합니다.</block>
@@ -7388,4 +7386,6 @@
   <block id="80a4be74705a612be3887e601f338c11" category="sidebar">Red Hat Enterprise Linux 호스트에 대한 전환 전/후 요구 사항을 이해합니다</block>
   <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows 호스트의 전환 전 및 전환 후 단계를 이해합니다</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 관리자용 명령 맵</block>
+  <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">3단계</block>
+  <block id="6aa5dee008838df0194def910f0b3065" category="list-text">로 이동합니다 <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>.</block>
 </blocks>

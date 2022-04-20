@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, apply, svm, configurations
 summary: 'SVM 프로비저닝 단계 전에 일부 구성을 수동으로 적용해야 합니다. 그런 다음 7-Mode 컨트롤러(/etc 디렉토리에 있는 파일\) 또는 vFiler 유닛 레벨에서 정의된 모든 구성을 툴을 사용하여 매핑된 SVM에 적용할 수 있습니다.' 
 ---
 = SVM 구성 적용
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rolling, lun, 7, mode
 summary: 'Clustered Data ONTAP LUN의 성능에 만족하지 못하는 경우, clustered Data ONTAP을 7-Mode에서 운영되는 Data ONTAP로 롤백하여 복사 없는 전환 \(CFT\)을 사용할 수 있습니다. 롤백은 복사 기반 전이\(cbts\)에 지원되지 않습니다. 롤백은 특정 호스트에서만 지원됩니다.' 
 ---
 = 전환 후 LUN을 7-Mode로 롤백 중
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

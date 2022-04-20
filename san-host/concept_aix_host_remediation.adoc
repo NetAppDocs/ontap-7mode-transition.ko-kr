@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, aix, host, remediation
 summary: 'SAN 환경에서 7-Mode Transition Tool\(7MTT\)을 사용하여 7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 이동하는 경우, 전환 합병증 방지를 위해 전환 전과 후에 AIX 호스트에서 일련의 단계를 수행해야 합니다.' 
 ---
 = AIX 호스트 수정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

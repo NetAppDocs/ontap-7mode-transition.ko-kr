@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, target, release, support, transition, tool
 summary: ONTAP 전환 타겟 클러스터에 대한 릴리즈 지원은 사용 중인 전환 방법, 복사 기반 또는 복사를 수행할 수 없음, 7-Mode 전환 툴 버전에 따라 달라집니다. 
 ---
 = 7-Mode 전환 툴을 통해 지원되는 ONTAP 타겟 릴리즈
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

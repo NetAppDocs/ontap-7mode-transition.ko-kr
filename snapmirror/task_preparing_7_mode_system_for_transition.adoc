@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, prepare, system, snapmirror
 summary: 전환을 시작하기 전에 7-Mode 시스템에서 SnapMirror 라이센스 및 7-Mode 시스템을 추가하여 타겟 클러스터와 통신하는 것과 같은 특정 작업을 완료해야 합니다. 
 ---
 = 전환을 위해 7-Mode 시스템 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

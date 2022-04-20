@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, solaris, host, lun, sun, vol
 summary: Sun Volume Manager를 사용하는 Solaris 호스트 데이터 LUN을 7-Mode에서 작동하는 ONTAP에서 clustered ONTAP으로 전환하기 전에 전환 프로세스에 필요한 정보를 수집해야 합니다. 
 ---
 = Sun Volume Manager를 사용하여 Solaris 호스트 LUN 전환 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

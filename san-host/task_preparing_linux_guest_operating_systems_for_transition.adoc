@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, linux, operating, system
 summary: '부팅 디바이스에 대해 물리적 호환 RDM\(PTRDM\)으로 매핑된 7-Mode LUN이 Linux 가상 머신\(VM\)인 경우 전환할 Linux VM을 준비하기 위해 수행해야 하는 단계가 있습니다.' 
 ---
 = 전환을 위한 Linux 게스트 운영 체제 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

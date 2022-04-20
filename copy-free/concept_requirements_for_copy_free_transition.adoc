@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, requirements
 summary: 7-Mode 시스템, 클러스터, ONTAP 릴리즈, 디스크 쉘프의 복사 없이 전환을 위한 요구사항을 알고 있어야 합니다. 
 ---
 = 무복사 전환에 대한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

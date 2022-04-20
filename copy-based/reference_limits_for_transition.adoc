@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, limits
 summary: 7-Mode 전환 툴을 사용하여 볼륨을 전환할 때는 동시에 평가할 수 있는 컨트롤러 및 호스트 수와 같은 특정 평가 한도를 고려해야 합니다. 마이그레이션의 경우 프로젝트의 볼륨 수와 동시에 실행할 수 있는 프로젝트 수를 검토해야 합니다. 
 ---
 = 전환 제한
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

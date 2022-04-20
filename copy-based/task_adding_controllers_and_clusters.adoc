@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, add, controller, clusters
 summary: 전환을 시작하기 전에 전환에 필요한 7-Mode 컨트롤러와 클러스터를 추가해야 합니다. 평가를 위해 포함된 7-Mode 컨트롤러는 마이그레이션용으로 자동으로 추가됩니다. 
 ---
 = 컨트롤러 및 클러스터 추가
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

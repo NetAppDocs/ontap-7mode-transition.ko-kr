@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, assess, controller, host
 summary: 환경의 보안 규정에 따라 7-Mode 전환 툴 또는 인벤토리 수집 툴을 사용하여 컨트롤러 및 호스트에 대한 정보를 수집하고 평가할 수 있습니다. 
 ---
 = 컨트롤러 및 호스트 평가
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

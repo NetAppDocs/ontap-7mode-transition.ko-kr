@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, ignorable, errors
 summary: 전환 중에 다소 무 난한 오류가 발생할 수 있습니다. 전환을 계속하기 전에 이러한 오류를 확인해야 합니다. 
 ---
 = 전환 중에 오류가 발생합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

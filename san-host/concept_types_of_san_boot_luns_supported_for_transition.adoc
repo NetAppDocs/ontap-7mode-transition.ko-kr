@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, supported
 summary: 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 위해서는 특정 유형의 SAN 부팅 LUN만 지원됩니다. 
 ---
 = 전환이 지원되는 SAN 부팅 LUN의 유형입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

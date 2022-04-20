@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, transition, tool, linux
 summary: 7-Mode 전환 툴을 설치하고 실행하기 위해 Linux 호스트에 필요한 구성이 있는지 확인해야 합니다. 
 ---
 = Linux에 7-Mode 전환 툴 설치를 위한 시스템 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

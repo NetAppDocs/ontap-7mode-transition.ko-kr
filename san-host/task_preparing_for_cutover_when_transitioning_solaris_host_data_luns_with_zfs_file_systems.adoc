@@ -5,6 +5,7 @@ keywords: cutover, ontap, san, host, transition, host, data, lun, nfs, file, sys
 summary: ZFS 파일 시스템이 있는 Solaris 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계로 들어가기 전에 특정 단계를 수행해야 합니다. 
 ---
 = ZFS 파일 시스템으로 Solaris 호스트 데이터 LUN을 전환할 때 컷오버 단계를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

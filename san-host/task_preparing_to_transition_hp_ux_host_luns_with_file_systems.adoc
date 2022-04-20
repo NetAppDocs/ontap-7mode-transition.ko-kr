@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, hp, ux, host, lun, file, system
 summary: 파일 시스템이 포함된 HP-UX 호스트 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하기 전에 전환 프로세스에 필요한 정보를 수집해야 합니다. 
 ---
 = HP-UX 호스트 LUN을 파일 시스템으로 전환하기 위한 준비 중
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, hp, ux, host, data, lun,
 summary: 파일 시스템이 있는 HP 호스트 데이터 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계에 들어가기 전에 특정 단계를 수행해야 합니다. 
 ---
 = 파일 시스템으로 HP-UX 호스트 데이터 LUN을 전환할 때 컷오버 단계를 준비 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

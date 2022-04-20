@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, verify, configurations
 summary: 7-Mode 볼륨 및 구성을 성공적으로 가져온 후에는 전환된 애그리게이트, 볼륨, LUN 및 구성을 수동으로 확인해야 합니다. 
 ---
 = 전환된 구성 확인
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

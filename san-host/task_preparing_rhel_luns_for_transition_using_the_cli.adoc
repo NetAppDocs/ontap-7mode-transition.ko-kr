@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, phel, lun, mount, points, dmmp, alias, n
 summary: DMMP 디바이스 이름을 사용하여 마운트 지점을 전환하기 전에 DMMP 디바이스 이름을 해당 파일 시스템 UUID 번호로 바꿔야 합니다. 
 ---
 = CLI를 사용하여 전환하기 위해 DMMP 별칭 이름을 사용하여 마운트 지점으로 RHEL LUN 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

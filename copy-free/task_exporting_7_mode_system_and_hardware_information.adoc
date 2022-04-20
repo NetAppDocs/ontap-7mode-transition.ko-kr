@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, exporte, storage, configurations, halt
 summary: 전환에 대한 컷오버 기간은 엑스포트 단계에서 시작합니다. 이 단계에서는 7-Mode 시스템에서 시스템 정보, 디스크 쉘프 세부 정보 및 스토리지 구성을 수집한 다음 7-Mode 스토리지 시스템을 중단합니다. 
 ---
 = 스토리지 구성 내보내기 및 7-Mode 시스템 중지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

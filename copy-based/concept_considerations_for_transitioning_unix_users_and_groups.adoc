@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, netgroups, unix, user, groups
 summary: 넷그룹 구성은 7-Mode /etc/netgroup 파일의 크기가 5MB 미만인 경우에만 전환됩니다. SVM의 총 UNIX 사용자 및 그룹 수가 ONTAP의 사용자 및 그룹 한도를 초과하지 않는 경우에만 UNIX 사용자 및 그룹이 전환됩니다. 
 ---
 = Netgroup 및 UNIX 사용자 및 그룹 전환에 대한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

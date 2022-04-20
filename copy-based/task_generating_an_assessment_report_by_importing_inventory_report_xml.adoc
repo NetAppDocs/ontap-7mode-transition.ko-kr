@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, assessment, report, inventor
 summary: Inventory Collect Tool에서 생성한 Inventory XML 보고서를 가져와 호스트 및 컨트롤러의 기능과 특징을 평가할 수 있습니다. 그런 다음 평가 보고서를 생성하여 이러한 호스트 및 컨트롤러가 전환을 위해 선택한 ONTAP 버전에서 작동하는 방식을 식별할 수 있습니다. 
 ---
 = 재고 보고서 XML을 가져와 평가 보고서 생성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

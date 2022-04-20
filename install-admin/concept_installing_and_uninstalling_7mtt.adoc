@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, windows
 summary: 표준 마법사 기반 설치 프로그램을 사용하여 Windows 시스템에서 7-Mode 전환 도구를 다운로드하고 설치할 수 있습니다. 하지만 이전에 7-Mode 전환 툴 버전을 설치한 경우에는 먼저 특정 사전 요구사항을 알고 있어야 합니다. 
 ---
 = Windows 시스템에서 7-Mode 전환 도구 설치 또는 제거
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

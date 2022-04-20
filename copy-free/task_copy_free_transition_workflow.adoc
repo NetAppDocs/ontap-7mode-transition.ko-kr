@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, workflow
 summary: 복사를 수행하지 않는 전환 워크플로우에는 전환 준비, 전환 수행 및 전환 완료가 포함됩니다. 이러한 작업 중 일부는 7-Mode 시스템과 클러스터에서 수동으로 수행해야 합니다. 
 ---
 = 복사 없는 전환 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

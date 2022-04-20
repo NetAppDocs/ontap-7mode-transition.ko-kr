@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, secondary
 summary: 2차 볼륨을 전환하려면 SnapMirror 관계 생성, 기본 전송 수행, 증분 업데이트 수행, 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 간의 SnapMirror 관계 설정 등이 포함됩니다. 
 ---
 = 보조 볼륨을 전환하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

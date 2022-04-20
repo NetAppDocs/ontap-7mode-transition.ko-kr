@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, recommended, settings, esxi, hosts
 summary: ESXi 호스트에 대한 전환 후 문제 해결 단계를 완료한 후에는 호스트에서 clustered Data ONTAP에 대해 권장되는 ESXi 호스트 설정을 적용해야 합니다. 
 ---
 = 전환 수정 후 ESXi 호스트에 권장되는 설정입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

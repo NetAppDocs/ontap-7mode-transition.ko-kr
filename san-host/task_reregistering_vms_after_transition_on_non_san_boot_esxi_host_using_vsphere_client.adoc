@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vm, esxi, vsphere, client
 summary: '비 SAN 부팅 호스트를 전환한 후 가상 시스템 \(VM\)을 다시 등록해야 합니다.' 
 ---
 = vSphere Client를 사용하여 비 SAN 부팅 ESXi 호스트에서 전환 후 VM 재등록
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

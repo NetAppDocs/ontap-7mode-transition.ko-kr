@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, nfs, exports
 summary: 전환 후 SVM에서 NFS 엑스포트를 구성하는 방법을 알고 있어야 합니다. ONTAP에서 7-Mode 엑스포트 구성이 지원되지 않는 경우 몇 가지 수동 단계를 수행해야 할 수 있습니다. 
 ---
 = NFS 내보내기의 전환 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

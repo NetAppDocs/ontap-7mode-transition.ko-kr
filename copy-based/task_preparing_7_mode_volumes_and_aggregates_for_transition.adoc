@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, aggrates, volumes
 summary: 전환하기 전에 7-Mode 애그리게이트와 볼륨이 전환 가능한지 확인하고, 전환 전에 몇 가지 수동 단계를 수행해야 합니다. 예를 들어, 일부 볼륨 유형은 전환할 수 없으며 32비트 데이터는 전환 전에 7-Mode 시스템에서 제거해야 합니다. 
 ---
 = 전환을 위해 7-Mode 애그리게이트 및 볼륨 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

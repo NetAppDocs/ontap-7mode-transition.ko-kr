@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, metrocluster, configuration, failed, s
 summary: 전환 준비, 시작, 일시 중지, 재개 또는 완료 등의 전환 작업 MetroCluster 스위치오버 중 또는 MetroCluster 스위치백 후 오류가 발생합니다. 그런 다음, 전환을 다시 시작하려면 SnapMirror 관계를 수동으로 다시 설정해야 합니다. 
 ---
 = 스위치오버 또는 스위치백 으로 인해 실패한 MetroCluster 구성 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

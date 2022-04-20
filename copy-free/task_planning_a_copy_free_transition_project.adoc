@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, plan, project
 summary: '무복사 전환 프로젝트를 계획할 때는 소스 7-Mode 컨트롤러와 타겟 클러스터 노드를 선택하고, 7-Mode 볼륨을 스토리지 가상 머신(SVM\)에 매핑하고, 전이할 LIF를 선택하고, 사전 점검을 실행해야 합니다.' 
 ---
 = 복사를 사용하지 않는 전환 프로젝트 계획
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

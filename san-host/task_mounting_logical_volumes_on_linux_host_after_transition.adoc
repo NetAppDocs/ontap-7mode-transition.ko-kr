@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts
 summary: 7-Mode에서 운영되는 ONTAP을 clustered Data ONTAP으로 전환한 후 논리적 볼륨이 오프라인 상태가 됩니다. 호스트에서 LUN에 액세스할 수 있도록 해당 논리 볼륨을 마운트해야 합니다. 
 ---
 = 전환 후 Linux 호스트에 논리적 볼륨 마운트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

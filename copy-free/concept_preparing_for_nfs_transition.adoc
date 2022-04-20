@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, nfs
 summary: NFS 라이센스가 있고 7-Mode에서 운영 중인 시스템에서 NFS 서비스가 실행 중인 경우 NFS 구성을 전환하기 위해 수동으로 클러스터 및 타겟 SVM을 준비해야 합니다. 또한 어떤 구성이 전환되어 있는지도 알아야 합니다. 
 ---
 = NFS 전환 준비 중
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

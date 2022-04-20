@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, san, boot, lun
 summary: SAN 부팅 LUN을 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환하는 경우 컷오버 단계에 들어가기 전에 몇 가지 필수 조건을 숙지해야 합니다. 
 ---
 = SAN 부팅 LUN을 전환할 때 컷오버 단계를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

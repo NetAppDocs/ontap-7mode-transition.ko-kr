@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, cluster
 summary: 전환하기 전에 클러스터가 HTTPS 허용, LIF 설정, 전환을 위한 네트워크 연결 확인 등의 요구사항을 충족하는지 확인해야 합니다. 
 ---
 = 클러스터를 전환 준비 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, iscsi, san, boot, lun
 summary: 'iSCSI SAN 부팅 LUN을 전환하기 전에 호스트에서 특정 단계를 수행해야 합니다. Red Hat Enterprise Linux\(RHEL\) 5.x의 전환은 지원되지 않습니다. RHEL 6의 전환이 지원됩니다.' 
 ---
 = iSCSI SAN 부팅 LUN 전환 준비 중
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

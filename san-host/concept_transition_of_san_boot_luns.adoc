@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun
 summary: '7MTT\(7-Mode 전환 툴)를 사용하여 7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하기 전에 SAN 부팅 LUN을 재부팅해야 합니다. 컷오버 단계를 준비하기 위해 특정 단계를 수행해야 하며, 전환 후에는 LUN을 검색해야 합니다.' 
 ---
 = SAN 부팅 LUN의 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

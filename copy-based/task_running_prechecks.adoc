@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, run, prechecks
 summary: 전환을 시작하기 전에 사전 점검을 실행하여 문제를 식별할 수 있습니다. 사전 점검을 통해 7-Mode 소스, ONTAP 타겟 및 구성이 전환에 유효한지 확인합니다. 사전 점검을 원하는 횟수만큼 실행할 수 있습니다. 
 ---
 = 사전 점검 실행
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

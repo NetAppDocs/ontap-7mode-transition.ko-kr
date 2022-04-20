@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, terminology
 summary: 7-Mode 전환 툴과 관련된 전환 용어를 이해하면 전환 프로세스를 이해하는 데 도움이 됩니다. 
 ---
 = 전환 용어
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

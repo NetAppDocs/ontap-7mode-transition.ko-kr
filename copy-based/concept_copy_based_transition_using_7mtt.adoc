@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, 7, mode, tool
 summary: 7-Mode 전환 툴을 사용하면 정보를 수집하고 전환 가능한 7-Mode 컨트롤러, 호스트, 스위치, 애플리케이션을 평가하여 복사본 기반의 전환을 수행할 수 있습니다. 그런 다음 데이터 및 구성을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다. 
 ---
 = 7-Mode 전환 툴을 사용하여 복사본 기반 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

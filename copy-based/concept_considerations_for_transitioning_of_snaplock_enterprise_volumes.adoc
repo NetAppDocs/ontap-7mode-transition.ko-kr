@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, enterprise, volumes
 summary: 7-Mode 전환 툴은 독립 실행형 SnapLock 엔터프라이즈 볼륨과 SnapMirror 관계에 있는 SnapLock 엔터프라이즈 볼륨의 전환을 지원합니다. 
 ---
 = SnapLock 엔터프라이즈 볼륨의 전환을 위한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

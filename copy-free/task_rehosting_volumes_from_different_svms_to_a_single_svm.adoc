@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, rehost, volumes, svm
 summary: '볼륨 재호스트를 사용하면 데이터 복사 없이 전환된 볼륨을 한 SVM에서 다른 SVM으로 마이그레이션할 수 있습니다. 재호스트 작업을 통해 FC LUN이 있는 모든 볼륨을 단일 SVM에 통합할 수 있으므로 7-Mode 단일 시스템 이미지\(SSI\) 의미가 보존됩니다. 또한 전환된 NAS 볼륨을 다시 호스팅할 수 있습니다.' 
 ---
 = 전환된 볼륨을 다른 SVM으로 재호스팅
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

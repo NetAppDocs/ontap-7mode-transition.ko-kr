@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, dmmp, device, file, system
 summary: '파일 시스템 없이 Red Hat Enterprise Linux\(RHEL\) DMMP 장치를 전환하기 전에 DMMP 장치에 파일 시스템이 없는지 확인해야 합니다. 또한 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후에는 WWID를 교체해야 합니다.' 
 ---
 = 파일 시스템 없이 RHEL DMMP 장치 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

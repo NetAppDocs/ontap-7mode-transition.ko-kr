@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, delete, volume, snapshot, copy
 summary: 7-Mode 볼륨 스냅샷 복사본은 전환된 볼륨에서 자동으로 삭제되지 않으므로 전환 작업이 완료된 후 이러한 스냅샷 복사본을 수동으로 삭제해야 합니다. 
 ---
 = 전환된 볼륨에서 7-Mode 볼륨 스냅샷 복사본 삭제
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

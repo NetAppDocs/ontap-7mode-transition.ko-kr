@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, ha, pairs, snapmirror, relationship, st
 summary: 2차 HA 쌍을 먼저 전환하고 7-Mode 운영 볼륨과 ONTAP 2차 볼륨 사이에 지그재그형 SnapMirror 관계를 설정한 다음, 나중에 운영 HA 쌍으로 전환할 수 있습니다. 
 ---
 = 시차 구성에서 SnapMirror 관계에서 HA 쌍을 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

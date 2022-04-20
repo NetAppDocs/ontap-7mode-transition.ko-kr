@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, trademark
 summary: SAN 호스트 전환 및 문제 해결 가이드의 상표 정보 
 ---
 = 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

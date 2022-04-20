@@ -5,6 +5,7 @@ keywords: create, transition, project, ontap, copy, based, transition
 summary: '전환 프로젝트를 만들려면 7-Mode 볼륨을 선택하여 SVM(스토리지 가상 머신)에 매핑하고, 인터페이스를 매핑하고, SnapMirror 관계를 위한 데이터 복사본 일정을 만들어야 합니다.' 
 ---
 = 전이 프로젝트 작성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

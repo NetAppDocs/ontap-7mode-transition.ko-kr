@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, customize, 7, mode, configurations
 summary: 7-Mode에서 ONTAP로 구성을 전환할 때 두 가지 방법으로 구성 전환을 사용자 지정할 수 있습니다. 하나 이상의 설정 전환을 무시하거나 건너뛸 수 있습니다. 7-Mode NFS 엑스포트 규칙을 통합한 다음, 타겟 SVM에서 기존 NFS 엑스포트 정책과 스냅샷 정책을 재사용할 수 있습니다. 
 ---
 = 7-Mode 구성의 전환 사용자 지정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

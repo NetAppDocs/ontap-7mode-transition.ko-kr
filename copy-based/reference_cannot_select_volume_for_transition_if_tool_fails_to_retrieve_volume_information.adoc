@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, tool, fails, volume, information
 summary: 볼륨을 선택하려고 할 때 볼륨 선택 창에 볼륨 정보 검색 실패 오류 메시지가 표시됩니다. 이 오류는 일반적으로 컨트롤러가 사용 중인 경우에 발생합니다. 
 ---
 = 도구가 볼륨 정보를 검색하지 못하는 경우 전환할 볼륨을 선택할 수 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

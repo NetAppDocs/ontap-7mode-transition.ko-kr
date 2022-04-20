@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, network
 summary: '논리 포트(VLAN 및 인터페이스 그룹\)를 생성하여 전환할 클러스터의 데이터 네트워크를 준비해야 합니다.' 
 ---
 = 전환을 위한 네트워크 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

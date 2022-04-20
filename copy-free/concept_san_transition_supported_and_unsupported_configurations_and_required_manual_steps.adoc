@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, transition, supported, unsupported
 summary: 7-Mode 전환 툴을 통해 전환된 SAN 구성을 알고 있어야 합니다. 또한, 전환 전에 필요한 조치를 취할 수 있도록 ONTAP에서 지원되지 않는 7-Mode SAN 기능에 대해서도 알고 있어야 합니다. 
 ---
 = SAN 전환: 지원되는 구성과 지원되지 않는 구성 및 필요한 수동 단계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

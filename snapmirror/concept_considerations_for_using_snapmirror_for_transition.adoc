@@ -5,6 +5,7 @@ keywords: ontap, 7, transition, mode, snapmirror, operations, snapvault, conside
 summary: 7-Mode 시스템에서 발생하는 SnapMirror 또는 SnapVault 작업과 동시에 전환 작업을 실행할 때는 최대 동시 SnapMirror 전송 수, 데이터 복사본 일정, 전환을 위한 다중 경로 사용 등과 같은 특정한 고려 사항을 염두에 두어야 합니다. 
 ---
 = 전환을 위해 SnapMirror를 사용할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

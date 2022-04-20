@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, create, project
 summary: 전환 프로젝트를 계획하는 첫 번째 단계는 디스크 쉘프, 애그리게이트, 볼륨, 구성을 전환할 소스 7-Mode HA 쌍을 선택한 다음, 전환 프로젝트를 생성하는 것입니다. 
 ---
 = 복사 없는 전이 프로젝트 작성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

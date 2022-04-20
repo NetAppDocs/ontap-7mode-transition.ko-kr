@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, preproduction, testing, restrictions
 summary: 일부 작업은 차단되며 일부 작업은 사전 프로덕션 테스트 중에 권장되지 않습니다. 이러한 제한은 전환을 커밋하지 않으려는 경우 7-Mode로의 롤백을 허용하기 위해 적용됩니다. 
 ---
 = 사전 프로덕션 테스트 중 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names
 summary: 별칭 이름을 사용하여 마운트 지점으로 LUN을 전환하는 경우 컷오버 단계를 준비하기 위한 특정 단계를 수행해야 하며, 전환 후 LUN을 다시 마운트해야 합니다. 
 ---
 = DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

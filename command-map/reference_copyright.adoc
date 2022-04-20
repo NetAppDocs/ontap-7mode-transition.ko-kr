@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, copyright
 summary: 7-Mode 관리자용 명령 맵에 대한 저작권 정보. 
 ---
 = 저작권
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

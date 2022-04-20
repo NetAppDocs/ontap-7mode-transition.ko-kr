@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, windows, transition, to
 summary: 7-Mode 전환 툴을 설치하고 실행하려면 Windows 호스트가 필요한 구성을 충족하는지 확인해야 합니다. 
 ---
 = Windows 시스템에 7-Mode Transition Tool을 설치하기 위한 시스템 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

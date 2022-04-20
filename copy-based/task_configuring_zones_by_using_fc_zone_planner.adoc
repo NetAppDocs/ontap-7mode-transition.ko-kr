@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configure, zone, fc, plan
 summary: 전환을 완료한 후에는 FC 존 계획을 사용하여 클러스터에서 데이터 액세스를 제공하기 위한 이니시에이터 호스트 및 타겟을 그룹화하여 존을 구성해야 합니다. 
 ---
 = FC 존 계획을 사용하여 존 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

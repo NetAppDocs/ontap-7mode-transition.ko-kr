@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, storage, host, fc, switches, version, r
 summary: 전환 평가를 지원하는 7-Mode, 호스트 및 FC 스위치에서 작동하는 Data ONTAP 버전에 대해 알고 있어야 합니다. 
 ---
 = 전환 평가를 위한 스토리지, 호스트 및 FC 스위치 버전 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

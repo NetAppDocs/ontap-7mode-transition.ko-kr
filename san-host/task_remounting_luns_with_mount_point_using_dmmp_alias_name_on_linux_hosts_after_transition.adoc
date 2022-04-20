@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, lun, points, dmmp, alias, names
 summary: 7-Mode에서 작동하는 ONTAP에서 clustered Data ONTAP으로 전환한 후 마운트 지점으로 LUN을 다시 마운트해야 합니다. 7-Mode 볼륨은 오프라인 상태이며 호스트에서 7-Mode LUN에 액세스할 수 없습니다. 
 ---
 = 전환 후 Linux 호스트에서 DMMP 별칭 이름을 사용하여 마운트 지점으로 LUN을 다시 마운트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

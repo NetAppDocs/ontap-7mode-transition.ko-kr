@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, test, workload, application
 summary: 사전 운영 환경에서 모든 워크로드와 애플리케이션을 수동으로 테스트해야 합니다. 그런 다음 프로젝트를 커밋하기 전에 롤백이 필요한지 여부를 평가하기 위해 잠시 동안 생산을 시작할 수 있습니다. 
 ---
 = 워크로드 및 애플리케이션 테스트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregate, space, requirements
 summary: 전환하기 전에 7-Mode 애그리게이트에 충분한 가용 공간이 있는지 확인해야 합니다. 7-Mode 전환 툴은 물리적 공간, 논리적 공간, 스냅샷 복사본이 차지하는 공간 및 공간 보장 설정을 기반으로 애그리게이트에서 다양한 공간 점검을 수행합니다. 또한 Flash Pool 애그리게이트와 관련된 공간 고려 사항을 알고 있어야 합니다. 
 ---
 = 전환을 위한 애그리게이트 공간 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

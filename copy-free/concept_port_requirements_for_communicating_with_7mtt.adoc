@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, port, requirements, 7, mode, tool
 summary: 7-Mode 전환 툴은 7-Mode 시스템과 통신하며 클러스터는 특정 포트를 통해 통신합니다. 7-Mode 시스템과 클러스터에서 이러한 포트가 열려 있는지 확인하여 7-Mode 전환 툴과의 통신을 허용해야 합니다. 
 ---
 = 7-Mode Transition Tool과 통신하기 위한 포트 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

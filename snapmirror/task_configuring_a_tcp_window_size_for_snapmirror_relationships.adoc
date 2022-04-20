@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship
 summary: 7-Mode 볼륨과 ONTAP 볼륨 간의 SnapMirror 관계에 대한 TCP 윈도우 크기를 구성하여 SnapMirror 전송 처리량을 높이고 복제 작업을 더 빠르게 완료할 수 있습니다. 
 ---
 = SnapMirror 관계에 대한 TCP 윈도우 크기 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, host, lvm, device
 summary: 'LVM\(Logical Volume Manager\) 장치에서 Linux 호스트 파일 시스템을 전환하는 경우 전환 단계 전에 수행해야 하는 단계가 있습니다.' 
 ---
 = LVM 디바이스에서 Linux 호스트 파일 시스템을 전환할 때 컷오버 단계를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

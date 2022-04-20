@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, primary, secondary, system, snapmirror,
 summary: 7-Mode SnapMirror 관계의 볼륨이 포함된 운영 HA 쌍과 2차 HA 쌍을 병렬로 전환할 수 있습니다. 그런 다음 clustered Data ONTAP에서 전환 후 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다. 전환 후에도 베이스라인을 다시 설정하지 않고 SnapMirror 관계가 유지됩니다. 
 ---
 = SnapMirror 관계의 운영 및 2차 시스템을 병렬로 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, assessment, report, add, transition, to
 summary: 7-Mode 전환 툴에 시스템을 추가하여 컨트롤러, 호스트, FC 스위치의 인벤토리 정보를 수집할 수 있습니다. 그런 다음 평가 보고서를 생성하여 해당 시스템의 기능을 평가하고, 전환을 위해 선택한 ONTAP 버전에서 어떻게 작동하는지를 확인할 수 있습니다. 
 ---
 = 7-Mode 전환 툴에 시스템을 추가하여 평가 보고서 생성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

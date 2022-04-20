@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cli, tool, columes
 summary: 7-Mode 전환 툴은 7-Mode 볼륨을 전환할 수 있는 명령을 제공합니다. Linux 시스템에 7-Mode Transition Tool이 설치되어 있는 경우 CLI를 사용하여 전환을 수행해야 합니다. 
 ---
 = 7-Mode 전환 툴 CLI를 사용하여 볼륨 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

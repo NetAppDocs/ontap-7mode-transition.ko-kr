@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, snapmirror, transition, index, data
 summary: SnapMirror 명령을 사용하여 7-Mode 시스템에서 ONTAP로 데이터를 전환하는 방법에 대해 설명합니다. 
 ---
 = SnapMirror ® 기술을 사용한 7-Mode 데이터 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

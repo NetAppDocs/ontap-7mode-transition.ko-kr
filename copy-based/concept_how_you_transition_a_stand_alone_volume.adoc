@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, stand, alone, volume
 summary: '독립 실행형 볼륨을 전환하려면 준비, 데이터 복사, 구성 적용\(precutover\), 스토리지 컷오버와 같은 다양한 단계가 포함됩니다. 전환을 완료한 후 클라이언트 액세스를 재개하기 전에 몇 가지 전환 후 단계를 수행해야 합니다. 각 단계에서 발생하는 일을 이해하면 전환을 효율적으로 관리할 수 있습니다.' 
 ---
 = 독립형 볼륨을 전환하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

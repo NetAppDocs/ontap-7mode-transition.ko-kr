@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, complete, chain, custody, verification
 summary: 거래 사슬 확인을 위해 하나 이상의 SnapLock 볼륨을 선택한 경우, 관리 체인 작업을 수행하여 관리 체인 보고서를 생성해야 합니다. 
 ---
 = 관리 연속성 검증 완료
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

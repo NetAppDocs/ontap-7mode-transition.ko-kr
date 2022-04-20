@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cbt, command, manage
 summary: 전환 CBT 명령을 사용하여 전환 프로젝트 생성, 수정, 삭제 및 표시 등의 기능을 관리할 수 있습니다. 
 ---
 = 전환 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

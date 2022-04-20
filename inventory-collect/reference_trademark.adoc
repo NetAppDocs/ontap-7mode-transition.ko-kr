@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, trademark, host, storage, information
 summary: Host and Storage Information Collection Guide의 상표 정보입니다 
 ---
 = 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

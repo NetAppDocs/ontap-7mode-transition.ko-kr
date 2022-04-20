@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, workflow
 summary: 복사본 기반 전환 워크플로우에는 마이그레이션 준비, 데이터 및 구성 마이그레이션, 전환 후 구성 작업이 포함됩니다. 
 ---
 = 복사본 기반 전환 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

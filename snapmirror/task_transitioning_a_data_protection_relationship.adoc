@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, staggered, configuration, volu
 summary: 7-Mode 볼륨 SnapMirror 관계를 전환하고 운영 볼륨 전에 2차 볼륨을 전환하여 데이터 보호 관계를 유지할 수 있습니다. 이 방식을 사용하면 7-Mode 운영 볼륨과 clustered Data ONTAP 2차 볼륨 사이에 지그재그형 SnapMirror DR 관계를 설정할 수 있습니다. 
 ---
 = 시차 구성에서 볼륨 SnapMirror 관계 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

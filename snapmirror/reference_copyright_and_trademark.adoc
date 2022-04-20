@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, copyright, trademark, machine, translation
 summary: SnapMirror 기술을 사용한 7-Mode 데이터 전환에 대한 저작권 및 상표입니다. 
 ---
 = 저작권, 상표 및 기계 번역
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, cluster, snapmirror, relations
 summary: 7-Mode 볼륨 SnapMirror 관계를 전환하려면 소스 및 타겟 클러스터에 SnapMirror 라이센스를 추가해야 합니다. 또한 SnapMirror 관계의 기본 볼륨과 보조 볼륨이 전환된 클러스터 간에 클러스터 피어 관계를 생성하고 SnapMirror 일정을 생성해야 합니다. 
 ---
 = 볼륨 SnapMirror 관계를 전환하기 위한 클러스터 준비
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

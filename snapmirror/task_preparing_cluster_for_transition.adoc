@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, prepare, transition, cluster, requirements
 summary: 7-Mode 시스템을 전환하기 전에 클러스터를 설정하고, LIF 설정 및 전환을 위한 네트워크 연결 확인 등의 요구사항을 클러스터에서 충족하는지 확인해야 합니다. 
 ---
 = 클러스터를 전환 준비 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

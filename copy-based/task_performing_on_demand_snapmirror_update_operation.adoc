@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, perform, demand, snapmirror, updates
 summary: 컷오버 시간 전에 모든 볼륨에 대해 SnapMirror 증분 업데이트를 수행할 수 있습니다. 
 ---
 = 온디맨드 SnapMirror 업데이트 수행
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

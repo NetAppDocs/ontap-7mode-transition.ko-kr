@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, overview
 summary: Clustered ONTAP으로 전환하려면 현재 환경 식별, 전환 범위 정의, 대상 시스템의 최적의 구성 설계, 데이터 및 구성 마이그레이션 방법 계획, 필요한 환경 업데이트 작업이 필요합니다. 
 ---
 = 전환 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

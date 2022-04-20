@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vmfs, volumes, remounted
 summary: 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 전환한 후 VMFS 데이터 저장소와 VM을 사전 전환 상태로 전환하려면 다시 마운트해야 하는 VMFS 볼륨이 있을 수 있습니다. 
 ---
 = 전환 후 VMFS 볼륨을 다시 마운트해야 하는지 여부를 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, restrictions
 summary: 일부 7-Mode 볼륨 및 구성의 전환에는 특정 제한이 있다는 점을 알고 있어야 합니다. 
 ---
 = 전환 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

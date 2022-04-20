@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, manual, roll, back
 summary: 전환을 롤백하려는 경우 클러스터 및 7-Mode 시스템에서 몇 가지 수동 단계를 수행해야 합니다. 수동 롤백 단계 목록은 7-Mode 전환 툴을 통해 생성됩니다. 
 ---
 = 수동으로 전환을 롤백합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

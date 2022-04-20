@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, modify, configuration, options, transition, t
 summary: $INSTALL_DIR\\ETC\\... 파일을 편집하여 7-Mode 전환 도구에서 사용되는 모든 구성 옵션을 수정할 수 있습니다. 이 파일에는 도구를 작동하는 데 필요한 모든 구성 가능한 옵션에 대한 정보가 들어 있습니다. 
 ---
 = 7-Mode 전환 툴의 구성 옵션 수정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

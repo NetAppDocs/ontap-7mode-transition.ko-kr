@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, decide, perform, cutover
 summary: 전환 컷오버가 클라이언트에게 영향을 주기 때문에 다운타임을 최소화할 수 있도록 작업을 계획해야 합니다. 활동이 적은 기간 동안 컷오버를 예약해야 합니다. ONTAP 볼륨을 업데이트하고 전송이 완료될 때까지 기다린 후 클라이언트의 연결을 끊고 스토리지 컷오버를 실행하여 다운타임을 줄여야 합니다. 
 ---
 = 컷오버 수행 시기를 결정하기 위한 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

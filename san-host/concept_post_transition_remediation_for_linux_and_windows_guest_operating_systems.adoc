@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remediation, linux, windows, guest, oper
 summary: Linux 및 Windows 게스트 운영 체제는 7-Mode에서 작동하는 Data ONTAP에서 clustered Data ONTAP으로 LUN을 전환한 후 추가 조정을 필요로 할 수 있습니다. 
 ---
 = Linux 및 Windows 게스트 운영 체제에 대한 전환 후 문제 해결
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

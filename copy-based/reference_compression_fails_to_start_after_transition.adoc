@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, compression, data, enable, error
 summary: Data ONTAP 7.3.x를 실행하는 시스템에서 32비트 볼륨을 64비트 애그리게이트에 있는 ONTAP 볼륨으로 전환할 경우 전환 후 ONTAP 볼륨에서 압축이 활성화되지 않습니다. 볼륨이 32비트에서 64비트로 업그레이드될 때까지 압축을 활성화할 수 없습니다. 
 ---
 = Data ONTAP 7.3.x에서 전환한 후 압축이 활성화되지 않습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
