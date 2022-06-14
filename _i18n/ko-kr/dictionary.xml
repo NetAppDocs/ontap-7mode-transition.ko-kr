@@ -2368,7 +2368,6 @@
   <block id="902c0c6711149dc80ee1ec798672da2a" category="list-text">루트 볼륨이 기본 vFiler 유닛에 속하는 qtree를 기반으로 하는 경우 7-Mode 전환 툴은 vFiler 유닛의 루트 볼륨을 전환하지 않습니다.</block>
   <block id="aec68d7de9088eaf3f88f305dc20a67f" category="list-text">볼륨과 qtree가 다른 vFiler 유닛에서 소유된 경우 7-Mode 전환 툴은 qtree로 볼륨을 전환하지 않습니다.</block>
   <block id="d8b6ec5a952cdc2d6a3524903a90fa21" category="paragraph">이러한 볼륨을 전환하면 qtree에 액세스할 수 없게 됩니다.</block>
-  <block id="04d39dfeb5faffda762cf1acdae0cc20" category="list-text">전환된 볼륨은 FlexGroup 볼륨으로 변환할 수 없습니다.</block>
   <block id="ec95dc299bb96af52039f89734b543eb" category="paragraph">사전 점검 작업은 이러한 제한 사항 중 일부에 대한 정보를 표시합니다.</block>
   <block id="4f23a9c9701bc2997a799f174f4ceadf" category="summary">7-Mode로 운영되는 Data ONTAP에서는 일반적으로 플랫 파일을 사용하여 스토리지 시스템을 구성합니다. Clustered Data ONTAP에서는 구성 명령을 사용합니다. 7-Mode 구성 파일이 clustered Data ONTAP 구성 명령에 매핑되는 방법을 알고 있어야 합니다.</block>
   <block id="d35b2299f409e418b42783c22da367c8" category="doc">7-Mode 구성 파일이 clustered Data ONTAP 명령에 매핑되는 방법</block>
@@ -7388,4 +7387,8 @@
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 관리자용 명령 맵</block>
   <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">3단계</block>
   <block id="6aa5dee008838df0194def910f0b3065" category="list-text">로 이동합니다 <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>.</block>
+  <block id="182051b066ceb3730c91bc37bf2ef32d" category="paragraph">7-Mode 소스 볼륨의 특성에 맞도록 타겟 ONTAP 볼륨을 프로비저닝하는 것이 좋습니다. 다음과 같은 특성이 일치합니다.</block>
+  <block id="6a76182840bc8cb17fc284d39d33bc7b" category="list-text">볼륨 크기: ONTAP 볼륨은 7-Mode 볼륨의 크기 이상이어야 합니다.</block>
+  <block id="9d4d145a5064a246d799bd034370a277" category="list-text">언어: ONTAP 볼륨 설정은 7-Mode 볼륨 설정과 일치해야 합니다.</block>
+  <block id="a3ffa67a8aa91c98ab4a9e9dc74a21a3" category="paragraph">7-Mode 전환 툴은 ONTAP 볼륨을 7-Mode 볼륨과 일치하는 속성으로 자동으로 프로비저닝합니다.</block>
 </blocks>

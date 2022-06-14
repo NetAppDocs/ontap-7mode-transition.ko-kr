@@ -20,6 +20,14 @@ xref:task_preparing_for_transition.adoc[전환 준비 중]
 
 
 
+7-Mode 소스 볼륨의 특성에 맞도록 타겟 ONTAP 볼륨을 프로비저닝하는 것이 좋습니다. 다음과 같은 특성이 일치합니다.
+
+* 볼륨 크기: ONTAP 볼륨은 7-Mode 볼륨의 크기 이상이어야 합니다.
+* 언어: ONTAP 볼륨 설정은 7-Mode 볼륨 설정과 일치해야 합니다.
+
+
+7-Mode 전환 툴은 ONTAP 볼륨을 7-Mode 볼륨과 일치하는 속성으로 자동으로 프로비저닝합니다.
+
 .단계
 . 7-Mode 볼륨에서 clustered Data ONTAP 볼륨으로 데이터 복사:
 +
