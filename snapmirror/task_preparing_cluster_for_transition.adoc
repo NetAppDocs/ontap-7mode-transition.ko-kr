@@ -44,7 +44,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["소�
 +
 [listing]
 ----
-cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+cluster1::> network interface create -vserver cluster1 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
 ----
 .. 인터클러스터 LIF에 대한 정적 경로를 생성합니다.
 +
@@ -72,8 +72,6 @@ system7mode is alive
 다중 경로의 경우 각 노드에 두 개의 인터클러스터 LIF가 있어야 합니다.
 
 https://docs.netapp.com/us-en/ontap/networking/index.html["네트워크 및 LIF 관리"]
-
-* 관련 정보 *
 
 xref:task_creating_a_transition_peering_relationship.adoc[전환 피어 관계 생성]
 
