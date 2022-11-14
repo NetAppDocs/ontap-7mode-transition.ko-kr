@@ -59,17 +59,17 @@ NOTE: 필요한 소프트웨어 요구사항 및 하드웨어 요구사항을 �
 
 
 
-* 64비트 Oracle Java Runtime Environment(JRE) 1.8 업데이트 144
+* 64비트 Oracle Java Runtime Environment(JRE) 1.8 업데이트 331
 +
 
-NOTE: Windows 호스트에 JRE가 없거나 32비트 JRE가 설치되어 있는 경우 7-Mode 전환 도구 설치 프로그램이 64비트 JRE 1.8 업데이트 144를 자동으로 설치합니다. 이전 버전의 64비트 JRE가 설치되어 있는 경우 설치 프로그램이 JRE를 JRE 1.8 업데이트 144로 자동 업데이트합니다.
+NOTE: Windows 호스트에 JRE가 없거나 32비트 JRE가 설치되어 있는 경우 7-Mode 전환 도구 설치 프로그램이 64비트 JRE 1.8 업데이트 331을 자동으로 설치합니다. 이전 버전의 64비트 JRE가 설치되어 있는 경우 설치 프로그램이 JRE를 JRE 1.8 업데이트 331로 자동 업데이트합니다.
 
 +
 JRE가 자동으로 업데이트되면 이전 버전의 JRE가 필요한 다른 응용 프로그램에 영향을 줄 수 있습니다.
 
 +
 
-NOTE: JRE 버전 1.8 업데이트 46 이상(JRE 1.8 업데이트 144 포함)에서 7-Mode 전환 도구가 7-Mode 시스템 및 ONTAP 시스템에서 작동하는 Data ONTAP와 통신하려면 7-Mode 시스템에서 작동하는 Data ONTAP와 ONTAP 시스템의 SSL 키 길이가 1024개 이상이어야 합니다.
+NOTE: JRE 버전 1.8 업데이트 46 이상(JRE 1.8 업데이트 331 포함)의 경우 7-Mode 전환 도구가 7-Mode 시스템 및 ONTAP 시스템에서 작동하는 Data ONTAP와 통신하려면 7-Mode 시스템에서 작동하는 Data ONTAP와 ONTAP 시스템의 SSL 키 길이가 1024개 이상이어야 합니다.
 
 +
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT: TLS 또는 SSL 통신 문제를 해결하는 방법"]

@@ -51,8 +51,8 @@ xref:task_performing_copy_free_transition_of_7_mode_aggregates.adoc[복사 없�
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
 
-.. '스냅샷 삭제' 명령을 사용하여 7-Mode 기본 볼륨과 단계에서 생성한 ONTAP 보조 볼륨 간의 TDP SnapMirror 관계를 삭제합니다 <<SUBSTEP_D528769DF8EC49058D1958565914CF47,substep_D528769DF8EC49058D1958565914CF47>>.
-.. 단계에서 생성한 cron 작업 일정을 삭제합니다 <<SUBSTEP_EB470706425C45759EAAE8F0A87BA547,하위 단계_EB470706425C45759EAAE8F0A87BA547입니다>>: + ` * job schedule cron delete * '
+.. '스냅샷 삭제' 명령을 사용하여 7-Mode 기본 볼륨과 단계에서 생성한 ONTAP 보조 볼륨 간의 TDP SnapMirror 관계를 삭제합니다 ,substep_D528769DF8EC49058D1958565914CF47.
+.. 단계에서 생성한 cron 작업 일정을 삭제합니다 ,하위 단계_EB470706425C45759EAAE8F0A87BA547입니다: + ` * job schedule cron delete * '
 .. 전환된 운영 볼륨과 2차 볼륨 사이에 볼륨 SnapMirror 관계를 생성합니다.
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["볼륨 재해 복구 빠른 준비"]

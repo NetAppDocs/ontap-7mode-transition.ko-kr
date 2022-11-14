@@ -15,7 +15,7 @@ summary: 7-Mode 시스템, 클러스터, ONTAP 릴리즈, 디스크 쉘프의 �
 
 지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보는 최신 7-Mode Transition Tool_Release Notes_를 참조하십시오.
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["7-Mode 전환 툴 릴리즈 노트"]
+link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-Mode 전환 툴 릴리즈 노트"]
 
 * * 플랫폼 모델 *
 +

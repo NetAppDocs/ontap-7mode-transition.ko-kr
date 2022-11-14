@@ -4884,7 +4884,6 @@
   <block id="9ac787e1d185ed5b8f8cb8006458fe5b" category="inline-xref-macro">전환을 롤백하는 수동 단계</block>
   <block id="6115c303467b1de24fc3a4d21a24acd2" category="paragraph"><block ref="6115c303467b1de24fc3a4d21a24acd2" category="inline-xref-macro-rx"></block></block>
   <block id="65e84ecaa52346aec5017788a0053bd0" category="list-text">모든 수동 단계를 완료한 후 7-Mode 전환 도구에서 * 7-Mode * 확인 을 클릭하여 7-Mode 컨트롤러가 데이터 제공 준비가 되었는지 확인합니다.</block>
-  <block id="b39e432a1f354787452d348ec8ccfc4d" category="paragraph"><block ref="b39e432a1f354787452d348ec8ccfc4d" category="inline-link-rx"></block></block>
   <block id="dfb9d660d8a516f9d55d2fae99ded86c" category="summary">전환 중에 다소 무 난한 오류가 발생할 수 있습니다. 이러한 오류는 복사 없는 전환 프로젝트의 사전 점검, 케이블 연결, 가져오기 또는 커밋 작업 중에 발생할 수 있습니다. 전환을 계속하기 전에 이러한 오류를 확인해야 합니다.</block>
   <block id="dcdf1b067a58ff92e9701b7215b81695" category="paragraph">7-Mode Transition Tool CLI를 사용하여 복사를 사용하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 오류가 미치는 영향을 잘 이해하게 됩니다. 오류를 무시하고 전환 작업을 다시 실행해야 합니다. 이때 차단 오류는 경고 메시지로 바뀌고 오류는 ""확인됨""으로 표시됩니다. 경고로 전환을 계속할 수 있습니다.</block>
   <block id="4d8651f7d2e6c7ab053f3c6cff93e4fe" category="section-title">PreCheck 작업: ignorable 오류 범주입니다</block>
@@ -5230,7 +5229,6 @@
   <block id="9a2fd4069bd3046e666b9e556f1ac36d" category="paragraph">2노드 클러스터의 경우 타겟 SVM의 루트 볼륨을 호스팅할 수 있는 데이터 애그리게이트가 있어야 합니다. 4개 이상의 노드가 있는 클러스터의 경우 SVM의 루트 볼륨을 전환의 타겟 노드 또는 클러스터의 다른 노드에서 호스팅할 수 있습니다.</block>
   <block id="c38aab72390ebc13644d167817b0657e" category="list-text">클러스터 관리 LIF에 대한 방화벽 정책을 봅니다. + ` * network interface show -vserver_svm_name_-lif_cluster_mgmt_lif_-fields firewall firewall firewall -policy * '</block>
   <block id="8c36ff032cb217ad5ff64466245b39a6" category="list-text">클러스터 관리 LIF와 연결된 방화벽 정책에서 HTTPS 액세스를 허용하는지 확인합니다. + " * 시스템 서비스 방화벽 정책 show-policy mgmt * "</block>
-  <block id="f478f948e7ee04a9bd3244ae1fdefb7f" category="admonition">복제가 필요 없는 전환을 위해 호스트 및 컨트롤러를 평가하려면 인벤토리 수집 도구 3.3을 사용하여 인벤토리를 수집해야 합니다.</block>
   <block id="b9b3632e3b30a3f71897f0ef53507bfe" category="summary">전환 후 SVM에서 구성할 LIF를 지정할 수도 있습니다. 이러한 LIF는 7-Mode 시스템의 기존 IP 주소이거나 새로운 LIF가 될 수 있습니다. NAS LIF만 전환되었습니다. SVM 프로비저닝 단계 전에 FC 및 iSCSI LIF를 수동으로 구성해야 합니다.</block>
   <block id="21041175103a046f14974f3963defdfd" category="doc">전환할 LIF 선택</block>
   <block id="775e79a4a13f68f36c46b45ef60ee984" category="paragraph">전환을 위해 선택된 LIF는 SVM 프로비저닝 단계 중에 다음과 같은 방법으로 SVM에 구성됩니다.</block>
@@ -5834,7 +5832,6 @@
   <block id="6d610e8d450ce4146c608d6baccbe631" category="paragraph">'* 전이 CFT ignableerrors add -p_project_name_-c_ignorable_errorcategory_ * '</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">새로운 기능, 업그레이드 정보, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
   <block id="a36356967ba019ce3f720deb36e80a91" category="inline-link-macro">7-Mode 전환 릴리즈 노트</block>
-  <block id="0b5140d2bd87babd5325d2c620f67458" category="paragraph">를 클릭합니다 <block ref="e11c70138711c8e98b53b976fc9ee495" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">릴리즈 노트에 액세스하려면 NetApp Support 사이트에 로그인해야 합니다.</block>
   <block id="77eec03fe342cad58eb327be3d2118c0" category="summary">CLI를 사용하여 Linux에서 7-Mode 전환 툴을 제거할 수 있습니다.</block>
   <block id="e061cf6f9e2e8edd1bae2d7cca39667a" category="doc">Linux에서 7-Mode 전환 툴 제거</block>
@@ -5888,9 +5885,7 @@
   <block id="ea11271e6484be2372cd2e1258df7fa8" category="list-text">도구가 설치된 Windows 시스템의 자격 증명을 사용하여 웹 인터페이스에 로그인합니다.</block>
   <block id="fd00b11ac62d48083e1c4fad16747fc0" category="summary">표준 마법사 기반 설치 프로그램을 사용하여 Windows 시스템에서 7-Mode 전환 도구를 다운로드하고 설치할 수 있습니다. 하지만 이전에 7-Mode 전환 툴 버전을 설치한 경우에는 먼저 특정 사전 요구사항을 알고 있어야 합니다.</block>
   <block id="0dde23a3f51b9430f58ea2e62f0d1056" category="doc">Windows 시스템에서 7-Mode 전환 도구 설치 또는 제거</block>
-  <block id="9ea0f21dd3ae9719b3998e259c4c948a" category="list-text">시스템에 3.0 이전 버전의 7-Mode Transition Tool이 설치되어 있는 경우, 7-Mode Transition Tool 3.3을 설치하기 전에 7-Mode Transition Tool을 제거해야 합니다.</block>
   <block id="c9c4393484646c8d4d10a30fc46c0024" category="paragraph">제거 중에 로그 파일을 보존하도록 선택한 경우 로그 파일의 백업을 만들어야 합니다. 7-Mode 전환 툴 설치 프로그램은 이 툴을 동일한 폴더에 설치하고 다음에 실행할 때 로그 파일을 덮어씁니다.</block>
-  <block id="af8fd495d2564f954308446d06867289" category="list-text">7-Mode Transition Tool 3.0 이상이 시스템에 설치된 경우 7-Mode Transition Tool 3.3을 설치하기 전에 다음 조건을 충족해야 합니다.</block>
   <block id="ea3c03fc1e8cc41bfa7761c8673cf886" category="list-text">기존의 모든 복사 기반 전환 프로젝트를 완료하거나 중단해야 합니다.</block>
   <block id="c289e5fe5901e5b311647e928a94d2fb" category="list-text">기존의 모든 복사 없는 전이 프로젝트를 완료하거나 롤백해야 합니다.</block>
   <block id="751d402d123c8277e2adcde40dbcb8b6" category="summary">CLI를 사용하여 Linux 시스템에서 7-Mode 전환 툴을 다운로드하고 설치할 수 있습니다. 필요한 경우 7-Mode 전환 툴을 제거할 수 있습니다.</block>
@@ -6034,10 +6029,7 @@
   <block id="d54a88e6102488b4686f328a0f54c5a8" category="list-text">7-Mode Transition Tool 버전 3.3.3의 경우 다음 운영 체제 버전 중 하나를 사용할 수도 있습니다.</block>
   <block id="85114c48e2a0154779b7fda0b396bfb0" category="list-text">Windows 10 Professional을 참조하십시오</block>
   <block id="b65ad8a600c099620c7449bd7ce9f7ac" category="admonition">필요한 소프트웨어 요구사항 및 하드웨어 요구사항을 충족하는 Windows 가상 머신을 사용하여 7-Mode 전환 툴을 설치할 수 있습니다.</block>
-  <block id="c230fdb80b8da757746cad17d0846f23" category="list-text">64비트 Oracle Java Runtime Environment(JRE) 1.8 업데이트 144</block>
-  <block id="6f4734ae41213296dedbb453ce6b4fc8" category="admonition">Windows 호스트에 JRE가 없거나 32비트 JRE가 설치되어 있는 경우 7-Mode 전환 도구 설치 프로그램이 64비트 JRE 1.8 업데이트 144를 자동으로 설치합니다. 이전 버전의 64비트 JRE가 설치되어 있는 경우 설치 프로그램이 JRE를 JRE 1.8 업데이트 144로 자동 업데이트합니다.</block>
   <block id="9db8379d081443245f4a410ecbcac0cb" category="paragraph">JRE가 자동으로 업데이트되면 이전 버전의 JRE가 필요한 다른 응용 프로그램에 영향을 줄 수 있습니다.</block>
-  <block id="5a61241aaacfbb3eb5c7b5535936e03f" category="admonition">JRE 버전 1.8 업데이트 46 이상(JRE 1.8 업데이트 144 포함)에서 7-Mode 전환 도구가 7-Mode 시스템 및 ONTAP 시스템에서 작동하는 Data ONTAP와 통신하려면 7-Mode 시스템에서 작동하는 Data ONTAP와 ONTAP 시스템의 SSL 키 길이가 1024개 이상이어야 합니다.</block>
   <block id="0e093531365c0bba31e2b45abf2bc1c3" category="inline-link">7MTT: TLS 또는 SSL 통신 문제를 해결하는 방법</block>
   <block id="91615dc67083d816145f87b6060ace0b" category="paragraph"><block ref="91615dc67083d816145f87b6060ace0b" category="inline-link-rx"></block></block>
   <block id="ad5a4b432b50a54689ad10768c2c0b54" category="section-title">서버 구성 요구 사항</block>
@@ -6081,7 +6073,6 @@
   <block id="bef0ecaff88f9e1fe834c31db5e173a0" category="list-text">Red Hat Enterprise Linux 7.0(7-Mode Transition Tool 버전 3.3.2 이상)</block>
   <block id="275d22b5a45e39f77f0883aa64f3a396" category="list-text">CentOS 릴리즈 6.4</block>
   <block id="e175ac66c6d8ee1c08565e54a926608d" category="admonition">필요한 소프트웨어 및 하드웨어 요구사항을 충족하는 Linux 가상 머신을 사용하여 7-Mode 전환 툴을 설치할 수 있습니다.</block>
-  <block id="cd1e0efe07681923a24b966e9a1b6626" category="list-text">64비트 Oracle JRE 1.8 업데이트 45</block>
   <block id="7dcffacdfc39b07e76761b6019697a9b" category="list-text">7-zip 유틸리티('rpmforge-release-0.3.6-1.el5.rf.x86_64.rpm')</block>
   <block id="3f372cd6b37fbd4ee876989cc8704622" category="admonition">7-Mode 전환 도구를 구성하기 전에 Linux 시스템에 JRE 1.8 및 7-zip 유틸리티가 설치되어 있어야 합니다.</block>
   <block id="535fbd79afd4361f1cb24fe787a3a176" category="summary">7-Mode에서 운영되는 Data ONTAP을 clustered Data ONTAP으로 전환하기 전에 먼저 Windows 호스트를 수행해야 하는 단계가 있습니다.</block>
@@ -7391,4 +7382,17 @@
   <block id="6a76182840bc8cb17fc284d39d33bc7b" category="list-text">볼륨 크기: ONTAP 볼륨은 7-Mode 볼륨의 크기 이상이어야 합니다.</block>
   <block id="9d4d145a5064a246d799bd034370a277" category="list-text">언어: ONTAP 볼륨 설정은 7-Mode 볼륨 설정과 일치해야 합니다.</block>
   <block id="a3ffa67a8aa91c98ab4a9e9dc74a21a3" category="paragraph">7-Mode 전환 툴은 ONTAP 볼륨을 7-Mode 볼륨과 일치하는 속성으로 자동으로 프로비저닝합니다.</block>
+  <block id="49640ebd1f7f02a38a79638aca90ba3f" category="paragraph">ONTAP 9.10.1, ONTAP 9.11.1 이하 지원 릴리스</block>
+  <block id="c45454a225fb911ddb8f9c192a897fdd" category="paragraph">3.5.0</block>
+  <block id="9e5847802a04b3aeaaf3d2904bc221ba" category="paragraph">를 클릭합니다 <block ref="f69448c82034041cb590913655249707" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
+  <block id="8d8bb27db49aa4f6be45f0dc1c08177f" category="list-text">64비트 Oracle Java Runtime Environment(JRE) 1.8 업데이트 331</block>
+  <block id="f36838ca59d078d785b9d63c0606a383" category="admonition">Windows 호스트에 JRE가 없거나 32비트 JRE가 설치되어 있는 경우 7-Mode 전환 도구 설치 프로그램이 64비트 JRE 1.8 업데이트 331을 자동으로 설치합니다. 이전 버전의 64비트 JRE가 설치되어 있는 경우 설치 프로그램이 JRE를 JRE 1.8 업데이트 331로 자동 업데이트합니다.</block>
+  <block id="d6bf1e6c9be2cb497bd73e626210075f" category="admonition">JRE 버전 1.8 업데이트 46 이상(JRE 1.8 업데이트 331 포함)의 경우 7-Mode 전환 도구가 7-Mode 시스템 및 ONTAP 시스템에서 작동하는 Data ONTAP와 통신하려면 7-Mode 시스템에서 작동하는 Data ONTAP와 ONTAP 시스템의 SSL 키 길이가 1024개 이상이어야 합니다.</block>
+  <block id="e10a550ac8477468a5588480882bda67" category="list-text">64비트 Oracle JRE 1.8 업데이트 331</block>
+  <block id="ea31ac5ad2e06c3fe9cb8195db5adf51" category="list-text">시스템에 3.0 이전 버전의 7-Mode Transition Tool이 설치되어 있는 경우, 최신 버전을 설치하기 전에 이를 제거해야 합니다.</block>
+  <block id="29e1a4e919eb5c025fe148e0b575ffaa" category="list-text">시스템에 7-Mode Transition Tool 3.0 이상이 설치되어 있는 경우, 최신 버전의 7-Mode Transition Tool을 설치하기 전에 다음 조건을 충족해야 합니다.</block>
+  <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">복제가 필요 없는 전환을 위해 호스트 및 컨트롤러를 평가하려면 최신 버전의 인벤토리 수집 도구를 사용하여 인벤토리를 수집해야 합니다.</block>
+  <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
+  <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">두 경우 모두 최신 버전의 재고 수집 도구를 사용하여 재고를 수집해야 합니다.</block>
+  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">모든 ONTAP 제품 설명서</block>
 </blocks>
