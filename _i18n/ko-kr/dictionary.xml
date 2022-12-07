@@ -4487,8 +4487,6 @@
   <block id="0fa5978d853b9b8f9a804a9ddf7dacd7" category="inline-link">SnapLock 기술을 사용한 아카이브 및 규정 준수</block>
   <block id="acd084e701650a06feecd55f2315ff07" category="paragraph"><block ref="acd084e701650a06feecd55f2315ff07" category="inline-link-rx"></block></block>
   <block id="65284087916121cb594421ecdfda6fc6" category="summary">Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다</block>
-  <block id="6f6cb4af2eb1b076999ea1532d35d8e3" category="paragraph">Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다.</block>
-  <block id="fb3ffdd10cec6d7e61d4b3dd65641115" category="paragraph">* 권장 사항: * 7-Mode 전환 툴을 사용하여 7-Mode 볼륨으로 복사본 기반 전환을 수행해야 합니다. 사전 점검을 통해 마이그레이션 프로세스의 모든 단계에서 7-Mode와 클러스터를 모두 확인할 수 있으므로 잠재적 문제를 방지할 수 있습니다. 이 툴은 데이터 마이그레이션과 함께 모든 프로토콜, 네트워크 및 서비스 구성의 마이그레이션을 크게 단순화합니다.</block>
   <block id="ef0aacbe84b0de1c18e96c1b40bf48ea" category="paragraph"><block ref="ef0aacbe84b0de1c18e96c1b40bf48ea" category="inline-link-rx"></block></block>
   <block id="52057f98c26897911c78305e0b84e401" category="paragraph">이 절차에서는 SnapMirror를 사용하여 전환하는 데 필요한 고급 작업을 제공합니다.</block>
   <block id="e04ed1f16192e374fd421e70ec48fbe3" category="inline-xref-macro">전환할 볼륨이 전환을 지원하는지 확인합니다</block>
@@ -7395,4 +7393,11 @@
   <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
   <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">두 경우 모두 최신 버전의 재고 수집 도구를 사용하여 재고를 수집해야 합니다.</block>
   <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">모든 ONTAP 제품 설명서</block>
+  <block id="83e14c89cceb4cee82c0bcea3943ea26" category="paragraph">ONTAP 9.12.1부터는 SnapMirror 기술을 사용하여 7-Mode 볼륨을 더 이상 전환할 수 없습니다.</block>
+  <block id="8d73bc8fd1f6fe79df1b2f9f4cb47d7a" category="paragraph">하지만 ONTAP 9.11.1 이전 릴리즈의 경우 clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다.</block>
+  <block id="8f2de78b174393b6f012a8a48075011a" category="paragraph">* 권장 사항: * 7-Mode 전환 툴을 사용하면 ONTAP 9.11.1 이전 릴리즈용 7-Mode 볼륨을 7-Mode로 전환할 수 있습니다. 마이그레이션 프로세스에서 모든 단계에서 7-Mode와 클러스터를 모두 확인하는 사전 점검을 제공하므로 잠재적으로 많은 문제를 방지할 수 있습니다. 이 툴은 데이터 마이그레이션과 함께 모든 프로토콜, 네트워크, 서비스 구성의 마이그레이션을 크게 단순화합니다.</block>
+  <block id="14503597a83a9a659ac01dfe5d92fc94" category="paragraph">ONTAP 9.12.1로 업그레이드하기 전에 다음을 수행해야 합니다.</block>
+  <block id="4becad62808b60a7ce0cf207dc1d59a2" category="list-text">다음 명령을 실행하여 SnapMirror 대상 볼륨을 쓰기 가능 상태로 만듭니다.<block ref="e1d39aa448c4c7cc75f1a16830613e32" prefix=" " category="inline-code"></block></block>
+  <block id="896a1e49f55fa67da657cb7cf7f5fc24" category="list-text">다음 명령을 실행하여 모든 TDP SnapMirror 관계를 삭제합니다.<block ref="730d187801768a4d84de4567732a6c18" prefix=" " category="inline-code"></block></block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">관련 정보</block>
 </blocks>
