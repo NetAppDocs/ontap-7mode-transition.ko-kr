@@ -4477,15 +4477,10 @@
   <block id="71a502b4e4c50c19aa31956d4ef54803" category="list-text">'napmirror resync' 명령을 사용하여 소스 SVM에서 대상 SVM을 재동기화합니다.</block>
   <block id="9ab93b9801d24dd493ae9317fa868d24" category="summary">7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapLock 볼륨으로 전환할 수 있습니다. SnapLock 볼륨 전환을 위한 요구사항과 지침을 숙지해야 합니다.</block>
   <block id="9775f07e175b548ab2bd419f19070f93" category="list-text">SnapLock 볼륨에 LUN이 포함된 경우 7-Mode SnapLock 볼륨의 전환은 지원되지 않습니다.</block>
-  <block id="cf4fd90637510c596991d81db7107f4e" category="list-text">7-Mode SnapLock 엔터프라이즈 볼륨은 ONTAP 9.5 이전 버전에서 SnapLock 엔터프라이즈 볼륨으로 전환할 수 있습니다.</block>
-  <block id="0c8ef814c009d3861680ce164fba0dec" category="list-text">7-Mode SnapLock Compliance 볼륨은 ONTAP 9.5 이전 버전의 SnapLock Compliance 볼륨으로만 전환할 수 있습니다.</block>
   <block id="8a7eb801e6d32d53d8569ffc29d3b3b4" category="list-text">7-Mode 볼륨 SnapMirror 관계를 전환할 때 SnapLock 엔터프라이즈 볼륨에 대해 지그재그형 전환(2차 전환 후 1차 전환)을 사용할 수 있습니다.</block>
   <block id="f49c7c11d30827c5826315411d6e270b" category="paragraph">7-Mode 운영 볼륨과 ONTAP 2차 볼륨 간의 SnapMirror DR(재해 복구) 관계는 SnapLock 엔터프라이즈 볼륨에서만 지원되지만 SnapLock 규정 준수 볼륨에서는 지원되지 않습니다.</block>
-  <block id="1cde198e883c2df917f6d51bae4a77b1" category="paragraph"><block ref="1cde198e883c2df917f6d51bae4a77b1" category="inline-xref-macro-rx"></block></block>
   <block id="49b288fe4fe7fdfa9bacf0edfbf42dd0" category="list-text">운영 볼륨과 2차 볼륨을 병렬로 전환하여 SnapLock 규정 준수 볼륨 간에 7-Mode 볼륨 SnapMirror 관계를 전환해야 합니다.</block>
-  <block id="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="paragraph"><block ref="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="inline-xref-macro-rx"></block></block>
   <block id="0fa5978d853b9b8f9a804a9ddf7dacd7" category="inline-link">SnapLock 기술을 사용한 아카이브 및 규정 준수</block>
-  <block id="acd084e701650a06feecd55f2315ff07" category="paragraph"><block ref="acd084e701650a06feecd55f2315ff07" category="inline-link-rx"></block></block>
   <block id="65284087916121cb594421ecdfda6fc6" category="summary">Clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다</block>
   <block id="ef0aacbe84b0de1c18e96c1b40bf48ea" category="paragraph"><block ref="ef0aacbe84b0de1c18e96c1b40bf48ea" category="inline-link-rx"></block></block>
   <block id="52057f98c26897911c78305e0b84e401" category="paragraph">이 절차에서는 SnapMirror를 사용하여 전환하는 데 필요한 고급 작업을 제공합니다.</block>
@@ -7402,4 +7397,15 @@
   <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">관련 정보</block>
   <block id="bcb3bf3e1c3ba469a7b1637a41c81602" category="list-text">ONTAP 9.9.1 이상 릴리스</block>
   <block id="3b6e2da5c7b4f7bde13de4a566801528" category="list-text">ONTAP 9.10.1 이상 릴리스</block>
+  <block id="02c0afc6dc57e30e77048bd78577f569" category="paragraph">7-Mode SnapLock 볼륨을 ONTAP 9로 전환하기 위해서는 이러한 요구사항과 지침을 숙지해야 합니다.</block>
+  <block id="3c6e2b20b81b258a6d07d897dcbc8837" category="list-text">ONTAP 9.6을 제외한 모든 ONTAP 9 릴리즈에서 7-Mode SnapLock 엔터프라이즈 볼륨을 SnapLock 엔터프라이즈 볼륨으로 전환할 수 있습니다.</block>
+  <block id="608d66a1ffc83b62ff9b96b7a6066895" category="list-text">ONTAP 9.6을 제외한 모든 ONTAP 9 릴리즈에서 7-Mode SnapLock 규정 준수 볼륨을 SnapLock 규정 준수 볼륨으로 전환할 수 있습니다.</block>
+  <block id="d36c067563923a380ef9881a94cc42b6" category="inline-xref-macro">볼륨 SnapMirror 관계를 지그재그형 구성으로 전환^</block>
+  <block id="0cd6f41df3c2d79cbd91a1447c9355fe" category="paragraph"><block ref="0cd6f41df3c2d79cbd91a1447c9355fe" category="inline-xref-macro-rx"></block></block>
+  <block id="17fe715938ef8ba6b00ab8211c5adc65" category="inline-xref-macro">볼륨 SnapMirror 관계를 병렬로 전환^</block>
+  <block id="99697f507574bc1c8485cdace03a71af" category="paragraph"><block ref="99697f507574bc1c8485cdace03a71af" category="inline-xref-macro-rx"></block></block>
+  <block id="c905bec502c0652d10ba29c85c9c376b" category="list-text">ONTAP 9.10.1 버전부터 SnapLock 및 비 SnapLock 볼륨을 동일한 Aggregate에서 생성할 수 있습니다.</block>
+  <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">7-Mode SnapLock 볼륨을 ONTAP 9.10.1 이상으로 전환하려면 로 ONTAP 볼륨을 수동으로 생성해야 합니다<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> 깃발. 볼륨을 수동으로 생성한 후 7-Mode 전환 툴을 사용하여 전환을 관리합니다.</block>
+  <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">7-Mode 전환 도구를 사용하여 ONTAP 9.10.1 이상에서 볼륨을 생성하는 경우 볼륨은 SnapLock 볼륨으로 생성되지 않으며 이로 인해 SnapMirror 기준선이 실패합니다.</block>
+  <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
 </blocks>

@@ -11,24 +11,31 @@ summary: 7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapL
 
 
 [role="lead"]
-7-Mode SnapLock 볼륨을 ONTAP 9.5 이전 버전에서 생성한 SnapLock 볼륨으로 전환할 수 있습니다. SnapLock 볼륨 전환을 위한 요구사항과 지침을 숙지해야 합니다.
+7-Mode SnapLock 볼륨을 ONTAP 9로 전환하기 위해서는 이러한 요구사항과 지침을 숙지해야 합니다.
 
 * SnapLock 볼륨에 LUN이 포함된 경우 7-Mode SnapLock 볼륨의 전환은 지원되지 않습니다.
-* 7-Mode SnapLock 엔터프라이즈 볼륨은 ONTAP 9.5 이전 버전에서 SnapLock 엔터프라이즈 볼륨으로 전환할 수 있습니다.
-* 7-Mode SnapLock Compliance 볼륨은 ONTAP 9.5 이전 버전의 SnapLock Compliance 볼륨으로만 전환할 수 있습니다.
+* ONTAP 9.6을 제외한 모든 ONTAP 9 릴리즈에서 7-Mode SnapLock 엔터프라이즈 볼륨을 SnapLock 엔터프라이즈 볼륨으로 전환할 수 있습니다.
+* ONTAP 9.6을 제외한 모든 ONTAP 9 릴리즈에서 7-Mode SnapLock 규정 준수 볼륨을 SnapLock 규정 준수 볼륨으로 전환할 수 있습니다.
 * 7-Mode 볼륨 SnapMirror 관계를 전환할 때 SnapLock 엔터프라이즈 볼륨에 대해 지그재그형 전환(2차 전환 후 1차 전환)을 사용할 수 있습니다.
 +
 7-Mode 운영 볼륨과 ONTAP 2차 볼륨 간의 SnapMirror DR(재해 복구) 관계는 SnapLock 엔터프라이즈 볼륨에서만 지원되지만 SnapLock 규정 준수 볼륨에서는 지원되지 않습니다.
 
 +
-xref:task_transitioning_a_data_protection_relationship.adoc[시차 구성에서 볼륨 SnapMirror 관계 전환]
+xref:task_transitioning_a_data_protection_relationship.adoc[볼륨 SnapMirror 관계를 지그재그형 구성으로 전환^]
 
 * 운영 볼륨과 2차 볼륨을 병렬로 전환하여 SnapLock 규정 준수 볼륨 간에 7-Mode 볼륨 SnapMirror 관계를 전환해야 합니다.
 +
-xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[볼륨 SnapMirror 관계를 병렬로 전환]
+xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[볼륨 SnapMirror 관계를 병렬로 전환^]
+
+* ONTAP 9.10.1 버전부터 SnapLock 및 비 SnapLock 볼륨을 동일한 Aggregate에서 생성할 수 있습니다.
++
+7-Mode SnapLock 볼륨을 ONTAP 9.10.1 이상으로 전환하려면 로 ONTAP 볼륨을 수동으로 생성해야 합니다 `-snaplock-type {non-snaplock|compliance|enterprise}` 깃발. 볼륨을 수동으로 생성한 후 7-Mode 전환 툴을 사용하여 전환을 관리합니다.
+
++
+7-Mode 전환 도구를 사용하여 ONTAP 9.10.1 이상에서 볼륨을 생성하는 경우 볼륨은 SnapLock 볼륨으로 생성되지 않으며 이로 인해 SnapMirror 기준선이 실패합니다.
 
 
 
 * 관련 정보 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"^]
