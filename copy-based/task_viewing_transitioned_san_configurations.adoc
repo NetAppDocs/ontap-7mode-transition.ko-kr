@@ -49,4 +49,4 @@ LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp2,2,/vol/vol_SANda
 
 전환된 ONTAP 볼륨에 대한 액세스를 복원하기 전에 호스트에서 필요한 전환 후 작업을 수행해야 합니다.
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
+http://["SAN 호스트 전환 및 수정"]

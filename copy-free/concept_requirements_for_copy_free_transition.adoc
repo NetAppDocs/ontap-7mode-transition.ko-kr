@@ -19,11 +19,11 @@ link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-M
 
 * * 플랫폼 모델 *
 +
-무복사 전환은 미드레인지 및 하이엔드 FAS 시스템 및 IBM N 시리즈 시스템에서만 지원됩니다. 를 클릭합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"] 에서는 7-Mode 시스템 및 타겟 클러스터 노드에 대해 지원되는 플랫폼에 대한 최신 정보를 제공합니다.
+무복사 전환은 미드레인지 및 하이엔드 FAS 시스템 및 IBM N 시리즈 시스템에서만 지원됩니다. 를 클릭합니다 https://["NetApp 상호 운용성 매트릭스 툴"] 에서는 7-Mode 시스템 및 타겟 클러스터 노드에 대해 지원되는 플랫폼에 대한 최신 정보를 제공합니다.
 
 * * 7-Mode 소스 시스템의 Data ONTAP *
 +
-7-Mode 전환 툴을 통해 마이그레이션이 지원되는 7-Mode 릴리즈 목록은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+7-Mode 전환 툴을 통해 마이그레이션이 지원되는 7-Mode 릴리즈 목록은 를 참조하십시오 https://["NetApp 상호 운용성 매트릭스 툴"]
 
 * * ONTAP 대상 시스템 *
 +
@@ -65,19 +65,19 @@ NOTE: 디스크 쉘프 모델 DS14mk2 FC는 지원되지 않습니다.
 7-Mode 시스템 및 타겟 클러스터 노드에서 최신 디스크 검증 패키지, 디스크 펌웨어, 디스크 쉘프 및 ACP 펌웨어를 다운로드하여 설치해야 합니다.
 
 +
-https://mysupport.netapp.com/NOW/download/tools/diskqual/["NetApp 다운로드: 디스크 검증 패키지"]
+https://["NetApp 다운로드: 디스크 검증 패키지"]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 다운로드: 디스크 드라이브 펌웨어"]
+https://["NetApp 다운로드: 디스크 드라이브 펌웨어"]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 다운로드: 디스크 쉘프 펌웨어"]
+https://["NetApp 다운로드: 디스크 쉘프 펌웨어"]
 
 * * 케이블 연결 확인 도구 *
 +
 전환 중에 7-Mode 디스크 쉘프를 타겟 클러스터 노드에 연결한 후, Config Advisor를 사용하여 케이블 연결을 확인해야 합니다.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+https://["NetApp 다운로드: Config Advisor"]
 
 

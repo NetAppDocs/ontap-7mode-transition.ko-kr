@@ -23,4 +23,4 @@ summary: 전환 중에 볼륨에서 충분한 공간을 사용할 수 있는지 
 
 xref:task_recovering_from_a_failed_lun_transition.adoc[장애가 발생한 LUN 전환 복구]
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]
+http://["NetApp 설명서: ONTAP 9"]

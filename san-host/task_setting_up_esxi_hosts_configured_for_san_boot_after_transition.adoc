@@ -34,4 +34,4 @@ xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[vSp
 
 xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[ESXi CLI를 사용하여 전환 후 VMFS 볼륨을 다시 마운트합니다]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 관리"]
+https://["SAN 관리"]

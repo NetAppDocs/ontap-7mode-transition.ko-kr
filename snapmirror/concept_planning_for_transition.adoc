@@ -15,7 +15,7 @@ summary: 7-Mode 볼륨에서 clustered ONTAP 볼륨으로 데이터를 복사하
 
 전환 문제가 있는 경우 전환 대상 릴리스에 대한 _릴리스 정보_를 검토해야 합니다.
 
-https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"]
+https://["ONTAP 9 릴리즈 노트"]
 
 7-Mode와 clustered ONTAP 볼륨 간의 SnapMirror 관계는 다음 릴리즈에서 지원됩니다.
 

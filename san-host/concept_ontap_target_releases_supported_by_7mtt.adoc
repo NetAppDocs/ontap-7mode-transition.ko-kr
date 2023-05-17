@@ -15,7 +15,7 @@ ONTAP 전환 타겟 클러스터에 대한 릴리즈 지원은 사용 중인 전
 
 지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보는 최신 7-Mode Transition Tool_Release Notes_를 참조하십시오.
 
-https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-Mode 전환 툴 릴리즈 노트"]
+https://["7-Mode 전환 툴 릴리즈 노트"]
 
 이러한 ONTAP 타겟 릴리즈에는 복사 기반 전환이 지원됩니다.
 

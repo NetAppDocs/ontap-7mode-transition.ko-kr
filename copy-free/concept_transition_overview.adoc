@@ -25,4 +25,4 @@ link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-M
 
 * 관련 정보 *
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]
+http://["NetApp 설명서: ONTAP 9"]

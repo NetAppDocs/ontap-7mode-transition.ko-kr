@@ -19,7 +19,7 @@ Config Advisor는 복사 없는 전환을 위한 필수 툴입니다. Config Adv
 
 7-Mode 디스크 쉘프가 타겟 클러스터 노드에 연결된 후 Config Advisor의 "'전환' 실행 프로필을 사용하여 케이블 연결을 확인해야 합니다.
 
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+https://["NetApp 다운로드: Config Advisor"]
 
 
 
@@ -27,4 +27,4 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 에는 Copy-Free 전환을 사용하여 전환할 때 SAN 호스트에서 수행해야 하는 전환 전 및 전환 후 단계가 설명되어 있습니다.
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
+http://["SAN 호스트 전환 및 수정"]

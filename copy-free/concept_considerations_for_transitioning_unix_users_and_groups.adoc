@@ -41,4 +41,4 @@ xref:task_customizing_configurations_for_transition.adoc[7-Mode 구성의 전환
 
 * 관련 정보 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+https://["NFS 관리"]

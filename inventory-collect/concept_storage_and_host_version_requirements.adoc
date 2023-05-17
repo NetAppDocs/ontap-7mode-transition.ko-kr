@@ -15,4 +15,4 @@ summary: 인벤토리 정보를 수집할 수 있는 7-Mode, 호스트 및 FC �
 
 인벤토리 수집 도구에서 평가를 지원하는 7-Mode 버전, 호스트 및 FC 스위치 목록은 상호 운용성 매트릭스 를 참조하십시오.
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+https://["NetApp 상호 운용성 매트릭스 툴"]

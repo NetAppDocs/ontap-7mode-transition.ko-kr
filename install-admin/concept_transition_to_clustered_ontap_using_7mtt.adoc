@@ -15,4 +15,4 @@ summary: 7-Mode 전환 툴을 사용하면 7-Mode 컨트롤러, 호스트, 스�
 
 지원되는 타겟 릴리즈 및 알려진 문제에 대한 최신 정보는 최신 7-Mode Transition Tool_Release Notes_를 참조하십시오.
 
-http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["7-Mode 전환 툴 릴리즈 노트"]
+http://["7-Mode 전환 툴 릴리즈 노트"]

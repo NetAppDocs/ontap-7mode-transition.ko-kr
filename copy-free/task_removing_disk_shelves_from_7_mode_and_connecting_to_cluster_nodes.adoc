@@ -30,9 +30,9 @@ SAS 디스크 쉘프 연결 시 고려해야 할 몇 가지 사항은 다음과 
 .. 중복 쉘프 ID가 있는 경우(타겟 클러스터 노드의 디스크 쉘프에서 7-Mode 디스크 쉘프 ID를 사용하는 경우) 디스크 쉘프 ID를 변경합니다.
 +
 *** SAS 디스크 쉘프의 경우 유효한 쉘프 ID는 00~99입니다.
-*** SAS 쉘프 ID는 HA 쌍 내에서 고유해야 합니다.https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+*** SAS 쉘프 ID는 HA 쌍 내에서 고유해야 합니다.https://["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
 *** FC 디스크 쉘프의 경우 유효한 쉘프 ID는 1~7입니다.
-*** FC 쉘프 ID는 각 FC 루프 내에서 고유해야 합니다.https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
+*** FC 쉘프 ID는 각 FC 루프 내에서 고유해야 합니다.https://["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
 
 
 .. 새 ID가 적용되도록 디스크 쉘프의 전원을 껐다가 켭니다.
@@ -69,13 +69,13 @@ NOTE: 디스크 쉘프를 별도의 스택에 연결하는 것이 가장 좋습�
 
 |===
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+https://["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
+https://["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
+https://["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
 
 . 디스크 쉘프의 전원을 켭니다.
 +
@@ -87,7 +87,7 @@ IMPORTANT: 계속하려면 70초 이상 기다려야 합니다.
 Config Advisor로 식별된 모든 케이블 연결 문제를 해결해야 합니다.
 
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]
+https://["NetApp 다운로드: Config Advisor"]
 
 . 7-Mode 전환 도구에서 케이블링 확인 * 을 클릭합니다.
 +

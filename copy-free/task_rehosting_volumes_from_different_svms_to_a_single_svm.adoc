@@ -78,7 +78,7 @@ summary: '볼륨 재호스트를 사용하면 데이터 복사 없이 전환된 
 
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+https://["NFS 관리"]
 
 * * CIFS 볼륨 재호스팅 *
 +
@@ -93,7 +93,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NF
 
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 관리"]
+http://["SMB/CIFS 관리"]
 
 * * SnapMirror 관계에서 볼륨 재호스팅 *
 +
@@ -118,7 +118,7 @@ relationship-info-only 매개 변수를 true로 설정하여 스냅샷 복사본
 
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["데이터 보호"]
+http://["데이터 보호"]
 
 
 
@@ -141,4 +141,4 @@ NOTE: 재호스팅 작업이 실패하면 소스 볼륨에서 볼륨 정책 및 
 
 * 관련 정보 *
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]
+http://["ONTAP 9 명령"]

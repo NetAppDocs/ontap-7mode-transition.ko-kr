@@ -61,7 +61,7 @@ host1> sysconfig 3
 타겟 플랫폼 및 ONTAP 버전에서도 확장 카드가 지원되는 경우 7-Mode 시스템에서 확장 카드를 이동할 수 있습니다. 필요한 경우 PAM 카드를 계획할 수도 있습니다.
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+https://["NetApp Hardware Universe를 참조하십시오"]
 
 .. 디스크 쉘프 케이블링에 사용할 대상 포트를 계획합니다.
 +
@@ -96,8 +96,8 @@ https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
 
 * 관련 정보 *
 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
+https://["DS4243, DS2246, DS4486 및 DS4246용 SAS 디스크 쉘프 설치 및 서비스 가이드"]
 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
+https://["하드웨어 서비스 설명서의 Disk쉘프 14mk2"]
 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]
+https://["DS14mk2 FC 및 DS14mk4 FC 하드웨어 서비스 가이드"]

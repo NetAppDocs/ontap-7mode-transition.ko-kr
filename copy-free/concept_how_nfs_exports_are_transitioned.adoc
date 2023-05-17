@@ -34,7 +34,7 @@ NFS 클라이언트가 qtree를 마운트하려면 Qtree가 읽기 전용 권한
 * 동일한 호스트가 읽기 전용, 읽기/쓰기 및 루트 액세스 권한 목록의 조합에 지정된 경우 전환 후 전환된 내보내기 규칙을 평가하여 호스트에 대한 적절한 액세스 권한을 결정해야 합니다.
 
 
-http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
+http://["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
 
 
 
@@ -165,4 +165,4 @@ ONTAP에서 NFS 클라이언트 192.168.10.10은 클라이언트가 qtree의 상
 
 * 관련 정보 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+https://["NFS 관리"]

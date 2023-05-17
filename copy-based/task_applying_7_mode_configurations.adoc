@@ -123,4 +123,4 @@ xref:task_managing_logical_interfaces.adoc[논리 인터페이스 관리]
 
 xref:concept_considerations_for_quotas.adoc[할당량에 대한 고려 사항]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/전환된 Data ONTAP 기능"]
+https://["7MTT v2.0/전환된 Data ONTAP 기능"]

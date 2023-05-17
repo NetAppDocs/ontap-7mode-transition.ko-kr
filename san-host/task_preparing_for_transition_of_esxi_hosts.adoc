@@ -47,6 +47,6 @@ iSCSI의 경우 소프트웨어 이니시에이터만 지원됩니다. FC 및 FC
 
 * 관련 정보 *
 
-http://kb.vmware.com/kb/2032893["vSphere Web Client에서 VMware DRS 클러스터를 해제할 때 리소스 풀 유지"]
+http://["vSphere Web Client에서 VMware DRS 클러스터를 해제할 때 리소스 풀 유지"]
 
-http://kb.vmware.com/kb/1008025["VMware HA(High Availability) 비활성화"]
+http://["VMware HA(High Availability) 비활성화"]

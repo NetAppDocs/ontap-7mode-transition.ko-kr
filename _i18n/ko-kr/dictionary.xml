@@ -285,10 +285,6 @@
   <block id="40d794d002c00875cc8b78d8ccde9314" category="list-text">"LDAP.PASSWORD"</block>
   <block id="42844af3f0b6ca857dd0ab16df0e2f7f" category="list-text">"ldap.usermap.base`</block>
   <block id="ecd166a2aa166eb5b83717effda933df" category="list-text">ldap.ssl.enable을 선택합니다</block>
-  <block id="344245ffd5e989ae89c20e32c008fa81" category="inline-link">네트워크 및 LIF 관리/ONTAP 9.7 이전 버전</block>
-  <block id="deacabb337a4e4593417f763b7ee9cdd" category="paragraph"><block ref="deacabb337a4e4593417f763b7ee9cdd" category="inline-link-rx"></block></block>
-  <block id="1d3cfe94d22cd88aa57d3292be16ce6a" category="inline-link">네트워크 및 LIF 관리/ONTAP 9.8 이상</block>
-  <block id="7c2408d034a81cd431503102ae3cf257" category="paragraph"><block ref="7c2408d034a81cd431503102ae3cf257" category="inline-link-rx"></block></block>
   <block id="c00d055726b2526ab5cd08bb9b340a11" category="summary">SAN 볼륨의 LUN 일련 번호 및 LUN ID는 전환 후 변경됩니다. 전환된 SAN 구성을 보려면 7-Mode Transition Tool CLI를 사용하여 이전 LUN을 새로운 전환된 LUN에 매핑하고 LUN 매핑 정보를 .csv 파일로 엑스포트할 수 있습니다.</block>
   <block id="9b7654f15583433bd5115822a081e047" category="doc">전환된 SAN 구성 보기</block>
   <block id="515a4e19bed72485807298b411708607" category="paragraph">SAN 볼륨의 LUN 일련 번호 및 LUN ID는 전환 후 변경됩니다. 전환된 SAN 구성을 보려면 7-Mode Transition Tool CLI를 사용하여 이전 LUN을 새로운 전환된 LUN에 매핑하고 LUN 매핑 정보를 '.csv' 파일로 내보낼 수 있습니다.</block>
@@ -946,7 +942,6 @@
   <block id="5e1cf994f378f5b50410c9e28eaf92cb" category="paragraph">'* network ping-lif_인터클러스터_lif_-vserver_svm_name_-destination_remote_inetaddress_*'</block>
   <block id="c3a57af1ea428023e313ba644950b91b" category="paragraph">다중 경로의 경우 각 노드에 두 개의 인터클러스터 LIF가 있어야 합니다.</block>
   <block id="4344cf9672839a368c8fd958fef1ec6a" category="inline-link">네트워크 및 LIF 관리</block>
-  <block id="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="paragraph"><block ref="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="inline-link-rx"></block></block>
   <block id="131e9b8d3a798ca3a1852855df0e2cc0" category="summary">Inventory Collect Tool에서 생성한 Inventory XML 보고서를 가져와 호스트 및 컨트롤러의 기능과 특징을 평가할 수 있습니다. 그런 다음 평가 보고서를 생성하여 이러한 호스트 및 컨트롤러가 전환을 위해 선택한 ONTAP 버전에서 작동하는 방식을 식별할 수 있습니다.</block>
   <block id="06f1d2907de5fe7df56c9c6d4072e652" category="doc">재고 보고서 XML을 가져와 평가 보고서 생성</block>
   <block id="c0b68145cbea485df9388bdd01a0b654" category="list-text">재고 수집 도구를 실행하고 재고 보고서 XML 파일을 생성해야 합니다.</block>
@@ -4905,11 +4900,7 @@
   <block id="89e9376c64d88102a1755b2bcb5ebdc8" category="paragraph">볼륨의 공간 부족으로 인해 현재 볼륨의 공간 보장이 사용되지 않습니다.</block>
   <block id="37cbd8ae933eaccbe38fb27aa9624b57" category="paragraph">7-Mode 시스템에는 qtree 엑스포트 규칙이 있습니다.</block>
   <block id="0529ad04c3bacd18bc088e405c872bc9" category="paragraph">이 오류를 확인하면 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간 qtree 엑스포트 규칙의 차이점을 이해했음을 의미합니다. 7-Mode 전환 툴에서 NFS 엑스포트 규칙을 적용한 후 몇 가지 수동 단계를 수행해야 할 수 있습니다.</block>
-  <block id="635d884e298b628bc86c8dfa3beaa43b" category="inline-link">NetApp KB 문서 8010371: qtree 레벨의 엑스포트를 사용하는 7MTT Precheck 10111 - 전환 7-Mode 볼륨의 경우</block>
-  <block id="b7d9c1c9dc21f73a9710e128f255e3de" category="paragraph"><block ref="76cc089251289f20d272d580a0cb7fad" category="inline-link-rx"></block></block>
   <block id="5124096f4b11e70bfd162b28f23501b0" category="paragraph">전환할 오브젝트 및 구성은 특정 제한을 초과합니다. 스토리지 컷오버에 오랜 시간이 걸릴 수 있으며 다운타임을 대비해야 합니다.</block>
-  <block id="55aa226e76142230ea3e2e60c3300d1c" category="inline-link">NetApp KB 문서 3014882: Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 위한 고려사항</block>
-  <block id="f5620ac4f331783f990692b9f2078fe8" category="paragraph"><block ref="a86b9e1b927d9778e699c72d1d375399" category="inline-link-rx"></block></block>
   <block id="c75b197507e2d158f2e5b19e24d219f3" category="paragraph">7-Mode Transition Tool은 7-Mode 시스템의 CIFS Active Directory 도메인이 타겟 SVM의 CIFS Active Directory 도메인과 다른 경우에도 CIFS 구성을 계속 전환합니다.</block>
   <block id="41c2904cfced31e323718ea98cede375" category="paragraph">7-Mode 시스템의 CIFS Active Directory 도메인과 타겟 SVM이 신뢰할 수 있는 도메인인지 확인해야 합니다. 그렇지 않으면 CIFS 구성을 타겟 SVM으로 전환할 수 없습니다.</block>
   <block id="32f0eae804f29186c7413dc355cd4b42" category="paragraph"><block ref="32f0eae804f29186c7413dc355cd4b42" category="inline-link-rx"></block></block>
@@ -5399,8 +5390,6 @@
   <block id="3d8681c4860ac3a57d1d2f7bc8baa5bb" category="summary">HA 쌍의 각 7-Mode 컨트롤러를 타겟 SVM에 매핑해야 합니다. vFiler 유닛이 있는 경우 각 vFiler 유닛에 대해 타겟 SVM을 선택해야 합니다. 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환됩니다.</block>
   <block id="e355b11e2eaa9d7eea05fa53b25548c5" category="doc">SVM 및 볼륨 매핑</block>
   <block id="e864ae7abd9c7cc9f36d51906c0d8eda" category="paragraph">타겟 클러스터에 SVM을 생성해야 합니다.</block>
-  <block id="c7e90c4bd08c796e50d8af0c6b346a93" category="inline-link">System Manager를 사용하여 클러스터 관리</block>
-  <block id="e68762e2e9b4dde18fd46ef04bf3d83f" category="paragraph"><block ref="e68762e2e9b4dde18fd46ef04bf3d83f" category="inline-link-rx"></block></block>
   <block id="5e182e8774fba8b1f9c1b6c53951c7e8" category="paragraph">vFiler 유닛은 단일 SVM에만 매핑할 수 있습니다. 다른 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환될 수 없습니다.</block>
   <block id="3d70219dc8889e33c3d610573ae98ff5" category="list-text">SVM 및 볼륨 매핑 탭에서 각 7-Mode 컨트롤러 또는 vFiler 유닛에서 볼륨을 전환할 대상 SVM을 선택합니다.</block>
   <block id="ef57257a0f8fb5ef6b194bfb4db960a2" category="paragraph">타겟 SVM이 기본 IPspace 또는 비 기본 IPspace에 있을 수 있습니다.</block>
@@ -7408,4 +7397,10 @@
   <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">7-Mode SnapLock 볼륨을 ONTAP 9.10.1 이상으로 전환하려면 로 ONTAP 볼륨을 수동으로 생성해야 합니다<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> 깃발. 볼륨을 수동으로 생성한 후 7-Mode 전환 툴을 사용하여 전환을 관리합니다.</block>
   <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">7-Mode 전환 도구를 사용하여 ONTAP 9.10.1 이상에서 볼륨을 생성하는 경우 볼륨은 SnapLock 볼륨으로 생성되지 않으며 이로 인해 SnapMirror 기준선이 실패합니다.</block>
   <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
+  <block id="62862e43a259c6f657835385994bd50d" category="inline-link">7MTT Precheck 10111 - qtree 레벨의 엑스포트를 사용하는 7-Mode 볼륨의 전환</block>
+  <block id="57c8efcc3c67cc0cf40f5ccea4480938" category="paragraph"><block ref="57c8efcc3c67cc0cf40f5ccea4480938" category="inline-link-rx"></block></block>
+  <block id="fe4c4243327571d5d4dfbb7d050df34d" category="inline-link">Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 위한 고려 사항</block>
+  <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
+  <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager를 이용한 클러스터 관리</block>
+  <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
 </blocks>

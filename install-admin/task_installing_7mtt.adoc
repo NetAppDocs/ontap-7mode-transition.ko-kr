@@ -27,7 +27,7 @@ xref:concept_system_requirements_for_7mtt_on_windows.adoc[Windows에서 7-Mode �
 .단계
 . NetApp Support 사이트에서 소프트웨어를 다운로드하십시오.
 +
-http://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 다운로드: 소프트웨어"]
+http://["NetApp 다운로드: 소프트웨어"]
 
 . 'NetApp_7ModeTransitionTool_Setup.exe' 파일을 실행합니다.
 . 7-Mode Transition Tool Setup 시작 화면에서 * Next * 를 클릭합니다.

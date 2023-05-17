@@ -15,9 +15,9 @@ HA 쌍의 각 7-Mode 컨트롤러를 타겟 SVM에 매핑해야 합니다. vFile
 
 타겟 클러스터에 SVM을 생성해야 합니다.
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["System Manager를 사용하여 클러스터 관리"]
+https://["System Manager를 이용한 클러스터 관리"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
+https://["시스템 관리"]
 
 vFiler 유닛은 단일 SVM에만 매핑할 수 있습니다. 다른 7-Mode 컨트롤러 또는 vFiler 유닛의 볼륨은 매핑된 SVM으로 전환될 수 없습니다.
 

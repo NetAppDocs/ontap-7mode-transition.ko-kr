@@ -19,4 +19,4 @@ ONTAP에서는 감사 볼륨이 SVM 레벨에서 구성됩니다. 7-Mode로 운�
 
 SnapLock 감사 볼륨은 SnapLock 준수 볼륨의 한 유형입니다. 타겟 클러스터가 MetroCluster 구성에 있는 경우 SnapLock 감사 볼륨의 전환은 지원되지 않습니다.
 
-을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_audit_volume_in_clustered_Data_ONTAP_for_the_transitioned_SnapLock_volumes["Clustered Data ONTAP에서 전환된 SnapLock 볼륨의 감사 볼륨을 구성하는 방법"]
+을 참조하십시오 https://["Clustered Data ONTAP에서 전환된 SnapLock 볼륨의 감사 볼륨을 구성하는 방법"]

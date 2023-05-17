@@ -24,7 +24,7 @@ summary: 스토리지 컷오버를 성공적으로 완료하고 전환을 완료
 
 . SAN 전환: 호스트를 수동으로 재구성합니다.
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
+http://["SAN 호스트 전환 및 수정"]
 
 . 다음을 확인하여 SVM이 클라이언트에 데이터를 제공할 준비가 되었는지 확인합니다.
 +
@@ -37,4 +37,4 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["S
 
 * 관련 정보 *
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]
+http://["NetApp 설명서: ONTAP 9"]

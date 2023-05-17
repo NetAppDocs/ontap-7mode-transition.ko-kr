@@ -108,4 +108,4 @@ ONTAP에서 지원되는 NFS 구성은 일부 있지만 7-Mode 전환 툴을 통
 
 xref:task_customizing_configurations_for_transition.adoc[7-Mode 구성의 전환 사용자 지정]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]
+https://["NFS 관리"]

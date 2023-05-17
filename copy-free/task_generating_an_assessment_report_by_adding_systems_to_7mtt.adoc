@@ -41,7 +41,7 @@ readme 파일은 '_7-Mode_Transition_Tool_Installed_location\bin\ICT'에 있습�
 +
 ... 보고서 메뉴에서 * 일일 내보내기 완료 * 를 클릭합니다.
 ... 일일 내보내기 완료 대화 상자의 검색 필드에 FAS 를 입력합니다.
-... ONTAP SAN 호스트 Excel 파일을 다운로드한 다음 저장합니다.https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+... ONTAP SAN 호스트 Excel 파일을 다운로드한 다음 저장합니다.https://["NetApp 상호 운용성 매트릭스 툴"]
 
 
 .. CLI에서 transition IMT import 명령을 사용하여 IMT 데이터를 가져옴
