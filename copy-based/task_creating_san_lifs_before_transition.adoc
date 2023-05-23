@@ -34,4 +34,4 @@ iSCSI LIF에 7-Mode IP 주소를 재사용하려면 관리 다운 상태에서 L
 
 * 관련 정보 *
 
-https://["SAN 관리"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 관리"]

@@ -263,7 +263,7 @@ NOTE: SAN LIF는 7-Mode 전환 툴을 통해 전환되지 않습니다.
 . 타겟 클러스터에서 Data ONTAP 8.3.1 이하가 실행 중인 경우 2차 LUN을 수동으로 매핑해야 합니다.
 . SAN 전환의 경우 호스트를 수동으로 재구성합니다.
 +
-http://["SAN 호스트 전환 및 수정"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
 
 . 다음을 확인하여 SVM이 클라이언트에 데이터를 제공할 준비가 되었는지 확인합니다.
 +

@@ -107,7 +107,7 @@ NFS-Qtree-익스포트됨
 
 이 오류를 확인하면 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간 qtree 엑스포트 규칙의 차이점을 이해했음을 의미합니다. 7-Mode 전환 툴에서 NFS 엑스포트 규칙을 적용한 후 몇 가지 수동 단계를 수행해야 할 수 있습니다.
 
-https://["7MTT Precheck 10111 - qtree 레벨의 엑스포트를 사용하는 7-Mode 볼륨의 전환"]
+https://kb.netapp.com/onprem/ontap/da/NAS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT Precheck 10111 - qtree 레벨의 엑스포트를 사용하는 7-Mode 볼륨의 전환"]
 
 
 
@@ -116,7 +116,7 @@ https://["7MTT Precheck 10111 - qtree 레벨의 엑스포트를 사용하는 7-M
  a| 
 전환할 오브젝트 및 구성은 특정 제한을 초과합니다. 스토리지 컷오버에 오랜 시간이 걸릴 수 있으며 다운타임을 대비해야 합니다.
 
-https://["Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 위한 고려 사항"]
+https://kb.netapp.com/onprem/ontap/os/Storage_cutover_time_considerations_for_Copy-Free_Transition["Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 위한 고려 사항"]
 
 
 
@@ -127,7 +127,7 @@ https://["Copy-Free Transition 중 스토리지 컷오버 시간을 줄이기 �
 
 7-Mode 시스템의 CIFS Active Directory 도메인과 타겟 SVM이 신뢰할 수 있는 도메인인지 확인해야 합니다. 그렇지 않으면 CIFS 구성을 타겟 SVM으로 전환할 수 없습니다.
 
-https://["7-Mode에서 CIFS 서버의 Active Directory 도메인과 타겟 SVM이 다를 때 CIFS 구성을 전환하는 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["7-Mode에서 CIFS 서버의 Active Directory 도메인과 타겟 SVM이 다를 때 CIFS 구성을 전환하는 방법"]
 
 |===
 

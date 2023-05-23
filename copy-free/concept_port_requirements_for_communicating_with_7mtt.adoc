@@ -51,4 +51,4 @@ NOTE: 방화벽이 이 트래픽을 차단하지 않는지 확인해야 합니�
 
 * 관련 정보 *
 
-http://["7-Mode 전환 툴 설치 및 관리"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/install-admin/index.html["7-Mode 전환 툴 설치 및 관리"]

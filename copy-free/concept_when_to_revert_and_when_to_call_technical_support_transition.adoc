@@ -24,7 +24,7 @@ IMPORTANT: 기술 지원 부서의 지원 없이 운영 환경에서 전환을 �
 * 전환 프로세스는 일부 데이터 및 구성에 대해 완료되지만, 일부 데이터 및 구성에서는 전환을 롤백할 것인지 결정합니다.
 * 전환 프로세스에 문제가 있으며 7-Mode 전환 툴, Data ONTAP EMS 이벤트 메시지 및 NetApp Knowledgebase의 오류 응답 메시지에 대한 문제를 해결할 수 없습니다.
 +
-https://["NetApp 기술 자료"]
+https://kb.netapp.com/["NetApp 기술 자료"]
 
 
 

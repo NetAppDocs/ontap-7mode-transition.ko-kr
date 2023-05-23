@@ -43,4 +43,4 @@ NOTE: Kerberos 구성을 이전하려면 적어도 하나의 LIF가 프로젝트
 
 xref:concept_how_nfs_exports_are_transitioned.adoc[NFS 내보내기의 전환 방법]
 
-http://["NetApp 설명서: ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

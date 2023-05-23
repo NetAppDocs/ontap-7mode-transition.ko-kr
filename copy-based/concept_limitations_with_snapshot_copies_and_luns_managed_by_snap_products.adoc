@@ -43,18 +43,18 @@ NOTE: Clustered Data ONTAP에서 새로 생성한 모든 스냅샷 복사본에 
 
 모범 사례는 7-Mode 스냅샷 복사본이 만료될 때까지 7-Mode 시스템을 유지하는 것입니다.
 
-http://["NetApp 문서: Microsoft Exchange Server용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["NetApp 문서: Microsoft Exchange Server용 SnapManager"]
 
-http://["NetApp 설명서: Hyper-V용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["NetApp 설명서: Hyper-V용 SnapManager"]
 
-http://["NetApp 설명서: SAP용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["NetApp 설명서: SAP용 SnapManager"]
 
-http://["NetApp 설명서: Oracle용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["NetApp 설명서: Oracle용 SnapManager"]
 
-http://["NetApp 설명서: UNIX용 SnapDrive"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 설명서: UNIX용 SnapDrive"]
 
-http://["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]
 
-http://["NetApp 설명서: Microsoft SQL Server용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["NetApp 설명서: Microsoft SQL Server용 SnapManager"]
 
-http://["NetApp 문서: Microsoft SharePoint용 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["NetApp 문서: Microsoft SharePoint용 SnapManager"]

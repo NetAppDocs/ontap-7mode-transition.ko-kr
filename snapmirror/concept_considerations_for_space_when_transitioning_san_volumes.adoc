@@ -23,4 +23,4 @@ summary: 전환 중에 볼륨에서 충분한 공간을 사용할 수 있는지 
 
 * 관련 정보 *
 
-http://["NetApp 설명서: ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

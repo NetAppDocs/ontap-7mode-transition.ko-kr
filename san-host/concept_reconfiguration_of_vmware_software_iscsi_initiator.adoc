@@ -21,4 +21,4 @@ VMware ESXi 호스트에서 소프트웨어 iSCSI 이니시에이터를 변경�
 
 * 관련 정보 *
 
-https://["시스템 관리"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]

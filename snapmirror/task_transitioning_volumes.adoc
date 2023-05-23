@@ -17,7 +17,7 @@ NDO 작업(테이크오버 또는 애그리게이트 재배치)으로 인해 진
 
 독립 실행형 볼륨 또는 볼륨 SnapMirror 관계를 LUN과 전환할 경우, igroup을 생성하고 LUN을 매핑해야 합니다. 그런 다음 전환된 clustered Data ONTAP 볼륨에 대한 액세스를 구성하기 전에 호스트에서 필요한 전환 후 작업을 수행해야 합니다.
 
-http://["SAN 호스트 전환 및 수정"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
 
 * 관련 정보 *
 

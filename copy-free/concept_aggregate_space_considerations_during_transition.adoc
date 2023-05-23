@@ -101,4 +101,4 @@ Flash Pool 애그리게이트의 SSD 여유 공간이 SSD 총 디스크 공간�
 
 xref:reference_ignorable_errors_during_transition.adoc[전환 중에 오류가 발생합니다]
 
-https://["디스크 및 애그리게이트 관리"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["디스크 및 애그리게이트 관리"]

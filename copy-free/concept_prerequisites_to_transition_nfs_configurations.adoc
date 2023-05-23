@@ -38,4 +38,4 @@ NFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사항
 
 * 관련 정보 *
 
-http://["NetApp 설명서: ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"]

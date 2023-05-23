@@ -38,4 +38,4 @@ xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[볼륨
 
 * 관련 정보 *
 
-https://["SnapLock 기술을 사용한 아카이브 및 규정 준수"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"^]

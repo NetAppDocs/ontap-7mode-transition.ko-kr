@@ -28,6 +28,6 @@ summary: 7-Mode에서 ONTAP로 데이터 복사 작업을 시작하기 전에 �
 
 xref:reference_transition_preparation_checklist.adoc[전환 준비 체크리스트]
 
-https://["7MTT v2.0/전환된 Data ONTAP 기능"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/전환된 Data ONTAP 기능"]
 
 link:https://mysupport.netapp.com/matrix/imt.jsp?components=68128;&solution=1&isHWU&src=IMT["NetApp 상호 운용성 매트릭스 툴"^]

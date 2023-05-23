@@ -20,7 +20,7 @@ summary: '7MTT\(7-Mode 전환 툴)를 사용하여 SAN 환경에서 7-Mode로 �
 Solaris 호스트 유틸리티를 실행하고 FC 프로토콜을 사용하여 Solaris MPxIO 환경 또는 Veritas DMP(동적 다중 경로) 환경에서 작동하도록 SAN 부팅 LUN을 설정할 수 있습니다. SAN 부팅 LUN을 설정하는 방법은 볼륨 관리자 및 파일 시스템에 따라 다를 수 있습니다.
 
 +
-https://["Solaris Host Utilities 6.2 설치 및 설정 가이드"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2748974["Solaris Host Utilities 6.2 설치 및 설정 가이드"]
 
 * Solaris 호스트 클러스터링 전환
 * Veritas 구성

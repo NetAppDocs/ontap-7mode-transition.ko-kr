@@ -99,4 +99,4 @@ NetApp Host Utilities 소프트웨어의 다운로드 및 설치에 대한 자�
 
 * 관련 정보 *
 
-http://["NetApp Support 사이트 관련 문서: mysupport.netapp.com"]
+http://mysupport.netapp.com/["NetApp Support 사이트 관련 문서: mysupport.netapp.com"]

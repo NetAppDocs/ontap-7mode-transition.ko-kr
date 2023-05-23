@@ -144,7 +144,7 @@ CBT 삭제 전환
  a| 
 CBT 추가-기본-7-모드-시스템 전환
 
-https://["CBT: 특정 보조 프로젝트에 필요한 모든 기본 7-Mode 세부 정보를 제공하는 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT: 특정 보조 프로젝트에 필요한 모든 기본 7-Mode 세부 정보를 제공하는 방법"]
 
 
 
@@ -153,7 +153,7 @@ ONTAP 보조 시스템에 대한 정보를 기본 프로젝트에 추가합니�
  a| 
 'CBT 애드-세컨더리-클러스터-모드-시스템 전환
 
-https://["CBT: 기본 프로젝트에 필요한 보조 클러스터 세부 정보를 추가하는 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT: 기본 프로젝트에 필요한 보조 클러스터 세부 정보를 추가하는 방법"]
 
 
 

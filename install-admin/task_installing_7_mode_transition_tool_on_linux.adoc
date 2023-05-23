@@ -23,7 +23,7 @@ xref:concept_system_requirements_for_7_mode_transition_tool_on_linux.adoc[Linux�
 .단계
 . NetApp Support 사이트에서 'tar.gz' 파일을 다운로드하십시오.
 +
-http://["NetApp 다운로드: 소프트웨어"]
+http://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 다운로드: 소프트웨어"]
 
 . Linux 시스템의 디렉토리에 tar.gz 파일 압축을 풉니다.
 +

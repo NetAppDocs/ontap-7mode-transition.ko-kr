@@ -40,10 +40,10 @@ MetroCluster 구성으로 전환하기 전에 7-Mode 볼륨을 ONTAP의 MetroClu
 전환 기간 동안에만 스위치 패브릭을 공유하는 것이 좋습니다.
 
 +
-https://["패브릭 연결 MetroCluster 설치 및 구성, ONTAP 9.8 이전 버전"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["패브릭 연결 MetroCluster 설치 및 구성, ONTAP 9.8 이전 버전"]
 
 +
-https://["패브릭 연결 MetroCluster 설치 및 구성, ONTAP 9.9.1"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["패브릭 연결 MetroCluster 설치 및 구성, ONTAP 9.9.1"]
 
 * 전환 중에 생성된 cron 작업 일정은 원격 사이트로 복제되지 않으므로 전환 후 협상된 전환이 실패합니다.
 +

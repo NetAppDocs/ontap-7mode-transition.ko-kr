@@ -36,21 +36,21 @@ summary: 전환 중에 다소 무 난한 오류가 발생할 수 있습니다. �
  a| 
 NFS-Qtree-익스포트됨
  a| 
-이 오류를 확인하면 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간에 qtree 엑스포트 규칙을 적용하는 차이점을 이해했음을 의미합니다. 이는 또한 7-Mode 전환 툴에서 NFS 엑스포트 규칙을 적용한 후 필요한 수동 단계를 이해했음을 의미합니다. https://["7MTT 사전 점검 10111 - qtree 레벨의 내보내기가 있는 7-Mode 볼륨을 전환하는 방법"]
+이 오류를 확인하면 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간에 qtree 엑스포트 규칙을 적용하는 차이점을 이해했음을 의미합니다. 이는 또한 7-Mode 전환 툴에서 NFS 엑스포트 규칙을 적용한 후 필요한 수동 단계를 이해했음을 의미합니다. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT 사전 점검 10111 - qtree 레벨의 내보내기가 있는 7-Mode 볼륨을 전환하는 방법"]
 
 
 
  a| 
 'ignore-cifs-ad-domain-mismatch'
  a| 
-이 오류를 인식하면 7-Mode 시스템의 CIFS AD(Active Directory) 도메인이 타겟 SVM의 CIFS AD 도메인과 다른 경우에도 7-Mode 전환 툴이 CIFS 구성을 계속 전환합니다. 7-Mode 시스템의 CIFS AD 도메인과 타겟 SVM이 신뢰할 수 있는 도메인인지 확인해야 합니다. 그렇지 않으면 CIFS 구성을 타겟 SVM으로 전환할 수 없습니다. https://["7-Mode에서 CIFS 서버의 Active Directory 도메인과 타겟 SVM이 다를 때 CIFS 구성을 전환하는 방법"]
+이 오류를 인식하면 7-Mode 시스템의 CIFS AD(Active Directory) 도메인이 타겟 SVM의 CIFS AD 도메인과 다른 경우에도 7-Mode 전환 툴이 CIFS 구성을 계속 전환합니다. 7-Mode 시스템의 CIFS AD 도메인과 타겟 SVM이 신뢰할 수 있는 도메인인지 확인해야 합니다. 그렇지 않으면 CIFS 구성을 타겟 SVM으로 전환할 수 없습니다. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["7-Mode에서 CIFS 서버의 Active Directory 도메인과 타겟 SVM이 다를 때 CIFS 구성을 전환하는 방법"]
 
 
 
  a| 
 'ignore-ping-check-from-IC-lifs-to-7mode'
  a| 
-이러한 ignorable 오류가 프로젝트에 추가되더라도 7-Mode Transition Tool은 타겟 클러스터 인터클러스터 LIF에서 7-Mode 스토리지 시스템을 ping하는 검사를 실행하지 않습니다.https://["7MTT 복사 기반 전환 - 타겟 클러스터 인터클러스터 LIF에서 7-Mode 데이터 복사 IP 주소에 연결할 수 없는 시나리오를 처리하는 방법"]
+이러한 ignorable 오류가 프로젝트에 추가되더라도 7-Mode Transition Tool은 타겟 클러스터 인터클러스터 LIF에서 7-Mode 스토리지 시스템을 ping하는 검사를 실행하지 않습니다.https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_cbt_-_How_to_handle_the_scenario_where_7-Mode_data-copy_IP_address["7MTT 복사 기반 전환 - 타겟 클러스터 인터클러스터 LIF에서 7-Mode 데이터 복사 IP 주소에 연결할 수 없는 시나리오를 처리하는 방법"]
 
 
 
@@ -64,7 +64,7 @@ NFS-Qtree-익스포트됨
  a| 
 'ignore-configuration-limits-check
  a| 
-이 옵션을 사용하여 구성 제한(사전 검사 오류)을 확인하고 전환을 계속할 수 있습니다. 이 오류를 확인하면 스토리지 컷오버 시간이 3~8시간 이상이 걸릴 것으로 예측됩니다. 여기에는 엑스포트, 중지 및 임포트 작업(자동 운영), 디스크 쉘프를 새 컨트롤러에 연결하는 데 걸리는 시간도 포함됩니다. https://["Copy-Free Transition에 대한 스토리지 컷오버 시간 고려 사항"]
+이 옵션을 사용하여 구성 제한(사전 검사 오류)을 확인하고 전환을 계속할 수 있습니다. 이 오류를 확인하면 스토리지 컷오버 시간이 3~8시간 이상이 걸릴 것으로 예측됩니다. 여기에는 엑스포트, 중지 및 임포트 작업(자동 운영), 디스크 쉘프를 새 컨트롤러에 연결하는 데 걸리는 시간도 포함됩니다. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Storage_cutover_time_considerations_for_Copy-Free_Transition["Copy-Free Transition에 대한 스토리지 컷오버 시간 고려 사항"]
 
 
 

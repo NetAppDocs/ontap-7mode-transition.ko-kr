@@ -35,4 +35,4 @@ summary: 넷그룹 구성은 7-Mode /etc/netgroup 파일의 크기가 5MB 미만
 
 * 관련 정보 *
 
-https://["NFS 관리"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 관리"]

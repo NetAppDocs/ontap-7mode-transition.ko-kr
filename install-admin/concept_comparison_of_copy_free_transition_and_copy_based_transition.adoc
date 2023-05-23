@@ -38,7 +38,7 @@ HA 쌍
  a| 
 플랫폼 요구 사항
  a| 
-중급 및 고급 플랫폼에서만 지원됩니다 https://["NetApp 상호 운용성 매트릭스 툴"]
+중급 및 고급 플랫폼에서만 지원됩니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
  a| 
 모든 플랫폼에서 지원됩니다
 

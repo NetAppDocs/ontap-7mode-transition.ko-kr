@@ -23,4 +23,4 @@ SnapLock 규정 준수 볼륨이 있는 프로젝트에서는 사전 컷오버 �
 
 컷오버 중에 선택한 볼륨이 SnapLock 규정 준수 볼륨이고 SnapMirror 관계의 타겟인 경우, 7-Mode 볼륨과 ONTAP 볼륨 간의 SnapMirror 관계가 SnapMirror 중단 작업 없이 삭제됩니다. 이렇게 하면 보조 ONTAP SnapLock Compliance 볼륨을 읽기 전용 모드로 유지할 수 있습니다. 운영 및 보조 SnapLock Compliance 볼륨 간에 재동기화 작업을 수행하려면 보조 ONTAP SnapLock Compliance 볼륨이 읽기 전용 모드여야 합니다.
 
-을 참조하십시오 https://["SnapMirror 관계가 있는 7-Mode SnapLock Compliance 볼륨을 clustered Data ONTAP으로 전환하는 방법"]
+을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_transition_the_7-Mode_SnapLock_Compliance_volumes_with_SnapMirror_relationship_to_clustered_Data_ONTAP["SnapMirror 관계가 있는 7-Mode SnapLock Compliance 볼륨을 clustered Data ONTAP으로 전환하는 방법"]

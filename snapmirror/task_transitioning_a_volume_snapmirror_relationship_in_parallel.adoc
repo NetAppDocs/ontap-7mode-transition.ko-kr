@@ -37,11 +37,11 @@ xref:task_transitioning_a_stand_alone_volume.adoc[독립 실행형 볼륨 전환
 
 . 전환된 운영 볼륨과 2차 볼륨이 포함된 SVM 간에 인터클러스터 SVM 피어 관계를 생성합니다.
 +
-https://["시스템 관리"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["시스템 관리"]
 
 . 전환된 운영 볼륨과 2차 볼륨 사이에 볼륨 SnapMirror 관계를 생성합니다.
 +
-https://["볼륨 재해 복구 빠른 준비"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["볼륨 재해 복구 빠른 준비"]
 
 . 대상 볼륨에서 SnapMirror 관계의 소스 볼륨과 타겟 볼륨을 다시 동기화합니다.
 +

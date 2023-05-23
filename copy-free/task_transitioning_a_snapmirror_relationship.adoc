@@ -21,4 +21,4 @@ summary: 2차 HA 쌍을 먼저 전환하고 7-Mode 운영 볼륨과 clustered Da
 
 * 관련 정보 *
 
-https://["System Manager를 이용한 클러스터 관리"]
+https://docs.netapp.com/us-en/ontap/concept_administration_overview.html["System Manager를 이용한 클러스터 관리"]

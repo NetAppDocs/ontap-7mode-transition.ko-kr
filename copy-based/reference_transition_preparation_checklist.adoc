@@ -22,7 +22,7 @@ summary: 전환을 시작하기 전에 전환을 위한 모든 사전 요구 사
 
 
  a| 
-지원되는 7-Mode 버전 https://["NetApp 상호 운용성 매트릭스 툴"]
+지원되는 7-Mode 버전 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
  a| 
 
 

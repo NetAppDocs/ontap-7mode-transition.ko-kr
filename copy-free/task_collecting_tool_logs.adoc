@@ -24,4 +24,4 @@ summary: 7-Mode 전환 툴은 시스템에서 실행되는 전환 평가 및 마
 
 * 관련 정보 *
 
-https://["NetApp에 파일을 업로드하는 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법"]

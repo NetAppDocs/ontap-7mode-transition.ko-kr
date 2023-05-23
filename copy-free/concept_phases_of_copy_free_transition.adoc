@@ -134,4 +134,4 @@ IMPORTANT: 애그리게이트 Snapshot 복사본과 테스트 중에 수행되�
 
 * 관련 정보 *
 
-https://["NetApp 다운로드: Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 다운로드: Config Advisor"]

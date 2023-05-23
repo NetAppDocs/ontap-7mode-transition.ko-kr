@@ -15,15 +15,15 @@ SAN 환경을 전환하기 전에 SAN 호스트 전환을 준비하기 위한 �
 
 인벤토리 수집 도구를 사용하여 SAN 호스트에 대한 인벤토리 통합 문서를 생성해야 합니다.
 
-http://["호스트 및 스토리지 전환 정보 수집"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-ict-icg/home.html["호스트 및 스토리지 전환 정보 수집"]
 
 .단계
 . 호스트에서 전환이 지원되는지 확인합니다.
 +
-https://["NetApp 상호 운용성 매트릭스 툴"]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
 
 . 호스트에서 전환 전 단계를 수행합니다.
 +
-http://["SAN 호스트 전환 및 수정"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 호스트 전환 및 수정"]
 
 
