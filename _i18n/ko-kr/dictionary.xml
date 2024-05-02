@@ -7337,26 +7337,14 @@
   <block id="9653cf98bd0bafa030e219a7067934ce" category="sidebar">7-Mode 전환</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">새로운 소식</block>
-  <block id="d176f598177def951b765d49b8a1ad4d" category="sidebar">최신 버전의 7-Mode 전환 툴의 새로운 기능을 살펴보십시오</block>
   <block id="35895df246ab4fab18a15ad7203002a7" category="sidebar">7-Mode 전환 툴을 설치합니다</block>
-  <block id="7ea7bcc99dddaa8df76f592001954899" category="sidebar">Microsoft Windows 또는 Linux에 도구를 설치하는 방법에 대해 알아봅니다</block>
   <block id="35f0393a0f809b8834f1e94cf9aeb75d" category="sidebar">전환에 필요한 데이터를 수집합니다</block>
-  <block id="f8d6780cf027291bb431321789717f05" category="sidebar">전환에 필요한 정보를 수집하는 방법을 알아보십시오</block>
   <block id="9715d735daefe53c846d6422d269ba9c" category="sidebar">7-Mode 관리자용 명령 맵</block>
-  <block id="347239ff36e364d3f29f508ab66f7e5b" category="sidebar">7-Mode 명령에 해당하는 ONTAP을 찾으십시오</block>
-  <block id="2d0b993704b5291e3d8c9104cd1eb3f4" category="sidebar">7-Mode 옵션이 ONTAP 명령 매개 변수에 매핑되는 방법에 대해 알아보십시오</block>
   <block id="d1cb91eced95c7ff33565c2ab700e6eb" category="sidebar">7-Mode 구성 파일이 ONTAP 명령에 매핑되는 방법</block>
-  <block id="a04ffe42a976aa7c8eb5782495546115" category="sidebar">7-Mode 구성 파일이 ONTAP 구성 명령에 매핑되는 방법에 대해 설명합니다</block>
   <block id="dc8134f825a7c1a45f8329a7db06ba5a" category="sidebar">전환할 방법을 찾고 있습니다</block>
-  <block id="95f77135b69a05aefa342ac301235f29" category="sidebar">이 툴을 사용하여 7-Mode에서 ONTAP로 복사 기반 전환을 수행합니다</block>
-  <block id="a3fa8f36cd3178033ace1b35c238f00d" category="sidebar">이 툴을 사용하여 7-Mode에서 ONTAP으로 복사 없이 전환할 수 있습니다</block>
   <block id="606f512fc14158269146a632e3444e35" category="sidebar">SnapMirror를 사용하여 데이터를 전환합니다</block>
-  <block id="5d2368c109186f55545b33483e97e8d0" category="sidebar">SnapMirror 명령을 사용하여 7-Mode에서 ONTAP로 데이터를 전환하는 방법을 알아보십시오</block>
   <block id="f7eea647714641318ee86fedbbed4691" category="sidebar">VMware ESXi</block>
-  <block id="689c2aa583e8cf3395af25aaa2ef63f5" category="sidebar">VMware ESXi 호스트의 전환 전 및 전환 후 요구 사항을 이해합니다</block>
   <block id="c73bbd3786350b0a8d3577d82afdf489" category="sidebar">Red Hat Enterprise Linux</block>
-  <block id="80a4be74705a612be3887e601f338c11" category="sidebar">Red Hat Enterprise Linux 호스트에 대한 전환 전/후 요구 사항을 이해합니다</block>
-  <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">Microsoft Windows 호스트의 전환 전 및 전환 후 단계를 이해합니다</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">7-Mode 관리자용 명령 맵</block>
   <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">3단계</block>
   <block id="6aa5dee008838df0194def910f0b3065" category="list-text">로 이동합니다 <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>.</block>
@@ -7376,7 +7364,6 @@
   <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">복제가 필요 없는 전환을 위해 호스트 및 컨트롤러를 평가하려면 최신 버전의 인벤토리 수집 도구를 사용하여 인벤토리를 수집해야 합니다.</block>
   <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
   <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">두 경우 모두 최신 버전의 재고 수집 도구를 사용하여 재고를 수집해야 합니다.</block>
-  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">모든 ONTAP 제품 설명서</block>
   <block id="83e14c89cceb4cee82c0bcea3943ea26" category="paragraph">ONTAP 9.12.1부터는 SnapMirror 기술을 사용하여 7-Mode 볼륨을 더 이상 전환할 수 없습니다.</block>
   <block id="8d73bc8fd1f6fe79df1b2f9f4cb47d7a" category="paragraph">하지만 ONTAP 9.11.1 이전 릴리즈의 경우 clustered Data ONTAP SnapMirror 명령을 사용하여 NAS 및 SAN 환경에서 7-Mode 볼륨을 clustered Data ONTAP 볼륨으로 전환할 수 있습니다. 그런 다음 전환이 완료된 후에 클러스터에서 프로토콜, 서비스 및 기타 구성을 설정해야 합니다.</block>
   <block id="8f2de78b174393b6f012a8a48075011a" category="paragraph">* 권장 사항: * 7-Mode 전환 툴을 사용하면 ONTAP 9.11.1 이전 릴리즈용 7-Mode 볼륨을 7-Mode로 전환할 수 있습니다. 마이그레이션 프로세스에서 모든 단계에서 7-Mode와 클러스터를 모두 확인하는 사전 점검을 제공하므로 잠재적으로 많은 문제를 방지할 수 있습니다. 이 툴은 데이터 마이그레이션과 함께 모든 프로토콜, 네트워크, 서비스 구성의 마이그레이션을 크게 단순화합니다.</block>
@@ -7403,4 +7390,5 @@
   <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager를 이용한 클러스터 관리</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
+  <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-Mode 전환 설명서에는 7-Mode 전환 툴 설치 및 설정, SnapMirror 명령을 사용하여 데이터를 전환, 복사 없는 전환 수행, 전환 정보 수집, SAN 호스트에 대한 전환 전/후 절차를 완료하는 데 도움이 되는 정보가 포함되어 있습니다.</block>
 </blocks>
