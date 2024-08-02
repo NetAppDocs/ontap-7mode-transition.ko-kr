@@ -28,7 +28,7 @@ SnapMirror 관계의 일부인 볼륨을 전환할 수 있습니다. 그러나 �
 SnapVault 관계의 소스인 볼륨은 마이그레이션할 수 있지만 SnapVault 관계는 전환되지 않습니다. SnapVault 관계의 대상인 볼륨은 SnapVault 백업이 중지된 후에만 마이그레이션할 수 있습니다.
 
 +
-http://www.netapp.com/us/media/tr-4052.pdf["NetApp 기술 보고서 4052: clustered Data ONTAP으로 성공적으로 전환(Data ONTAP 8.2.x 및 8.3)"]
+https://www.netapp.com/pdf.html?item=/media/19510-tr-4052.pdf["NetApp 기술 보고서 4052: clustered Data ONTAP으로 성공적으로 전환(Data ONTAP 8.2.x 및 8.3)"^]
 
 * Qtree SnapMirror 관계
 +

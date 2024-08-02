@@ -52,7 +52,6 @@
   <block id="b94690f1d58e7f298c4e94a655b35110" category="paragraph">NFS 클라이언트가 qtree를 마운트하려면 Qtree가 읽기 전용 권한이 있는 볼륨에 속해야 합니다. 볼륨 레벨에서 읽기 전용 권한이 없으면 NFS 클라이언트가 qtree를 마운트할 수 없습니다.</block>
   <block id="1b4bd805f1c43c7d5c9719dce981c2f4" category="list-text">동일한 호스트가 읽기 전용, 읽기/쓰기 및 루트 액세스 권한 목록의 조합에 지정된 경우 전환 후 전환된 내보내기 규칙을 평가하여 호스트에 대한 적절한 액세스 권한을 결정해야 합니다.</block>
   <block id="8fad4be94e9aa7ce4db57aef3f0d7941" category="inline-link">NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드</block>
-  <block id="2e5e5fdaff65cd094319505704237d70" category="paragraph"><block ref="2e5e5fdaff65cd094319505704237d70" category="inline-link-rx"></block></block>
   <block id="b014fe06ce5f68b47e31838c02f8644b" category="section-title">예: qtree에 대한 액세스를 허용하도록 볼륨의 엑스포트 정책을 수정합니다</block>
   <block id="c4d849bb273335cc15c5a5e062d19ca2" category="paragraph">NFS 클라이언트 192.168.10.10에 대해 볼륨 volstd10 및 qtree qtree1 에 대한 읽기/쓰기 액세스를 허용하는 7-Mode 스토리지 시스템(192.168.26.18)에 구성된 다음과 같은 엑스포트 규칙을 고려하십시오.</block>
   <block id="1907717ab9a8223ee3ce06ec78e360cc" category="paragraph">전환 후 ONTAP에서 볼륨 volsdt10의 내보내기 정책은 다음과 같습니다.</block>
@@ -151,7 +150,6 @@
   <block id="67e55df2230df7a56836309fe173b259" category="paragraph">볼륨 및 컨트롤러 구성과 사전 점검 요약을 기준으로, 경영진 요약은 각 평가 볼륨에 가장 적합한 전환 방법에 대한 권장사항을 제공합니다. 예를 들어, 7-Mode 기존 볼륨 또는 FlexCache 볼륨은 ONTAP에서 지원되지 않으므로 전환할 수 없습니다.</block>
   <block id="a4188dde39855b0f8b00898bc8a50fc5" category="paragraph">대부분의 구성에서 7-Mode Transition Tool은 전환을 위한 권장 툴입니다. 하지만 7-Mode 전환 툴을 사용하여 전환할 수 없는 워크로드도 일부 있으며, 애플리케이션 기반 또는 호스트 기반 마이그레이션 방법을 사용해야 합니다.</block>
   <block id="664f739c9dfce166b4c021cac0d8633e" category="inline-link">NetApp 기술 보고서 4052: clustered Data ONTAP으로 성공적으로 전환(Data ONTAP 8.2.x 및 8.3)</block>
-  <block id="755b3c98012d25558d664e3aae2c2528" category="paragraph"><block ref="755b3c98012d25558d664e3aae2c2528" category="inline-link-rx"></block></block>
   <block id="ca2ca47a2d122a4c2b69f770ebdcaf17" category="section-title">스토리지 인벤토리</block>
   <block id="e666d79eed8ef816936f0c67b7ccc988" category="paragraph">이 섹션에서는 다음 정보를 제공합니다.</block>
   <block id="a378d84c51afa40ad9cc4d4db2fbbb40" category="list-text">스토리지 오브젝트: 볼륨, qtree, LUN, vFiler 유닛, 볼륨, 볼륨, 볼륨, 각 컨트롤러에서 SnapMirror 관계, 공유 및 엑스포트 지원</block>
@@ -1219,7 +1217,6 @@
   <block id="ee938c4ccb225fb1eaa8be3c480458c0" category="paragraph">전환 전에 업그레이드가 필요한지 여부를 결정하려면 다음 워크플로를 사용해야 합니다.</block>
   <block id="92cd2f5e96983a715cf5b509f4aa5a2b" category="image-alt">32비트 업그레이드 경로가 업데이트되었습니다</block>
   <block id="13434f43b15c9640896f4fc73fa54221" category="inline-link">NetApp 기술 보고서 3978: 32비트 애그리게이트를 64비트로 확장: 개요 및 모범 사례</block>
-  <block id="0a2da8e756e37983a5c9c20d332cfa66" category="paragraph"><block ref="0a2da8e756e37983a5c9c20d332cfa66" category="inline-link-rx"></block></block>
   <block id="a033e09fcac698b13fa79d98741d41b8" category="summary">SnapMirror 관계의 일부인 볼륨을 전환할 수 있습니다. 그러나 일부 데이터 보호 및 재해 복구 구성은 전환이 지원되지 않으므로 이러한 구성을 전환하기 위해 몇 가지 수동 단계를 수행해야 합니다.</block>
   <block id="7cc5dc75c93101f452c3b6fa6f6669ec" category="doc">데이터 보호 전환: 지원 구성 및 지원되지 않는 구성</block>
   <block id="1f0b82560627b660c6c6958a1df834b8" category="section-title">지원되는 구성</block>
@@ -7391,4 +7388,7 @@
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">System Manager를 이용한 클러스터 관리</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
   <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-Mode 전환 설명서에는 7-Mode 전환 툴 설치 및 설정, SnapMirror 명령을 사용하여 데이터를 전환, 복사 없는 전환 수행, 전환 정보 수집, SAN 호스트에 대한 전환 전/후 절차를 완료하는 데 도움이 되는 정보가 포함되어 있습니다.</block>
+  <block id="6819367dcff0e5919ebb17505dc3e140" category="paragraph"><block ref="6819367dcff0e5919ebb17505dc3e140" category="inline-link-rx"></block></block>
+  <block id="07c5daecfe0dafef7e4667a307affc19" category="paragraph"><block ref="07c5daecfe0dafef7e4667a307affc19" category="inline-link-rx"></block></block>
+  <block id="f7042196519d0be4fd9ec6a8bd4a4b28" category="paragraph"><block ref="f7042196519d0be4fd9ec6a8bd4a4b28" category="inline-link-rx"></block></block>
 </blocks>
