@@ -15,6 +15,7 @@ ICT(Inventory Collection Tool) 명령은 CLI(Command-Line Interface) 또는 시�
 
 
 
+[[syntax]]
 == 구문
 
 * (* ICT--cmd collect[--output<inventory.xml>]<Uri>[<Uri>...] *)
@@ -27,6 +28,7 @@ ICT(Inventory Collection Tool) 명령은 CLI(Command-Line Interface) 또는 시�
 
 
 
+[[options]]
 == 옵션
 
 텍스트 파일에는 각 시스템의 시스템 세부 정보가 별도의 줄에 포함되어야 합니다.

@@ -37,6 +37,7 @@ Clustered Data ONTAP 볼륨의 크기는 7-Mode 볼륨의 크기와 같거나 �
 
 
 
+[[example-of-creating-and-viewing-transition-peer-relationships]]
 == 전환 피어 관계를 만들고 보는 예
 
 다음 명령을 실행하면 다중 경로 주소 src1-e0d 및 로컬 LIF lif1 및 lif2를 사용하여 SVM VS1 및 7-Mode 시스템 src1 간에 전환 피어 관계가 생성됩니다.

@@ -163,6 +163,7 @@ NOTE: 각 전송의 스로틀은 사용 가능한 동시 볼륨 SnapMirror 전�
 
 
 
+[[example-for-planning-a-data-copy-schedule]]
 == 데이터 복사 스케줄 계획 예
 
 75개의 DR 관계와 함께 100개의 동시 SnapMirror 전송을 지원하는 7-Mode 컨트롤러를 고려해 보십시오. 비즈니스 요구 사항은 다음 시간 동안 SnapMirror 작업을 실행해야 합니다.

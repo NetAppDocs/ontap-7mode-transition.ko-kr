@@ -17,6 +17,7 @@ summary: 7-Mode 전환 툴을 설치하고 실행하기 위해 Linux 호스트�
 
 
 
+[[hardware-requirements]]
 == 하드웨어 요구 사항
 
 * 듀얼 코어 x64 프로세서, 1.0GHz 이상
@@ -26,6 +27,7 @@ summary: 7-Mode 전환 툴을 설치하고 실행하기 위해 Linux 호스트�
 
 
 
+[[software-requirements]]
 == 소프트웨어 요구 사항
 
 * Linux 시스템에서 다음 중 하나를 실행해야 합니다.

@@ -15,6 +15,7 @@ summary: 7-Mode에서 실행 중인 Data ONTAP에서 clustered Data ONTAP으로 
 
 
 
+[[what-mapping-information-is-included]]
 == 포함된 매핑 정보
 
 7-Mode 관리자를 위한 명령 맵에는 7-Mode 명령, 옵션 및 구성 파일을 clustered Data ONTAP에 상응하는 다음과 같은 매핑이 포함됩니다.
@@ -26,6 +27,7 @@ summary: 7-Mode에서 실행 중인 Data ONTAP에서 clustered Data ONTAP으로 
 
 
 
+[[how-to-interpret-7-mode-compatible-shortcut-commands]]
 == 7-Mode 호환 바로 가기 명령을 해석하는 방법
 
 Data ONTAP CLI(Command Line Interface)는 클러스터 작업을 위해 크게 재구성되지만, 대부분의 명령에는 7-Mode 호환 바로 가기 버전이 있어 스크립트 변경 작업이나 다른 자동화 작업이 필요하지 않습니다. 이러한 바로 가기 버전은 여기에 나와 있는 표의 첫 번째 및 * 굵게 * 로 표시됩니다. 7-Mode와 호환되지 않는 바로 가기 버전이 다음 목록에 표시되며 이어서 명령의 전체 긴 버전이 표시됩니다.
@@ -48,6 +50,7 @@ Data ONTAP CLI(Command Line Interface)는 클러스터 작업을 위해 크게 �
 
 
 
+[[understanding-the-different-clustered-data-ontap-shells-for-cli-commands]]
 == CLI 명령에 대한 다양한 clustered Data ONTAP 셸 이해
 
 클러스터에는 CLI 명령을 위한 3개의 서로 다른 셸이 있습니다.
@@ -68,6 +71,7 @@ Data ONTAP CLI(Command Line Interface)는 클러스터 작업을 위해 크게 �
 
 
 
+[[switching-to-nodeshell]]
 == 고데지옥(nodeschell)으로 전환
 
 노드 쉘의 명령의 7-Mode 호환 바로 가기 버전이 표시되면 명령을 실행하는 것으로 간주됩니다. 노드 쉘로 전환하려면 다음을 입력합니다.
@@ -78,6 +82,7 @@ Data ONTAP CLI(Command Line Interface)는 클러스터 작업을 위해 크게 �
 
 
 
+[[where-to-go-for-more-information]]
 == 자세한 정보
 
 |===

@@ -15,6 +15,7 @@ CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사�
 
 
 
+[[7-mode-prerequisites]]
 == 7-Mode 사전 요구사항
 
 * CIFS 라이센스를 추가해야 합니다.
@@ -25,6 +26,7 @@ CIFS 구성은 7-Mode 시스템 및 클러스터에서 특정 사전 요구사�
 
 
 
+[[cluster-prerequisites]]
 == 클러스터 사전 요구 사항
 
 * CIFS 라이센스를 추가해야 합니다.

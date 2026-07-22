@@ -15,6 +15,7 @@ summary: 7-Mode로 운영되는 Data ONTAP의 DNS, NIS 및 LDAP 구성이 ONTAP�
 
 
 
+[[considerations-for-dns-transition]]
 == DNS 전환에 대한 고려 사항
 
 DNS 구성의 경우 ONTAP에서 SVM당 최대 6개의 도메인 이름과 3개의 이름 서버가 지원됩니다. 7-Mode 시스템 간에 고유한 도메인 이름 또는 이름 서버가 있고 타겟 SVM이 지원되는 제한을 초과하는 경우 7-Mode 전환 툴에서 차단 오류를 보고합니다. 전환을 계속하려면 도구에서 DNS 구성의 전환을 무시해야 합니다.
@@ -24,6 +25,7 @@ NOTE: DNS 구성의 전환을 무시하는 경우 타겟 SVM에서 DNS를 수동
 
 
 
+[[considerations-for-nis-transition]]
 == NIS 전환을 위한 고려 사항
 
 * 7-Mode 시스템에서 NIS 도메인 이름의 길이는 64자를 초과할 수 없습니다.
@@ -35,6 +37,7 @@ ONTAP 9.1 이하를 실행하는 클러스터로 전환하는 경우, 전환하�
 
 
 
+[[considerations-for-ldap-transition]]
 == LDAP 전환에 대한 고려 사항
 
 * 7-Mode 시스템에서 사용자 매핑('ldap.usermap.base`) 및 사용자 암호('LDAP.base.passwd') 조회를 위해 별도의 기본 값과 범위 값을 지정하면 사용자 암호만 사용할 수 있는 기본 값과 범위 값이 전환됩니다.

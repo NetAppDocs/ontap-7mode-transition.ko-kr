@@ -15,6 +15,7 @@ summary: 7-Mode 엑스포트 규칙과 7-Mode 스냅샷 스케줄이 ONTAP의 �
 
 
 
+[[example-of-consolidating-nfs-export-rules-for-transition]]
 == 전환을 위한 NFS 엑스포트 규칙의 통합 예
 
 * 전환 전 7-Mode 및 ONTAP의 NFS 엑스포트 규칙 *
@@ -113,6 +114,7 @@ vs1     vol3   export_policy_1
 ----
 
 
+[[example-of-consolidating-snapshot-policies-for-transition]]
 == 전환을 위한 스냅샷 정책 통합의 예
 
 * 전환 전 7-Mode 및 ONTAP의 스냅샷 일정 *

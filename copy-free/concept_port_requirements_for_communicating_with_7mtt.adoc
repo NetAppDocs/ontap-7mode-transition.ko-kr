@@ -15,18 +15,21 @@ summary: 7-Mode 전환 툴은 7-Mode 시스템과 통신하며 클러스터는 �
 
 
 
+[[ports-that-must-be-open-on-the-7-mode-systems]]
 == 7-Mode 시스템에서 열려 있어야 하는 포트
 
 7-Mode 전환 툴은 포트 443에서 HTTPS를 사용하여 7-Mode 시스템과 통신합니다.
 
 
 
+[[ports-that-must-be-open-on-the-cluster]]
 == 클러스터에서 열려 있어야 하는 포트
 
 7-Mode 전환 툴은 포트 443에서 HTTPS를 사용하여 클러스터와 통신합니다.
 
 
 
+[[ports-that-must-be-open-on-the-7-mode-transition-tool]]
 == 7-Mode 전환 도구에서 열려 있어야 하는 포트
 
 웹 인터페이스를 사용하려면 7-Mode Transition Tool의 포트 8444가 열려 있어야 합니다.

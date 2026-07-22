@@ -15,6 +15,7 @@ summary: 전환을 시작하기 전에 전환을 위한 모든 사전 요구 사
 
 
 
+[[ontap-version-requirements]]
 == ONTAP 버전 요구 사항
 
 |===
@@ -65,6 +66,7 @@ summary: 전환을 시작하기 전에 전환을 위한 모든 사전 요구 사
 |===
 
 
+[[licensing-requirements]]
 == 라이센스 요구 사항
 
 |===
@@ -114,6 +116,7 @@ FC 라이센스가 7-Mode 시스템에서 활성화되어 있는 경우 클러�
 |===
 
 
+[[snapmirror-requirements-on-the-7-mode-system]]
 == 7-Mode 시스템의 SnapMirror 요구사항
 
 |===
@@ -151,6 +154,7 @@ SnapMirror 라이센스
 |===
 
 
+[[volume-settings-on-the-7-mode-system]]
 == 7-Mode 시스템의 볼륨 설정입니다
 
 |===
@@ -181,6 +185,7 @@ SnapMirror 라이센스
 |===
 
 
+[[managing-access-to-the-cluster]]
 == 클러스터에 대한 액세스 관리
 
 |===
@@ -204,6 +209,7 @@ SSL이 활성화되었습니다
 |===
 
 
+[[managing-access-to-the-7-mode-system]]
 == 7-Mode 시스템에 대한 액세스 관리
 
 |===
@@ -239,6 +245,7 @@ SSLv2 및 SSLv3이 비활성화됩니다
 |===
 
 
+[[networking-requirements]]
 == 네트워킹 요구 사항
 
 |===
@@ -276,6 +283,7 @@ NTP 서버가 구성되고 7-Mode 시스템 시간이 클러스터 시간과 동
 |===
 
 
+[[port-requirements]]
 == 포트 요구 사항
 
 |===
@@ -316,6 +324,7 @@ NTP 서버가 구성되고 7-Mode 시스템 시간이 클러스터 시간과 동
 |===
 
 
+[[nfs-requirements]]
 == NFS 요구 사항
 
 |===
@@ -347,6 +356,7 @@ KDC와 클러스터 간의 클록 편중이 5분 이하입니다
 |===
 
 
+[[cifs-requirements]]
 == CIFS 요구 사항
 
 |===

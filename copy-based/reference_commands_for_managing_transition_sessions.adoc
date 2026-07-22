@@ -21,6 +21,7 @@ summary: 전환 CBT 명령을 사용하여 전환 프로젝트 생성, 수정, �
 
 
 
+[[commands-to-manage-transition-operations]]
 == 전환 작업을 관리하는 명령입니다
 
 |===
@@ -133,6 +134,7 @@ CBT 삭제 전환
 |===
 
 
+[[commands-to-manage-volume-snapmirror-relationships]]
 == 볼륨 SnapMirror 관계를 관리하는 명령입니다
 
 |===
@@ -186,6 +188,7 @@ CBT 전환=1차-7모드-시스템
 |===
 
 
+[[commands-to-manage-credentials-of-data-ontap-systems]]
 == Data ONTAP 시스템의 자격 증명을 관리하는 명령입니다
 
 |===
@@ -221,6 +224,7 @@ CBT 전환=1차-7모드-시스템
 |===
 
 
+[[commands-to-manage-the-volume-pairs-in-a-project]]
 == 프로젝트의 볼륨 쌍을 관리하는 명령입니다
 
 |===
@@ -256,6 +260,7 @@ CBT 볼륨 제거 전환
 |===
 
 
+[[commands-to-manage-lif-details]]
 == LIF 세부 정보를 관리하는 명령입니다
 
 
@@ -294,6 +299,7 @@ NOTE: FC 및 iSCSI LIF는 7-Mode 전환 툴을 통해 전환되지 않습니다.
 |===
 
 
+[[commands-to-manage-project-properties]]
 == 프로젝트 속성을 관리하는 명령입니다
 
 |===
@@ -322,6 +328,7 @@ CBT 속성 세트 전환
 |===
 
 
+[[commands-to-manage-transition-jobs]]
 == 전환 작업을 관리하는 명령입니다
 
 |===
@@ -350,6 +357,7 @@ CBT 속성 세트 전환
 |===
 
 
+[[commands-to-manage-transition-schedules]]
 == 전환 일정을 관리하는 명령입니다
 
 |===
@@ -385,6 +393,7 @@ CBT의 전환 일정이 표시됩니다
 |===
 
 
+[[command-to-collect-tool-logs]]
 == 툴 로그를 수집하는 명령입니다
 
 |===

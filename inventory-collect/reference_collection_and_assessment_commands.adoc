@@ -15,6 +15,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[ontap-7-mode-apis]]
 == ONTAP 7-Mode API
 
 * 'aggr-list-info'
@@ -77,6 +78,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[ontap-7-mode-cli]]
 == ONTAP 7-Mode CLI
 
 * CIFS 공유
@@ -124,6 +126,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[ontap-7-mode-netapp-manageability-sdk]]
 == ONTAP 7-Mode NetApp 관리 SDK
 
 * '클러스터-아이덴티티-GET'
@@ -142,6 +145,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[windows]]
 == Windows
 
 * "HKEY_LOCAL_MACHINE\\SOFTWARE\\NetApp *
@@ -166,6 +170,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[linux-cli]]
 == Linux CLI를 참조하십시오
 
 * 블키즈
@@ -198,6 +203,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[vmware-cli]]
 == VMware CLI를 참조하십시오
 
 * esxcfg-info-a-F XML
@@ -220,6 +226,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[cisco-cli]]
 == Cisco CLI를 참조하십시오
 
 * 'fcdomain domain-list 표시
@@ -242,6 +249,7 @@ ICT(Inventory Collect Tool)는 인벤토리 XML 보고서를 생성하는 명령
 
 
 
+[[brocade-cli]]
 == Brocade CLI를 사용합니다
 
 * 'nsshow'

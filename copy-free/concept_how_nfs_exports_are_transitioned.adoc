@@ -38,6 +38,7 @@ https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["NetApp 기술 보
 
 
 
+[[example-modifying-the-export-policy-of-a-volume-to-allow-access-to-a-qtree]]
 == 예: qtree에 대한 액세스를 허용하도록 볼륨의 엑스포트 정책을 수정합니다
 
 NFS 클라이언트 192.168.10.10에 대해 볼륨 volstd10 및 qtree qtree1 에 대한 읽기/쓰기 액세스를 허용하는 7-Mode 스토리지 시스템(192.168.26.18)에 구성된 다음과 같은 엑스포트 규칙을 고려하십시오.
@@ -136,6 +137,7 @@ cluster-01::>
 ----
 
 
+[[example-how-qtree-export-rules-differ-in-7-mode-and-ontap]]
 == 예: 7-Mode와 ONTAP에서 qtree 엑스포트 규칙이 어떻게 다른지 설명
 
 7-Mode 스토리지 시스템에서 NFS 클라이언트가 상위 볼륨의 마운트 지점을 통해 qtree에 액세스할 때 qtree 엑스포트 규칙이 무시되고 상위 볼륨의 엑스포트 규칙이 적용됩니다. 그러나 ONTAP에서는 NFS 클라이언트가 qtree에 직접 마운트하든, 부모 볼륨의 마운트 지점을 통해 qtree에 액세스하든 qtree 엑스포트 규칙이 항상 적용됩니다. 이 예는 NFSv4에 특히 적용됩니다.

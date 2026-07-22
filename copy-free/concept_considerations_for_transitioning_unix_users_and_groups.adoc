@@ -15,6 +15,7 @@ summary: 넷그룹 구성은 7-Mode /etc/netgroup 파일의 크기가 5MB 미만
 
 
 
+[[considerations-for-netgroups]]
 == 넷그룹에 대한 고려 사항
 
 7-Mode의 '/etc/netgroup' 파일이 5MB를 초과할 경우 넷그룹 구성이 전환되지 않습니다. 전환을 계속하려면 다음 작업 중 하나를 수행해야 합니다.
@@ -28,6 +29,7 @@ xref:task_customizing_configurations_for_transition.adoc[7-Mode 구성의 전환
 
 
 
+[[considerations-for-unix-users-and-groups]]
 == UNIX 사용자 및 그룹에 대한 고려 사항
 
 전환 중인 UNIX 사용자 및 그룹의 총 수가 ONTAP의 UNIX 사용자 및 그룹 제한을 초과하면 7-Mode 전환 도구가 전환을 차단합니다. 전환을 계속하려면 다음 작업 중 하나를 수행해야 합니다.

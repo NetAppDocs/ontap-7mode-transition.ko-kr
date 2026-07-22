@@ -17,6 +17,7 @@ summary: 전환 중에 다소 무 난한 오류가 발생할 수 있습니다. �
 
 
 
+[[precheck-operation-ignorable-error-categories]]
 == PreCheck 작업: ignorable 오류 범주입니다
 
 |===
@@ -132,6 +133,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 |===
 
 
+[[cabling-verification-operation-ignorable-error-categories]]
 == 케이블 확인 작업: ignorable error categories
 
 |===
@@ -155,6 +157,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 |===
 
 
+[[import-operation-ignorable-error-categories]]
 == 가져오기 작업: ignorable error categories
 
 가져오기 작업 중에 복사를 수행하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 Data ONTAP에서 Aggregate 및 볼륨에 대해 몇 가지 수정 작업을 수행하고 차단 오류를 경고로 변경합니다.
@@ -227,6 +230,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 |===
 
 
+[[commit-operation-ignorable-error-categories]]
 == 커밋 작업: ignorable 오류 범주입니다
 
 커밋 작업 중에 복사를 수행하지 않는 전환 프로젝트에 ignorable error 범주를 추가하면 ONTAP은 차단 오류를 경고로 변경하는 것 외에도 애그리게이트와 볼륨에 대해 몇 가지 수정 조치를 수행합니다.

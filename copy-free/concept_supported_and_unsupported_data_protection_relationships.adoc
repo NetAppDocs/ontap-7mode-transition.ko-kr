@@ -15,6 +15,7 @@ SnapMirror 관계의 일부인 볼륨을 전환할 수 있습니다. 그러나 �
 
 
 
+[[supported-configurations]]
 == 지원되는 구성
 
 7-Mode 전환 툴을 사용하여 볼륨 SnapMirror 관계를 전환할 수 있습니다. 운영 HA 쌍 및 2차 HA 쌍의 복사를 수행하지 않는 전환을 수행할 수 있습니다. 그런 다음 전환 후 볼륨 SnapMirror 관계를 수동으로 설정해야 합니다.
@@ -23,6 +24,7 @@ xref:task_transitioning_a_snapmirror_relationship.adoc[SnapMirror 관계 전환]
 
 
 
+[[unsupported-configurations]]
 == 지원되지 않는 구성입니다
 
 * SnapVault 관계

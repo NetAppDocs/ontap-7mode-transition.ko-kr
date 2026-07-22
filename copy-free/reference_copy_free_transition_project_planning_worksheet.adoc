@@ -31,6 +31,7 @@ LIF의 IP 주소는 7-Mode 시스템에 존재하거나 새로운 LIF가 될 수
 
 
 
+[[node-mapping]]
 == 노드 매핑
 
 |===
@@ -48,6 +49,7 @@ LIF의 IP 주소는 7-Mode 시스템에 존재하거나 새로운 LIF가 될 수
 |===
 
 
+[[svm-and-volume-mapping]]
 == SVM 및 볼륨 매핑
 
 |===
@@ -143,6 +145,7 @@ LIF의 IP 주소는 7-Mode 시스템에 존재하거나 새로운 LIF가 될 수
 |===
 
 
+[[lif-mapping-7-mode-ip-addresses]]
 == LIF 매핑(7-Mode IP 주소)
 
 |===
@@ -238,6 +241,7 @@ LIF의 IP 주소는 7-Mode 시스템에 존재하거나 새로운 LIF가 될 수
 |===
 
 
+[[lif-mapping-new-lifs]]
 == LIF 매핑(새로운 LIF)
 
 |===
@@ -320,6 +324,7 @@ LIF의 IP 주소는 7-Mode 시스템에 존재하거나 새로운 LIF가 될 수
 |===
 
 
+[[example]]
 == 예
 
 다음 표에서는 컨트롤러 hostA_7mode 및 hostB_7mode를 사용하는 7-Mode HA 쌍의 완료된 워크시트의 예를 보여 줍니다.

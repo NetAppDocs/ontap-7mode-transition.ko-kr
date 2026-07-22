@@ -15,6 +15,7 @@ summary: 7-Mode Transition Tool CLI에서 CBT 속성 세트 명령을 사용하�
 
 
 
+[[nfs]]
 == NFS 를 참조하십시오
 
 |===
@@ -43,6 +44,7 @@ nore-all-nfs-configurations-transition
 |===
 
 
+[[cifs]]
 == CIFS를 선택합니다
 
 |===
@@ -120,6 +122,7 @@ ignore-cifs-audit-transition
 |===
 
 
+[[name-services]]
 == 네임 서비스
 
 |===
@@ -190,6 +193,7 @@ nmswitch-transition 무시
 |===
 
 
+[[san]]
 == 산
 
 |===
@@ -211,6 +215,7 @@ Igroup 및 LUN 매핑
 |===
 
 
+[[snapshot-schedules]]
 == Snapshot 스케줄
 
 |===

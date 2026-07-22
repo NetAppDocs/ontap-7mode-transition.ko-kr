@@ -15,6 +15,7 @@ summary: 일부 작업은 차단되며 일부 작업은 사전 프로덕션 테�
 
 
 
+[[operations-that-are-blocked]]
 == 차단된 작업입니다
 
 |===
@@ -111,6 +112,7 @@ IMPORTANT: 전환된 애그리게이트에서의 공간을 늘리기 위해 7-Mo
 |===
 
 
+[[operations-that-are-not-recommended]]
 == 권장되지 않는 작업입니다
 
 |===

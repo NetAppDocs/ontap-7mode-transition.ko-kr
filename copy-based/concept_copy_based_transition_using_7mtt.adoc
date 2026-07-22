@@ -17,6 +17,7 @@ summary: 7-Mode 전환 툴을 사용하면 정보를 수집하고 전환 가능�
 
 
 
+[[collecting-and-assessing-ontap-systems-hosts-switches-and-applications]]
 == ONTAP 시스템, 호스트, 스위치 및 애플리케이션의 수집 및 평가
 
 7-Mode 전환 툴을 사용하여 다음과 같은 수집 및 평가 작업을 수행할 수 있습니다.
@@ -28,6 +29,7 @@ summary: 7-Mode 전환 툴을 사용하면 정보를 수집하고 전환 가능�
 
 
 
+[[moving-data-and-configurations-from-7-mode-to-ontap]]
 == 7-Mode에서 ONTAP로 데이터 및 구성 이동
 
 복사 기반 전환은 SnapMirror 기술을 사용하여 7-Mode 볼륨 및 구성을 Data ONTAP 7G 및 7-Mode에서 ONTAP로 복사합니다.

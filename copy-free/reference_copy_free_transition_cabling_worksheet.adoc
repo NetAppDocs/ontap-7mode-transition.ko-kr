@@ -22,6 +22,7 @@ image::../media/cft_cabling_plan_worksheet.gif[CFT 케이블링 계획 워크시
 
 
 
+[[sample-cabling-worksheet]]
 == 케이블 연결 워크시트 예
 
 |===

@@ -15,6 +15,7 @@ summary: 이 툴에는 오류 메시지가 표시됩니다. SVM에는 Aggregate�
 
 
 
+[[workaround]]
 == 해결 방법
 
 Clustered Data ONTAP에서 SVM에 애그리게이트 추가

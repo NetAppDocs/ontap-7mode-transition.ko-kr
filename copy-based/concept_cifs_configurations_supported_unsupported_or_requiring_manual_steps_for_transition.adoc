@@ -15,6 +15,7 @@ summary: 일부 CIFS 구성은 ONTAP에서 지원되지 않거나 수동으로 �
 
 
 
+[[configurations-that-are-supported-for-transition]]
 == 전환이 지원되는 구성입니다
 
 7-Mode 전환 툴은 상위 레벨에서 다음 CIFS 구성을 전환합니다.
@@ -54,6 +55,7 @@ summary: 일부 CIFS 구성은 ONTAP에서 지원되지 않거나 수동으로 �
 
 
 
+[[configurations-that-are-not-supported-in-ontap]]
 == ONTAP에서 지원되지 않는 구성입니다
 
 ONTAP에서는 다음 7-Mode 구성이 지원되지 않습니다. 따라서 이러한 구성은 전이될 수 없습니다.
@@ -76,6 +78,7 @@ ONTAP에서는 다음 7-Mode 구성이 지원되지 않습니다. 따라서 이�
 
 
 
+[[configurations-that-must-be-manually-transitioned]]
 == 수동으로 전환해야 하는 구성
 
 일부 CIFS 구성은 ONTAP에서 지원되며 7-Mode 전환 툴을 통해 전환할 수 없습니다.

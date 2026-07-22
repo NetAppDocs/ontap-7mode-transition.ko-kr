@@ -15,6 +15,7 @@ summary: 7-Mode Transition Tool은 5분마다 활성 스케줄을 확인하는 �
 
 
 
+[[requirements-to-make-a-data-copy-schedule-active]]
 == 데이터 복사 일정을 활성화하려면 요구 사항
 
 * 7-Mode 전환 툴 서비스가 실행 중이어야 합니다.
@@ -34,12 +35,14 @@ summary: 7-Mode Transition Tool은 5분마다 활성 스케줄을 확인하는 �
 
 
 
+[[best-practices-during-data-copy]]
 == 데이터를 복사하는 동안 모범 사례를 따르는 것입니다
 
 SnapMirror 복제 성능을 높이기 위해 소스 및 타겟 시스템에 최적의 CPU 활용률과 메모리가 있어야 합니다. 또한 마이그레이션 작업과 관련이 없는 네트워크 트래픽을 최소화하여 처리량을 극대화하고 소스 시스템과 대상 시스템 간에 지연 시간을 최소화해야 합니다.
 
 
 
+[[priority-for-data-transfers]]
 == 데이터 전송 우선 순위
 
 데이터 복제 작업을 예약할 때 기준 또는 재동기화 작업이 증가분 전송보다 우선합니다.
